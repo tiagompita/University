@@ -3,21 +3,12 @@ AUTORES = [120152, 119928]
 
 import random
 
+
 # Defina funções aqui.
 
-
-# Define uma função para imprimir a palavra a ser adivinhada
-def imprimir_palavra(espacos, secret):
-    print()
-    print("Palavra ({} letras): ".format(len(secret)), end="")
-    for x in espacos:
-        print(x, end="")
-    print()
-
-
 #Corpo enforcado
+def enforcado(valores):
 
-def enforcado(valores, espacos, secret):
     print()
     print("\t  +-------+", sep="\t")
     print("\t  | ","| |", sep="\t")
@@ -29,12 +20,8 @@ def enforcado(valores, espacos, secret):
     print(" _______________|_|___")
     print(" `````````````````````")
     print()
-    print()
-    print(imprimir_palavra(espacos, secret))
 
-
-
-def main():
+def palavraSecreta():
     from wordlist import words1, words2
     
     # Descomente a linha que interessar para testar
@@ -45,35 +32,50 @@ def main():
     # Escolhe palavra aleatoriamente
     secret = random.choice(words).upper()
 
+    #Devolve a palavra
+    return secret
+
+
+def main():
     # Complete o programa
-
-    #O numero de tentativas é o numero de letras da palavra
-    ntentativas = len(secret)
-
-    #Letras adivinhadas
-    adivinhada = ""
-
     print("Olá, bem-vindo ao jogo da forca!")
-    print("Tens {} tentativas para adivinhar a palavra.".format(ntentativas))
+    print("Tens {} tentativas para adivinhar a palavra.".format(len(palavraSecreta()) + 2))
 
-    mostrar = ["O", "\\", "X", "/", "|", "/", "\\"]
-    oculto = [" "," "," "," "," "," "," ",]
 
-    # Cria uma lista que contém os espaços em branco para cada letra da palavra
-    espacos = ["_ "] * len(secret)
-    # Imprime os espaços em branco
-    enforcado(oculto, espacos, secret)
+#Corpo do boneco
+mostrar = ["O", "\\", "X", "/", "|", "/", "\\"]
 
-    while ntentativas > 0 and "_" in espacos:
+#Lista para ocultar o corpo do boneco
+oculto = [" "," "," "," "," "," "," ",]
 
-        #Pede para digitar uma letra
-        letra = input("Digite uma letra: ").lower()
+#O numero de tentativas (apenas 7 tentativas, pois o corpo apenas tem 7 partes)
+ntentativas = 7
 
-        #Se a letra ja foi adivinhada:
-        if letra in adivinhada:
-            print("Já adivinhaste essa letra")
-        elif 
-    ...
+#Letras adivinhadas
+guessedCorrect = []
+guessedWrong = []
+
+# Cria uma lista que contém os espaços em branco para cada letra da palavra
+espacos = ["_ "] * len(palavraSecreta())
+
+while ntentativas != 0 and "_" in espacos:
+
+    #Pede para digitar uma letra
+    letra = input("Digite uma letra: ").lower().isalpha()
+
+    #Se a letra ja foi adivinhada:
+    if letra in guessedCorrect or guessedWrong:
+        print("Já adivinhaste essa letra")
+    
+    if letra in palavraSecreta():
+        guessedCorrect += letra
+    else:
+        guessedWrong += letra
+        ntentativas -= 1
+
+
+
+        
 
 
 if __name__ == "__main__":
