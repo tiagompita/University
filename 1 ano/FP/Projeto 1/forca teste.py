@@ -14,21 +14,21 @@ tentativas = 6
 adivinhadas = ""
 
 # Define uma lista que contém os valores do corpo do enforcado
-corpo = ["O", "/", "|", "\\", "|", "/", "\\"]
+corpo = [" ","O", "\\", "X", "/", "|", "/", "\\"]
 
 # Define uma lista que contém os valores do corpo do enforcado a serem mostrados ao jogador
-mostrar = [" ", " ", " ", " ", " ", " ", " "]
+mostrar = [" "," ", " ", " ", " ", " ", " ", " "]
 
 # Define uma função para imprimir o enforcado
 def imprimir_enforcado(valores):
     print()
-    print("\t +--------+")
-    print("\t | | |")
-    print("\t {} | |".format(valores[0]))
-    print("\t {} {} {} | |".format(valores[1], valores[2], valores[3]))
-    print("\t {} | |".format(valores[4]))
-    print("\t {} {} | |".format(valores[5], valores[6]))
-    print("\t | |")
+    print("\t  +-------+", sep="\t")
+    print("\t  | ","| |", sep="\t")
+    print("\t  {}".format(valores[1]),"| |", sep="\t")
+    print("\t{} {} {}".format(valores[2], valores[3], valores[4]), "| |", sep="\t")
+    print("\t  {}".format(valores[5]), "| |", sep="\t")
+    print("\t {} {}".format(valores[6], valores[7]), "| |", sep="\t")
+    print("","", "| |", sep="\t")
     print(" _______________|_|___")
     print(" `````````````````````")
     print()
@@ -95,5 +95,5 @@ while tentativas > 0 and "_" in espacos:
         imprimir_palavra(espacos)
 
         # Se o jogador não tiver mais tentativas, ele perdeu
-        if tentativas == 0:
+        if tentativas == corpo[7]:
             print("Você perdeu. A palavra era {}.".format(palavra))
