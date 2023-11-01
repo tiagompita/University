@@ -1,0 +1,5 @@
+def closerToTarget(x, y, target):
+    if abs(x - target) < abs(y - target):
+        return x
+    else:
+        return y
