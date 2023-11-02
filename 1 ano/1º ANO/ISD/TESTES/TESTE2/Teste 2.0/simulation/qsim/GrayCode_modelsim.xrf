@@ -1,0 +1,12 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/joaog/ISD/Teste 2.0/GrayCode.bdf
+source_file = 1, C:/Users/joaog/ISD/Teste 2.0/db/GrayCode.cbx.xml
+design_name = GrayCode
+instance = comp, \Q[2]~output\, Q[2]~output, GrayCode, 1
+instance = comp, \Q[1]~output\, Q[1]~output, GrayCode, 1
+instance = comp, \Q[0]~output\, Q[0]~output, GrayCode, 1
+instance = comp, \CLK~input\, CLK~input, GrayCode, 1
+instance = comp, \inst200~0\, inst200~0, GrayCode, 1
+instance = comp, \RESET~input\, RESET~input, GrayCode, 1
+instance = comp, \Q1~0\, Q1~0, GrayCode, 1
+instance = comp, \Q2~0\, Q2~0, GrayCode, 1

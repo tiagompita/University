@@ -1,0 +1,12 @@
+def firstRepeatedWord(s):
+  words = {}
+  word_list = s.split()
+  for word in word_list:
+    if word not in words:
+      words[word] = 1
+      else:
+        words[word] += 1
+      for key, value in words.items():
+        if value == 2:
+          return key
+  return ""

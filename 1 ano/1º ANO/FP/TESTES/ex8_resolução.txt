@@ -1,0 +1,23 @@
+import random
+
+def hilo(secret, guess, tries):
+    assert 1 <= guess <= 100
+    while guess != secret:
+        if guess > secret:
+            print("You guessed higher!")
+            tries += 1
+            guess = int(input("Guess again: "))
+        else:
+            print("You guessed lower!")
+            tries += 1
+            guess = int(input("Guess again: "))
+    print("You guessed right! Number of tries:", tries)
+
+def main():
+    secret = random.randrange(1, 101)
+    print("Can you guess my secret?")
+    guess = int(input("Your guess: "))
+    tries = 1
+    hilo(secret, guess, tries)
+
+main()

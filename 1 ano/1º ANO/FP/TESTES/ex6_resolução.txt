@@ -1,0 +1,8 @@
+def allMatches(teams):
+    assert len(teams) >= 2
+    lst = []
+    for team1 in teams:
+        for team2 in teams:
+            if team1 != team2:
+                lst.append((team1, team2))
+    return lst

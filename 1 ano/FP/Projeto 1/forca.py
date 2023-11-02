@@ -44,7 +44,11 @@ def main():
     words = words1 + words2    # palavras de ambos os tipo
 
     #words = ["coração", "ativação"]
-   
+    import sys                  # INCLUA estas 3 linhas para permitir
+    if len(sys.argv) > 1:       # correr o programa com palavras dadas:
+        words = sys.argv[1:]    #   python3 forca.py duas palavras
+
+
     # Escolhe palavra aleatoriamente
     secret = random.choice(words).upper()
     # Cria uma lista que contém os espaços em branco para cada letra da palavra
@@ -130,12 +134,12 @@ def main():
             print("\t\t********Letra inválida********")
     else:
         if ntentativas == 0:
-            print("Fim do Jogo. Acabou-se as tentativas. A palavra era: {}". format(original_secret))
+            print("\n\nFim do Jogo. Acabou-se as tentativas. A palavra era: {}". format(original_secret))
             #Finaliza o jogo com
             corpo[0:7] = corpoInt[0:7]
             enforcado(corpo)
         if "_ " not in espacos:
-            print("Parabéns! Acertaste a palavra ( {} ).". format(original_secret))
+            print("\n\nParabéns! Acertaste a palavra ( {} ).". format(original_secret))
             print()
             print("\t  +-------+")
             print("\t  | ","\t| |")
