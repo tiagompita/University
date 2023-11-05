@@ -13,6 +13,7 @@ corpo = [" "," "," "," "," "," "," ",]
 
 # Defina funções aqui.
 
+#Remove os acentos das palavras de modo que o jogo funcione com palavras com acentos, cedilhas, etc. Torna possivel a comparaçao de palavras com acentos e sem acentos.
 #Codigo tirado deste site: https://stackoverflow.com/questions/517923/what-is-the-best-way-to-remove-accents-normalize-in-a-python-unicode-string
 def remove_accents(input_str):
     nfkd_form = unicodedata.normalize('NFD', input_str)
