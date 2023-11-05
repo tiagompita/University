@@ -42,8 +42,9 @@ def main():
     #words = words1              # palavras sem acentos nem cedilhas.
     #words = words2            # palavras com acentos ou cedilhas.
     words = words1 + words2    # palavras de ambos os tipo
-
     #words = ["coração", "ativação"]
+    
+    
     import sys                  # INCLUA estas 3 linhas para permitir
     if len(sys.argv) > 1:       # correr o programa com palavras dadas:
         words = sys.argv[1:]    #   python3 forca.py duas palavras
@@ -125,7 +126,6 @@ def main():
                     if 1 <= ntentativas <= 6:
                         corpo[0:7-ntentativas] = corpoInt[0:7-ntentativas]
                         #Atualiza o desenho
-                        enforcado(corpo)
                 
         elif letra == "":
             #No caso de não introduzir nada
