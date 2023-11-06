@@ -1,41 +1,46 @@
-def inputFloatList():
-    lst = []
+# Read numbers until a sentinel string and return them in a list.
+# (The sentinel is an optional parameter.)
+def inputFloats():
+    l = []
     while True:
-        try:
-            num = input()
-            if num == '':
-                break
-            lst.append(float(num))
-        except ValueError:
-            continue
-    return lst
+        s = input("Numero? ")
+        if s == "": break
+        r = float(s)
+        l.append(r)
+    return l
 
 def countLower(lst, v):
     count = 0
-    for num in lst:
-        if num < v:
+    for i in lst:
+        if i < v: 
             count += 1
     return count
 
 def minmax(lst):
-    if len(lst) == 0:
-        return None
-    min_val = lst[0]
-    max_val = lst[0]
-    for num in lst:
-        if num < min_val:
-            min_val = num
-        if num > max_val:
-            max_val = num
-    return (min_val, max_val)
+    if len(lst) == 0: return None, None
+
+    min = lst[0]
+    max = lst[0]
+
+    for i in lst:
+        if i < min: 
+            min = i
+        if i > max: 
+            max = i
+    return min, max
 
 def main():
-    lst = inputFloatList()
-    min_val, max_val = minmax(lst)
-    avg = (min_val + max_val) / 2
-    count = countLower(lst, avg)
-    print("Média entre o mínimo e o máximo:", avg)
-    print("Quantidade de números inferiores à média:", count)
+    list = inputFloats()
+
+    min, max = minmax(list)
+    medio = (min + max)/2
+    
+    countLower(list, medio)
+
+    print("min: ", min)
+    print("max: ", max)
+    print("medio: ", medio)
+    print("Valores abaixo do valor medio: ", countLower(list, medio))
 
 if __name__ == "__main__":
     main()
