@@ -126,6 +126,7 @@ def main():
                     #Ao longo das tentativas, vai mostrando o corpo. A lista "corpoInt" substitui pela parte do corpo na lista "corpo"
                     if 1 <= ntentativas <= 6:
                         corpo[0:7-ntentativas] = corpoInt[0:7-ntentativas]
+
                         #Atualiza o desenho
                 
         elif letra == "":
