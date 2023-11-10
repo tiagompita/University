@@ -2,7 +2,7 @@ def count_vowels_and_consonants(words):
     vowels = ["a", "e", "i", "o", "u"]
     cvowels = 0
     cconsonants = 0
-    
+
     for word in words:
         for char in word:
             if char in vowels:

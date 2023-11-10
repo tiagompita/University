@@ -16,9 +16,9 @@ def fileSum(filename):
     # Complete a função para ler números do ficheiro e devolver a sua soma.
     openfile = open(filename, "r")
     total = 0
-    for line in openfile:
-        total += float(line)
-    openfile.close()
+    with openfile as f:
+        for line in f:
+            total += float(line)
     return total
 
 

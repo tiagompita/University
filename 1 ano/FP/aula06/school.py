@@ -2,7 +2,7 @@
 
 # a)
 def loadFile(fname, lst):
-    with open(filename) as f:
+    with open(fname) as f:
         for line in f.readlines():
             lst.append(line)
     return lst
