@@ -14,7 +14,9 @@ def notaFinal(nota1, nota2, nota3):
     return notaFinal
 
 # c) Crie a função printPauta aqui...
-...   
+def printPauta(lst):
+    for i in len(lst):
+        print(lst[0], lst[1], "Nota")
     
 
 # d)
@@ -37,6 +39,9 @@ def main():
 
     numero = int(lst[1].split("\t")[0])
     print(numero)
+
+    nome = str(lst[1].split("\t")[1])
+    print(nome)
 
     
     # mostrar a pauta
