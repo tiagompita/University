@@ -16,7 +16,7 @@ def notaFinal(nota1, nota2, nota3):
 # c) Crie a função printPauta aqui...
 def printPauta(lst):
     for i in len(lst):
-        print(lst[0], lst[1], "Nota")
+        print("{} {} {}")
     
 
 # d)

@@ -2,7 +2,7 @@
 
 # This counts words in a file:
 c = {}
-with open("pg3333.txt") as f:
+with open("C:\\Users\\tiago\\Documents\\University\\1 ano\\FP\\aula07\\examples\\pg3333.txt") as f:
     for line in f:
         words = line.strip().split()
         for w in words:
