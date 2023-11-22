@@ -1,4 +1,4 @@
-file = open('C:\\Users\\tiago\\Documents\\University\\1 ano\\FP\\aula08\\names.txt', "r", encoding="utf-8")
+file = open('FP\\aula08\\names.txt', "r", encoding="utf-8")
 nomes=[]
 for line in file:
     line = line.split()
