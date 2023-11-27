@@ -64,12 +64,6 @@ def main():
     print("d) Pairs with low similarity:")
     lowJaccard = []
 
-    for pair, common in common_interests.items():
-        total = len(interests[pair[0]]) + len(interests[pair[1]]) - len(common)
-        jaccard = len(common) / total
-        if jaccard < 0.25:
-            lowJaccard.append(pair)
-
     for p1 in interests:
         for p2 in interests:
             if p1 != p2 and (p2, p1) not in lowJaccard:
