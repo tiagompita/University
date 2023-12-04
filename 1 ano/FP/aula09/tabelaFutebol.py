@@ -29,11 +29,11 @@ N,V,E,D,GM,GS = 0,1,2,3,4,5
 
 def printTabela(tabela):
     print()
-    print("{:19s} {:>3} {:>3} {:>3} {:>3} {:>3}:{:<3} {:>3}".format(
+    print("{:19s} {:>3} {:>3} {:>3} {:>3} {:>3} {:>3} {:>3}".format(
             "Equipa", "J", "V", "E", "D", "GM", "GS", "P"))
     for reg in tabela:
         nome,v,e,d,gm,gs = reg
-        print("{:19s} {:3d} {:3d} {:3d} {:3d} {:3d}:{:<3d} {:3d}".format(
+        print("{:19s} {:3d} {:3d} {:3d} {:3d} {:3d} {:3d} {:3d}".format(
                 nome, numJogos(reg), v, e, d, gm, gs, pontos(reg)))
 
 # numJogos é uma função definida por uma expressão lambda que,
@@ -44,7 +44,7 @@ numJogos = lambda reg: reg[V]+reg[E]+reg[D]
 # Complete a expressão lambda para definir uma função que,
 # dado um registo de uma equipa, devolva o número de pontos da equipa.
 # (Cada vitória vale 3 pontos, cada empate vale 1 ponto.)
-pontos = lambda reg: ...
+pontos = lambda reg: reg[V]*3 + reg[E]
 
 def main():
     # Teste:
@@ -59,20 +59,20 @@ def main():
     # b)
     # Acrescente os argumentos adequados à função sorted para
     # obter uma tabela ordenada por ordem decrescente de pontos:
-    tab = sorted(tabela  )
+    tab = sorted(tabela, key=pontos, reverse=True)
     printTabela(tab)
 
     # c)
     # Acrescente os argumentos adequados à função sorted para
     # obter uma tabela ordenada por ordem decrescente da diferença GM-GS:
-    tab = sorted(tabela  )
+    tab = sorted(tabela, key=lambda reg: reg[GM]-reg[GS], reverse=True)
     printTabela(tab)
 
     # d)
     # Acrescente os argumentos adequados à função sorted para
     # obter uma tabela ordenada por ordem decrescente de pontos e,
     # se iguais, por ordem da diferença GM-GS:
-    tab = sorted(tabela  )
+    tab = sorted(tabela, key=lambda reg: (pontos(reg), reg[GM]), reverse=True)
     printTabela(tab)
 
 if __name__ == "__main__":
