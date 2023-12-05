@@ -5,7 +5,10 @@
 
 from traced import traced
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 @traced
 def sumAllNumbers(obj):
     """Sum all the numbers contained in the given object."""

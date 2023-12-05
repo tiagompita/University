@@ -16,6 +16,7 @@ def printDirFiles(d):
 
 def findFiles(path, ext):
     # Complete...
+<<<<<<< Updated upstream
     lst =[]
     dir = os.listdir(path)
 
@@ -38,14 +39,27 @@ def findFiles(path, ext):
 def main():
     print("Testing printDirFiles('.'):")
     printDirFiles(".")
+=======
+    ...
+
+
+def main():
+    print("Testing printDirFiles('..'):")
+    printDirFiles("..")
+>>>>>>> Stashed changes
 
     print("\nTesting findFiles('.', '.py'):")
     lst = findFiles(".", ".py")
     print(lst)
     assert isinstance(lst, list)
 
+<<<<<<< Updated upstream
     print("\nTesting findFiles('.', '.csv'):")
     lst = findFiles(".", ".csv")
+=======
+    print("\nTesting findFiles('..', '.csv'):")
+    lst = findFiles("..", ".csv")
+>>>>>>> Stashed changes
     print(lst)
 
 if __name__ == "__main__":
