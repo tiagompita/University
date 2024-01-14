@@ -13,17 +13,21 @@
 print("Kryptonite phase classifier")
 
 # Input.  (You can fix the runtime error by changing something here.)
-T = input("Temperature (K)? ")
-P = input("Pressure (kPa)? ")
+T = int(input("Temperature (K)? "))
+P = int(input("Pressure (kPa)? "))
 
 # Determine the phase. (This is wrong. Fix to match the phase diagram.)
-if P > 50.0:
+if P > 50 and T < 500:
     phase = "SOLID"
-if T > 400.0:
+elif P > 50 and T > 400:
     phase = "LIQUID"
-else:
+elif P < 50 and T > 400:
     phase = "GAS"
+else:
+    phase = "UNKNOWN"
+
+
 
 # Output.  (There's a subtle syntax error here!)
-print("At {} K and {} kPa, Kryptonite is in the {} phase.".format(T, P, phase)
+print("At {} K and {} kPa, Kryptonite is in the {} phase.".format(T, P, phase))
 

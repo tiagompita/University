@@ -1,3 +1,0 @@
-print(" O")
-print("/|\\")
-print("/ \\")

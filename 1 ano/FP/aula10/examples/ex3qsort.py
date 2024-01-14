@@ -5,10 +5,6 @@
 
 from traced import traced
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 #@traced    # (uncomment to trace function calls)
 def qsorted(lst):
     """Return a sorted version of lst (without changing lst)."""
@@ -33,7 +29,6 @@ def qsorted(lst):
 
 # Chalenge: Make a generic version with a key= keyword argument.
 
-<<<<<<< Updated upstream
 
 # Test
 def main():
@@ -47,13 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-=======
-# Test
-#lst0 = [7, 4, 5, 9, 1, 3, 8, 2, 6]
-lst0 = [5, 7, 2, 9, 23, 3, 43, 34, 9, 13]
-
-lst2 = qsorted(lst0)
-print(lst2)
-assert lst2 == sorted(lst0)
->>>>>>> Stashed changes
 

@@ -1,13 +1,8 @@
-
-exemp = int(input("Quantos exemplares? "))
-PF = 20 * exemp
-PC = 24.95 * exemp
+PF = 20
+PC = 24.95
 IMP = 0.23
-SPA = 0.20 * exemp
+SPA = 0.20
 
-Lucro = ((PC - SPA) / (1 + IMP)) - PF
-
-
-
-PC = (PF + Lucro) * (1 + IMP) + SPA
-print("Lucro:", Lucro)
+Lucro = ((PC - SPA) / IMP) - PF
+print(Lucro)
+print(Lucro*500)

@@ -13,5 +13,8 @@ print("Point1:", p1)
 print("Point2:", p2)
 
 # Compute and print the distance between the points!
-# ...
 
+import math
+
+dist = math.sqrt((x2 - x1)**2 + (y2-y1)**2)
+print(dist)

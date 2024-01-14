@@ -14,8 +14,12 @@ imc = peso / altura**2
 print("IMC:", imc, "kg/m2")
 
 # Determinar a categoria de IMC:
-if imc < 20:
+if imc < 18.5:
     categoria = "Magro"
+elif  18.5 <= imc < 25:
+    categoria = "Saudavel"
+elif 25 <= imc < 30:
+    categoria = "Forte"
 else:
     categoria = "Obeso"
 
