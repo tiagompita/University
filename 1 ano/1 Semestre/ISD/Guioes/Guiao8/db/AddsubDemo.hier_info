@@ -1,0 +1,15 @@
+|inv_4bits
+C[0] <= inst.DB_MAX_OUTPUT_PORT_TYPE
+C[1] <= inst1.DB_MAX_OUTPUT_PORT_TYPE
+C[2] <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+C[3] <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+Cin => inst.IN0
+Cin => inst1.IN0
+Cin => inst2.IN0
+Cin => inst3.IN0
+B[0] => inst.IN1
+B[1] => inst1.IN1
+B[2] => inst2.IN1
+B[3] => inst3.IN1
+
+
