@@ -7,3 +7,11 @@ document.getElementById("res").value = parseFloat(x.value) + parseFloat(y.value)
 var x = document.getElementById("nao-existe");
 if(x == null) alert("Elemento não encontrado");
 else alert(x.value);
+
+var a="5";
+var b=3;
+console.log(a+b)
+
+function main(a,b) {
+    console.log(a+" "-b);
+}
