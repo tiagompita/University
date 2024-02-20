@@ -1,0 +1,218 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/teste1/simulation/qsim
+T_opt
+!s110 1701365674
+VWF`0he;Sf<dNY7THM4HgR3
+04 15 8 work ex1_vhd_vec_tst ex1_arch 1
+=1-60e9aa2c0b6f-6568c7a9-206-30a4
+Z2 !s124 OEM10U2 
+Z3 o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1701366465
+VOMFL1Uh;OcfU0STzbPHnE0
+04 18 11 work muxsim_vhd_vec_tst muxsim_arch 1
+=1-60e9aa2c0b6f-6568cac0-1cb-3880
+R2
+R3
+R4
+n@_opt1
+R5
+Eex1
+Z6 w1701365670
+Z7 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z8 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 gn]m8U<PzXZH32IDQ4:hj3
+Z9 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z10 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z11 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z12 DPx10 cycloneive 21 cycloneive_components 0 22 cSe5`^NYM;IRV3WNS^Q7a2
+!i122 20
+R1
+Z13 8MuxSim.vho
+Z14 FMuxSim.vho
+l0
+Z15 L35 1
+VC8Sd_gS:PiXhSD@3Qlm:62
+!s100 ^e3f7WI`_KlTGC<IjzXjZ1
+Z16 OL;C;2021.2;73
+32
+Z17 !s110 1701365672
+!i10b 1
+Z18 !s108 1701365672.000000
+Z19 !s90 -work|work|MuxSim.vho|
+Z20 !s107 MuxSim.vho|
+!i113 0
+Z21 o-work work
+Z22 tExplicit 1 CvgOpt 0
+Astructure
+R7
+R8
+R9
+R10
+R11
+R12
+DEx4 work 3 ex1 0 22 C8Sd_gS:PiXhSD@3Qlm:62
+!i122 20
+l89
+L50 273
+VhQ=NKFo8]d0WPO6EcYK6X0
+!s100 @kNcjIZB00>TmZo1UKAg?0
+R16
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R21
+R22
+Eex1_vhd_vec_tst
+Z23 w1701365669
+R10
+R11
+!i122 21
+R1
+Z24 8Ex2.vwf.vht
+Z25 FEx2.vwf.vht
+l0
+Z26 L32 1
+Vez]kF:BgookUlB]FzOT6^1
+!s100 `QT^X;UP^I]a6BY>jRB@i0
+R16
+32
+R17
+!i10b 1
+R18
+Z27 !s90 -work|work|Ex2.vwf.vht|
+Z28 !s107 Ex2.vwf.vht|
+!i113 0
+R21
+R22
+Aex1_arch
+R10
+R11
+DEx4 work 15 ex1_vhd_vec_tst 0 22 ez]kF:BgookUlB]FzOT6^1
+!i122 21
+l61
+L34 208
+VH]U0IaL3^n;D<0zLc42ef1
+!s100 iCUMWEUW=c^:Qi_E?P<Ek0
+R16
+32
+R17
+!i10b 1
+R18
+R27
+R28
+!i113 0
+R21
+R22
+Emuxsim
+Z29 w1701366461
+R7
+R8
+R9
+R10
+R11
+R12
+!i122 26
+R1
+R13
+R14
+l0
+R15
+Vn]l;SQz8l6P8WQ0;R?hzn3
+!s100 oP]_zLD16>HWPho>_AD0i0
+R16
+32
+Z30 !s110 1701366463
+!i10b 1
+Z31 !s108 1701366463.000000
+R19
+R20
+!i113 0
+R21
+R22
+Astructure
+R7
+R8
+R9
+R10
+R11
+R12
+DEx4 work 6 muxsim 0 22 n]l;SQz8l6P8WQ0;R?hzn3
+!i122 26
+l68
+L45 104
+VeGlTRSj:b>G@D1d66[?Mj0
+!s100 azYk`I04W@dPk:UmkFS2;3
+R16
+32
+R30
+!i10b 1
+R31
+R19
+R20
+!i113 0
+R21
+R22
+Emuxsim_vhd_vec_tst
+Z32 w1701366460
+R10
+R11
+!i122 27
+R1
+Z33 8Ex4.vwf.vht
+Z34 FEx4.vwf.vht
+l0
+R26
+VcRb@?mhN8]Y;EY;[L]6AR0
+!s100 EA>@N2b40j`<3goe237]a1
+R16
+32
+R30
+!i10b 1
+R31
+Z35 !s90 -work|work|Ex4.vwf.vht|
+Z36 !s107 Ex4.vwf.vht|
+!i113 0
+R21
+R22
+Amuxsim_arch
+R10
+R11
+DEx4 work 18 muxsim_vhd_vec_tst 0 22 cRb@?mhN8]Y;EY;[L]6AR0
+!i122 27
+l51
+L34 80
+VC6KgFfDbH`R_HVfW67^9R1
+!s100 F8BO:e>KjiYcH@V3^YK@P0
+R16
+32
+R30
+!i10b 1
+R31
+R35
+R36
+!i113 0
+R21
+R22
