@@ -13,7 +13,12 @@ import hashlib
 
 h = hashlib.sha1()
 with open(fname, 'rb') as f:
-    for line in f:
-        h.update(line)
+    buffer = f.read(512)
+
+    # len(buffer) == 0 --> End-of-file reached
+    # len(buffer) > 0 --> buffer has len(buffer) bytes
+    while len(buffer) > 0:
+        h.update(buffer)
+        buffer = f.read(512)
 
 print(h.hexdigest())

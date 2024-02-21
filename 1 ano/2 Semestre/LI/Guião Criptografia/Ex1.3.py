@@ -9,9 +9,9 @@ if not os.path.exists(fname) or os.path.isdir(fname) or not os.path.isfile(fname
     print(fname + " is not a file", file=sys.stderr)
     sys.exit (2)
 
-import hashlib
+from Cryptodome.Hash import SHA256
 
-h = hashlib.sha1()
+h = SHA256.new()
 with open(fname, 'rb') as f:
     for line in f:
         h.update(line)
