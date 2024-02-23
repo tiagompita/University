@@ -1,0 +1,23 @@
+|GateDemo
+SW[0] => nand2gate:system_core.input0
+SW[1] => nand2gate:system_core.input1
+LEDR[0] <= nand2gate:system_core.output
+
+
+|GateDemo|NAND2Gate:system_core
+input0 => and2gate:and_gate.input0
+input1 => and2gate:and_gate.input1
+output <= notgate:not_gate.output
+
+
+|GateDemo|NAND2Gate:system_core|AND2Gate:and_gate
+input0 => output.IN0
+input1 => output.IN1
+output <= output.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|GateDemo|NAND2Gate:system_core|NOTGate:not_gate
+input => output.DATAIN
+output <= input.DB_MAX_OUTPUT_PORT_TYPE
+
+
