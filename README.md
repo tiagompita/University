@@ -1,11 +1,8 @@
-<h1 align="center">Welcome 👋, I'm Tiago Pita</h1>
+<h1 align="center">Welcome 👋</h1>
 <h3 align="center">From Madeira, Studying in Universidade de Aveiro</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=bravooz&label=Profile%20views&color=0e75b6&style=flat" alt="bravooz" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=bravooz" alt="bravooz" /></a> </p>
-
-<h3 align="left">Connect with me:</h3>
 <p align="left">
 </p>
 
