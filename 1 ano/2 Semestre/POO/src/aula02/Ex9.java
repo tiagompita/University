@@ -19,5 +19,6 @@ public class Ex9 {
                 n--;
             }
         }
+        sc.close();
     }
 }

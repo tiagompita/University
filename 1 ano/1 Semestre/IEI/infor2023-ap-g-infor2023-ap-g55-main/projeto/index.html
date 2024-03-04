@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Madrid</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img class ="logo"src="assets/real.png"/></a></li>
+            <li><a href="historia.html">História do Clube</a></li>
+            <li><a href="laliga.html">La Liga</a></li>
+            <li><a href="champions.html">Champions League</a></li>
+            <li><a href="lendas.html">Lendas do Clube</a></li>
+            <li><a href="estadio.html">Estádio</a></li>
+            <li><a href="about.html">Sobre</a></li>
+        </ul>
+    </nav>
+    <div class="cont-1">
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <!---->
+
+                <div class="slide first">
+                    <img src="assets/slide1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="assets/slide2.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="assets/slide3.jpeg" alt="">
+                </div>
+                <div class="slide">
+                    <img src="assets/slide4.jpg" alt="">
+                </div>
+
+                <!---->
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+
+            </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+        <script type="text/javascript">
+        var counter = 1;
+        setInterval(function() {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4) {
+                counter = 1;
+            }
+        }, 4000);
+        </script>
+    </div>
+    
+    <div class="cont">
+        <div class="box" id="box1">
+            <span>Real Madrid</span>
+            <h1>História</h1>
+            <p>O Real Madrid produz a sua história a partir de raízes humildes no coração de Madrid. Fundado em 1902, o clube começou como uma modesta iniciativa de entusiastas do desporto.</p>
+            <a href="historia.html" class="invisible">
+                <button class="btn">Saber mais</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="parallax1" id="p1">
+        <div class="black"></div>
+    </div>
+    <div class="cont">
+        <div class="box" id="box1">
+            <span>Real Madrid</span>
+            <h1>La Liga</h1>
+            <p>O Real Madrid emergiu como uma força indomável na La Liga. Troféus erguidos, recordes estabelecidos e uma busca incessante pela superioridade fazem parte do DNA do clube na competição espanhola. Desde os dias de Di Stéfano até os momentos mais recentes sob o comando de Zidane, a história da La Liga para o Real Madrid é uma narrativa de glórias, refletindo a habilidade única do clube em equilibrar tradição e inovação.</p>
+            <a href="laliga.html" class="invisible">
+                <button class="btn">Saber mais</button>
+            </a>
+        </div>
+    </div>
+    <div class="parallax">
+        <div class="black"></div>
+        <img src="assets/champions2.png" id="trophy"/>
+        <h1 id="text">14 Títulos</h1>
+        
+    </div>
+    <div class="cont">
+        <div class="box" id="box1">
+            <span>Real Madrid</span>
+            <h1>Champions</h1>
+            <p>O clube transcende para um patamar de excelência. A Champions League testemunhou os galácticos em ação, erguendo troféus de maneira majestosa. Recordes de vitórias consecutivas, momentos épicos como o "La Decima" (a décima conquista do Real Madrid na competição) solidificam sua posição como uma força inigualável no cenário continental.</p>
+            <a href="champions.html" class="invisible">
+                <button class="btn">Saber mais</button>
+            </a>
+        </div>
+    </div>
+    <div class="parallax1" id="p2">
+        <div class="black"></div>
+    </div>
+    <div class="cont">
+        <div class="box" id="box1">
+            <span>Real Madrid</span>
+            <h1>Lendas do Clube</h1>
+            <p>O Real Madrid é entrelaçado com lendas cujos feitos ecoam pelos corredores do tempo. Desde Alfredo Di Stéfano até Cristiano Ronaldo, esses jogadores transcenderam as expectativas, personificando a grandeza madridista. Além disso, a contribuição de jogadores portugueses, como Luís Figo e Cristiano Ronaldo, adicionou uma camada única à tapeçaria do Real Madrid. O talento luso não apenas enriqueceu o jogo, mas também conquistou corações madridistas ao redor do mundo.</p>
+            <a href="lendas.html" class="invisible">
+                <button class="btn">Saber mais</button>
+            </a>
+        </div>
+    </div>
+    <div class="parallax" id="para2">
+        <div class="black"></div>
+        <h1 id="text">Santiago Bernabéu</h1>
+        
+    </div>
+    <div class="cont">
+        <div class="box" id="box1">
+            <span>Real Madrid</span>
+            <h1>Estádio</h1>
+            <p>O <b>Estádio Santiago Bernabéu</b>, batizado em homenagem a uma das figuras mais influentes do clube, não é apenas um local de jogos, mas um santuário onde a paixão dos torcedores se entrelaça com a glória do passado e as aspirações do futuro. É um símbolo tangível da grandiosidade do Real Madrid, um palco que testemunhou vitórias épicas e celebrações inesquecíveis.</p>
+            <a href="estadio.html" class="invisible">
+                <button class="btn">Saber mais</button>
+            </a>
+        </div>
+    </div>
+    <!--Scripts-->
+    <script src="main.js"></script>
+</body>
+<footer>
+    University Of Aveiro | © All rights reserved
+</footer>
+</html>

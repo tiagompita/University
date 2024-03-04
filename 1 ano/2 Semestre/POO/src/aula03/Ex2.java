@@ -19,6 +19,7 @@ public class Ex2 {
             investimento = investimento + (investimento * (tax/100));
             System.out.println("Mês "+ i + ": " +investimento);
         }
-
+        
+        scan.close();
     }
 }

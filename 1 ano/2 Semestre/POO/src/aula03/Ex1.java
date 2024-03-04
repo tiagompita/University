@@ -12,28 +12,18 @@ public class Ex1 {
             num = scan.nextInt();
         } while (num < 0);
 
-        int sum = num;
+        int sum = 0;
 
         for (int i = 2; i <= num; i++) {
-            if (isPrime(i)) {
+            if (common.Utils.isPrime(i)) {
                 sum += i;
             }
         }
 
-        System.out.println("A soma de todos os números primos até esse valor(inclusive) é: "+ sum);
+        System.out.println("A soma de todos os números primos até esse valor (inclusive) é: "+ sum);
 
         scan.close();
     }
 
-    public static boolean isPrime(int num) {
-        if (num <= 1) {
-            return false;
-        }
-        for (int i = 2; i < num; i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+    
 }
