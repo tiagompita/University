@@ -1,0 +1,214 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat02/Parte 2/simulation/qsim
+T_opt
+Z2 !s110 1709202098
+V3]ZNlLBFFAkYOhWd>^[TL0
+04 18 11 work mux2_1_vhd_vec_tst mux2_1_arch 1
+=1-60e9aa2c0b6f-65e05ab2-177-49c4
+Z3 !s124 OEM10U2 
+Z4 o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+Z5 tCvgOpt 0
+n@_opt
+Z6 OL;O;2021.2;73
+R1
+T_opt1
+Z7 !s110 1709203598
+VOdV1G9SJG1ZG90M>[b[K=0
+04 18 11 work mux4_1_vhd_vec_tst mux4_1_arch 1
+=1-60e9aa2c0b6f-65e0608e-196-e68
+R3
+R4
+R5
+n@_opt1
+R6
+Emux2_1
+Z8 w1709202096
+Z9 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z10 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 gn]m8U<PzXZH32IDQ4:hj3
+Z11 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z14 DPx10 cycloneive 21 cycloneive_components 0 22 cSe5`^NYM;IRV3WNS^Q7a2
+!i122 0
+R1
+Z15 8Mux2_1Demo.vho
+Z16 FMux2_1Demo.vho
+l0
+Z17 L35 1
+VLENV1dP<mVLcBSWL6cPMM2
+!s100 =H1:TSR0zj5I77HPQf0j@1
+Z18 OL;C;2021.2;73
+32
+Z19 !s110 1709202097
+!i10b 1
+Z20 !s108 1709202097.000000
+Z21 !s90 -work|work|Mux2_1Demo.vho|
+Z22 !s107 Mux2_1Demo.vho|
+!i113 0
+Z23 o-work work
+Z24 tExplicit 1 CvgOpt 0
+Astructure
+R9
+R10
+R11
+R12
+R13
+R14
+DEx4 work 6 mux2_1 0 22 LENV1dP<mVLcBSWL6cPMM2
+!i122 0
+l62
+L43 86
+V84S:5CaNCJG<b1^LOeSHN0
+!s100 TX0T05V8cLl7fKcn2AW[J0
+R18
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 0
+R23
+R24
+Emux2_1_vhd_vec_tst
+Z25 w1709202095
+R12
+R13
+!i122 1
+R1
+Z26 8Mux2_1Sim.vwf.vht
+Z27 FMux2_1Sim.vwf.vht
+l0
+Z28 L32 1
+V[ORYg62AM_BILSVA?UIV<3
+!s100 W1o]ga;bSNYF[;7Nj6K:?1
+R18
+32
+R2
+!i10b 1
+R20
+Z29 !s90 -work|work|Mux2_1Sim.vwf.vht|
+Z30 !s107 Mux2_1Sim.vwf.vht|
+!i113 0
+R23
+R24
+Amux2_1_arch
+R12
+R13
+DEx4 work 18 mux2_1_vhd_vec_tst 0 22 [ORYg62AM_BILSVA?UIV<3
+!i122 1
+l47
+L34 58
+V:7OYCZYh^3^k5m?0^d<`d1
+!s100 Y1o_FRGVjbQD1PfG`A6NA0
+R18
+32
+R2
+!i10b 1
+R20
+R29
+R30
+!i113 0
+R23
+R24
+Emux4_1
+Z31 w1709203596
+R9
+R10
+R11
+R12
+R13
+R14
+!i122 2
+R1
+R15
+R16
+l0
+R17
+V;UGm8`PaOLnV:njoFI00e1
+!s100 e3[BB`4Y4=GlPom@WH_0B0
+R18
+32
+Z32 !s110 1709203597
+!i10b 1
+Z33 !s108 1709203597.000000
+R21
+R22
+!i113 0
+R23
+R24
+Astructure
+R9
+R10
+R11
+R12
+R13
+R14
+DEx4 work 6 mux4_1 0 22 ;UGm8`PaOLnV:njoFI00e1
+!i122 2
+l66
+L43 137
+VMah`fkjPI:Tj8`GY4z]=>3
+!s100 aZzhco;1M3=0UnO6W4gPE2
+R18
+32
+R32
+!i10b 1
+R33
+R21
+R22
+!i113 0
+R23
+R24
+Emux4_1_vhd_vec_tst
+Z34 w1709203595
+R12
+R13
+!i122 3
+R1
+Z35 8Mux4_1.vwf.vht
+Z36 FMux4_1.vwf.vht
+l0
+R28
+V@Szo0?X_FVCMARINhh;MZ2
+!s100 WSV9]BM1S][3HCkaB[Rn42
+R18
+32
+R7
+!i10b 1
+R33
+Z37 !s90 -work|work|Mux4_1.vwf.vht|
+Z38 !s107 Mux4_1.vwf.vht|
+!i113 0
+R23
+R24
+Amux4_1_arch
+R12
+R13
+DEx4 work 18 mux4_1_vhd_vec_tst 0 22 @Szo0?X_FVCMARINhh;MZ2
+!i122 3
+l47
+L34 96
+V=bZ[9oB;UXG7AifWVmG662
+!s100 Wcb2ig6;<YoD]QF3@nFCb1
+R18
+32
+R7
+!i10b 1
+R33
+R37
+R38
+!i113 0
+R23
+R24

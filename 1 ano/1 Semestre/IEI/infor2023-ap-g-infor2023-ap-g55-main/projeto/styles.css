@@ -1,0 +1,476 @@
+/*'Poppins'*/@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/*'Open Sans'*/@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+:root{
+    --accent: rgb(30, 30, 30);
+    --accent2: #006ace;
+    --accent3: #febe10;
+    --white: rgb(236, 236, 236);
+}
+*{
+    margin : 0;
+    padding : 0;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+}
+
+/* Body styles */
+body {
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation styles */
+nav {
+    width: 100%;
+    height: 74px;
+    background-color: rgb(236, 236, 236);
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 93%;
+    align-items: center;
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 50px;
+}
+
+
+nav ul li a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.logo{
+    width: 50px;
+}
+nav ul li a:hover {
+    color: var(--accent2);
+    transition: all .1s ease;
+}
+
+
+.cont-1{
+    width: 100%;
+    height: 100vh;
+
+    background-size: cover;
+    background-color: rgb(255,255,255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    width: 1020px;
+    height: 573.75px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.slides {
+    width: 500%;
+    height: 573.75px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img {
+    width: 1020px;
+    height: 573.75px;
+}
+
+/* Navegação Manual */
+.navigation-manual{
+    position: absolute;
+    width: 1020px;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.manual-btn{
+    border: 3px solid var(--accent);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background-color: var(--accent2)
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    margin-left: -20%;
+}
+#radio3:checked ~ .first{
+    margin-left: -40%;
+}
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+
+/* Navegação Automatica */
+.navigation-auto{
+    position: absolute;
+    display: none;
+    width: 1020px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div{
+    border: 2px solid var(--accent);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: var(--accent2);
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: var(--accent2);
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: var(--accent2);
+}
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background-color: var(--accent2);
+}
+
+
+.btn{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 0;
+    font-size: 15px;
+    color: #1e1e1e;
+    background-color: #ffe091;
+    padding: 10px 30px;
+    border: solid #febe10 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition : 1000ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transition : 1000ms;
+    padding: 10px 50px;
+    transform : translateY(-0px);
+    background-color: var(--white);
+    color: var(--accent);
+    border: solid 2px #febe10;
+}
+
+.invisible{
+    text-decoration: none;
+}
+
+/*Historia Sect*/
+.cont{
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+.cont .box{
+    width: 70%;
+    padding: 18vh 0;
+    padding-left: 20px;
+}
+.cont .box span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--accent3);
+    position: relative;
+    top: 10px;
+    left: 3px;
+}
+.cont .box h1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 4rem;
+    color: var(--accent);
+}
+.cont .box h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: var(--accent);
+}
+.cont .box p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    width: 85%;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.cont .box a:not(.invisible){
+    text-decoration: none;
+    color: rgb(255,255,255);
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--accent3);
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+.cont .box a:hover{
+    opacity: 0.6;
+    transition: all .5s ease;
+}
+#p1{
+    background-image: url("./assets/wallpaper.jpg");
+}
+#p2{
+    background-image: url("./assets/cr7.jpg");
+}
+#p3{
+    background-image: url("./assets/antigo.png");
+}
+#p4{
+    background-image: url("./assets/2000.jpg");
+}
+#p5{
+    background-image: url("./assets/laliga.png");
+}
+#p6{
+    background-image: url("./assets/pepe_ronaldo.png");
+}
+
+
+
+.parallax1{
+    width: 100%;
+    height: 55vh;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.parallax1 .black{
+    width: 100%;
+    height: 55vh;
+    background-color: var(--accent);
+    opacity: 0.1;
+}
+
+
+
+/*Parallax Sections*/
+.parallax{
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./assets/championsSKY.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    
+}
+
+#para2{
+    background-image: url("./assets/estadio.jpg");
+}
+#para3{
+    background-image: url("./assets/laligawin.jpg");
+}
+#para4{
+    background-image: url("./assets/elreywin.png");
+}
+#para5{
+    background-image: url("./assets/supercopa.jpg");
+}
+#para6{
+    background-image: url("./assets/legends.jpg");
+}
+
+.parallax img{
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+}
+.parallax h1{
+    position: relative;
+    color: rgb(255,255,255);
+    text-shadow: 4px 4px 8px rgba(0,0,0, 0.4);
+    font-family: 'Poppins', sans-serif;
+    font-size: 9rem;
+}
+#trophy{
+    width: 80%;
+    bottom: -60px;
+    left: -100%;
+}
+.parallax .black{
+    width: 100%;
+    height: 120vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* About */
+
+
+.about-text h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+
+}
+
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 60%; 
+    border-radius: 50px; 
+}
+
+.scroll-text {
+    opacity: 0;
+    transition: opacity 2s;
+    background-color: var(--white);
+    padding: 50px; 
+    border-radius: 10px; 
+    width: 30%; 
+    margin: 100px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* Historia */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 100px; /* Espaço entre as imagens */
+}
+
+.rounded-image {
+    border-radius: 50%; /* Isso fará com que as imagens sejam arredondadas */
+    width: 300px; /* Ajuste a largura conforme necessário */
+    height: 300px; /* Ajuste a altura conforme necessário */
+}
+
+/*Champions*/
+.info{
+    width: 100%;
+    display: flex;
+    padding: 50px 0;
+    background-color: var(--white);
+}
+.info .info-l{
+    width: 60%;
+    padding: 50px 0;
+}
+.info .info-l h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: var(--accent);
+    padding-left: 20%;
+}
+.info .info-l p{
+    width: 64%;
+    padding-top: 18px;
+    padding-left: 25%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 21px;
+}
+.info .info-r{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.info .info-r .info-im{
+    width: 70%;
+    height: 100%;
+    border-radius: 17px;
+    background-image: url("./assets/champions1.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    left: 0;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*Stadium*/
+#stadium{
+    background-image: url("./assets/estadio3.jpg");
+}
+.p-st{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p-st h1{
+    position: absolute;
+    color: rgb(255,255,255);
+    text-shadow: 4px 4px 8px rgba(0,0,0, 0.4);
+    font-family: 'Poppins', sans-serif;
+    font-size: 5rem;
+}
