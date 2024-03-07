@@ -1,0 +1,114 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim
+T_opt
+!s110 1709812524
+VGY:8ZZ<`@;Kgc1mcTF_a01
+04 18 11 work adder4_vhd_vec_tst adder4_arch 1
+=1-60e9aa2c0b6f-65e9ab2b-2e2-2fac
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Eadder4
+Z2 w1709812522
+Z3 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 gn]m8U<PzXZH32IDQ4:hj3
+Z5 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z8 DPx10 cycloneive 21 cycloneive_components 0 22 cSe5`^NYM;IRV3WNS^Q7a2
+!i122 4
+R1
+Z9 8AdderDemo.vho
+Z10 FAdderDemo.vho
+l0
+L35 1
+VRz;>:7@GNGcQ?iG?JIfkG1
+!s100 Id0OlbDfnHdU;>6TD3c]32
+Z11 OL;C;2021.2;73
+32
+Z12 !s110 1709812523
+!i10b 1
+Z13 !s108 1709812523.000000
+Z14 !s90 -work|work|AdderDemo.vho|
+Z15 !s107 AdderDemo.vho|
+!i113 0
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 6 adder4 0 22 Rz;>:7@GNGcQ?iG?JIfkG1
+!i122 4
+l83
+L45 324
+VBJHL^celm_kIkPlK;PYJR3
+!s100 maPcXz<iX7;2?E7oPOjW22
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 0
+R16
+R17
+Eadder4_vhd_vec_tst
+Z18 w1709812521
+R6
+R7
+!i122 5
+R1
+Z19 8Adder4.vwf.vht
+Z20 FAdder4.vwf.vht
+l0
+L32 1
+VdLm96M_zXU[dfR1hHTAZ`2
+!s100 F<dPm1@YjA>dP07X?OSGk3
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Adder4.vwf.vht|
+Z22 !s107 Adder4.vwf.vht|
+!i113 0
+R16
+R17
+Aadder4_arch
+R6
+R7
+DEx4 work 18 adder4_vhd_vec_tst 0 22 dLm96M_zXU[dfR1hHTAZ`2
+!i122 5
+l51
+L34 135
+VdeZ3>jbbmCfc8T6;QfD_M0
+!s100 SZb8UKl0=QCWMgm9Cn[lN0
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 0
+R16
+R17
