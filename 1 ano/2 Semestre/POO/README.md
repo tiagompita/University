@@ -1,4 +1,4 @@
-# Matemática Discreta
+# Programação Orientada a Objetos
 
 ## Conteúdos
 * Introdução à programação em Java: dados, tipo de dados, operações, instruções, seleção, controlo de fluxo e vetores
