@@ -4,111 +4,59 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "LEDR[14]",
+					"name" : "s[0]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[13]",
+					"name" : "s[1]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[12]",
+					"name" : "s[2]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[11]",
+					"name" : "s[3]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[10]",
+					"name" : "cout",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[4]",
+					"name" : "a[0]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[3]",
+					"name" : "b[0]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[2]",
+					"name" : "cin",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[1]",
+					"name" : "b[1]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR[0]",
+					"name" : "a[1]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[0]",
+					"name" : "a[2]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[13]",
+					"name" : "b[2]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[12]",
+					"name" : "a[3]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[11]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[14]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[10]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[15]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[16]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[17]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[7]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[6]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[4]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[5]",
+					"name" : "b[3]",
 					"strict" : false
 				}
 			]

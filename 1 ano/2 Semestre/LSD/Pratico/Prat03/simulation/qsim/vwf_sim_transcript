@@ -1,17 +1,17 @@
 Determining the location of the ModelSim executable...
 
-Using: h:/intelfpga_lite/23.1std/questa_fse/win64/
+Using: C:/intelFPGA/22.1std/questa_fse/win64
 
 To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
 Note: if both Questa Intel FPGA Edition and ModelSim executables are available, Questa Intel FPGA Edition will be used.
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off AdderDemo -c AdderDemo --vector_source="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf" --testbench_file="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/Adder4.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off AdderDemo -c AdderDemo --vector_source="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf" --testbench_file="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/Adder4.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
     Info: Copyright (C) 2023  Intel Corporation. All rights reserved.
     Info: Your use of Intel Corporation's design tools, logic functions 
     Info: and other software and tools, and any partner logic 
@@ -26,19 +26,20 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sat Mar  9 02:39:49 2024
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off AdderDemo -c AdderDemo --vector_source="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf" --testbench_file="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/Adder4.vwf.vht"
+    Info: Processing started: Sat Mar  9 02:47:43 2024
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off AdderDemo -c AdderDemo --vector_source="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf" --testbench_file="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/Adder4.vwf.vht"
+Info (119006): Selected device EP4CE115F29C7 for design "AdderDemo"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
 Completed successfully. 
 
 **** Generating the functional simulation netlist ****
 
-quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/" AdderDemo -c AdderDemo
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/" AdderDemo -c AdderDemo
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
     Info: Copyright (C) 2023  Intel Corporation. All rights reserved.
     Info: Your use of Intel Corporation's design tools, logic functions 
     Info: and other software and tools, and any partner logic 
@@ -53,32 +54,33 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sat Mar  9 02:39:49 2024
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/" AdderDemo -c AdderDemo
+    Info: Processing started: Sat Mar  9 02:47:45 2024
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/" AdderDemo -c AdderDemo
+Info (119006): Selected device EP4CE115F29C7 for design "AdderDemo"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file AdderDemo.vho in folder "C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file AdderDemo.vho in folder "C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4646 megabytes
-    Info: Processing ended: Sat Mar  9 02:39:50 2024
+    Info: Peak virtual memory: 4667 megabytes
+    Info: Processing ended: Sat Mar  9 02:47:46 2024
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
 
 **** Generating the ModelSim .do script ****
 
-C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo.do generated.
+C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo.do generated.
 
 Completed successfully. 
 
 **** Running the ModelSim simulation ****
 
-h:/intelfpga_lite/23.1std/questa_fse/win64//vsim -c -do AdderDemo.do
+C:/intelFPGA/22.1std/questa_fse/win64/vsim -c -do AdderDemo.do
 
 Reading pref.tcl
 
 
-# 2023.3
+# 2021.2
 
 
 # do AdderDemo.do
@@ -87,9 +89,9 @@ Reading pref.tcl
 
 # Errors: 0, Warnings: 1
 
-# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
 
-# Start time: 02:39:51 on Mar 09,2024
+# Start time: 02:47:49 on Mar 09,2024
 # vcom -work work AdderDemo.vho 
 
 # -- Loading package STANDARD
@@ -106,21 +108,17 @@ Reading pref.tcl
 
 # -- Loading package cycloneive_components
 
-# -- Compiling entity hard_block
+# -- Compiling entity Adder4
 
-# -- Compiling architecture structure of hard_block
+# -- Compiling architecture structure of Adder4
 
-# -- Compiling entity AdderDemo
-
-# -- Compiling architecture structure of AdderDemo
-
-# End time: 02:39:51 on Mar 09,2024, Elapsed time: 0:00:00
+# End time: 02:47:49 on Mar 09,2024, Elapsed time: 0:00:00
 
 # Errors: 0, Warnings: 0
 
-# Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
 
-# Start time: 02:39:51 on Mar 09,2024
+# Start time: 02:47:49 on Mar 09,2024
 # vcom -work work Adder4.vwf.vht 
 
 # -- Loading package STANDARD
@@ -129,21 +127,21 @@ Reading pref.tcl
 
 # -- Loading package std_logic_1164
 
-# -- Compiling entity AdderDemo_vhd_vec_tst
+# -- Compiling entity Adder4_vhd_vec_tst
 
-# -- Compiling architecture AdderDemo_arch of AdderDemo_vhd_vec_tst
+# -- Compiling architecture Adder4_arch of Adder4_vhd_vec_tst
 
-# End time: 02:39:51 on Mar 09,2024, Elapsed time: 0:00:00
+# End time: 02:47:49 on Mar 09,2024, Elapsed time: 0:00:00
 
 # Errors: 0, Warnings: 0
 
-# vsim -voptargs=""+acc"" -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.AdderDemo_vhd_vec_tst 
-# Start time: 02:39:52 on Mar 09,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# vsim -voptargs=""+acc"" -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Adder4_vhd_vec_tst 
+# Start time: 02:47:50 on Mar 09,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Intel Starter FPGA Edition-64
-# //  Version 2023.3 win64 Jul 17 2023
+# //  Version 2021.2 win64 Apr 14 2021
 # //
-# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  Copyright 1991-2021 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
 # //  QuestaSim and its associated documentation contain trade
@@ -158,74 +156,34 @@ Reading pref.tcl
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.adderdemo_vhd_vec_tst(adderdemo_arch)#1
+# Loading work.adder4_vhd_vec_tst(adder4_arch)#1
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading cycloneive.cycloneive_atom_pack(body)
 # Loading cycloneive.cycloneive_components
-# Loading work.adderdemo(structure)#1
-# Loading work.hard_block(structure)#1
+# Loading work.adder4(structure)#1
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneive.cycloneive_io_obuf(arch)#1
 # Loading cycloneive.cycloneive_io_ibuf(arch)#1
 # Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#1
 # Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#2
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#3
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#4
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#5
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#6
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#7
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#8
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#9
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#10
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#11
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#12
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)#13
 
-# after#34
+# after#32
 
-# End time: 02:39:52 on Mar 09,2024, Elapsed time: 0:00:00
+# End time: 02:47:51 on Mar 09,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf...
+Reading C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/Adder4.vwf...
 
-Reading C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo.msim.vcd...
+Reading C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo.msim.vcd...
 
 Processing channel transitions... 
 
-Warning: a[3] - signal not found in VCD.
-
-Warning: a[2] - signal not found in VCD.
-
-Warning: a[1] - signal not found in VCD.
-
-Warning: a[0] - signal not found in VCD.
-
-Warning: b[3] - signal not found in VCD.
-
-Warning: b[2] - signal not found in VCD.
-
-Warning: b[1] - signal not found in VCD.
-
-Warning: b[0] - signal not found in VCD.
-
-Warning: cin - signal not found in VCD.
-
-Warning: cout - signal not found in VCD.
-
-Warning: s[3] - signal not found in VCD.
-
-Warning: s[2] - signal not found in VCD.
-
-Warning: s[1] - signal not found in VCD.
-
-Warning: s[0] - signal not found in VCD.
-
-Writing the resulting VWF to C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo_20240309023952.sim.vwf
+Writing the resulting VWF to C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat03/simulation/qsim/AdderDemo_20240309024751.sim.vwf
 
 Finished VCD to VWF conversion.
 
