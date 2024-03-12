@@ -1,0 +1,73 @@
+|Adder4
+a[0] => fulladder:bit0.a
+a[1] => fulladder:bit1.a
+a[2] => fulladder:bit2.a
+a[3] => fulladder:bit3.a
+b[0] => fulladder:bit0.b
+b[1] => fulladder:bit1.b
+b[2] => fulladder:bit2.b
+b[3] => fulladder:bit3.b
+cin => fulladder:bit0.cin
+s[0] <= fulladder:bit0.s
+s[1] <= fulladder:bit1.s
+s[2] <= fulladder:bit2.s
+s[3] <= fulladder:bit3.s
+cout <= fulladder:bit3.cout
+
+
+|Adder4|FullAdder:bit0
+a => s.IN0
+a => cout.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+b => cout.IN0
+cin => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Adder4|FullAdder:bit1
+a => s.IN0
+a => cout.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+b => cout.IN0
+cin => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Adder4|FullAdder:bit2
+a => s.IN0
+a => cout.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+b => cout.IN0
+cin => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Adder4|FullAdder:bit3
+a => s.IN0
+a => cout.IN0
+a => cout.IN0
+b => s.IN1
+b => cout.IN1
+b => cout.IN0
+cin => s.IN1
+cin => cout.IN1
+cin => cout.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
