@@ -31,6 +31,7 @@ with open(fname, "rb") as f:
     block = f.read(1024)
     while len(block) > 0:
         cryptogram = cipher.encrypt(block)
+        cryptogram = cryptogram.rstrip(b'\x00')
         os.write(1, cryptogram)
         block = f.read(1024)
 

@@ -4,6 +4,6 @@ public class App {
 
         String s1 = "Aveiro";
 
-        System.out.println();
+        System.out.println(s1);
     }
 }

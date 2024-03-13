@@ -1,3 +1,5 @@
+package aula04;
+
 import java.util.Scanner;
 
 class Car {
@@ -14,7 +16,8 @@ class Car {
     }
 
     public void drive(int distance) {
-        //TODO: acumular distância percorrida
+        //acumular distância percorrida
+        kms += distance;
     }
 }
 
@@ -23,30 +26,35 @@ public class SimpleCarDemo {
     static Scanner sc = new Scanner(System.in);
 
     static void listCars(Car[] cars) {
-        // TODO: lista todos os carros registados
+        // lista todos os carros registados
         // Exemplo de resultado
         // Carros registados: 
         // Renault Megane Sport Tourer, 2015, kms: 35356
         // Toyota Camry, 2010, kms: 32456
         // Mercedes Vito, 2008, kms: 273891
+        System.out.println("\nCarros registados:");
+        for (Car car : cars) {
+            System.out.printf("%s, %s, %d, kms: %d\n", car.make, car.model, car.year, car.kms);
+        }
     }
 
     public static void main(String[] args) {
 
-        Car[] cars = // TODO: completar
-        cars[0] = // TODO: completar
-        cars[1] = // TODO: completar
-        cars[2] = // TODO: completar
+        Car[] cars = new Car[3];
+        cars[0] = new Car("Renault", "Megane Sport Tourer", 2015, 35356);
+        cars[1] = new Car("Toyota", "Camry", 2010, 32456);
+        cars[2] = new Car("Mercedes", "Vito", 2008, 273891);
 
         listCars(cars);
 
-        // Adicionar 10 viagens geradas aleatoriament
+        // Adicionar 10 viagens geradas aleatoriamente
         for (int i=0; i<10; i++) {
             int j = (int)Math.round(Math.random()*2); // escolhe um dos 3 carros
             int kms = (int)Math.round(Math.random()*1000); // viagem até 1000 kms
             System.out.printf("Carro %d viajou %d quilómetros.\n", j, kms);
             
-            // TODO: adicionar viagem ao carro j
+            // adicionar viagem ao carro j
+            cars[j].drive(kms);
         }
 
         listCars(cars);
