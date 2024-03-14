@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Mar 12 19:13:03 2024
-Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Analysis & Synthesis Status : Successful - Sat Mar  9 02:47:38 2024
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : AdderDemo
-Top-level Entity Name : AddSub4
+Top-level Entity Name : Adder4
 Family : Cyclone IV E
-Total logic elements : 10
-    Total combinational functions : 10
+Total logic elements : 8
+    Total combinational functions : 8
     Dedicated logic registers : 0
 Total registers : 0
 Total pins : 14
