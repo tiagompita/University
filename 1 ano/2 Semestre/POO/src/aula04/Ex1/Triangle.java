@@ -2,7 +2,7 @@ package aula04.Ex1;
 
 import java.util.Scanner;
 
-public class Triangle implements Triangle {
+public class Triangle {
     private double cat1,cat2,hip;
 
     public Triangle(double cat1, double cat2, double hip) {

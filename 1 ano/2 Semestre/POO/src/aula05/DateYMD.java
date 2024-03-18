@@ -1,7 +1,7 @@
 package aula05;
 
 public class DateYMD {
-
+    
     private int day;
     private int month;
     private int year;
@@ -99,13 +99,13 @@ public class DateYMD {
                 this.year++;
             }
         }
-        System.out.println("Done.");
+        System.out.println("New date: " + this);
     }
 
     public void decrement() {
         this.day--;
 
-        if (day < 0) {
+        if (day < 1) {
             this.month--;
             this.day = monthDays(month, year);
             if (!validMonth(this.month)) {
@@ -113,7 +113,7 @@ public class DateYMD {
                 this.year--;
             }
         }
-        System.out.println("Done.");
+        System.out.println("New date: " + this);
     }
 
     @Override
