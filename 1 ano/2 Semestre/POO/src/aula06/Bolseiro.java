@@ -29,9 +29,13 @@ public class Bolseiro extends Aluno {
         this.prof = prof;
     }
 
+    public int getNMec() {
+        return super.getNMec();
+    }
+
     @Override
     public String toString() {
-        return "Bolseiro: " + super.toString()+ ", Orientador: " + prof + ", Bolsa Mensal: " + bolsa;
+        return "Bolseiro >>> " + super.toString()+ ", Orientador: " + prof + ", Bolsa Mensal: " + bolsa;
     }
 
     

@@ -7,8 +7,9 @@ public class MenuDate {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         DateYMD data = null; // Declare data here
+        boolean run = true;
 
-        while (true) {
+        while (run) {
             System.out.println("\nDate operations:");
             System.out.println("1 - Create new date");
             System.out.println("2 - Show current date");
@@ -72,6 +73,7 @@ public class MenuDate {
                     break;
                 case 0:
                     scan.close();
+                    run = false;
                     break;
         
             }
