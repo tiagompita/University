@@ -1,4 +1,6 @@
 package aula06;
+import java.util.concurrent.ThreadLocalRandom;
+
 import aula05.DateYMD;
 
 public class Pessoa {
@@ -16,8 +18,16 @@ public class Pessoa {
         }
     }
 
+    public Pessoa(String nome) {
+            this.nome = nome;  
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getCC() {

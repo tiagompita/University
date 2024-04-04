@@ -41,7 +41,22 @@ public class Calendario {
     }
 
     public int firstWeekdayOfMonth(int month) {
-        return 1; // ??????
+        if (month == 0) {
+            return dweek;
+        }
+        int days = 0;
+
+        for (int i = 0; i < month; i++) {
+            days += DateYMD.monthDays(i, this.year);
+        }
+        
+        int res = (days % 7) + dweek;
+
+        if (res > 7) {
+            res -=7;
+        }
+
+        return res;
     }
 
     public void addEvent(DateYMD date) {
