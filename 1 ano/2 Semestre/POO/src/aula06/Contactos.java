@@ -3,28 +3,22 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Contactos {
+public class Contactos extends Pessoa{
     private static int IDs = 1000;
-    private static int ProfIDs = 1;
     private int id;
     private int tel;
     private String email;
-    private String nome;
-    private int type;
 
-    public Contactos(String nome, int tel, String email, int type) {
+    public Contactos(String nome, int tel, String email) {
+        super(nome);
         if (validTel(tel) && validMail(email)) {
-            if (type == 1) {
-                this.id = IDs++;
-            } else if (type == 2) {
-                this.id = ProfIDs++;
-            }
-            this.nome = nome;
             this.tel = tel;
             this.email = email;
         } else {
             throw new Error("Telemóvel ou email inválidos");
         }
+        this.id = IDs;
+        IDs++;
     }
 
     
@@ -42,13 +36,7 @@ public class Contactos {
 
 
     public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
-
-    public void setType(int type) {
-        this.type = type;
+        super.setNome(nome);
     }
 
 
@@ -69,16 +57,8 @@ public class Contactos {
         return email;
     }
 
-    public String getType() {
-        if (this.type == 2) {
-            return "Professor";
-        } else {
-            return "Aluno";
-        }
-    }
-
     public String getNome() {
-        return nome;
+        return super.getNome();
     }
 
 
@@ -100,7 +80,19 @@ public class Contactos {
         return false;
         
     }
+
     
+    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + tel;
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        return result;
+    }
+
+
 
     @Override
     public boolean equals(Object obj) {
@@ -108,13 +100,13 @@ public class Contactos {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
-            return false;
         Contactos other = (Contactos) obj;
-        if (id != other.id)
+        if (tel != other.tel || (!email.equalsIgnoreCase(other.email)))
             return false;
         return true;
     }
+
+
 
     public static Contactos searchContact(ArrayList<Contactos> contactosList, String search) {
         ArrayList<Contactos> foundContacts = new ArrayList<>();
@@ -161,19 +153,17 @@ public class Contactos {
             int option = 0;
             try {
                 option = scan.nextInt();
+                scan.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida, tente novamente.");
                 scan.nextLine(); 
                 continue;
             }
 
+
             switch (option) {
                 case 1:
                     try {
-                        System.out.println("1. Aluno");
-                        System.out.println("2. Professor");
-                        int type = scan.nextInt();
-                        scan.nextLine();
 
                         System.out.print("Nome: ");
                         String nome = scan.nextLine();
@@ -185,7 +175,7 @@ public class Contactos {
                         System.out.print("Email: ");
                         String email = scan.nextLine();
 
-                        Contactos contacto = new Contactos(nome, tel, email, type);
+                        Contactos contacto = new Contactos(nome, tel, email);
                         
                         boolean exists = false;
                         for (Contactos cc : contactosList) {
@@ -213,7 +203,6 @@ public class Contactos {
                     break;
                 case 2:
                     System.out.println("Insira o nome ou número do contacto que deseja alterar:");
-                    scan.next();
                     search = scan.nextLine();
                     c = searchContact(contactosList, search);
                     if (c != null) {
@@ -223,10 +212,7 @@ public class Contactos {
                         int novoNumero = scan.nextInt();
                         scan.nextLine();  
                         System.out.println("Insira o novo email:");
-                        String novoEmail = scan.nextLine();
-                        System.out.println("Insira o novo tipo:");
-                        int novoType = scan.nextInt();
-                        scan.nextLine();  
+                        String novoEmail = scan.nextLine(); 
 
                         // Verificar se o novo email e o novo número de telefone já existem
                         for (Contactos contato : contactosList) {
@@ -239,7 +225,6 @@ public class Contactos {
                         c.setNome(novoNome);
                         c.setTel(novoNumero);
                         c.setEmail(novoEmail);
-                        c.setType(novoType);
                         System.out.println("Contacto alterado com sucesso.");
                     } else {
                         System.out.println("Contacto não encontrado.");
@@ -259,13 +244,12 @@ public class Contactos {
                     c = searchContact(contactosList, search);
                     if (c != null) {
                         System.out.println("Contacto encontrado: " + c);
-                        System.out.println("Tipo de contacto: " + c.getType());
                     }
                     break;
                 case 5:
                     System.out.println("Listagem de contactos:");
                     for (Contactos contato : contactosList) {
-                        System.out.println("ID: " + contato.getId() + ", Nome: " + contato.getNome() + ", Tel: " + contato.getTel() + ", Email: " + contato.getEmail() + ", Tipo: " + contato.getType());
+                        System.out.println("ID: " + contato.getId() + ", Nome: " + contato.getNome() + ", Tel: " + contato.getTel() + ", Email: " + contato.getEmail());
                     }
                     break;
             
