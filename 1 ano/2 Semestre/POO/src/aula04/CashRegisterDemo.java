@@ -1,3 +1,7 @@
+package aula04;
+
+import java.util.ArrayList;
+
 class Product {
     private String name;
     private double price;
@@ -26,11 +30,26 @@ class Product {
     }
 }
 
-
 class CashRegister {
+    private ArrayList<Product> products;
 
-    // TODO: completar implementação da classe
+    public CashRegister() {
+        products = new ArrayList<>();
+    }
 
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public void displayProducts() {
+        double total = 0;
+        System.out.printf("%-15s %5s %12s %8s\n", "Product", "Price", "Quantity", "Total");
+        for (Product product : products) {
+            total += product.getTotalValue();
+            System.out.printf("%-15s %5.2f %12d %8.2f\n", product.getName(), product.getPrice(), product.getQuantity(), product.getPrice() * product.getQuantity());
+        }
+        System.out.printf("\nTotal value: %.2f\n", total);
+    }
 }
 
 public class CashRegisterDemo {
@@ -45,8 +64,8 @@ public class CashRegisterDemo {
         cr.addProduct(new Product("Notebook", 19.99, 5));
         cr.addProduct(new Product("Phone case", 5.99, 1));
         
-        // TODO: Listar o conteúdo e valor total
-        System.out.println(cr);
+        // Listar o conteúdo e valor total
+        cr.displayProducts();
 
     }
 }

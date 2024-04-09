@@ -17,7 +17,7 @@ public class UtilsIO {
                 scan.next();
             }
         }
-
+        scan.close();
         return input;
         
     }
@@ -35,7 +35,7 @@ public class UtilsIO {
                 scan.next();
             }
         }
-
+        scan.close();
         return input;
     }
 
