@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity Controlador is
+
+	port (sw : in std_logic_vector(1 downto 0);
+			clk : in std_logic;
+			LEDR : out std_logic_vector(3 downto 0);
+			LEDG : out std_logic_vector(3 downto 0));
+
+end Controlador;
+
+architecture Behav of Controlador is
+
+begin
+	process(clk)
+	begin
+		case sw is
+            when "00" =>
+                LEDR(3 downto 0) <= (others => '1');
+            when "01" =>
+                LEDR(3 downto 0) <= (others => '1');
+            when "10" =>
+                LEDR(3 downto 0) <= (others => '1');
+            when others =>
+                LEDR(3 downto 0) <= (others => '1');
+		end case;
+	end process;
+end Behav;

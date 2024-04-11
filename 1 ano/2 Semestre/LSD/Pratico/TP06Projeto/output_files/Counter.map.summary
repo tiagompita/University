@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr  8 19:08:06 2024
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : Counter
+Top-level Entity Name : Counter
+Family : Cyclone IV E
+Total logic elements : 8
+    Total combinational functions : 8
+    Dedicated logic registers : 4
+Total registers : 4
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

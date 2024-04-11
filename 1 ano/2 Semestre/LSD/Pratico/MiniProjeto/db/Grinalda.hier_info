@@ -1,0 +1,91 @@
+|Grinalda
+HEX0[0] <= Controlador:inst7.HEX0[0]
+HEX0[1] <= Controlador:inst7.HEX0[1]
+HEX0[2] <= Controlador:inst7.HEX0[2]
+HEX0[3] <= Controlador:inst7.HEX0[3]
+HEX0[4] <= Controlador:inst7.HEX0[4]
+HEX0[5] <= Controlador:inst7.HEX0[5]
+HEX0[6] <= Controlador:inst7.HEX0[6]
+CLOCK_50 => blink_gen:inst.clk
+SW[0] => Controlador:inst7.sw[0]
+SW[1] => Controlador:inst7.sw[1]
+LEDG[0] <= Controlador:inst7.LEDG[0]
+LEDG[1] <= Controlador:inst7.LEDG[1]
+LEDG[2] <= Controlador:inst7.LEDG[2]
+LEDG[3] <= Controlador:inst7.LEDG[3]
+LEDR[0] <= Controlador:inst7.LEDR[0]
+LEDR[1] <= Controlador:inst7.LEDR[1]
+LEDR[2] <= Controlador:inst7.LEDR[2]
+LEDR[3] <= Controlador:inst7.LEDR[3]
+
+
+|Grinalda|Controlador:inst7
+sw[0] => Mux0.IN5
+sw[0] => Mux1.IN5
+sw[0] => Mux2.IN5
+sw[0] => Mux3.IN5
+sw[0] => Mux4.IN5
+sw[0] => Mux5.IN5
+sw[0] => Equal0.IN1
+sw[1] => Mux0.IN4
+sw[1] => Mux1.IN4
+sw[1] => Mux2.IN4
+sw[1] => Mux3.IN4
+sw[1] => Mux4.IN4
+sw[1] => Mux5.IN4
+sw[1] => Equal0.IN0
+clk => LEDG[0]~reg0.CLK
+clk => LEDG[1]~reg0.CLK
+clk => LEDG[2]~reg0.CLK
+clk => LEDG[3]~reg0.CLK
+clk => LEDR[0]~reg0.CLK
+clk => LEDR[1]~reg0.CLK
+clk => LEDR[2]~reg0.CLK
+clk => LEDR[3]~reg0.CLK
+HEX0[0] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= <GND>
+HEX0[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] <= LEDR[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= LEDR[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= LEDR[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= LEDR[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= LEDG[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= LEDG[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= LEDG[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= LEDG[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Grinalda|blink_gen:inst
+clk => s_counter[0].CLK
+clk => s_counter[1].CLK
+clk => s_counter[2].CLK
+clk => s_counter[3].CLK
+clk => s_counter[4].CLK
+clk => s_counter[5].CLK
+clk => s_counter[6].CLK
+clk => s_counter[7].CLK
+clk => s_counter[8].CLK
+clk => s_counter[9].CLK
+clk => s_counter[10].CLK
+clk => s_counter[11].CLK
+clk => s_counter[12].CLK
+clk => s_counter[13].CLK
+clk => s_counter[14].CLK
+clk => s_counter[15].CLK
+clk => s_counter[16].CLK
+clk => s_counter[17].CLK
+clk => s_counter[18].CLK
+clk => s_counter[19].CLK
+clk => s_counter[20].CLK
+clk => s_counter[21].CLK
+clk => s_counter[22].CLK
+clk => s_counter[23].CLK
+clk => s_counter[24].CLK
+reset => count_proc.IN1
+blink <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+
+
