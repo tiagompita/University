@@ -9,12 +9,17 @@ public abstract class Viatura implements KmPercorridosInterface {
     private int quilometros;
     private int TotalQuilometros = 0;
 
+    private int quadro;
+    private static int quadros = 1;
+
     public Viatura(String Matricula, String Marca, String Modelo, int Potencia) {
         if(validMatricula(Matricula) && validPotencia(Potencia)) {
             this.Matricula = Matricula;
             this.Marca = Marca;
             this.Modelo = Modelo;
             this.Potencia = Potencia;
+            this.quadro = quadros;
+            quadros++;
         } else {
             throw new Error("Dados inválidos");
         }
@@ -50,6 +55,10 @@ public abstract class Viatura implements KmPercorridosInterface {
 
     public int getPotencia() {
         return Potencia;
+    }
+
+    public int getQuadro() {
+        return quadro;
     }
 
     public void setPotencia(int potencia) {
@@ -96,8 +105,8 @@ public abstract class Viatura implements KmPercorridosInterface {
 
     @Override
     public String toString() {
-        return "Matricula: " + Matricula + ", Marca: " + Marca + ", Modelo: " + Modelo + ", Potencia: " + Potencia
-                + ", Total de Quilometros: " + TotalQuilometros + "]";
+        return " Matricula: " + Matricula + ", Marca: " + Marca + ", Modelo: " + Modelo + ", Potencia: " + Potencia
+                + "Quadro: " + quadro + ", Total de Quilometros: " + TotalQuilometros + "]";
     }
 
     
