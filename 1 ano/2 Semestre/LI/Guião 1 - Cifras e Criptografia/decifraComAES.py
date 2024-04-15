@@ -18,6 +18,8 @@ if os.path.getsize(fname) % 16 != 0:
     print(fname + " is not a valid file", file=sys.stderr)
     sys.exit (3)
 
+
+
 def keyValidate(key):
     #Verifica se a chave é válida (16, 24 or 32 bytes)
     keylen = len(sys.argv[2])
@@ -45,14 +47,12 @@ def keyValidate(key):
 
     return cipher
 
-
+key = keyValidate(sys.argv[2])
 
 with open(fname, "rb") as f:
     block = f.read(16)
     while len(block) > 0:
-        cryptogram = keyValidate(sys.argv[2]).decrypt(block)
-        while cryptogram[-1] == 0:
-            cryptogram = cryptogram[:-1]
-
+        cryptogram = key.decrypt(block)
+        cryptogram = cryptogram.rstrip(b'\x00')
         os.write(1, cryptogram)
         block = f.read(16)

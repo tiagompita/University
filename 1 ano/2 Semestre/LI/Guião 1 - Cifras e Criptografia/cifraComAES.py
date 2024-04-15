@@ -14,6 +14,8 @@ if not os.path.exists(fname) or os.path.isdir(fname) or not os.path.isfile(fname
     print(fname + " is not a file", file=sys.stderr)
     sys.exit (2)
 
+
+
 #Verifica se a chave é válida (16, 24 or 32 bytes)
 keylen = len(sys.argv[2])
 if keylen < 16 :
@@ -38,13 +40,14 @@ else:
     cipher = AES.new(sys.argv[2].encode("utf-8"), AES.MODE_ECB)
 
 
+
 #If the last block of the file is not a multiple of 16 bytes, the cipher.encrypt(block) call will raise a ValueError.
 #This code will append the necessary number of zero bytes to the end of the last block if its length is not a multiple of 16, allowing the cipher.encrypt(block) call to succeed.
 with open(fname, "rb") as f:
     block = f.read(16)
     while len(block) > 0:
         if len(block) % 16 != 0:
-            block += b'0' * (16 - len(block) % 16)
+            block += b'\x00' * (16 - len(block) % 16)
         cryptogram = cipher.encrypt(block)
         os.write(1, cryptogram)
         block = f.read(16)
