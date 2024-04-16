@@ -4,7 +4,7 @@ from Cryptodome.Cipher import ARC4
 from Cryptodome.Hash import SHA256
 
 if len (sys.argv) < 3 :
-    print ("Usage: python3 %s filename" % (sys.argv[0]))
+    print ("Usage: python3 %s filename key" % (sys.argv[0]))
     sys.exit (1)
 
 fname = sys.argv[1] # verify if it is a file
