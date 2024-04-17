@@ -17,7 +17,7 @@ public class PesadoPassageiros extends Viatura {
 
     @Override
     public String toString() {
-        return "PesadoPassageiros => Peso: " + peso + ", Capacidade de Passageiros: " + MaxPax + super.toString();
+        return "PesadoPassageiros => Peso: " + peso + ", Capacidade de Passageiros: " + MaxPax + ", Autonomia restante: " + autonomia() + super.toString();
     }
 
     

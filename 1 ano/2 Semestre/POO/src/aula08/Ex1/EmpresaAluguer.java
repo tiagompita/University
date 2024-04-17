@@ -20,19 +20,57 @@ public class EmpresaAluguer {
         }
     }
 
+    
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        this.Nome = nome;
+    }
+
+    public String getCP() {
+        return CP;
+    }
+
+    public void setCP(String cP) {
+        this.CP = cP;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void add(Viatura viatura) {
+        boolean exists = false;
+
+        for (int i = 0; i <= Empresa.size(); i++ ) {
+            if (Empresa.get(i).equals(viatura)) {
+                exists = true;
+            }
+        }
+
+        if (exists) {
+            System.out.println("Veículo já existe!");
+        } else {
+            Empresa.add(viatura);
+        }
+
+    }
+
     @Override
     public String toString() {
         return "Empresa de Aluguer => Nome: " + Nome + ", CP: " + CP + ", Email: " + mail;
     }
-
+    
     public static void main(String[] args) {
-        
-        EmpresaAluguer empresa = new EmpresaAluguer("CarRent", "1234-567", "carrent@rent.com");
-        Motociclo mota = new Motociclo("AB01BC", "Honda", "CB500", 40, "naked");
-        Taxi taxi = new Taxi("BB11DD", "Mercedes", "Benz", 90, 200, 143242);
-        Ligeiro carro = new Ligeiro("GB10DA", "Toyota", "Yaris", 54, 240);
-        PesadoMercadorias camiao = new PesadoMercadorias("BF23DC", "Volvo", "Hulk", 550, 3500, 5000);
-        PesadoPassageiros autocarro = new PesadoPassageiros("AD23BC", "Volvo", "Carry", 430, 3000, 70);
-
+        // Error: LinkageError occurred while loading main class aula08.Ex1.EmpresaAluguer
+        //java.lang.UnsupportedClassVersionError: aula08/Ex1/EmpresaAluguer has been compiled by a more recent version of the Java Runtime (class file version 66.65535), this version of the Java Runtime only recognizes class file versions up to 61.0
     }
+
 }
