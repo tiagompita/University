@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Grinalda
-Thu Apr 11 12:42:38 2024
+Wed Apr 17 14:21:52 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -15,10 +15,11 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: blink_gen:inst
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +46,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 11 12:42:38 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 17 14:21:52 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; Grinalda                                       ;
 ; Top-level Entity Name              ; Grinalda                                       ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 5                                              ;
-;     Total combinational functions  ; 5                                              ;
-;     Dedicated logic registers      ; 0                                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 18                                             ;
+; Total logic elements               ; 109                                            ;
+;     Total combinational functions  ; 109                                            ;
+;     Dedicated logic registers      ; 44                                             ;
+; Total registers                    ; 44                                             ;
+; Total pins                         ; 32                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -157,77 +158,81 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                 ; Library ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------+---------+
-; Controlador.vhd                  ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Controlador.vhd ;         ;
-; blink_gen.vhd                    ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/blink_gen.vhd   ;         ;
-; Grinalda.bdf                     ; yes             ; User Block Diagram/Schematic File  ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Grinalda.bdf    ;         ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Bin7SegDecoder.vhd  ;         ;
+; Grinalda.bdf                     ; yes             ; User Block Diagram/Schematic File  ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Grinalda.bdf        ;         ;
+; Programa1.vhd                    ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Programa1.vhd       ;         ;
+; Bin7SegDecoder2.vhd              ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Bin7SegDecoder2.vhd ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 5           ;
-;                                             ;             ;
-; Total combinational functions               ; 5           ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 0           ;
-;     -- 3 input functions                    ; 0           ;
-;     -- <=2 input functions                  ; 5           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 5           ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 0           ;
-;     -- Dedicated logic registers            ; 0           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 18          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; SW[1]~input ;
-; Maximum fan-out                             ; 5           ;
-; Total fan-out                               ; 34          ;
-; Average fan-out                             ; 0.83        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 109            ;
+;                                             ;                ;
+; Total combinational functions               ; 109            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 59             ;
+;     -- 3 input functions                    ; 9              ;
+;     -- <=2 input functions                  ; 41             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 76             ;
+;     -- arithmetic mode                      ; 33             ;
+;                                             ;                ;
+; Total registers                             ; 44             ;
+;     -- Dedicated logic registers            ; 44             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 32             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 44             ;
+; Total fan-out                               ; 500            ;
+; Average fan-out                             ; 2.30           ;
++---------------------------------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; |Grinalda                  ; 5 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |Grinalda                   ; Grinalda    ; work         ;
-;    |Controlador:inst7|     ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Grinalda|Controlador:inst7 ; Controlador ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name     ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-----------------+--------------+
+; |Grinalda                  ; 109 (0)             ; 44 (0)                    ; 0           ; 0            ; 0       ; 0         ; 32   ; 0            ; |Grinalda                       ; Grinalda        ; work         ;
+;    |Bin7SegDecoder2:inst1| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Grinalda|Bin7SegDecoder2:inst1 ; Bin7SegDecoder2 ; work         ;
+;    |Bin7SegDecoder2:inst|  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Grinalda|Bin7SegDecoder2:inst  ; Bin7SegDecoder2 ; work         ;
+;    |Bin7SegDecoder:inst2|  ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Grinalda|Bin7SegDecoder:inst2  ; Bin7SegDecoder  ; work         ;
+;    |programa1:inst10|      ; 90 (90)             ; 44 (44)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Grinalda|programa1:inst10      ; programa1       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; Controlador:inst7|LEDG[0..3]           ; Stuck at VCC due to stuck port data_in ;
-; Controlador:inst7|LEDR[0..3]           ; Stuck at VCC due to stuck port data_in ;
-; blink_gen:inst|s_counter[0..24]        ; Lost fanout                            ;
-; Total Number of Removed Registers = 33 ;                                        ;
-+----------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                           ;
++---------------------------------------+--------------------------------------+
+; Register name                         ; Reason for Removal                   ;
++---------------------------------------+--------------------------------------+
+; programa1:inst10|LEDG[1..3]           ; Merged with programa1:inst10|LEDG[0] ;
+; programa1:inst10|LEDR[1..3]           ; Merged with programa1:inst10|LEDR[0] ;
+; Total Number of Removed Registers = 6 ;                                      ;
++---------------------------------------+--------------------------------------+
 
 
 +------------------------------------------------------+
@@ -235,24 +240,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 44    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: blink_gen:inst ;
-+----------------+----------+---------------------------------+
-; Parameter Name ; Value    ; Type                            ;
-+----------------+----------+---------------------------------+
-; number_steps   ; 25000000 ; Signed Integer                  ;
-+----------------+----------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; programa1:inst10|stateG                ; 3       ;
+; programa1:inst10|stateR                ; 3       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Grinalda|programa1:inst10|counter2[3]     ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |Grinalda|programa1:inst10|count_blinkG[0] ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 5 LEs                ; 15 LEs                 ; Yes        ; |Grinalda|programa1:inst10|count_blinkR[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -260,15 +277,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
-; cycloneiii_lcell_comb ; 9                           ;
-;     normal            ; 9                           ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 2                           ;
+; boundary_port         ; 32                          ;
+; cycloneiii_ff         ; 44                          ;
+;     ENA               ; 10                          ;
+;     plain             ; 34                          ;
+; cycloneiii_lcell_comb ; 115                         ;
+;     arith             ; 33                          ;
+;         2 data inputs ; 33                          ;
+;     normal            ; 82                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
 ;         2 data inputs ; 5                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 59                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.36                        ;
+; Max LUT depth         ; 4.50                        ;
+; Average LUT depth     ; 3.01                        ;
 +-----------------------+-----------------------------+
 
 
@@ -287,13 +311,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Thu Apr 11 12:42:22 2024
+    Info: Processing started: Wed Apr 17 14:21:41 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Grinalda -c Grinalda
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file controlador.vhd
-    Info (12022): Found design unit 1: Controlador-Behav File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Controlador.vhd Line: 14
-    Info (12023): Found entity 1: Controlador File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Controlador.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
     Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/ClkDividerN.vhd Line: 13
     Info (12023): Found entity 1: ClkDividerN File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/ClkDividerN.vhd Line: 5
@@ -311,33 +332,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file blink_g
     Info (12023): Found entity 1: blink_gen File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/blink_gen.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file grinalda.bdf
     Info (12023): Found entity 1: Grinalda
+Info (12021): Found 2 design units, including 1 entities, in source file programa1.vhd
+    Info (12022): Found design unit 1: Programa1-Behav File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Programa1.vhd Line: 16
+    Info (12023): Found entity 1: programa1 File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Programa1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder2.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder2-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Bin7SegDecoder2.vhd Line: 12
+    Info (12023): Found entity 1: Bin7SegDecoder2 File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/MiniProjeto/Bin7SegDecoder2.vhd Line: 4
 Info (12127): Elaborating entity "Grinalda" for the top level hierarchy
-Info (12128): Elaborating entity "Controlador" for hierarchy "Controlador:inst7"
-Info (12128): Elaborating entity "blink_gen" for hierarchy "blink_gen:inst"
+Info (12128): Elaborating entity "Bin7SegDecoder" for hierarchy "Bin7SegDecoder:inst2"
+Info (12128): Elaborating entity "Bin7SegDecoder2" for hierarchy "Bin7SegDecoder2:inst1"
+Info (12128): Elaborating entity "programa1" for hierarchy "programa1:inst10"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "LEDG[3]" is stuck at VCC
-    Warning (13410): Pin "LEDG[2]" is stuck at VCC
-    Warning (13410): Pin "LEDG[1]" is stuck at VCC
-    Warning (13410): Pin "LEDG[0]" is stuck at VCC
-    Warning (13410): Pin "LEDR[3]" is stuck at VCC
-    Warning (13410): Pin "LEDR[2]" is stuck at VCC
-    Warning (13410): Pin "LEDR[1]" is stuck at VCC
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 25 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_50"
-Info (21057): Implemented 23 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 141 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 15 output pins
-    Info (21061): Implemented 5 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Thu Apr 11 12:42:38 2024
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:26
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 109 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Wed Apr 17 14:21:52 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:15
 
 
