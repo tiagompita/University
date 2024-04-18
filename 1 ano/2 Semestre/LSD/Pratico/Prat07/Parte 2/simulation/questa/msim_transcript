@@ -1,0 +1,72 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do BinUDCntEnRst4_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work rtl_work 
+# Copying C:/intelFPGA/22.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:17:13 on Apr 18,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BinUDCntEnRst4
+# -- Compiling architecture Behavioral of BinUDCntEnRst4
+# End time: 10:17:13 on Apr 18,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom -reportprogress 300 -work work {C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 10:19:27 on Apr 18,2024
+# vcom -reportprogress 300 -work work C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BinUDCntEnRst8Tb
+# -- Compiling architecture Stimulus of BinUDCntEnRst8Tb
+# -- Loading package NUMERIC_STD
+# -- Loading entity BinUDCntEnRst4
+# End time: 10:19:27 on Apr 18,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript work.binudcntenrst8tb(stimulus) -voptargs=+acc
+# vsim -gui -l msim_transcript work.binudcntenrst8tb(stimulus) -voptargs="+acc" 
+# Start time: 10:19:43 on Apr 18,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.binudcntenrst8tb(stimulus)#1
+# Loading work.binudcntenrst4(behavioral)#1
+add wave -position end  sim:/binudcntenrst8tb/s_reset
+add wave -position end  sim:/binudcntenrst8tb/s_clk
+add wave -position end  sim:/binudcntenrst8tb/s_enable
+add wave -position end  sim:/binudcntenrst8tb/s_upDown_n
+add wave -position end  sim:/binudcntenrst8tb/s_cntOut
+run -all
+# Break key hit
+# Simulation stop requested.
+# End time: 10:23:58 on Apr 18,2024, Elapsed time: 0:04:15
+# Errors: 0, Warnings: 0

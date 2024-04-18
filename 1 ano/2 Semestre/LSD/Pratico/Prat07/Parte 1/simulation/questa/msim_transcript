@@ -1,0 +1,95 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do Dec2_4En_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work rtl_work 
+# Copying C:/intelFPGA/22.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 09:34:26 on Apr 18,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Dec2_4En
+# -- Compiling architecture Behavioral of Dec2_4En
+# End time: 09:34:26 on Apr 18,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom -reportprogress 300 -work work {C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En_Tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 09:36:32 on Apr 18,2024
+# vcom -reportprogress 300 -work work C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En_Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Dec2_4En_Tb
+# -- Compiling architecture Stimulus of Dec2_4En_Tb
+# -- Loading entity Dec2_4En
+# End time: 09:36:33 on Apr 18,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work {C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En_Tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 09:36:37 on Apr 18,2024
+# vcom -reportprogress 300 -work work C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En_Tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Dec2_4En_Tb
+# -- Compiling architecture Stimulus of Dec2_4En_Tb
+# -- Loading entity Dec2_4En
+# End time: 09:36:37 on Apr 18,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript Stimulus -voptargs=+acc
+# vsim -gui -l msim_transcript Stimulus -voptargs="+acc" 
+# Start time: 09:46:54 on Apr 18,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit Stimulus.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 09:46:55 on Apr 18,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Optimization canceled
+vsim -gui -l msim_transcript -voptargs=+acc work.dec2_4en_tb(stimulus)
+# vsim -gui -l msim_transcript -voptargs="+acc" work.dec2_4en_tb(stimulus) 
+# Start time: 09:51:34 on Apr 18,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.dec2_4en_tb(stimulus)#1
+# Loading work.dec2_4en(behavioral)#1
+# couldn't load library "C:/intelFPGA/22.1std/questa_fse/win64/ScintillaTk/ScintillaTk114.dll": this library or a dependent library could not be found in library path
+add wave -position end  sim:/dec2_4en_tb/s_enable
+add wave -position end  sim:/dec2_4en_tb/s_inputs
+add wave -position end  sim:/dec2_4en_tb/s_outputs
+# Causality operation skipped due to absence of debug database file
+# Load canceled
+run -all
+# Break key hit
+# Break in Process stim_proc at C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 1/Dec2_4En_Tb.vhd line 31
+# End time: 10:11:27 on Apr 18,2024, Elapsed time: 0:19:53
+# Errors: 0, Warnings: 0

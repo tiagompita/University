@@ -1,0 +1,108 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11e vcom 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/simulation/questa
+T_opt
+!s110 1713431984
+V@Y2P3SR]ak^HET8=RJ`]L0
+04 16 8 work binudcntenrst8tb stimulus 1
+=1-60e9aa2c0b6f-6620e5af-386-38c0
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Ebinudcntenrst4
+Z1 w1713431468
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd
+Z6 FC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd
+l0
+L5 1
+V8IdQFUf`R9R=6zbcR65R>2
+!s100 HehJco0eJ;@jmHVSDC>0c2
+Z7 OL;C;2021.2;73
+31
+Z8 !s110 1713431833
+!i10b 1
+Z9 !s108 1713431833.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd|
+Z11 !s107 C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst4.vhd|
+!i113 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+Z14 DEx4 work 14 binudcntenrst4 0 22 8IdQFUf`R9R=6zbcR65R>2
+!i122 0
+l19
+L15 23
+Vdkd0NQ:U=?Ea<9A1Fm5XB1
+!s100 H14@3[AIC]=I_Wm[]_Jof3
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ebinudcntenrst8tb
+Z15 w1713431720
+R3
+R4
+!i122 1
+R0
+Z16 8C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd
+Z17 FC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd
+l0
+L5 1
+VPS1f1<6E9MmBMDiMaz=jV0
+!s100 V_LKnOKLjHVZN8zOUOhF10
+R7
+32
+Z18 !s110 1713431967
+!i10b 1
+Z19 !s108 1713431967.000000
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd|
+Z21 !s107 C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 2/BinUDCntEnRst8Tb.vhd|
+!i113 0
+Z22 o-work work
+R13
+Astimulus
+R2
+R14
+R3
+R4
+DEx4 work 16 binudcntenrst8tb 0 22 PS1f1<6E9MmBMDiMaz=jV0
+!i122 1
+l17
+L8 52
+Vmi<oQDbUj=S]e7CEN8X?^2
+!s100 lkS4g79mb46PmZPIcU=3A3
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R13

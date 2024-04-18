@@ -1,0 +1,108 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/simulation/questa
+T_opt
+!s110 1713433176
+VK>mCdJmclP>==Le78M8S[3
+04 8 8 work alu16_tb stimulus 1
+=1-60e9aa2c0b6f-6620ea57-32e-2b7c
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2021.2;73
+Ealu16
+Z1 w1713433136
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R0
+Z5 8C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16.vhd
+Z6 FC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16.vhd
+l0
+L5 1
+ViCGzL3WlNUhKbn9XAcZ@j2
+!s100 MV@ShXMEYGc_kf68`]d7G1
+Z7 OL;C;2021.2;73
+32
+Z8 !s110 1713433160
+!i10b 1
+Z9 !s108 1713433159.000000
+Z10 !s90 -reportprogress|300|-work|work|C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16.vhd|
+Z11 !s107 C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+Z14 DEx4 work 5 alu16 0 22 iCGzL3WlNUhKbn9XAcZ@j2
+!i122 2
+l19
+L15 45
+VWVa=e6MEoCI:<heM=D>Id2
+!s100 W7lC9X_8lQz2z_MHV2>i93
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ealu16_tb
+Z15 w1713432580
+R3
+R4
+!i122 3
+R0
+Z16 8C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16_Tb.vhd
+Z17 FC:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16_Tb.vhd
+l0
+L4 1
+VJ?SC6g<kQRUAo]eNISoTD0
+!s100 5JC]d<:9IfXOd6o[f3]8?3
+R7
+32
+Z18 !s110 1713433163
+!i10b 1
+Z19 !s108 1713433163.000000
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16_Tb.vhd|
+Z21 !s107 C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat07/Parte 3/ALU16_Tb.vhd|
+!i113 0
+R12
+R13
+Astimulus
+R2
+R14
+R3
+R4
+DEx4 work 8 alu16_tb 0 22 J?SC6g<kQRUAo]eNISoTD0
+!i122 3
+l17
+L7 56
+VPmXzXhXEVDMWnN_oHV01O0
+!s100 3FJW1<JDO8BZf[Z=1_?og1
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R12
+R13
