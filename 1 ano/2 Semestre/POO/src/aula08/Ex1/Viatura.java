@@ -1,6 +1,6 @@
 package aula08.Ex1;
 
-public abstract class Viatura implements KmPercorridosInterface, VeiculoEletrico {
+public abstract class Viatura implements KmPercorridosInterface {
     private String Matricula;
     private String Marca;
     private String Modelo;
@@ -8,10 +8,6 @@ public abstract class Viatura implements KmPercorridosInterface, VeiculoEletrico
 
     private int quilometros;
     private int TotalQuilometros = 0;
-
-    private int autonomia;
-    private static final int MAX_ENERGY = 100;
-    private int energy;
 
     private int quadro;
     private static int quadros = 1;
@@ -22,20 +18,6 @@ public abstract class Viatura implements KmPercorridosInterface, VeiculoEletrico
             this.Marca = Marca;
             this.Modelo = Modelo;
             this.Potencia = Potencia;
-            this.quadro = quadros;
-            quadros++;
-        } else {
-            throw new Error("Dados inválidos");
-        }
-    }
-
-    public Viatura(String Matricula, String Marca, String Modelo, int Potencia, int autonomia) {
-        if(validMatricula(Matricula) && validPotencia(Potencia)) {
-            this.Matricula = Matricula;
-            this.Marca = Marca;
-            this.Modelo = Modelo;
-            this.Potencia = Potencia;
-            this.autonomia = autonomia;
             this.quadro = quadros;
             quadros++;
         } else {
@@ -94,18 +76,6 @@ public abstract class Viatura implements KmPercorridosInterface, VeiculoEletrico
 
     public int distanciaTotal() {
         return this.TotalQuilometros;
-    }
-
-    public int autonomia() {
-        return autonomia;
-    }
-
-    public void carregar(int percentagem) {
-        if (percentagem < 0 || percentagem > 100) {
-            throw new IllegalArgumentException("Percentage must be between 0 and 100");
-        }
-        int chargeAmount = MAX_ENERGY * percentagem / 100;
-        energy = Math.min(MAX_ENERGY, energy + chargeAmount);
     }
     
 

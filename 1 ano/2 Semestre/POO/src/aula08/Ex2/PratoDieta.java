@@ -1,13 +1,25 @@
 package aula08.Ex2;
 
-import java.util.HashSet;
+public class PratoDieta extends Prato{
 
-public class PratoDieta {
-    private String nome;
-    private HashSet<Alimento> pratoDieta;
+    private double MAX_CALORIAS;
 
-    public PratoDieta(String nome) {
-        this.nome = nome;
-        this.pratoDieta = new HashSet<>();
+    public PratoDieta(String nome, double MAX_CALORIAS) {
+        super(nome);
+        this.MAX_CALORIAS = MAX_CALORIAS;
     }
+
+    
+
+    @Override
+    public String toString() {
+        return super.toString() + " - Dieta (" + MAX_CALORIAS + " Calorias)";
+    }
+
+    
+    public double getMAX_CALORIAS() {
+        return MAX_CALORIAS;
+    }
+
+    
 }

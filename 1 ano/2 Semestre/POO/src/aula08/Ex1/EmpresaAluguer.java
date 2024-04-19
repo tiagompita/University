@@ -63,14 +63,22 @@ public class EmpresaAluguer {
 
     }
 
+    public Viatura maiorKm() {
+        int maiorKm = 0;
+        Viatura viaturaMaior = null;
+        for (Viatura viatura : Empresa) {
+            if (viatura.distanciaTotal() > maiorKm) {
+                maiorKm = viatura.distanciaTotal();
+                viaturaMaior = viatura;
+            }
+        }
+        return viaturaMaior;
+    }
+
     @Override
     public String toString() {
         return "Empresa de Aluguer => Nome: " + Nome + ", CP: " + CP + ", Email: " + mail;
     }
     
-    public static void main(String[] args) {
-        // Error: LinkageError occurred while loading main class aula08.Ex1.EmpresaAluguer
-        //java.lang.UnsupportedClassVersionError: aula08/Ex1/EmpresaAluguer has been compiled by a more recent version of the Java Runtime (class file version 66.65535), this version of the Java Runtime only recognizes class file versions up to 61.0
-    }
 
 }
