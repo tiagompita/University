@@ -1,3 +1,5 @@
+package aula08.Ex3;
+
 public class ShoppingCartTester {
     public static void main(String[] args) {
         Produto p1 = new ProdutoGenerico("Camisolas", 10, 3);

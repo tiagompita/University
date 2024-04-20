@@ -17,4 +17,8 @@ public class Pneu {
         return Pneu.count;
     }
 
+    public static void main(String[] args) {
+        Pneu p1 = new Pneu("Mixa", "lein");
+        System.out.println(p1.count());
+    }
 }
