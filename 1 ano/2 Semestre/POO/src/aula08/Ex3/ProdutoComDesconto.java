@@ -38,6 +38,6 @@ public class ProdutoComDesconto implements Produto{
 
     @Override
     public String toString() {
-        return "Produto " + nome + ", preco:" + preco + ", quantidade:" + quantidade;
+        return "Produto " + nome + ", Preço Descontado: " + preco + ", Quantidade: " + quantidade;
     }
 }
