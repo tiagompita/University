@@ -1,14 +1,25 @@
 package aula09.Ex2;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.TreeSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 
 public class CollectionTester {
     public static void main(String[] args) {
         int[] DIM = {1000, 5000, 10000, 20000, 40000, 100000};
-        Collection<Integer>[] collections = new Collection[]{new ArrayList<Integer>(), new LinkedList<Integer>()};
+        Collection<Integer>[] collections = new Collection[]{
+            new ArrayList<Integer>(), 
+            new LinkedList<Integer>(), 
+            new ArrayDeque<Integer>(),
+            new HashSet<Integer>(),
+            new LinkedHashSet<Integer>(),
+            new TreeSet<Integer>()
+        };
 
         System.out.printf("%-15s","Collection");
         for (int i : DIM) {

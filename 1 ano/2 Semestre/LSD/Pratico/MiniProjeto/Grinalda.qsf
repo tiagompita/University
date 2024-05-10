@@ -55,7 +55,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name VHDL_FILE ClkDividerN.vhd
 set_global_assignment -name VHDL_FILE Bin7SegDecoder.vhd
 set_location_assignment PIN_Y2 -to CLOCK_50
 set_location_assignment PIN_AG14 -to CLOCK2_50
@@ -576,9 +575,6 @@ set_location_assignment PIN_H14 -to EX_IO[3]
 set_location_assignment PIN_F14 -to EX_IO[4]
 set_location_assignment PIN_E10 -to EX_IO[5]
 set_location_assignment PIN_D9 -to EX_IO[6]
-set_global_assignment -name VHDL_FILE Mux4_1.vhd
-set_global_assignment -name VHDL_FILE pulse_gen.vhd
-set_global_assignment -name VHDL_FILE blink_gen.vhd
 set_global_assignment -name BDF_FILE Grinalda.bdf
 set_global_assignment -name VHDL_FILE Programa1.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

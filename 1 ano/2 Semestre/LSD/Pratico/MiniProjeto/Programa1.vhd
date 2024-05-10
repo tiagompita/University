@@ -15,8 +15,8 @@ end programa1;
 
 architecture Behav of Programa1 is
 
-	signal counter : integer range 0 to 50000000 := 0; -- Contador para controlar a frequência de piscar
-	signal counter2 : integer range 0 to 8 := 0;
+	signal counter : integer range 1 to 50000000 := 1; -- Contador para controlar a frequência de piscar
+	signal counter2 : integer range 1 to 8 := 1;
 	
 	signal count_blinkR : integer range 0 to 16 := 0;
 	signal count_blinkG : integer range 0 to 16 := 0;
@@ -36,16 +36,16 @@ begin
 			counter <= counter + 1;
 			
 			if counter = 50000000 then
-				counter <= 0;
+				counter <= 1;
 				if enable = "11" then
 					counter2 <= counter2 + 1;
 				else
-					counter2 <= 0;
+					counter2 <= 1;
 				end if;
 			end if;
 			
 			if counter2 = 8 then
-				counter2 <= 0;
+				counter2 <= 1;
 			end if;
 			
 			case enable is
@@ -61,7 +61,7 @@ begin
 							count_blinkR <= count_blinkR + 1;
 							
 							if count_blinkR = 16 then
-								count_blinkR <= 0;
+								count_blinkR <= 1;
 							end if;
 						end if;
 						
@@ -78,7 +78,7 @@ begin
 							count_blinkG <= count_blinkG + 1;
 							
 							if count_blinkG = 16 then
-								count_blinkG <= 0;
+								count_blinkG <= 1;
 							end if;
 						end if;
 						
@@ -95,7 +95,7 @@ begin
 								count_blinkG <= count_blinkG + 1;
 							
 								if count_blinkG = 16 then
-									count_blinkG <= 0;
+									count_blinkG <= 1;
 								end if;
 							end if;
 							
@@ -112,7 +112,7 @@ begin
 								count_blinkR <= count_blinkR + 1;
 							
 								if count_blinkR = 16 then
-									count_blinkR <= 0;
+									count_blinkR <= 1;
 								end if;
 							end if;
 							
