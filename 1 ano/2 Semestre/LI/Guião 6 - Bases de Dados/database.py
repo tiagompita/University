@@ -29,20 +29,20 @@ def printCompanies(db):
 
     for row in companies:
         print(row)
-
-def searchByName(db):
+ 
+def searchByName(db): #6.12
     name = input("Nome? ")
     result = db.execute("SELECT * FROM contacts WHERE firstname LIKE ? OR middlename LIKE ? OR lastname LIKE ?", (name,name,name))
     for row in result:
         print(row)
 
-def searchCompanyByName(db):
+def searchCompanyByName(db): #6.13
     name = input("Nome? ")
     result = db.execute("SELECT companies.* FROM contacts,companies WHERE contacts.company_id = companies.id AND firstname LIKE ? OR middlename LIKE ? OR lastname LIKE ?", (name,name,name))
     for row in result:
         print(row)
 
-def printFirstNameAndCount(db):
+def printFirstNameAndCount(db): #6.11
     firstname = db.execute("SELECT firstname FROM contacts")
     count = 0
 
