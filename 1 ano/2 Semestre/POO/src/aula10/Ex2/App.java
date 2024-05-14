@@ -2,27 +2,31 @@ package aula10.Ex2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+
+import aula10.Ex1.Genre;
+import aula10.Ex1.Book;
 
 public class App {
-    private static HashMap<Genre, ArrayList<Book>> bookByGenre = new HashMap<>();
+    private static HashMap<Genre, ArrayList<Book>> BookByGenre = new HashMap<>();
     
-    public static void insert(Genre genre, Book Book) {
-        if(!bookByGenre.containsKey(genre)) {
-            bookByGenre.put(genre, new ArrayList<Book>());
+    public static void insert(Genre Genre, Book Book) {
+        if(!BookByGenre.containsKey(Genre)) {
+            BookByGenre.put(Genre, new ArrayList<Book>());
         }
-        bookByGenre.get(genre).add(Book);
+        BookByGenre.get(Genre).add(Book);
     }
 
     public static void remove(Genre Genre) {
-        if(bookByGenre.containsKey(Genre)) {
-            bookByGenre.remove(Genre);
+        if(BookByGenre.containsKey(Genre)) {
+            BookByGenre.remove(Genre);
         }
     }
     
-    public static void remove(Genre genre, Book Book) {
-        if(bookByGenre.containsKey(genre)) {
-            if(bookByGenre.get(genre).contains(Book)) {
-                bookByGenre.get(genre).remove(Book);
+    public static void remove(Genre Genre, Book Book) {
+        if(BookByGenre.containsKey(Genre)) {
+            if(BookByGenre.get(Genre).contains(Book)) {
+                BookByGenre.get(Genre).remove(Book);
             }
         }
     }
@@ -52,7 +56,7 @@ public class App {
 
         // Romance
         App.insert(Genre.ROMANCE, new Book("Orgulho e Preconceito", "Jane Austen", 1813));
-        App.insert(Genre.ROMANCE, new Book("O Notebook", "Nicholas Sparks", 1996));
+        App.insert(Genre.ROMANCE, new Book("O NoteBook", "Nicholas Sparks", 1996));
         App.insert(Genre.ROMANCE, new Book("Diário de Uma Paixão", "Nicholas Sparks", 1996));
         App.insert(Genre.ROMANCE, new Book("A Cabana", "William P. Young", 2007));
         App.insert(Genre.ROMANCE, new Book("Como Água para Chocolate", "Laura Esquivel", 1985));
@@ -64,11 +68,57 @@ public class App {
         App.insert(Genre.SCI_FI, new Book("Duna", "Frank Herbert", 1965));
         App.insert(Genre.SCI_FI, new Book("O Jogo de Ender", "Orson Scott Card", 1985));
 
+        printBookByGenre();
+
+        printGenre();
+
+        for (ArrayList<Book> List : BookByGenre.values()) {
+            for (Book Book : List) {
+                System.out.println(Book);
+            }
+        }
 
         // Remove um livro específico
         App.remove(Genre.DRAMA, new Book("Hamlet", "William Shakespeare", 1603));
 
         // Remove todos os livros de um gênero
         App.remove(Genre.FICTION);
+
+        printBookByGenre();
+
+        printGenre();
+
+        printRandomBookByGenre(Genre.HORROR);
+
+    }
+
+    public static void printBookByGenre() {
+        for (HashMap.Entry<Genre, ArrayList<Book>> entry : BookByGenre.entrySet()) {
+            System.out.println(entry.getKey() + ": ");
+            for (Book book : entry.getValue()) {
+                System.out.println("\t" + book);
+            }
+        }
+    }
+    
+    public static void printGenre() {
+        System.out.println("\n=========Géneros=========");
+        for (HashMap.Entry<Genre, ArrayList<Book>> entry : BookByGenre.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+    }
+
+    public static void printRandomBookByGenre(Genre genre) {
+        Random random = new Random();
+        ArrayList<Book> books = BookByGenre.get(genre);
+    
+        if (books != null && !books.isEmpty()) {
+            int randomIndex = random.nextInt(books.size());
+            System.out.println(books.get(randomIndex)); 
+        } else {
+            System.out.println("Não há livros desse género");
+        }
+
     }
 }

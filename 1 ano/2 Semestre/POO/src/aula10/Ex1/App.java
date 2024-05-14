@@ -1,5 +1,6 @@
 package aula10.Ex1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class App {
@@ -34,9 +35,9 @@ public class App {
         // Ficção Científica
         App.insert(Genre.SCI_FI, new Book("Admirável Mundo Novo", "Aldous Huxley", 1932));
 
-        System.out.println(bookByGenre.toString());
+        printBookByGenre();
 
-        System.out.println(bookByGenre.keySet());
+        printGenre();
 
         for (Book book : bookByGenre.values()) {
             System.out.println(book);
@@ -49,11 +50,23 @@ public class App {
         //Alterar
         bookByGenre.put(Genre.DRAMA, new Book("Alterar", "Aterar", 1111));
     
-        System.out.println(bookByGenre.keySet());
+        printBookByGenre();
 
-        for (Book book : bookByGenre.values()) {
-            System.out.println(book);
-        }
     }
 
+    public static void printBookByGenre() {
+        for (HashMap.Entry<Genre, Book> entry : bookByGenre.entrySet()) {
+            System.out.println(entry.getKey() + ": ");
+            System.out.println("\t" + entry.getValue());
+
+        }
+    }
+    
+    public static void printGenre() {
+        System.out.println("\n=========Géneros=========");
+        for (HashMap.Entry<Genre, Book> entry : bookByGenre.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        System.out.println();
+    }
 }

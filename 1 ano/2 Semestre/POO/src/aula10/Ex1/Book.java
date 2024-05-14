@@ -87,7 +87,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book : Título=" + title + ", Autor=" + author + ", Ano=" + year + "]";
+        return "Book : Título: " + title + ", Autor: " + author + ", Ano: " + year;
     }
 
     
