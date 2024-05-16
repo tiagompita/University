@@ -1,6 +1,5 @@
 package aula10.Ex1;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class App {

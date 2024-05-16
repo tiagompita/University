@@ -14,10 +14,11 @@ public class App {
 
 
         try {
-            Scanner input = new Scanner(new FileReader("C:\\Universidade\\University\\1 ano\\2 Semestre\\POO\\src\\aula10\\Ex4\\words.txt", StandardCharsets.UTF_8));
+            Scanner input = new Scanner(new FileReader("C:\\Users\\tiago\\Documents\\University\\1 ano\\2 Semestre\\POO\\src\\aula10\\Ex4\\words.txt", StandardCharsets.UTF_8));
             while (input.hasNext()) {
-                String word = input.next();
-                if (word.length() > 2 && word.matches("[a-zA-Z]*")) {
+                String word = input.next().replaceAll("[^a-zA-Z]+", "");
+
+                if (word.length() > 2 ) {
                     words.add(word);
                     System.out.println(word);
                 }
