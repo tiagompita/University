@@ -28,7 +28,9 @@ public class App {
 
         int x = 5;
         System.out.println(++x);
-        
+
+        final String isbn = "978-972-0-04671-0";
+        System.out.println(String.join("", isbn.split("-")));
     }
 
     public static int f1(int a, boolean b) {

@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "CollectionTester",
+            "request": "launch",
+            "mainClass": "aula09.Ex2.CollectionTester",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "MostrarSeparadores",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.MostrarSeparadores",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "Voo",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.Voo",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "VooTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.VooTester",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
             "name": "EnergyUsageReportTester",
             "request": "launch",
             "mainClass": "aula11.Ex3.EnergyUsageReportTester",
