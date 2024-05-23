@@ -1,3 +1,4 @@
+package aula11.Ex2;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class GradebookTester {
 
         // Retrieve a student from the collection
         Student student = gradebook.getStudent("John Doe");
+        System.out.println(student);
 
         // Calculate the average grade for a specific student
         double averageGrade = gradebook.calculateAverageGrade("John Doe");
@@ -25,6 +27,9 @@ public class GradebookTester {
 
         // Print a summary of all students in the collection
         gradebook.printAllStudents();
+
+        SimpleGradeCalculator calculator = new SimpleGradeCalculator();
+        System.out.println("Average grade in this class: " + calculator.calculate(gradebook.allGrades()));
     }
 }
 

@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EnergyUsageReportTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex3.EnergyUsageReportTester",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "GradebookTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex2.GradebookTester",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Gradebook",
+            "request": "launch",
+            "mainClass": "aula11.Ex2.Gradebook",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "aula11.Ex1.test",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

@@ -1,3 +1,4 @@
+package aula11.Ex3;
 import java.util.List;
 
 public class Customer {
@@ -24,4 +25,11 @@ public class Customer {
     public void setMeterReadings(List<Double> meterReadings) {
         this.meterReadings = meterReadings;
     }
+
+    @Override
+    public String toString() {
+        return "Customer => \n\tName: " + getCustomerId() + "\n\tGrades:" + getMeterReadings();
+    }
+
+    
 }
