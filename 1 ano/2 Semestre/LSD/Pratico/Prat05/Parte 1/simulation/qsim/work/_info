@@ -1,0 +1,115 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat05/Parte 1/simulation/qsim
+T_opt
+!s110 1716759357
+VSdzOlMjW]iH<mAcF03LeM1
+04 16 9 work cmpn_vhd_vec_tst cmpn_arch 1
+=1-18c04d30a0ae-6653ab3c-109-4084
+R0
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+Ecmpn
+Z2 w1716759353
+Z3 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z5 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z6 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z7 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z8 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+!i122 0
+R1
+Z9 8CmpN_Demo.vho
+Z10 FCmpN_Demo.vho
+l0
+L35 1
+V@VFK<iARMRcFb8:RHLk`Z3
+!s100 fTfO:@RjcSIb37aV5cXcd1
+Z11 OL;C;2023.3;77
+32
+Z12 !s110 1716759355
+!i10b 1
+Z13 !s108 1716759355.000000
+Z14 !s90 -work|work|CmpN_Demo.vho|
+Z15 !s107 CmpN_Demo.vho|
+!i113 0
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 4 cmpn 0 22 @VFK<iARMRcFb8:RHLk`Z3
+!i122 0
+l105
+L46 616
+Vf0JB`nWfo>UMSFZMYA;jW3
+!s100 eak9UhM[MZ`Jfgk[WK?fV3
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 0
+R16
+R17
+Ecmpn_vhd_vec_tst
+R2
+R6
+R7
+!i122 1
+R1
+Z18 8CmpN.vwf.vht
+Z19 FCmpN.vwf.vht
+l0
+L32 1
+Vg<3f;PYBDVK<WFgUOSkSl2
+!s100 XEi5?VJMgCzHnKSo5ZcHN0
+R11
+32
+R12
+!i10b 1
+R13
+Z20 !s90 -work|work|CmpN.vwf.vht|
+Z21 !s107 CmpN.vwf.vht|
+!i113 0
+R16
+R17
+Acmpn_arch
+R6
+R7
+DEx4 work 16 cmpn_vhd_vec_tst 0 22 g<3f;PYBDVK<WFgUOSkSl2
+!i122 1
+l53
+L34 193
+VeEJYAJ8jDZ=E`A^g;7S?D3
+!s100 mmEJza;S<j^AYMDG8aDJJ0
+R11
+32
+R12
+!i10b 1
+R13
+R20
+R21
+!i113 0
+R16
+R17

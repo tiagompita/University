@@ -1,0 +1,139 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat05/Parte 3/simulation/qsim
+T_opt
+!s110 1716833237
+VdGPJcb3ROKYJPRL=8^J[n2
+04 18 11 work timern_vhd_vec_tst timern_arch 1
+=1-18c04d30a0ae-6654cbd4-314-397c
+R1
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+Etimern
+Z3 w1716833234
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z5 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+Z6 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z7 DPx6 altera 11 dffeas_pack 0 22 mB4IFnUT3:DoZN@NS]Gzg0
+Z8 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z9 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z10 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z11 DPx6 altera 28 altera_primitives_components 0 22 >1_OP3SHemAi5ZBLF?7g43
+!i122 26
+R2
+Z12 8TimerN_Demo.vho
+Z13 FTimerN_Demo.vho
+l0
+L37 1
+VS9z>nk8^0hanG<6o;g3WA3
+!s100 mQbQO0El9R[W;a6H;SkQn1
+Z14 OL;C;2023.3;77
+32
+Z15 !s110 1716833235
+!i10b 1
+Z16 !s108 1716833235.000000
+Z17 !s90 -work|work|TimerN_Demo.vho|
+Z18 !s107 TimerN_Demo.vho|
+!i113 0
+Z19 o-work work
+Z20 tExplicit 1 CvgOpt 0
+Astructure
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+R11
+DEx4 work 6 timern 0 22 S9z>nk8^0hanG<6o;g3WA3
+!i122 26
+l78
+L47 262
+V^eUTGaH;>oH2a9cBgbBYf3
+!s100 a9@AF6HIHTcXdVLT@Io7E3
+R14
+32
+R15
+!i10b 1
+R16
+R17
+R18
+!i113 0
+R19
+R20
+Etimern_vhd_vec_tst
+R3
+R9
+R10
+!i122 27
+R2
+Z21 8TimerN.vwf.vht
+Z22 FTimerN.vwf.vht
+l0
+L32 1
+Vo`;f_@Ba0Nm:0e=SJeOnn0
+!s100 hab84b_@:nWXbVggcCD]83
+R14
+32
+Z23 !s110 1716833236
+!i10b 1
+R16
+Z24 !s90 -work|work|TimerN.vwf.vht|
+Z25 !s107 TimerN.vwf.vht|
+!i113 0
+R19
+R20
+Atimern_arch
+R9
+R10
+DEx4 work 18 timern_vhd_vec_tst 0 22 o`;f_@Ba0Nm:0e=SJeOnn0
+!i122 27
+l51
+L34 87
+VDj8f6_jSnnc2G_ZDOJIQO1
+!s100 ^53@U_i7:kBY1PJeAh0610
+R14
+32
+R23
+!i10b 1
+R16
+R24
+R25
+!i113 0
+R19
+R20

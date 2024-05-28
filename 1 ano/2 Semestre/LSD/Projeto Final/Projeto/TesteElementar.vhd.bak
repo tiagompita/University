@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity TesteElementar is
+
+	port (clk : in std_logic;
+			start_btn : in std_logic;
+			don : out std_logic_vector(31 downto 0));
+			
+end TesteElementar;
+
+architecture Behav of TesteElementar is
+	
+	signal free_run_counter : unsigned(31 downto 0) := (others => '0');
+	signal delay : unsigned(31 downto 0) := (others => '0');
+	
+begin
+	
+	process(clk)
+	begin
+		if (rising_edge(clk)) then
+			free_run_counter <= free_run_counter + 1;
+			if (start_btn = '1') then
+				delay <= free_run_counter;
+			end if;
+		end if;
+	
+	don <= std_logic_vector(delay);
+	
+end Behav;

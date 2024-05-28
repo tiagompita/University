@@ -8,11 +8,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "enable",
-					"strict" : false
-				},
-				{
-					"name" : "reset",
+					"name" : "start",
 					"strict" : false
 				},
 				{
@@ -20,7 +16,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "start",
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
 					"strict" : false
 				}
 			]

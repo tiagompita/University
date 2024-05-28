@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Voo",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.Voo",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",

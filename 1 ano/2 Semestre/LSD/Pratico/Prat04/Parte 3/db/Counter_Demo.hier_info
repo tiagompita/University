@@ -1,0 +1,31 @@
+|CounterLoadUpDown4
+clk => s_count[0].CLK
+clk => s_count[1].CLK
+clk => s_count[2].CLK
+clk => s_count[3].CLK
+reset => s_count.OUTPUTSELECT
+reset => s_count.OUTPUTSELECT
+reset => s_count.OUTPUTSELECT
+reset => s_count.OUTPUTSELECT
+upDown => s_count.OUTPUTSELECT
+upDown => s_count.OUTPUTSELECT
+upDown => s_count.OUTPUTSELECT
+upDown => s_count.OUTPUTSELECT
+load => s_count.OUTPUTSELECT
+load => s_count.OUTPUTSELECT
+load => s_count.OUTPUTSELECT
+load => s_count.OUTPUTSELECT
+enable => s_count.OUTPUTSELECT
+enable => s_count.OUTPUTSELECT
+enable => s_count.OUTPUTSELECT
+enable => s_count.OUTPUTSELECT
+dataIn[0] => s_count.DATAB
+dataIn[1] => s_count.DATAB
+dataIn[2] => s_count.DATAB
+dataIn[3] => s_count.DATAB
+dataOut[0] << s_count[0].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] << s_count[1].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] << s_count[2].DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] << s_count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -7,29 +7,32 @@ import java.time.format.*;
 
 public class Voo {
 
-    private static Map<String, List<String>> voos;
-    private static List<List<String>> infos;
-    private static String path = "C:\\University\\1 ano\\2 Semestre\\POO\\src\\aula11\\Ex4\\";
+    private Map<String, List<String>> voos;
+    private String path = "C:\\Universidade\\University\\1 ano\\2 Semestre\\POO\\src\\aula11\\Ex4\\";
 
     public Voo() {
         voos = new HashMap<>();
-        infos = new ArrayList<>();
     }
 
     public void load(String filename) {
-
         String file = path + filename;
 
-        try (Scanner scan = new Scanner(new File(file), "UTF-8").useDelimiter("[\\t\\n\\x0B\\f]+")) {
-            scan.nextLine();
+        try (Scanner scan = new Scanner(new File(file), "UTF-8")) {
+            scan.nextLine(); // Skip header
 
-            while (scan.hasNext()) {
+            while (scan.hasNextLine()) {
                 List<String> info = new ArrayList<>();
-                String hora = scan.next();
-                String voo = scan.next();
-                String companhia = "Companhia";
-                String origem = scan.next();
-                String atraso = scan.next();
+                String line = scan.nextLine();
+                String[] parts = line.split("\t");
+
+                if (parts.length < 3) {
+                    continue; // Skip malformed lines
+                }
+
+                String hora = parts[0];
+                String voo = parts[1];
+                String origem = parts[2];
+                String atraso = parts.length > 3 ? parts[3] : "";
 
                 info.add(hora); // Hora
                 info.add(companhia); // Companhia
@@ -51,7 +54,6 @@ public class Voo {
                         info.add("-"); // Obs
                     }
                 }
-                infos.add(info);
                 voos.put(voo, info);
             }
         } catch (FileNotFoundException e) {
@@ -59,7 +61,6 @@ public class Voo {
         }
 
         System.out.println(voos.get("IB 8720"));
-        System.out.println(voos);
     }
 
     public void table() {
@@ -79,6 +80,6 @@ public class Voo {
     public static void main(String[] args) {
         Voo voo = new Voo();
         voo.load("voos.txt");
-        voo.table();
+        /* voo.table(); */
     }
 }
