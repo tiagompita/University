@@ -34,6 +34,8 @@ public class BooksTester {
             System.out.println(bm.calculateBookLoanCost(1, 5)); // (days, id) -- Book does not exist!
         } catch (Error e) {
             System.out.println("An error occurred: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
         // --------------------------
 
@@ -41,7 +43,11 @@ public class BooksTester {
         System.out.println("------------------");
         // --------------------------
 
-        bm.readFile("C:\\University\\1 ano\\2 Semestre\\POO\\src\\aula12\\120152\\src\\books.txt");
+        try {
+            bm.readFile("C:\\University\\1 ano\\2 Semestre\\POO\\src\\aula12\\120152\\src\\books.txt");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
         bm.printAllBooks();
         // --------------------------
 

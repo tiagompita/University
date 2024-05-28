@@ -1,7 +1,6 @@
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class Book {
 
@@ -23,14 +22,13 @@ public class Book {
             if (ISBN.replaceAll("-", "").matches("\\d+")) {
                 this.ISBN = ISBN;
             } else {
-                throw new Error("Invalid ISBN: not numeric");
+                throw new IllegalArgumentException("Invalid ISBN: not numeric");
             }
         } else {
-            throw new Error("Invalid ISBN: incorrect length");
+            throw new IllegalArgumentException("Invalid ISBN: incorrect length");
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.DataLancamento = LocalDate.parse(DataLancamento, formatter);
-    
         IDs++;
     }
 
