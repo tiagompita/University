@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'pulse_gen:pulse|pulse'
+Slack : -2.895
+TNS   : -166.150
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -2.457
+TNS   : -39.911
+
+Type  : Slow 1200mV 85C Model Hold 'pulse_gen:pulse|pulse'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.545
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'pulse_gen:pulse|pulse'
+Slack : -0.665
+TNS   : -40.123
+
+Type  : Slow 1200mV 85C Model Removal 'pulse_gen:pulse|pulse'
+Slack : 0.627
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -29.985
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
+Slack : -1.285
+TNS   : -95.090
+
+Type  : Slow 1200mV 0C Model Setup 'pulse_gen:pulse|pulse'
+Slack : -2.484
+TNS   : -145.424
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.152
+TNS   : -34.692
+
+Type  : Slow 1200mV 0C Model Hold 'pulse_gen:pulse|pulse'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.491
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'pulse_gen:pulse|pulse'
+Slack : -0.500
+TNS   : -30.034
+
+Type  : Slow 1200mV 0C Model Removal 'pulse_gen:pulse|pulse'
+Slack : 0.554
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -29.985
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
+Slack : -1.285
+TNS   : -95.090
+
+Type  : Fast 1200mV 0C Model Setup 'pulse_gen:pulse|pulse'
+Slack : -0.919
+TNS   : -41.676
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -0.637
+TNS   : -9.834
+
+Type  : Fast 1200mV 0C Model Hold 'pulse_gen:pulse|pulse'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.248
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'pulse_gen:pulse|pulse'
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'pulse_gen:pulse|pulse'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -25.346
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
+Slack : -1.000
+TNS   : -74.000
+
+------------------------------------------------------------

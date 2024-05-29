@@ -47,7 +47,7 @@ https://fpgasoftware.intel.com/eula.
 	)
 	(parameter
 		"kHzClkFreq"
-		"50000"
+		"1000"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
@@ -57,7 +57,7 @@ https://fpgasoftware.intel.com/eula.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"inPolarity"
-		"'1'"
+		"'0'"
 		""
 		(type "PARAMETER_ENUM")	)
 	(parameter

@@ -3,61 +3,106 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity TesteElementar is
-
 	port (
-		clk : in std_logic;
-		reset : in std_logic;
-		start_btn : in std_logic;
-		stimulus : out std_logic; -- estímulo visual
-		treac : out std_logic_vector(31 downto 0) -- tempo de reação
-		);
+		CLOCK_50 : in std_logic;
+		start : in std_logic;
+		KEY : in std_logic_vector(1 downto 0);
 		
+		HEX0 : out std_logic_vector(6 downto 0);
+		HEX1 : out std_logic_vector(6 downto 0);
+		HEX2 : out std_logic_vector(6 downto 0);
+		HEX3 : out std_logic_vector(6 downto 0);
+		
+		LEDG : out std_logic_vector(0 downto 0)
+
+	);
 end TesteElementar;
 
 architecture Behav of TesteElementar is
+	signal CleanStart : std_logic;
+	signal CleanReset : std_logic;
 
-	signal free_run_counter : unsigned(31 downto 0) := (others => '0');
-	signal don : unsigned(31 downto 0) := (others => '0');
-	signal reaction_start : unsigned(31 downto 0) := (others => '0');
-	signal reaction_time : unsigned(31 downto 0) := (others => '0');
-	signal stimulus_active : std_logic := '0';
+	signal randomTime : std_logic_vector(13 downto 0);
+	signal clk_1kHZ : std_logic;
+	signal reactTime : std_logic_vector(13 downto 0);
+	signal bcd_out : std_logic_vector(15 downto 0);
 	
 begin
 
-	process(clk)
-	begin
-		if (rising_edge(clk)) then
-			if (reset = '1') then
-				
-				free_run_counter <= (others => '0');
-				don <= (others => '0');
-				reaction_start <= (others => '0');
-				reaction_time <= (others => '0');
-				stimulus_active <= '0';
-				stimulus <= '0';
-				
-			else
-				free_run_counter <= free_run_counter + 1;
+	--pulse gen
+	pulse : entity work.pulse_gen(Behavioral)
+				port map(clk => CLOCK_50,
+							reset => CleanReset,
+							pulse => clk_1kHZ
+							);
+
+	-- Instantiate RandomTimeGen
+	RTG: entity work.RandomTimeGen(Behav)
+	port map (
+		clk => clk_1kHZ,
+		reset => CleanReset,
+		randomTime => randomTime
+	);
+
+	-- Instantiate DebounceUnit
+	DBstart : entity work.DebounceUnit(Behav)
+	port map (
+		clk => CLOCK_50,
+		key_in => KEY(0),
+		key_out => CleanStart
+	);
+	
+	DBreset : entity work.DebounceUnit(Behav)
+	port map (
+		clk => CLOCK_50,
+		key_in => KEY(1),
+		key_out => CleanReset
+	);
+
+		
+	--Light
+	LightStimulus : entity work.LightStimulus(Behavioral)
+			port map(
+						clk => clk_1kHZ,
+						reset => CleanReset,
+						start => CleanStart,
+						randomTime => randomTime,
+						reactTime => reactTime,
+						light => LEDG(0)
+						);
 			
-				if (start_btn = '1' and stimulus_active = '0') then
-					don <= free_run_counter;
-					stimulus_active <= '1';
-					
-				elsif (free_run_counter >= don and stimulus_active = '1') then
-					stimulus <= '1';
-					reaction_start <= free_run_counter;
-					
-				elsif (start_btn = '1' and stimulus_active = '1') then
-					reaction_time <= free_run_counter - reaction_start;
-					stimulus <= '0';
-					stimulus_active <= '0';
-					don <= free_run_counter; -- inicia um novo ciclo de teste
-					
-				end if;
-			end if;
-		end if;
-	end process;
 	
-	treac <= std_logic_vector(reaction_time);
+	--Binary to BCD
+	BinToBCD : entity work.BinToBCD(behavioral)
+	port map (
+		binary_in => reactTime,
+		bcd_out => bcd_out);
+		
+		
+	-- Hex Display
+	DisplayMil : entity work.Bin7SegDecoder(Behavioral)
+	port map (
+		binInput => bcd_out(15 downto 12),
+		decOut_n => HEX3
+		);
 	
+	DisplayCent : entity work.Bin7SegDecoder(Behavioral)
+	port map (
+		binInput => bcd_out(11 downto 8),
+		decOut_n => HEX2
+		);
+	
+	DisplayDec : entity work.Bin7SegDecoder(Behavioral)
+	port map (
+		binInput => bcd_out(7 downto 4),
+		decOut_n => HEX1
+		);
+		
+	DisplayUn : entity work.Bin7SegDecoder(Behavioral)
+	port map (
+		binInput => bcd_out(3 downto 0),
+		decOut_n => HEX0
+		);
+	
+
 end Behav;

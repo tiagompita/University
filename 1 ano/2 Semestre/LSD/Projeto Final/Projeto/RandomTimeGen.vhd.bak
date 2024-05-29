@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity RandomTimeGen is
+	port (
+		clk : in std_logic;
+		reset : in std_logic;
+		randomTime : out std_logic_vector(13 downto 0) --0 to 9999ms
+	);
+end RandomTimeGen;
+
+architecture Behav of RandomTimeGen is
+	constant min : integer := 0;
+	constant max : integer := 9999;
+	signal temp : integer range(min, max) := 0;
+begin
+	process(clk)
+	begin
+		if(rising_edge(clk)) then
+			if (reset = '1') then
+				randomTime <= (others => '0');
+				temp <= 0;
+			else
+				if temp = max then
+					temp <= min;
+				else
+					temp <= temp + 1;
+				end if;
+			end if;
+		end if;
+	end process;
+
+	randomTime <= std_logic_vector(to_unsigned(temp, randomTime'length));
+end Behav;

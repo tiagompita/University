@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity ClkDividerN is
-	generic(divFactor : positive := 2);
+	generic(divFactor : positive := 50000);
 	port(clkIn	: in  std_logic;
 		  clkOut	: out std_logic);
 end ClkDividerN;
