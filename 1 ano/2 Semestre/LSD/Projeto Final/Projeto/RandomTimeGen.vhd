@@ -17,9 +17,9 @@ architecture Behav of RandomTimeGen is
 begin
 	process(clk, reset) -- Include both clk and reset in the sensitivity list
 	begin
-		if reset = '1' then -- Check for reset first
+		if (reset = '1') then -- Check for reset first
 			temp <= min;
-		elsif rising_edge(clk) then -- Then proceed with the rest of the logic at the rising edge of clk
+		elsif (rising_edge(clk)) then -- Then proceed with the rest of the logic at the rising edge of clk
 			if temp = max then
 				temp <= min;
 			else

@@ -2,100 +2,172 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'pulse_gen:10Hz|pulse'
+Slack : -3.553
+TNS   : -45.163
+
 Type  : Slow 1200mV 85C Model Setup 'pulse_gen:pulse|pulse'
-Slack : -2.895
-TNS   : -166.150
+Slack : -2.860
+TNS   : -134.616
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -2.457
-TNS   : -39.911
+Slack : -2.661
+TNS   : -126.832
+
+Type  : Slow 1200mV 85C Model Setup 'pulse_gen:1Hz|pulse'
+Slack : 0.210
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'pulse_gen:pulse|pulse'
-Slack : 0.405
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'pulse_gen:10Hz|pulse'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'pulse_gen:1Hz|pulse'
+Slack : 0.445
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.545
+Slack : 0.557
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'pulse_gen:pulse|pulse'
-Slack : -0.665
-TNS   : -40.123
+Slack : -0.710
+TNS   : -24.143
 
 Type  : Slow 1200mV 85C Model Removal 'pulse_gen:pulse|pulse'
-Slack : 0.627
+Slack : 0.708
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -29.985
+TNS   : -92.950
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
 Slack : -1.285
-TNS   : -95.090
+TNS   : -82.240
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulse_gen:10Hz|pulse'
+Slack : -1.285
+TNS   : -23.130
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulse_gen:1Hz|pulse'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Slow 1200mV 0C Model Setup 'pulse_gen:10Hz|pulse'
+Slack : -3.171
+TNS   : -39.625
 
 Type  : Slow 1200mV 0C Model Setup 'pulse_gen:pulse|pulse'
-Slack : -2.484
-TNS   : -145.424
+Slack : -2.474
+TNS   : -115.845
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -2.152
-TNS   : -34.692
+Slack : -2.333
+TNS   : -108.195
+
+Type  : Slow 1200mV 0C Model Setup 'pulse_gen:1Hz|pulse'
+Slack : 0.297
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'pulse_gen:pulse|pulse'
-Slack : 0.354
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'pulse_gen:10Hz|pulse'
+Slack : 0.388
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'pulse_gen:1Hz|pulse'
+Slack : 0.398
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.491
+Slack : 0.498
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'pulse_gen:pulse|pulse'
-Slack : -0.500
-TNS   : -30.034
+Slack : -0.580
+TNS   : -18.002
 
 Type  : Slow 1200mV 0C Model Removal 'pulse_gen:pulse|pulse'
-Slack : 0.554
+Slack : 0.637
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -29.985
+TNS   : -92.950
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
 Slack : -1.285
-TNS   : -95.090
+TNS   : -82.240
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulse_gen:10Hz|pulse'
+Slack : -1.285
+TNS   : -23.130
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulse_gen:1Hz|pulse'
+Slack : -1.285
+TNS   : -1.285
+
+Type  : Fast 1200mV 0C Model Setup 'pulse_gen:10Hz|pulse'
+Slack : -1.205
+TNS   : -15.075
 
 Type  : Fast 1200mV 0C Model Setup 'pulse_gen:pulse|pulse'
-Slack : -0.919
-TNS   : -41.676
+Slack : -0.903
+TNS   : -33.914
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -0.637
-TNS   : -9.834
+Slack : -0.778
+TNS   : -28.845
+
+Type  : Fast 1200mV 0C Model Setup 'pulse_gen:1Hz|pulse'
+Slack : 0.626
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'pulse_gen:pulse|pulse'
-Slack : 0.182
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'pulse_gen:10Hz|pulse'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'pulse_gen:1Hz|pulse'
+Slack : 0.208
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.248
+Slack : 0.256
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'pulse_gen:pulse|pulse'
-Slack : 0.089
+Slack : 0.072
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'pulse_gen:pulse|pulse'
-Slack : 0.304
+Slack : 0.314
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -25.346
+TNS   : -77.838
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulse_gen:pulse|pulse'
 Slack : -1.000
-TNS   : -74.000
+TNS   : -64.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulse_gen:10Hz|pulse'
+Slack : -1.000
+TNS   : -18.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulse_gen:1Hz|pulse'
+Slack : -1.000
+TNS   : -1.000
 
 ------------------------------------------------------------

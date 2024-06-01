@@ -1,0 +1,6 @@
+
+State Machine - |TesteElementar|DonAssignment:don|state
+Name state.enable state.running state.idle 
+state.idle 0 0 0 
+state.running 0 1 1 
+state.enable 1 0 1 

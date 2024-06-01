@@ -13,7 +13,7 @@ end ControlUnit;
 
 architecture Behavioral of ControlUnit is
 
-	type TState is (CLEARED, STARTED, STOPPED, LAPVIEW, PAUSED);
+	type TState is (CLEARED, STARTED, STOPPED, LAPVIEW);
 	signal s_currentState, s_nextState : TState;
 
 begin
@@ -71,24 +71,9 @@ begin
 			regEnb <= '0';
 			if (laprst = '1') then
 				s_nextState <= STARTED;
-			elsif (statop = '1') then
-				s_nextState <= PAUSED;
 			else
 				s_nextState <= LAPVIEW;
 			end if;
-			
-		when PAUSED =>
-			cntRst <= '0';
-			cntEnb <= '0';
-			regEnb <= '0';
-			if (statop = '1') then
-				s_nextState <= STOPPED;
-			elsif (laprst = '1') then
-				s_nextState <= STARTED;
-			else
-				s_nextState <= PAUSED;
-			end if;
-
 		end case;
 
 	end process;

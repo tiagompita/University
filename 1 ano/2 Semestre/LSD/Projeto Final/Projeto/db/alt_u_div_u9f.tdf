@@ -1,5 +1,5 @@
 --alt_u_div DEVICE_FAMILY="Cyclone IV E" LPM_PIPELINE=0 MAXIMIZE_SPEED=5 SKIP_BITS=0 WIDTH_D=10 WIDTH_N=14 WIDTH_Q=14 WIDTH_R=10 denominator numerator quotient remainder
---VERSION_BEGIN 22.1 cbx_cycloneii 2023:07:21:07:12:21:SC cbx_lpm_abs 2023:07:21:07:12:21:SC cbx_lpm_add_sub 2023:07:21:07:12:21:SC cbx_lpm_divide 2023:07:21:07:12:21:SC cbx_mgl 2023:07:21:07:12:36:SC cbx_nadder 2023:07:21:07:12:21:SC cbx_stratix 2023:07:21:07:12:21:SC cbx_stratixii 2023:07:21:07:12:21:SC cbx_util_mgl 2023:07:21:07:12:21:SC  VERSION_END
+--VERSION_BEGIN 23.1 cbx_cycloneii 2023:11:29:19:36:39:SC cbx_lpm_abs 2023:11:29:19:36:39:SC cbx_lpm_add_sub 2023:11:29:19:36:39:SC cbx_lpm_divide 2023:11:29:19:36:39:SC cbx_mgl 2023:11:29:19:36:47:SC cbx_nadder 2023:11:29:19:36:39:SC cbx_stratix 2023:11:29:19:36:39:SC cbx_stratixii 2023:11:29:19:36:39:SC cbx_util_mgl 2023:11:29:19:36:39:SC  VERSION_END
 
 
 -- Copyright (C) 2023  Intel Corporation. All rights reserved.

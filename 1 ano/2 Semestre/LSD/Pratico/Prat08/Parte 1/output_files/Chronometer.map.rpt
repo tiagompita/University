@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Chronometer
-Thu May  9 11:58:29 2024
-Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Wed May 29 18:03:25 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
 ---------------------
@@ -51,15 +51,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May  9 11:58:29 2024          ;
-; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Wed May 29 18:03:25 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; Chronometer                                    ;
 ; Top-level Entity Name              ; Chronometer                                    ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 560                                            ;
-;     Total combinational functions  ; 542                                            ;
-;     Dedicated logic registers      ; 104                                            ;
-; Total registers                    ; 104                                            ;
+; Total logic elements               ; 554                                            ;
+;     Total combinational functions  ; 536                                            ;
+;     Dedicated logic registers      ; 103                                            ;
+; Total registers                    ; 103                                            ;
 ; Total pins                         ; 34                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -159,42 +159,41 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
+;     Processors 2-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                               ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; RegN.vhd                         ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd                   ;         ;
-; PulseGeneratorN.vhd              ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd        ;         ;
-; DebounceUnit.vhd                 ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd           ;         ;
-; ControlUnit.vhd                  ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd            ;         ;
-; CntBCDUp4.vhd                    ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd              ;         ;
-; ClkDividerN.vhd                  ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd            ;         ;
-; Chronometer.bdf                  ; yes             ; User Block Diagram/Schematic File  ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Chronometer.bdf            ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd         ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                   ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc                                  ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                              ;         ;
-; aglobal221.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                                   ;         ;
-; db/lpm_divide_ecm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/lpm_divide_ecm.tdf      ;         ;
-; db/sign_div_unsign_3nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/sign_div_unsign_3nh.tdf ;         ;
-; db/alt_u_div_q9f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/alt_u_div_q9f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_8pc.tdf         ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------+---------+
+; RegN.vhd                         ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd                   ;         ;
+; PulseGeneratorN.vhd              ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd        ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd           ;         ;
+; ControlUnit.vhd                  ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd            ;         ;
+; CntBCDUp4.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd              ;         ;
+; ClkDividerN.vhd                  ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd            ;         ;
+; Chronometer.bdf                  ; yes             ; User Block Diagram/Schematic File  ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Chronometer.bdf            ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                          ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                         ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                     ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                          ;         ;
+; db/lpm_divide_ecm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/lpm_divide_ecm.tdf      ;         ;
+; db/sign_div_unsign_3nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/sign_div_unsign_3nh.tdf ;         ;
+; db/alt_u_div_q9f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/alt_u_div_q9f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_8pc.tdf         ;         ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------------------+
@@ -202,20 +201,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------------+
 ; Resource                                    ; Usage                             ;
 +---------------------------------------------+-----------------------------------+
-; Estimated Total logic elements              ; 560                               ;
+; Estimated Total logic elements              ; 554                               ;
 ;                                             ;                                   ;
-; Total combinational functions               ; 542                               ;
+; Total combinational functions               ; 536                               ;
 ; Logic element usage by number of LUT inputs ;                                   ;
-;     -- 4 input functions                    ; 189                               ;
-;     -- 3 input functions                    ; 121                               ;
-;     -- <=2 input functions                  ; 232                               ;
+;     -- 4 input functions                    ; 174                               ;
+;     -- 3 input functions                    ; 120                               ;
+;     -- <=2 input functions                  ; 242                               ;
 ;                                             ;                                   ;
 ; Logic elements by mode                      ;                                   ;
-;     -- normal mode                          ; 395                               ;
+;     -- normal mode                          ; 389                               ;
 ;     -- arithmetic mode                      ; 147                               ;
 ;                                             ;                                   ;
-; Total registers                             ; 104                               ;
-;     -- Dedicated logic registers            ; 104                               ;
+; Total registers                             ; 103                               ;
+;     -- Dedicated logic registers            ; 103                               ;
 ;     -- I/O registers                        ; 0                                 ;
 ;                                             ;                                   ;
 ; I/O pins                                    ; 34                                ;
@@ -223,9 +222,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                                 ;
 ;                                             ;                                   ;
 ; Maximum fan-out node                        ; ClkDividerN:clk_divider_50|clkOut ;
-; Maximum fan-out                             ; 97                                ;
-; Total fan-out                               ; 1924                              ;
-; Average fan-out                             ; 2.69                              ;
+; Maximum fan-out                             ; 96                                ;
+; Total fan-out                               ; 1877                              ;
+; Average fan-out                             ; 2.65                              ;
 +---------------------------------------------+-----------------------------------+
 
 
@@ -234,14 +233,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                          ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |Chronometer                              ; 542 (0)             ; 104 (0)                   ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |Chronometer                                                                                                                                 ; Chronometer         ; work         ;
+; |Chronometer                              ; 536 (0)             ; 103 (0)                   ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |Chronometer                                                                                                                                 ; Chronometer         ; work         ;
 ;    |Bin7SegDecoder:disp_0_decoder|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|Bin7SegDecoder:disp_0_decoder                                                                                                   ; Bin7SegDecoder      ; work         ;
 ;    |Bin7SegDecoder:disp_1_decoder|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|Bin7SegDecoder:disp_1_decoder                                                                                                   ; Bin7SegDecoder      ; work         ;
 ;    |Bin7SegDecoder:disp_2_decoder|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|Bin7SegDecoder:disp_2_decoder                                                                                                   ; Bin7SegDecoder      ; work         ;
 ;    |Bin7SegDecoder:disp_3_decoder|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|Bin7SegDecoder:disp_3_decoder                                                                                                   ; Bin7SegDecoder      ; work         ;
 ;    |ClkDividerN:clk_divider_50|           ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|ClkDividerN:clk_divider_50                                                                                                      ; ClkDividerN         ; work         ;
-;    |CntBCDUp4:bcd_counter|                ; 56 (56)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|CntBCDUp4:bcd_counter                                                                                                           ; CntBCDUp4           ; work         ;
-;    |ControlUnit:control_unit|             ; 12 (12)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|ControlUnit:control_unit                                                                                                        ; ControlUnit         ; work         ;
+;    |CntBCDUp4:bcd_counter|                ; 55 (55)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|CntBCDUp4:bcd_counter                                                                                                           ; CntBCDUp4           ; work         ;
+;    |ControlUnit:control_unit|             ; 7 (7)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|ControlUnit:control_unit                                                                                                        ; ControlUnit         ; work         ;
 ;    |DebounceUnit:laprst_debouncer|        ; 51 (51)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|DebounceUnit:laprst_debouncer                                                                                                   ; DebounceUnit        ; work         ;
 ;    |DebounceUnit:statop_debouncer|        ; 51 (51)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|DebounceUnit:statop_debouncer                                                                                                   ; DebounceUnit        ; work         ;
 ;    |PulseGeneratorN:pulse_generator|      ; 335 (31)            ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Chronometer|PulseGeneratorN:pulse_generator                                                                                                 ; PulseGeneratorN     ; work         ;
@@ -255,17 +254,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Chronometer|ControlUnit:control_unit|s_currentState                                                                               ;
-+------------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+
-; Name                   ; s_currentState.PAUSED ; s_currentState.LAPVIEW ; s_currentState.STOPPED ; s_currentState.STARTED ; s_currentState.CLEARED ;
-+------------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+
-; s_currentState.CLEARED ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ;
-; s_currentState.STARTED ; 0                     ; 0                      ; 0                      ; 1                      ; 1                      ;
-; s_currentState.STOPPED ; 0                     ; 0                      ; 1                      ; 0                      ; 1                      ;
-; s_currentState.LAPVIEW ; 0                     ; 1                      ; 0                      ; 0                      ; 1                      ;
-; s_currentState.PAUSED  ; 1                     ; 0                      ; 0                      ; 0                      ; 1                      ;
-+------------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Chronometer|ControlUnit:control_unit|s_currentState                                                       ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
+; Name                   ; s_currentState.LAPVIEW ; s_currentState.STOPPED ; s_currentState.STARTED ; s_currentState.CLEARED ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
+; s_currentState.CLEARED ; 0                      ; 0                      ; 0                      ; 0                      ;
+; s_currentState.STARTED ; 0                      ; 0                      ; 1                      ; 1                      ;
+; s_currentState.STOPPED ; 0                      ; 1                      ; 0                      ; 1                      ;
+; s_currentState.LAPVIEW ; 1                      ; 0                      ; 0                      ; 1                      ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
 
 
 +------------------------------------------------------+
@@ -273,8 +271,8 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 104   ;
-; Number of registers using Synchronous Clear  ; 28    ;
+; Total registers                              ; 103   ;
+; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -283,18 +281,18 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[3]               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[7]               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[11]              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[15]              ;
-; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |Chronometer|DebounceUnit:laprst_debouncer|s_debounceCnt[1] ;
-; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |Chronometer|DebounceUnit:statop_debouncer|s_debounceCnt[1] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[3]                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[7]                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[10]               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Chronometer|CntBCDUp4:bcd_counter|s_count[14]               ;
+; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |Chronometer|DebounceUnit:laprst_debouncer|s_debounceCnt[2]  ;
+; 5:1                ; 17 bits   ; 51 LEs        ; 34 LEs               ; 17 LEs                 ; Yes        ; |Chronometer|DebounceUnit:statop_debouncer|s_debounceCnt[12] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -384,23 +382,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 34                          ;
-; cycloneiii_ff         ; 104                         ;
+; cycloneiii_ff         ; 103                         ;
 ;     ENA               ; 62                          ;
-;     SCLR              ; 28                          ;
-;     plain             ; 14                          ;
-; cycloneiii_lcell_comb ; 546                         ;
+;     SCLR              ; 26                          ;
+;     plain             ; 15                          ;
+; cycloneiii_lcell_comb ; 540                         ;
 ;     arith             ; 147                         ;
 ;         2 data inputs ; 66                          ;
 ;         3 data inputs ; 81                          ;
-;     normal            ; 399                         ;
+;     normal            ; 393                         ;
 ;         0 data inputs ; 7                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 153                         ;
-;         3 data inputs ; 40                          ;
-;         4 data inputs ; 189                         ;
+;         2 data inputs ; 163                         ;
+;         3 data inputs ; 39                          ;
+;         4 data inputs ; 174                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 28.20                       ;
-; Average LUT depth     ; 16.23                       ;
+; Average LUT depth     ; 16.27                       ;
 +-----------------------+-----------------------------+
 
 
@@ -409,7 +407,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -418,34 +416,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Thu May  9 11:58:11 2024
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Wed May 29 18:03:18 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Chronometer -c Chronometer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file regn.vhd
-    Info (12022): Found design unit 1: RegN-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd Line: 14
-    Info (12023): Found entity 1: RegN File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd Line: 4
+    Info (12022): Found design unit 1: RegN-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd Line: 14
+    Info (12023): Found entity 1: RegN File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/RegN.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file pulsegeneratorn.vhd
-    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 14
-    Info (12023): Found entity 1: PulseGeneratorN File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 5
+    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 14
+    Info (12023): Found entity 1: PulseGeneratorN File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
-    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd Line: 15
-    Info (12023): Found entity 1: DebounceUnit File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd Line: 5
+    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd Line: 15
+    Info (12023): Found entity 1: DebounceUnit File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/DebounceUnit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file controlunit.vhd
-    Info (12022): Found design unit 1: ControlUnit-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd Line: 14
-    Info (12023): Found entity 1: ControlUnit File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd Line: 4
+    Info (12022): Found design unit 1: ControlUnit-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd Line: 14
+    Info (12023): Found entity 1: ControlUnit File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ControlUnit.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file cntbcdup4.vhd
-    Info (12022): Found design unit 1: CntBCDUp4-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd Line: 13
-    Info (12023): Found entity 1: CntBCDUp4 File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd Line: 5
+    Info (12022): Found design unit 1: CntBCDUp4-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd Line: 13
+    Info (12023): Found entity 1: CntBCDUp4 File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/CntBCDUp4.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
-    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd Line: 11
-    Info (12023): Found entity 1: ClkDividerN File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd Line: 5
+    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd Line: 11
+    Info (12023): Found entity 1: ClkDividerN File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/ClkDividerN.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file chronometer.bdf
     Info (12023): Found entity 1: Chronometer
 Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
-    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd Line: 9
-    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd Line: 4
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/Bin7SegDecoder.vhd Line: 4
 Info (12127): Elaborating entity "Chronometer" for the top level hierarchy
 Info (12128): Elaborating entity "Bin7SegDecoder" for hierarchy "Bin7SegDecoder:disp_0_decoder"
 Info (12128): Elaborating entity "RegN" for hierarchy "RegN:freeze_register"
@@ -455,36 +453,36 @@ Info (12128): Elaborating entity "DebounceUnit" for hierarchy "DebounceUnit:stat
 Info (12128): Elaborating entity "CntBCDUp4" for hierarchy "CntBCDUp4:bcd_counter"
 Info (12128): Elaborating entity "PulseGeneratorN" for hierarchy "PulseGeneratorN:pulse_generator"
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PulseGeneratorN:pulse_generator|Mod0" File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
-Info (12130): Elaborated megafunction instantiation "PulseGeneratorN:pulse_generator|lpm_divide:Mod0" File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
-Info (12133): Instantiated megafunction "PulseGeneratorN:pulse_generator|lpm_divide:Mod0" with the following parameter: File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PulseGeneratorN:pulse_generator|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
+Info (12130): Elaborated megafunction instantiation "PulseGeneratorN:pulse_generator|lpm_divide:Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
+Info (12133): Instantiated megafunction "PulseGeneratorN:pulse_generator|lpm_divide:Mod0" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/PulseGeneratorN.vhd Line: 32
     Info (12134): Parameter "LPM_WIDTHN" = "20"
     Info (12134): Parameter "LPM_WIDTHD" = "20"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ecm.tdf
-    Info (12023): Found entity 1: lpm_divide_ecm File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/lpm_divide_ecm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_ecm File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/lpm_divide_ecm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_3nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_3nh File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/sign_div_unsign_3nh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_3nh File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/sign_div_unsign_3nh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_q9f.tdf
-    Info (12023): Found entity 1: alt_u_div_q9f File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/alt_u_div_q9f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_q9f File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/alt_u_div_q9f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/tiago/Documents/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_8pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat08/Parte 1/db/add_sub_8pc.tdf Line: 23
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]"
-Info (21057): Implemented 594 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 588 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 560 logic cells
+    Info (21061): Implemented 554 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4912 megabytes
-    Info: Processing ended: Thu May  9 11:58:29 2024
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Peak virtual memory: 4871 megabytes
+    Info: Processing ended: Wed May 29 18:03:25 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
 
 

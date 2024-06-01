@@ -1,6 +1,6 @@
 Analysis & Synthesis report for ReactionTimer
-Wed May 29 15:35:02 2024
-Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Sat Jun  1 03:37:16 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
 ---------------------
@@ -13,17 +13,17 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: pulse_gen:pulse
- 12. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod3
- 13. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div2
- 14. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod2
- 15. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div1
- 16. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod1
- 17. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div0
- 18. Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod0
+  8. State Machine - |TesteElementar|DonAssignment:don|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: pulse_gen:1Hz
+ 14. Parameter Settings for User Entity Instance: pulse_gen:10Hz
+ 15. Parameter Settings for User Entity Instance: pulse_gen:pulse
+ 16. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Mod1
+ 17. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Mod0
  19. Post-Synthesis Netlist Statistics for Top Partition
  20. Elapsed Time Per Partition
  21. Analysis & Synthesis Messages
@@ -53,16 +53,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 29 15:35:02 2024          ;
-; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun  1 03:37:16 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; TesteElementar                                 ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 1,122                                          ;
-;     Total combinational functions  ; 1,107                                          ;
-;     Dedicated logic registers      ; 95                                             ;
-; Total registers                    ; 95                                             ;
-; Total pins                         ; 33                                             ;
+; Total logic elements               ; 334                                            ;
+;     Total combinational functions  ; 320                                            ;
+;     Dedicated logic registers      ; 153                                            ;
+; Total registers                    ; 153                                            ;
+; Total pins                         ; 56                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -161,129 +161,136 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processors 2-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
-; DebounceUnit.vhd                 ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd           ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd         ;         ;
-; TesteElementar.vhd               ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd         ;         ;
-; RandomTimeGen.vhd                ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd          ;         ;
-; LightStimulus.vhd                ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightStimulus.vhd          ;         ;
-; BinToBCD.vhd                     ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd               ;         ;
-; pulse_gen.vhd                    ; yes             ; User VHDL File               ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd              ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf            ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc           ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc       ;         ;
-; aglobal221.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc            ;         ;
-; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_kcm.tdf      ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9nh.tdf ;         ;
-; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf         ;         ;
-; db/lpm_divide_0jm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_0jm.tdf      ;         ;
-; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_olh.tdf ;         ;
-; db/alt_u_div_47f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_47f.tdf       ;         ;
-; db/lpm_divide_3jm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_3jm.tdf      ;         ;
-; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_rlh.tdf ;         ;
-; db/alt_u_div_a7f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a7f.tdf       ;         ;
-; db/lpm_divide_dkm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_dkm.tdf      ;         ;
-; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_5nh.tdf ;         ;
-; db/alt_u_div_u9f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_u9f.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                     ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
+; init/Bin7SegDecoderEN.vhd        ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd  ;         ;
+; init/init.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd              ;         ;
+; init/ConFDisplay.vhd             ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd       ;         ;
+; init/BinToBCD50.vhd              ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd        ;         ;
+; DonAssignment.vhd                ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd          ;         ;
+; LightAndReactionTime.vhd         ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd   ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd           ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd         ;         ;
+; RandomTimeGen.vhd                ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd          ;         ;
+; BinToBCD.vhd                     ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd               ;         ;
+; pulse_gen.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd              ;         ;
+; TesteElementar.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.bdf         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                         ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                        ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                    ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                         ;         ;
+; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_m9m.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_hhm.tdf      ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9kh.tdf ;         ;
+; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_64f.tdf       ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                         ;
-+---------------------------------------------+-----------------------+
-; Resource                                    ; Usage                 ;
-+---------------------------------------------+-----------------------+
-; Estimated Total logic elements              ; 1,122                 ;
-;                                             ;                       ;
-; Total combinational functions               ; 1107                  ;
-; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 237                   ;
-;     -- 3 input functions                    ; 285                   ;
-;     -- <=2 input functions                  ; 585                   ;
-;                                             ;                       ;
-; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 713                   ;
-;     -- arithmetic mode                      ; 394                   ;
-;                                             ;                       ;
-; Total registers                             ; 95                    ;
-;     -- Dedicated logic registers            ; 95                    ;
-;     -- I/O registers                        ; 0                     ;
-;                                             ;                       ;
-; I/O pins                                    ; 33                    ;
-;                                             ;                       ;
-; Embedded Multiplier 9-bit elements          ; 0                     ;
-;                                             ;                       ;
-; Maximum fan-out node                        ; pulse_gen:pulse|pulse ;
-; Maximum fan-out                             ; 74                    ;
-; Total fan-out                               ; 3258                  ;
-; Average fan-out                             ; 2.57                  ;
-+---------------------------------------------+-----------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 334            ;
+;                                             ;                ;
+; Total combinational functions               ; 320            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 73             ;
+;     -- 3 input functions                    ; 38             ;
+;     -- <=2 input functions                  ; 209            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 180            ;
+;     -- arithmetic mode                      ; 140            ;
+;                                             ;                ;
+; Total registers                             ; 153            ;
+;     -- Dedicated logic registers            ; 153            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 56             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 70             ;
+; Total fan-out                               ; 1337           ;
+; Average fan-out                             ; 2.29           ;
++---------------------------------------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                               ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |TesteElementar                           ; 1107 (0)            ; 95 (0)                    ; 0           ; 0            ; 0       ; 0         ; 33   ; 0            ; |TesteElementar                                                                                                                   ; TesteElementar      ; work         ;
-;    |Bin7SegDecoder:DisplayCent|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoder:DisplayCent                                                                                        ; Bin7SegDecoder      ; work         ;
-;    |Bin7SegDecoder:DisplayDec|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoder:DisplayDec                                                                                         ; Bin7SegDecoder      ; work         ;
-;    |Bin7SegDecoder:DisplayMil|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoder:DisplayMil                                                                                         ; Bin7SegDecoder      ; work         ;
-;    |Bin7SegDecoder:DisplayUn|             ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoder:DisplayUn                                                                                          ; Bin7SegDecoder      ; work         ;
-;    |BinToBCD:BinToBCD|                    ; 957 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD                                                                                                 ; BinToBCD            ; work         ;
-;       |lpm_divide:Div0|                   ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_dkm:auto_generated|  ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div0|lpm_divide_dkm:auto_generated                                                   ; lpm_divide_dkm      ; work         ;
-;             |sign_div_unsign_5nh:divider| ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div0|lpm_divide_dkm:auto_generated|sign_div_unsign_5nh:divider                       ; sign_div_unsign_5nh ; work         ;
-;                |alt_u_div_u9f:divider|    ; 93 (93)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div0|lpm_divide_dkm:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_u9f:divider ; alt_u_div_u9f       ; work         ;
-;       |lpm_divide:Div1|                   ; 136 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3jm:auto_generated|  ; 136 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div1|lpm_divide_3jm:auto_generated                                                   ; lpm_divide_3jm      ; work         ;
-;             |sign_div_unsign_rlh:divider| ; 136 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div1|lpm_divide_3jm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
-;                |alt_u_div_a7f:divider|    ; 136 (136)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div1|lpm_divide_3jm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_a7f:divider ; alt_u_div_a7f       ; work         ;
-;       |lpm_divide:Div2|                   ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_0jm:auto_generated|  ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div2|lpm_divide_0jm:auto_generated                                                   ; lpm_divide_0jm      ; work         ;
-;             |sign_div_unsign_olh:divider| ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
-;                |alt_u_div_47f:divider|    ; 122 (122)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Div2|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider ; alt_u_div_47f       ; work         ;
-;       |lpm_divide:Mod0|                   ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_kcm:auto_generated|  ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
-;       |lpm_divide:Mod1|                   ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_kcm:auto_generated|  ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 122 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 122 (122)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
-;       |lpm_divide:Mod2|                   ; 210 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_kcm:auto_generated|  ; 210 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 210 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 210 (210)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
-;       |lpm_divide:Mod3|                   ; 259 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod3                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_kcm:auto_generated|  ; 259 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod3|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 259 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_6af:divider|    ; 259 (259)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD:BinToBCD|lpm_divide:Mod3|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
-;    |DebounceUnit:DBreset|                 ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:DBreset                                                                                              ; DebounceUnit        ; work         ;
-;    |DebounceUnit:DBstart|                 ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:DBstart                                                                                              ; DebounceUnit        ; work         ;
-;    |LightStimulus:LightStimulus|          ; 37 (37)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|LightStimulus:LightStimulus                                                                                       ; LightStimulus       ; work         ;
-;    |RandomTimeGen:RTG|                    ; 58 (58)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|RandomTimeGen:RTG                                                                                                 ; RandomTimeGen       ; work         ;
-;    |pulse_gen:pulse|                      ; 23 (23)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|pulse_gen:pulse                                                                                                   ; pulse_gen           ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                            ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                               ; Entity Name          ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |TesteElementar                           ; 320 (2)             ; 153 (0)                   ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |TesteElementar                                                                                                                   ; TesteElementar       ; work         ;
+;    |Bin7SegDecoderEN:inst41|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoderEN:inst41                                                                                           ; Bin7SegDecoderEN     ; work         ;
+;    |Bin7SegDecoderEN:inst42|              ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|Bin7SegDecoderEN:inst42                                                                                           ; Bin7SegDecoderEN     ; work         ;
+;    |BinToBCD50:inst39|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|BinToBCD50:inst39|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |DebounceUnit:DB1|                     ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:DB1                                                                                                  ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst10|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:inst10                                                                                               ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst14|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:inst14                                                                                               ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst9|                   ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DebounceUnit:inst9                                                                                                ; DebounceUnit         ; work         ;
+;    |DonAssignment:don|                    ; 32 (32)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|DonAssignment:don                                                                                                 ; DonAssignment        ; work         ;
+;    |LightAndReactionTime:inst15|          ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|LightAndReactionTime:inst15                                                                                       ; LightAndReactionTime ; work         ;
+;    |RandomTimeGen:inst7|                  ; 51 (51)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|RandomTimeGen:inst7                                                                                               ; RandomTimeGen        ; work         ;
+;    |init:inst50|                          ; 37 (37)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|init:inst50                                                                                                       ; init                 ; work         ;
+;    |pulse_gen:10Hz|                       ; 39 (39)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|pulse_gen:10Hz                                                                                                    ; pulse_gen            ; work         ;
+;    |pulse_gen:1Hz|                        ; 45 (45)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|pulse_gen:1Hz                                                                                                     ; pulse_gen            ; work         ;
+;    |pulse_gen:pulse|                      ; 23 (23)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TesteElementar|pulse_gen:pulse                                                                                                   ; pulse_gen            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------+
+; State Machine - |TesteElementar|DonAssignment:don|state   ;
++---------------+--------------+---------------+------------+
+; Name          ; state.enable ; state.running ; state.idle ;
++---------------+--------------+---------------+------------+
+; state.idle    ; 0            ; 0             ; 0          ;
+; state.running ; 0            ; 1             ; 1          ;
+; state.enable  ; 1            ; 0             ; 1          ;
++---------------+--------------+---------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++------------------------------------------------+---------------------------------------------------------+
+; Register name                                  ; Reason for Removal                                      ;
++------------------------------------------------+---------------------------------------------------------+
+; LightAndReactionTime:inst15|light_active[1..7] ; Merged with LightAndReactionTime:inst15|light_active[0] ;
+; pulse_gen:1Hz|s_cnt[0]                         ; Merged with pulse_gen:10Hz|s_cnt[0]                     ;
+; pulse_gen:1Hz|s_cnt[1]                         ; Merged with pulse_gen:10Hz|s_cnt[1]                     ;
+; Total Number of Removed Registers = 9          ;                                                         ;
++------------------------------------------------+---------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -291,41 +298,82 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 95    ;
-; Number of registers using Synchronous Clear  ; 29    ;
+; Total registers                              ; 153   ;
+; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 13    ;
-; Number of registers using Asynchronous Clear ; 74    ;
+; Number of registers using Asynchronous Clear ; 51    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 39    ;
+; Number of registers using Clock Enable       ; 42    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; RandomTimeGen:RTG|temp[3]              ; 3       ;
-; RandomTimeGen:RTG|temp[5]              ; 3       ;
-; RandomTimeGen:RTG|temp[6]              ; 3       ;
-; RandomTimeGen:RTG|temp[7]              ; 3       ;
-; RandomTimeGen:RTG|temp[8]              ; 3       ;
-; RandomTimeGen:RTG|temp[9]              ; 3       ;
-; Total number of inverted registers = 6 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; DonAssignment:don|timer[3]              ; 2       ;
+; DonAssignment:don|timer[5]              ; 2       ;
+; DonAssignment:don|timer[7]              ; 2       ;
+; DonAssignment:don|timer[6]              ; 2       ;
+; DonAssignment:don|timer[9]              ; 2       ;
+; DonAssignment:don|timer[8]              ; 2       ;
+; init:inst50|s_blink                     ; 9       ;
+; init:inst50|counter[3]                  ; 8       ;
+; init:inst50|counter[1]                  ; 7       ;
+; DebounceUnit:DB1|s_key_prev             ; 62      ;
+; DebounceUnit:inst10|s_key_prev          ; 2       ;
+; DebounceUnit:inst9|s_key_prev           ; 2       ;
+; DebounceUnit:inst14|s_key_prev          ; 8       ;
+; DonAssignment:don|Don[3]                ; 1       ;
+; DonAssignment:don|Don[7]                ; 1       ;
+; DonAssignment:don|Don[8]                ; 1       ;
+; DonAssignment:don|Don[9]                ; 1       ;
+; DonAssignment:don|Don[12]               ; 1       ;
+; RandomTimeGen:inst7|temp[3]             ; 3       ;
+; RandomTimeGen:inst7|temp[5]             ; 3       ;
+; RandomTimeGen:inst7|temp[7]             ; 3       ;
+; RandomTimeGen:inst7|temp[6]             ; 3       ;
+; RandomTimeGen:inst7|temp[8]             ; 3       ;
+; RandomTimeGen:inst7|temp[9]             ; 3       ;
+; Total number of inverted registers = 24 ;         ;
++-----------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |TesteElementar|LightStimulus:LightStimulus|react_time[11] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TesteElementar|pulse_gen:pulse|s_cnt[10]                  ;
-; 6:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |TesteElementar|LightStimulus:LightStimulus|Don[0]         ;
-; 6:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |TesteElementar|LightStimulus:LightStimulus|react_start[4] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TesteElementar|pulse_gen:pulse|s_cnt[2]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |TesteElementar|init:inst50|counter[0]               ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |TesteElementar|DonAssignment:don|timer[10]          ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TesteElementar|LightAndReactionTime:inst15|state[1] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TesteElementar|init:inst50|counter[1]               ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |TesteElementar|DonAssignment:don|timer[3]           ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |TesteElementar|DonAssignment:don|Selector14         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_gen:1Hz ;
++----------------+----------+--------------------------------+
+; Parameter Name ; Value    ; Type                           ;
++----------------+----------+--------------------------------+
+; max            ; 50000000 ; Signed Integer                 ;
++----------------+----------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_gen:10Hz ;
++----------------+---------+----------------------------------+
+; Parameter Name ; Value   ; Type                             ;
++----------------+---------+----------------------------------+
+; max            ; 5000000 ; Signed Integer                   ;
++----------------+---------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +--------------------------------------------------------------+
@@ -339,18 +387,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod3 ;
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Mod1 ;
 +------------------------+----------------+------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                     ;
 +------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 14             ; Untyped                                  ;
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                  ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
@@ -362,18 +410,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div2 ;
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Div0 ;
 +------------------------+----------------+------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                     ;
 +------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
 ; LPM_WIDTHD             ; 4              ; Untyped                                  ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                  ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_0jm ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
@@ -385,110 +433,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod2 ;
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst39|lpm_divide:Mod0 ;
 +------------------------+----------------+------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                     ;
 +------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 14             ; Untyped                                  ;
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                  ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                  ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div1 ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 7              ; Untyped                                  ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_PIPELINE           ; 0              ; Untyped                                  ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_3jm ; Untyped                                  ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod1 ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 14             ; Untyped                                  ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_PIPELINE           ; 0              ; Untyped                                  ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                  ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Div0 ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 10             ; Untyped                                  ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_PIPELINE           ; 0              ; Untyped                                  ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_dkm ; Untyped                                  ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: BinToBCD:BinToBCD|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTHN             ; 14             ; Untyped                                  ;
-; LPM_WIDTHD             ; 14             ; Untyped                                  ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
-; LPM_PIPELINE           ; 0              ; Untyped                                  ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
-; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
@@ -504,28 +460,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 33                          ;
-; cycloneiii_ff         ; 95                          ;
-;     CLR               ; 35                          ;
-;     ENA CLR           ; 13                          ;
-;     ENA CLR SCLR      ; 13                          ;
+; boundary_port         ; 56                          ;
+; cycloneiii_ff         ; 153                         ;
+;     CLR               ; 38                          ;
+;     ENA               ; 19                          ;
 ;     ENA CLR SLD       ; 13                          ;
+;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 16                          ;
-;     plain             ; 5                           ;
-; cycloneiii_lcell_comb ; 1111                        ;
-;     arith             ; 394                         ;
-;         1 data inputs ; 21                          ;
-;         2 data inputs ; 108                         ;
-;         3 data inputs ; 265                         ;
-;     normal            ; 717                         ;
-;         0 data inputs ; 43                          ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 385                         ;
-;         3 data inputs ; 20                          ;
-;         4 data inputs ; 237                         ;
+;     plain             ; 57                          ;
+; cycloneiii_lcell_comb ; 322                         ;
+;     arith             ; 140                         ;
+;         2 data inputs ; 118                         ;
+;         3 data inputs ; 22                          ;
+;     normal            ; 182                         ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 18                          ;
+;         2 data inputs ; 67                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 73                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 30.90                       ;
-; Average LUT depth     ; 21.78                       ;
+; Max LUT depth         ; 9.20                        ;
+; Average LUT depth     ; 4.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -534,7 +489,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -543,140 +498,131 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Wed May 29 15:34:43 2024
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Sat Jun  1 03:37:09 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file init/bin7segdecoderen.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoderEN-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd Line: 12
+    Info (12023): Found entity 1: Bin7SegDecoderEN File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file init/init.vhd
+    Info (12022): Found design unit 1: init-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd Line: 28
+    Info (12023): Found entity 1: init File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file init/confdisplay.vhd
+    Info (12022): Found design unit 1: ConFDisplay-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd Line: 12
+    Info (12023): Found entity 1: ConFDisplay File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file init/bintobcd50.vhd
+    Info (12022): Found design unit 1: BinToBCD50-behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 13
+    Info (12023): Found entity 1: BinToBCD50 File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file donassignment.vhd
+    Info (12022): Found design unit 1: DonAssignment-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd Line: 15
+    Info (12023): Found entity 1: DonAssignment File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file lightandreactiontime.vhd
+    Info (12022): Found design unit 1: LightAndReactionTime-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd Line: 16
+    Info (12023): Found entity 1: LightAndReactionTime File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
-    Info (12022): Found design unit 1: DebounceUnit-Behav File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 12
-    Info (12023): Found entity 1: DebounceUnit File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
-    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/ClkDividerN.vhd Line: 11
-    Info (12023): Found entity 1: ClkDividerN File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/ClkDividerN.vhd Line: 5
+    Info (12022): Found design unit 1: DebounceUnit-Behav File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 12
+    Info (12023): Found entity 1: DebounceUnit File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
-    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 9
-    Info (12023): Found entity 1: Bin7SegDecoder File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file testeelementar.vhd
-    Info (12022): Found design unit 1: TesteElementar-Behav File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 21
-    Info (12023): Found entity 1: TesteElementar File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 5
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file randomtimegen.vhd
-    Info (12022): Found design unit 1: RandomTimeGen-Behav File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 13
-    Info (12023): Found entity 1: RandomTimeGen File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file lightstimulus.vhd
-    Info (12022): Found design unit 1: LightStimulus-Behavioral File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightStimulus.vhd Line: 16
-    Info (12023): Found entity 1: LightStimulus File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightStimulus.vhd Line: 5
+    Info (12022): Found design unit 1: RandomTimeGen-Behav File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 13
+    Info (12023): Found entity 1: RandomTimeGen File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bintobcd.vhd
-    Info (12022): Found design unit 1: BinToBCD-behavioral File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 12
-    Info (12023): Found entity 1: BinToBCD File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 5
+    Info (12022): Found design unit 1: BinToBCD-behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 15
+    Info (12023): Found entity 1: BinToBCD File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file pulse_gen.vhd
-    Info (12022): Found design unit 1: pulse_gen-Behavioral File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 14
-    Info (12023): Found entity 1: pulse_gen File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 5
+    Info (12022): Found design unit 1: pulse_gen-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 14
+    Info (12023): Found entity 1: pulse_gen File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file testeelementar.bdf
+    Info (12023): Found entity 1: TesteElementar
 Info (12127): Elaborating entity "TesteElementar" for the top level hierarchy
-Info (12129): Elaborating entity "pulse_gen" using architecture "A:behavioral" for hierarchy "pulse_gen:pulse" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 33
-Info (12129): Elaborating entity "RandomTimeGen" using architecture "A:behav" for hierarchy "RandomTimeGen:RTG" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 40
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behav" for hierarchy "DebounceUnit:DBstart" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 48
-Info (12129): Elaborating entity "LightStimulus" using architecture "A:behavioral" for hierarchy "LightStimulus:LightStimulus" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 64
-Info (12129): Elaborating entity "BinToBCD" using architecture "A:behavioral" for hierarchy "BinToBCD:BinToBCD" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(31): signal "thousands" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 31
-Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(32): signal "hundreds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 32
-Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(33): signal "tens" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(34): signal "ones" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 34
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:DisplayMil" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 83
-Info (278001): Inferred 7 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Mod3" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 28
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Div2" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Mod2" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Div1" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 26
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Mod1" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 26
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Div0" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 25
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD:BinToBCD|Mod0" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 25
-Info (12130): Elaborated megafunction instantiation "BinToBCD:BinToBCD|lpm_divide:Mod3" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 28
-Info (12133): Instantiated megafunction "BinToBCD:BinToBCD|lpm_divide:Mod3" with the following parameter: File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 28
-    Info (12134): Parameter "LPM_WIDTHN" = "14"
-    Info (12134): Parameter "LPM_WIDTHD" = "14"
+Info (12128): Elaborating entity "ConFDisplay" for hierarchy "ConFDisplay:inst38"
+Info (12128): Elaborating entity "init" for hierarchy "init:inst50"
+Info (12128): Elaborating entity "DebounceUnit" for hierarchy "DebounceUnit:DB1"
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:1Hz"
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:10Hz"
+Info (12128): Elaborating entity "Bin7SegDecoderEN" for hierarchy "Bin7SegDecoderEN:inst42"
+Info (12128): Elaborating entity "BinToBCD50" for hierarchy "BinToBCD50:inst39"
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(28): signal "tens" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(29): signal "ones" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 29
+Info (12128): Elaborating entity "LightAndReactionTime" for hierarchy "LightAndReactionTime:inst15"
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:pulse"
+Info (12128): Elaborating entity "DonAssignment" for hierarchy "DonAssignment:don"
+Info (12128): Elaborating entity "RandomTimeGen" for hierarchy "RandomTimeGen:inst7"
+Info (12128): Elaborating entity "BinToBCD" for hierarchy "BinToBCD:inst2"
+Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(34): signal "thousands" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(35): signal "hundreds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(36): signal "tens" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at BinToBCD.vhd(37): signal "ones" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 37
+Info (12128): Elaborating entity "Bin7SegDecoder" for hierarchy "Bin7SegDecoder:inst3"
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst39|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst39|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst39|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst39|lpm_divide:Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+Info (12133): Instantiated megafunction "BinToBCD50:inst39|lpm_divide:Mod1" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
-    Info (12023): Found entity 1: lpm_divide_kcm File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_kcm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9nh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
-    Info (12023): Found entity 1: alt_u_div_6af File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_m9m.tdf
+    Info (12023): Found entity 1: lpm_divide_m9m File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_m9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a4f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "BinToBCD:BinToBCD|lpm_divide:Div2" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-Info (12133): Instantiated megafunction "BinToBCD:BinToBCD|lpm_divide:Div2" with the following parameter: File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst39|lpm_divide:Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12133): Instantiated megafunction "BinToBCD50:inst39|lpm_divide:Div0" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0jm.tdf
-    Info (12023): Found entity 1: lpm_divide_0jm File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_0jm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_olh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_47f.tdf
-    Info (12023): Found entity 1: alt_u_div_47f File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_47f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "BinToBCD:BinToBCD|lpm_divide:Mod2" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-Info (12133): Instantiated megafunction "BinToBCD:BinToBCD|lpm_divide:Mod2" with the following parameter: File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 27
-    Info (12134): Parameter "LPM_WIDTHN" = "14"
-    Info (12134): Parameter "LPM_WIDTHD" = "14"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hhm.tdf
+    Info (12023): Found entity 1: lpm_divide_hhm File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_hhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_64f.tdf
+    Info (12023): Found entity 1: alt_u_div_64f File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_64f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst39|lpm_divide:Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12133): Instantiated megafunction "BinToBCD50:inst39|lpm_divide:Mod0" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "BinToBCD:BinToBCD|lpm_divide:Div1" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 26
-Info (12133): Instantiated megafunction "BinToBCD:BinToBCD|lpm_divide:Div1" with the following parameter: File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 26
-    Info (12134): Parameter "LPM_WIDTHN" = "14"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3jm.tdf
-    Info (12023): Found entity 1: lpm_divide_3jm File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_3jm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_rlh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a7f.tdf
-    Info (12023): Found entity 1: alt_u_div_a7f File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a7f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "BinToBCD:BinToBCD|lpm_divide:Div0" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 25
-Info (12133): Instantiated megafunction "BinToBCD:BinToBCD|lpm_divide:Div0" with the following parameter: File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 25
-    Info (12134): Parameter "LPM_WIDTHN" = "14"
-    Info (12134): Parameter "LPM_WIDTHD" = "10"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dkm.tdf
-    Info (12023): Found entity 1: lpm_divide_dkm File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_dkm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_5nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_5nh File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_5nh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_u9f.tdf
-    Info (12023): Found entity 1: alt_u_div_u9f File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_u9f.tdf Line: 27
-Info (13000): Registers with preset signals will power-up high File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 20
+Info (13000): Registers with preset signals will power-up high File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 20
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
-Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_13_result_int[0]~0" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 52
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_7_result_int[0]~16" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 82
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8_result_int[0]~18" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 87
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_9_result_int[0]~20" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 92
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_10_result_int[0]~22" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 37
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_11_result_int[0]~24" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 42
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod2|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_12_result_int[0]~26" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 47
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_13_result_int[0]~0" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 52
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_10_result_int[0]~22" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 37
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_11_result_int[0]~24" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 42
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod1|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_12_result_int[0]~26" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_6af.tdf Line: 47
-    Info (17048): Logic cell "BinToBCD:BinToBCD|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|op_4~0"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "start" File: C:/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/TesteElementar.vhd Line: 8
-Info (21057): Implemented 1155 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 1122 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4928 megabytes
-    Info: Processing ended: Wed May 29 15:35:02 2024
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:30
+Info (21057): Implemented 392 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 50 output pins
+    Info (21061): Implemented 336 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Sat Jun  1 03:37:16 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
 
 

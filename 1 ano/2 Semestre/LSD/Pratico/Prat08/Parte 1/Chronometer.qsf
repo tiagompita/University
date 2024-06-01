@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE EP4CE115F29C7
 set_global_assignment -name TOP_LEVEL_ENTITY Chronometer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:09:13  MAY 09, 2024"
-set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -57,15 +57,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE RegN.vhd
-set_global_assignment -name VHDL_FILE PulseGeneratorN.vhd
-set_global_assignment -name VHDL_FILE DebounceUnit.vhd
-set_global_assignment -name VHDL_FILE ControlUnit.vhd
-set_global_assignment -name SMF_FILE ControlUnit.smf
-set_global_assignment -name VHDL_FILE CntBCDUp4.vhd
-set_global_assignment -name VHDL_FILE ClkDividerN.vhd
-set_global_assignment -name BDF_FILE Chronometer.bdf
-set_global_assignment -name VHDL_FILE Bin7SegDecoder.vhd
 set_location_assignment PIN_Y2 -to CLOCK_50
 set_instance_assignment -name IO_STANDARD "2.5 V" -to CLOCK_50
 set_instance_assignment -name RESERVE_PIN "AS INPUT TRI-STATED" -to CLOCK_50
@@ -1186,4 +1177,13 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EX_IO[6]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE RegN.vhd
+set_global_assignment -name VHDL_FILE PulseGeneratorN.vhd
+set_global_assignment -name VHDL_FILE DebounceUnit.vhd
+set_global_assignment -name VHDL_FILE ControlUnit.vhd
+set_global_assignment -name SMF_FILE ControlUnit.smf
+set_global_assignment -name VHDL_FILE CntBCDUp4.vhd
+set_global_assignment -name VHDL_FILE ClkDividerN.vhd
+set_global_assignment -name BDF_FILE Chronometer.bdf
+set_global_assignment -name VHDL_FILE Bin7SegDecoder.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

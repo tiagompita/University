@@ -1,0 +1,49 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity DonAssignment is
+    port(
+        clk : in std_logic;
+        reset : in std_logic;
+        start : in std_logic;
+        randomTime : in std_logic_vector(13 downto 0);
+        enable : out std_logic
+    );
+end DonAssignment;
+
+architecture Behavioral of DonAssignment is
+    signal state : integer range 0 to 2 := 0;
+    signal Don : std_logic_vector(13 downto 0);
+begin
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            Don <= (randomTime'range => '0');
+            state <= 0;
+            enable <= '0'; -- Reset value for enable
+        elsif rising_edge(clk) then
+            case state is
+                when 0 => -- Estado de espera inicial
+                    enable <= '0';
+                    if start = '1' then
+                        Don <= randomTime;
+                        state <= 1;
+                    end if;
+
+                when 1 => -- Aguardar o tempo de atraso Don
+                    if unsigned(Don) = 0 then
+                        enable <= '1';
+                        state <= 0;
+                    else
+                        Don <= std_logic_vector(unsigned(Don) - 1);
+                        enable <= '0';
+                    end if;
+
+                when others =>
+                    state <= 0;
+                    enable <= '0';
+            end case;
+        end if;
+    end process;
+end Behavioral;

@@ -5,7 +5,10 @@ use ieee.numeric_std.all;
 entity BinToBCD is
     port(
         binary_in : in  std_logic_vector(13 downto 0);
-        bcd_out   : out std_logic_vector(15 downto 0)
+        bcd4   : out std_logic_vector(15 downto 12);
+		  bcd3   : out std_logic_vector(11 downto 8);
+		  bcd2   : out std_logic_vector(7 downto 4);
+		  bcd1   : out std_logic_vector(3 downto 0)
     );
 end BinToBCD;
 
@@ -27,10 +30,10 @@ begin
         tens      <= (bin_in_int / 10) mod 10;
         ones      <= bin_in_int mod 10;
 
-        -- Convert to BCD
-        bcd_out <= std_logic_vector(to_unsigned(thousands, 4)) &
-                   std_logic_vector(to_unsigned(hundreds, 4)) &
-                   std_logic_vector(to_unsigned(tens, 4)) &
-                   std_logic_vector(to_unsigned(ones, 4));
+        -- Convert to BCD				 
+		  bcd4   <= std_logic_vector(to_unsigned(thousands, 4));
+		  bcd3   <= std_logic_vector(to_unsigned(hundreds, 4));
+		  bcd2   <= std_logic_vector(to_unsigned(tens, 4));
+		  bcd1   <= std_logic_vector(to_unsigned(ones, 4));
     end process;
 end behavioral;
