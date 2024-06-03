@@ -6,15 +6,18 @@ entity LightAndReactionTime is
     port(
         clk : in std_logic;
         reset : in std_logic;
+		  enable : in std_logic;
+		  
         start : in std_logic;
-        enable : in std_logic;
+        LightON : in std_logic;
+		  
         reactTime : out std_logic_vector(13 downto 0);
-        light : out std_logic_vector(7 downto 0)
+        light : out std_logic_vector(3 downto 0)
     );
 end LightAndReactionTime;
 
 architecture Behavioral of LightAndReactionTime is
-    signal light_active : std_logic_vector(7 downto 0) := (others => '0');
+    signal light_active : std_logic_vector(3 downto 0) := (others => '0');
     signal react_time : integer range 0 to 8191 := 0;
     signal state : integer range 0 to 3 := 0;
 begin
@@ -23,11 +26,12 @@ begin
         if reset = '1' then
             light_active <= (others => '0');
             react_time <= 0;
+            reactTime <= std_logic_vector(to_unsigned(0, reactTime'length));
             state <= 0;
-        elsif rising_edge(clk) then
+        elsif rising_edge(clk) and enable = '1' then
             case state is
-                when 0 => -- Aguardar o enable
-                    if enable = '1' and start = '0' then -- Verificar se start é '0'
+                when 0 => -- Aguardar o LightON
+                    if LightON = '1' and start = '0' then -- Verificar se start é '0'
                         light_active <= (others => '1');
                         react_time <= 0;
                         state <= 1;
@@ -42,6 +46,7 @@ begin
                     if start = '1' then
                         light_active <= (others => '0');
                         state <= 0;
+                        reactTime <= std_logic_vector(to_unsigned(react_time, reactTime'length));
                     else
                         react_time <= react_time + 1;
                     end if;
@@ -53,5 +58,4 @@ begin
     end process;
 
     light <= light_active;
-    reactTime <= std_logic_vector(to_unsigned(react_time, reactTime'length));
 end Behavioral;

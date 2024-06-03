@@ -1,0 +1,48 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity StateMachine is
+    Port (
+        clk : in std_logic;
+        reset : in std_logic;
+        Confirm_INIT : in std_logic;
+        win : in std_logic;
+        
+        enable_INIT : out std_logic;
+        enable_GAME : out std_logic;
+        enable_WIN : out std_logic
+    );
+end StateMachine;
+
+architecture Behavioral of StateMachine is
+    type state_type is (init, game, win_state);
+    signal state : state_type := init;
+begin
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            state <= init;
+        elsif rising_edge(clk) then
+            case state is
+                when init =>
+                    if Confirm_INIT = '1' then
+                        state <= game;
+                    end if;
+                when game =>
+                    if win = '1' then
+                        state <= win_state;
+                    end if;
+                when win_state =>
+                    if Confirm_INIT = '1' then
+                        state <= init;
+                    end if;
+                when others =>
+                    state <= init;
+            end case;
+        end if;
+    end process;
+
+    enable_INIT <= '1' when state = init else '0';
+    enable_GAME <= '1' when state = game else '0';
+    enable_WIN <= '1' when state = win_state else '0';
+end Behavioral;

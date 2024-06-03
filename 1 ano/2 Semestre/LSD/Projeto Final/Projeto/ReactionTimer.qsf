@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY TesteElementar
+set_global_assignment -name TOP_LEVEL_ENTITY ReactionGame
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:54:20  MAY 20, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -579,6 +579,15 @@ set_location_assignment PIN_D9 -to EX_IO[6]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE competition/XORPenalty.vhd
+set_global_assignment -name VHDL_FILE competition/or2_7bits.vhd
+set_global_assignment -name VHDL_FILE winner/win_lights.vhd
+set_global_assignment -name VHDL_FILE winner/PlayerBWin.vhd
+set_global_assignment -name VHDL_FILE winner/PlayerAWin.vhd
+set_global_assignment -name VHDL_FILE competition/mux4to1_7bits.vhd
+set_global_assignment -name VHDL_FILE MEF_GERAL.vhd
+set_global_assignment -name VHDL_FILE competition/tEStDisplay.vhd
+set_global_assignment -name VHDL_FILE competition/MEF_competition.vhd
 set_global_assignment -name VHDL_FILE init/Bin7SegDecoderEN.vhd
 set_global_assignment -name VHDL_FILE init/init.vhd
 set_global_assignment -name VHDL_FILE init/ConFDisplay.vhd
@@ -592,4 +601,5 @@ set_global_assignment -name VHDL_FILE BinToBCD.vhd
 set_global_assignment -name VHDL_FILE pulse_gen.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name BDF_FILE TesteElementar.bdf
+set_global_assignment -name BDF_FILE ReactionGame.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

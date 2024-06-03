@@ -27,15 +27,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 32)
 		(input)
-		(text "binary_in[5..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "binary_in[5..0]" (rect 21 27 77 39)(font "Arial" ))
+		(text "binary_in[6..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "binary_in[6..0]" (rect 21 27 77 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 200 32)
 		(output)
-		(text "bcd2[7..4]" (rect 0 0 40 12)(font "Arial" ))
-		(text "bcd2[7..4]" (rect 139 27 179 39)(font "Arial" ))
+		(text "bcd2[3..0]" (rect 0 0 38 12)(font "Arial" ))
+		(text "bcd2[3..0]" (rect 141 27 179 39)(font "Arial" ))
 		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
 	(port

@@ -1,6 +1,16 @@
 
-State Machine - |TesteElementar|DonAssignment:don|state
-Name state.enable state.running state.idle 
-state.idle 0 0 0 
-state.running 0 1 1 
-state.enable 1 0 1 
+State Machine - |ReactionGame|DonAssignment:inst25|state
+Name state.penalty2 state.penalty state.wait_response state.running state.idle 
+state.idle 0 0 0 0 0 
+state.running 0 0 0 1 1 
+state.wait_response 0 0 1 0 1 
+state.penalty 0 1 0 0 1 
+state.penalty2 1 0 0 0 1 
+
+State Machine - |ReactionGame|StateMachine:state|state
+Name state.win_state_B state.win_state_A state.game state.gameINFO state.init 
+state.init 0 0 0 0 0 
+state.gameINFO 0 0 0 1 1 
+state.game 0 0 1 0 1 
+state.win_state_A 0 1 0 0 1 
+state.win_state_B 1 0 0 0 1 

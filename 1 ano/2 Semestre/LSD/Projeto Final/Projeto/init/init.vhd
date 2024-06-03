@@ -11,24 +11,22 @@ entity init is
         
         btn_up : in std_logic;
         btn_down : in std_logic;
-        btn_confirm : in std_logic;
 
         HEX3 : out std_logic_vector(1 downto 0);
         HEX2 : out std_logic_vector(1 downto 0);
         HEX1 : out std_logic_vector(1 downto 0);
         HEX0 : out std_logic_vector(1 downto 0);
 
-        NumberOut : out std_logic_vector(5 downto 0);
+        NumberOut : out std_logic_vector(6 downto 0);
 
-        ConfirmedNumberOut : out std_logic_vector(5 downto 0);
-        blink : out std_logic
+		blink : out std_logic
+
+    
     );
 end init;
 
 architecture Behavioral of init is
     signal counter : integer range 1 to 50 := 10;
-    signal confirmed_counter : integer range 1 to 50 := 10;
-    signal btn_confirm_prev : std_logic := '0';
     signal s_blink : std_logic := '1';
 
     signal btn_up_prev : std_logic := '0';
@@ -53,7 +51,7 @@ begin
                 elsif btn_down = '1' and btn_down_prev = '0' and counter > 1 then
                     counter <= counter - 1;
                 end if;
-
+    
                 -- Hold button +1s up
                 if btn_up = '1' and counter < 50 then
                     btn_up_hold_time <= btn_up_hold_time + 1;
@@ -63,7 +61,7 @@ begin
                 if btn_up_hold_time >= 10 and counter < 50 then
                     counter <= counter + 1;
                 end if;
-
+    
                 -- Hold button +1s down
                 if btn_down = '1' and counter > 1 then
                     btn_down_hold_time <= btn_down_hold_time + 1;
@@ -73,16 +71,11 @@ begin
                 if btn_down_hold_time >= 10 and counter > 1 then
                     counter <= counter - 1;
                 end if;
-
-                -- Confirm button
-                if btn_confirm = '1' and btn_confirm_prev = '0' then
-                    confirmed_counter <= counter;
-                end if;
-
             end if;
+
+    
             btn_up_prev <= btn_up;
             btn_down_prev <= btn_down;
-            btn_confirm_prev <= btn_confirm;
         end if;
     end process;
 
@@ -95,5 +88,5 @@ begin
 
     blink <= s_blink;
     NumberOut <= std_logic_vector(to_unsigned(counter, NumberOut'length));
-    ConfirmedNumberOut <= std_logic_vector(to_unsigned(confirmed_counter, ConfirmedNumberOut'length));
+
 end Behavioral;

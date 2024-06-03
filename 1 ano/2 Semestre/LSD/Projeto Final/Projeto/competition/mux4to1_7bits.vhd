@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity mux4to1_7bits is
+    Port (
+        sel : in std_logic_vector(1 downto 0);
+        i0, i1, i2, i3 : in std_logic_vector(6 downto 0);
+        MuxOut : out std_logic_vector(6 downto 0)
+    );
+end mux4to1_7bits;
+
+architecture Behavioral of mux4to1_7bits is
+begin
+    process(sel, i0, i1, i2, i3)
+    begin
+        case sel is
+            when "00" => MuxOut <= i0;
+            when "01" => MuxOut <= i1;
+            when "10" => MuxOut <= i2;
+            when "11" => MuxOut <= i3;
+            when others => MuxOut <= (others => 'X');
+        end case;
+    end process;
+end Behavioral;

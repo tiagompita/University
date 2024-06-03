@@ -4,22 +4,22 @@ use ieee.numeric_std.all;
 
 entity BinToBCD50 is
     port(
-        binary_in : in  std_logic_vector(5 downto 0); -- Changed to 6 bits
-        bcd2   : out std_logic_vector(7 downto 4); -- Removed bcd4 and bcd3
+        binary_in : in  std_logic_vector(6 downto 0); 
+        bcd2   : out std_logic_vector(3 downto 0); 
         bcd1   : out std_logic_vector(3 downto 0)
     );
 end BinToBCD50;
 
 architecture behavioral of BinToBCD50 is
-    signal tens      : integer range 0 to 5; -- Changed range to 0 to 5
+    signal tens      : integer range 0 to 5; 
     signal ones      : integer range 0 to 9;
-    signal bin_in_int : integer range 0 to 50; -- Changed range to 0 to 50
+    signal bin_in_int : integer range 0 to 50; 
 begin
 
-    bin_in_int <= to_integer(unsigned(binary_in));
-
-    process(bin_in_int)
+    process(binary_in)
     begin
+        bin_in_int <= to_integer(unsigned(binary_in));
+
         -- Extract the digits
         tens      <= (bin_in_int / 10) mod 10;
         ones      <= bin_in_int mod 10;

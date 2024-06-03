@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 128)
+	(rect 16 16 216 96)
 	(text "BinToBCD" (rect 5 0 47 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -32,34 +32,13 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
-		(pt 208 32)
+		(pt 200 32)
 		(output)
-		(text "bcd4[15..12]" (rect 0 0 47 12)(font "Arial" ))
-		(text "bcd4[15..12]" (rect 140 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "bcd3[11..8]" (rect 0 0 41 12)(font "Arial" ))
-		(text "bcd3[11..8]" (rect 146 43 187 55)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48)(line_width 3))
-	)
-	(port
-		(pt 208 64)
-		(output)
-		(text "bcd2[7..4]" (rect 0 0 40 12)(font "Arial" ))
-		(text "bcd2[7..4]" (rect 147 59 187 71)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64)(line_width 3))
-	)
-	(port
-		(pt 208 80)
-		(output)
-		(text "bcd1[3..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "bcd1[3..0]" (rect 150 75 187 87)(font "Arial" ))
-		(line (pt 208 80)(pt 192 80)(line_width 3))
+		(text "bcd[15..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "bcd[15..0]" (rect 142 27 179 39)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 192 96)(line_width 1))
+		(rectangle (rect 16 16 184 64)(line_width 1))
 	)
 )

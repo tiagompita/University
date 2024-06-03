@@ -5,8 +5,9 @@ use ieee.numeric_std.all;
 entity RandomTimeGen is
 	port (
 		clk : in std_logic;
+		enable : in std_logic;
 		reset : in std_logic;
-		randomTime : out std_logic_vector(13 downto 0) -- 8192ms
+		randomTime : out std_logic_vector(13 downto 0) 
 	);
 end RandomTimeGen;
 
@@ -15,11 +16,11 @@ architecture Behav of RandomTimeGen is
 	constant max : integer := 5000;
 	signal temp : integer := min;
 begin
-	process(clk, reset) -- Include both clk and reset in the sensitivity list
+	process(clk, reset)
 	begin
-		if (reset = '1') then -- Check for reset first
+		if (reset = '1') then 
 			temp <= min;
-		elsif (rising_edge(clk)) then -- Then proceed with the rest of the logic at the rising edge of clk
+		elsif (rising_edge(clk)) and enable = '1' then 
 			if temp = max then
 				temp <= min;
 			else
