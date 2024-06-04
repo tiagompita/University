@@ -1,6 +1,7 @@
 from struct import pack
 from math import sin, pi
 import wave
+import sys
 
 def main(argv):
     rate=44100
@@ -9,7 +10,7 @@ def main(argv):
 
     amplitude = 10000
     data = []
-    duration = 3 # Em segundos
+    duration = 1 # Em segundos
     tones = {\
             "1" : (697, 1209), \
             "2" : (697, 1336), \
@@ -33,13 +34,13 @@ def main(argv):
             }
     
     number = input("Digite um número: ") # número a codificar
-    for n in number:
+
+
+    for digit in number:
         # Códigos DTMF
-        for tone in tones[n]:
-            for i in range(0, int(rate*0.040)):
-                data.append(
-                    amplitude*sin(2*pi*tone*i/rate)
-                )
+        for i in range(0, int(rate*0.040)):
+            data.append(amplitude*sin(2*pi*tones[digit][0]*i/rate) + amplitude*sin(2*pi*tones[digit][1]*i/rate)
+            )
         # Pausa (silêncio)
         for i in range(0, int(rate*0.040)):
             data.append(0)
@@ -52,4 +53,5 @@ def main(argv):
     wv.writeframes(bytearray(wvData))
     wv.close()
 
-main("/home/pita/Desktop/University/1 ano/2 Semestre/LI/Guião 8 - Informação Sonora/wave_files/sho - noir.wav")
+main(sys.argv)
+#exec => python3 Ex8.7.py saida.wav
