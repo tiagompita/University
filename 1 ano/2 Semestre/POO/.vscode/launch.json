@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AllWordsOrganized",
+            "request": "launch",
+            "mainClass": "aula12.AllWordsOrganized",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "wordCounter",
+            "request": "launch",
+            "mainClass": "aula12.wordCounter",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
             "name": "Voo",
             "request": "launch",
             "mainClass": "aula11.Ex4.Voo",
