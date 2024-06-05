@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MovieProgram",
+            "request": "launch",
+            "mainClass": "aula12.MovieProgram",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Movie",
+            "request": "launch",
+            "mainClass": "aula12.Movie",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
             "name": "AllWordsOrganized",
             "request": "launch",
             "mainClass": "aula12.AllWordsOrganized",
