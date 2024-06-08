@@ -6,10 +6,17 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< Updated upstream
             "name": "TicketBookingApp",
             "request": "launch",
             "mainClass": "ExamePratico.TicketBookingApp",
             "projectName": "POO_f7082fd2"
+=======
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "POO_41e4f5da"
+>>>>>>> Stashed changes
         },
         {
             "type": "java",
