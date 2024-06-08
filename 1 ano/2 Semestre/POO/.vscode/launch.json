@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TicketBookingApp",
+            "request": "launch",
+            "mainClass": "ExamePratico.TicketBookingApp",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
             "name": "MovieProgram",
             "request": "launch",
             "mainClass": "aula12.MovieProgram",
