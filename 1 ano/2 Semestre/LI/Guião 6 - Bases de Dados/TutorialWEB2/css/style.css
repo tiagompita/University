@@ -10,3 +10,11 @@
 /* horizontal line thickness */
 hr { border: 2px solid black; }
 
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}

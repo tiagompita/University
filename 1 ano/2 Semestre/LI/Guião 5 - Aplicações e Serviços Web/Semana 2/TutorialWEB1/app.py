@@ -32,8 +32,8 @@ config = {
 }
 
 def distance(lat, lon):
-	lat1 = 38.752667
-	lon1 = -9.184711
+	lat1 = 32.64572578258922
+	lon1 = -16.928341503341407
 	lon, lat, lon1, lat1 = map(radians, [lon, lat, lon1, lat1]) # Degrees -> Radians
 	dlon = lon - lon1
 	dlat = lat - lat1

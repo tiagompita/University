@@ -1,7 +1,7 @@
 import pyaudio
 import wave
 
-file = "/home/pita/Desktop/University/1 ano/2 Semestre/LI/Guião 8 - Informação Sonora/wave_files/sho - noir.wav"
+file = "/mnt/c/Universidade/University/1 ano/2 Semestre/LI/Guião 8 - Informação Sonora/wave_files/sho - noir.wav"
 
 player = pyaudio.PyAudio()
 

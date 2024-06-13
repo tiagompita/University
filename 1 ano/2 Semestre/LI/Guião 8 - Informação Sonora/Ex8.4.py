@@ -26,4 +26,4 @@ def main(argv):
     wv.writeframes(bytearray(wvData))
     wv.close()
 
-main("/home/pita/Desktop/University/1 ano/2 Semestre/LI/Guião 8 - Informação Sonora/wave_files/sho - noir.wav")
+main("/mnt/c/Universidade/University/1 ano/2 Semestre/LI/Guião 8 - Informação Sonora/wave_files/sho - noir.wav")

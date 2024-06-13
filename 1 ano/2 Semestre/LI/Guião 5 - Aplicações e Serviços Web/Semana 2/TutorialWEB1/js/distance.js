@@ -3,7 +3,7 @@ function distance(position){
         { lat: position.coords.latitude, lon: position.coords.longitude },
         
         function(response){
-            var text="<h2> Benfica Stadium at "+response.distance+" km</h2>";
+            var text="<h2> Maritimo Stadium at "+response.distance+" km</h2>";
             $("#distance").html(text);
         });
 }

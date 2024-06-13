@@ -27,6 +27,8 @@ function uploadImage() {
         window.URL.revokeObjectURL(picURL);    
     }
     else alert("Missing image!");
+
+
 }
 
 function sendFile(file) {
@@ -36,12 +38,15 @@ function sendFile(file) {
 
 	//Obtain nameImg and authorImg and fill the form
 	
-	var name = ""
+	var name = document.getElementById("nameImg").value;
 	
-	var author = ""
+	var author = document.getElementById("authorImg").value;
 
 	if (name == "" || author == "") alert("Missing name and/or author!");
 	else {
+		data.append("nameImg", name);
+		data.append("authorImg", author)
+
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "/upload");
 		xhr.upload.addEventListener("progress", updateProgress(this), false);

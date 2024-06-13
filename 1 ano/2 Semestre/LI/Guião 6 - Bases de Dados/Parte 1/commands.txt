@@ -1,0 +1,55 @@
+CREATE TABLE contacts (
+    firstname TEXT,
+    middlename TEXT,
+    lastname TEXT,
+    email TEXT,
+    phone TEXT
+);
+
+
+
+INSERT INTO contacts(firstname, middlename, lastname, email, phone) VALUES("João", "Manuel", "Fonseca", "jmf@gmail.com", "912345654");
+INSERT INTO contacts(firstname, middlename, lastname, email, phone) VALUES("Pedro", "Albuquerque", "Silva", "pedro23@gmail.com", "932454349");
+INSERT INTO contacts(firstname, middlename, lastname, email, phone) VALUES("Maria", "Carreira", "Dinis", "mariadi@ua.pt", "234958673");
+INSERT INTO contacts(firstname, middlename, lastname, email, phone) VALUES("Catarina", "Alexandra", "Rodrigo", "calexro@sapo.pt", "963343386");
+
+
+CREATE TABLE companies (
+    name TEXT,
+    address TEXT,
+    vatnumber
+);
+
+INSERT INTO companies (name, address, vatnumber) VALUES ("MaxiPlano", "Aveiro", "123123123123");
+INSERT INTO companies (name, address, vatnumber) VALUES ("Luís Manuel & filhos", "Águeda", "54534343435");
+INSERT INTO companies (name, address, vatnumber) VALUES ("ProDesign", "Porto", "54534343435");
+
+
+CREATE TABLE companies2 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    address TEXT,
+    vatnumber
+);
+
+CREATE TABLE contacts2 (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstname TEXT,
+    middlename TEXT,
+    lastname TEXT,
+    email TEXT,
+    phone TEXT,
+    company_id INTEGER,
+    FOREIGN KEY (company_id) REFERENCES companies(id)
+);
+
+INSERT INTO companies2(name, address, vatnumber) VALUES ("MaxiPlano", "Aveiro", "123123123123");
+INSERT INTO companies2(name, address, vatnumber) VALUES ("Luís Manuel & filhos", "Águeda", "54534343435");
+INSERT INTO companies2(name, address, vatnumber) VALUES ("ProDesign", "Porto", "54534343435");
+
+INSERT INTO contacts2(firstname, middlename, lastname, email, phone, company_id) VALUES("João", "Manuel", "Fonseca", "jmf@gmail.com", "912345654", 3);
+INSERT INTO contacts2(firstname, middlename, lastname, email, phone, company_id) VALUES("Pedro", "Albuquerque", "Silva", "pedro23@gmail.com", "932454349", 2);
+INSERT INTO contacts2(firstname, middlename, lastname, email, phone, company_id) VALUES("Maria", "Carreira", "Dinis", "mariadi@ua.pt", "234958673", 1);
+INSERT INTO contacts2(firstname, middlename, lastname, email, phone, company_id) VALUES("Catarina", "Alexandra", "Rodrigo", "calexro@sapo.pt", "963343386", 1);
+
+SELECT contacts2.* FROM contacts2 JOIN companies2 ON contacts2.company_id = companies2.id WHERE companies2.address="Aveiro";

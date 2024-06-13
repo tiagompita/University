@@ -1,0 +1,237 @@
+
+Alínea 1) ----------------------------------
+
+### There is already an event occurring at this place and time!
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1005
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1008
+** No more tickets available for event 1009
+** No more tickets available for event 1010
+** No more tickets available for event 1011
+** No more tickets available for event 1000
+** No more tickets available for event 1001
+** No more tickets available for event 1002
+** No more tickets available for event 1003
+Neon Pulse Tour [90 minutes], concert by Thunderous at Riverside Theatre, 2024-06-14 18:30, 100 tickets available
+A Tribute to Nina Simone [75 minutes], concert by Esperanza Spalding at City Lights Cinema, 2024-06-10 20:15, 150 tickets available
+The Importance of Being Earnest [150 minutes], theatre play by Oscar Wilde, performed by Grand Theatre Company at Central Park Bandshell, 2024-06-22 19:30, 200 tickets available
+The Ballad of Black Bart [90 minutes], theatre play by Maria Hernandez, performed by Riverbank Community Players at The Black Box, 2024-06-19 21:00, 70 tickets available
+The Maltese Falcon [100 minutes], movie by John Huston at Riverside Theatre, 2024-06-20 18:45, 100 tickets available
+The Invisible Thread [90 minutes], movie by David Choi at City Lights Cinema, 2024-06-11 22:00, 150 tickets available
+Neon Pulse Tour [90 minutes], concert by Thunderous at Central Park Bandshell, 2024-06-23 19:30, 200 tickets available
+A Tribute to Nina Simone [75 minutes], concert by Esperanza Spalding at The Black Box, 2024-06-28 18:30, 70 tickets available
+The Importance of Being Earnest [150 minutes], theatre play by Oscar Wilde, performed by Grand Theatre Company at Riverside Theatre, 2024-06-12 20:45, 100 tickets available
+The Ballad of Black Bart [90 minutes], theatre play by Maria Hernandez, performed by Riverbank Community Players at City Lights Cinema, 2024-06-17 19:00, 150 tickets available
+The Maltese Falcon [100 minutes], movie by John Huston at Central Park Bandshell, 2024-06-25 21:15, 200 tickets available
+The Invisible Thread [90 minutes], movie by David Choi at The Black Box, 2024-06-29 18:00, 70 tickets available
+
+
+Alínea 2) ----------------------------------
+
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1001
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1001
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1006
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1005
+** No more tickets available for event 1008
+** No more tickets available for event 1005
+** No more tickets available for event 1003
+** No more tickets available for event 1004
+** No more tickets available for event 1002
+** No more tickets available for event 1000
+** No more tickets available for event 1007
+** No more tickets available for event 1006
+** No more tickets available for event 1004
+
+Finished reading file.
+
+
+** First 10 available events, sorted by date:
+Fiesta del Sol [60 minutes], concert by Mariachi Sol at The Loft, 2024-06-11 22:00, 75 tickets available
+Classic Rock Revival [120 minutes], concert by The Rumbling Stones at The Black Box, 2024-06-17 19:00, 170 tickets available
+Smooth Sounds & City Lights [90 minutes], concert by Indigo Groove at The Studio, 2024-06-17 19:00, 250 tickets available
+Ghostlight [90 minutes], theatre play by Augustus Moore, performed by Torchlight Repertory at The Black Box, 2024-06-20 18:45, 170 tickets available
+Symphonic Serenade [105 minutes], concert by Moonlight Sonata at The Blues Room, 2024-06-22 19:30, 150 tickets available
+Neon Beats Night [90 minutes], concert by DJ Pulse at Central Park Bandshell, 2024-06-25 21:15, 200 tickets available
+A Quiet Night In [120 minutes], movie by David Lynch at The Park Stage, 2024-06-25 21:15, 200 tickets available
+Unbound [75 minutes], theatre play by Sarah Li, performed by New Stage Collective at Central Park Bandshell, 2024-06-28 18:30, 200 tickets available
+Code Blue [108 minutes], movie by Ava Ramirez at Main Street Cinema, 2024-06-28 18:30, 220 tickets available
+The Last Ride [115 minutes], movie by Hirokazu Kore-eda at The Loft, 2024-06-28 18:30, 75 tickets available
+
+** Number of tickets sold by event type:
