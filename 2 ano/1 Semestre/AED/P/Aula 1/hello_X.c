@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    char name[10];
+    char apelido[10],name[10];
     int lixo = 123;
 
     printf("Nome? ");
@@ -10,8 +10,12 @@ int main(void)
     //fgets(name, sizeof(name), stdin);
 
     scanf("%9[^\n]s", name);
+    getchar(); //Necessario para proximos scans.
 
-    printf("Hello %s  %d", name,lixo);
+    printf("Apelido? ");
+    scanf("%9[^\n]s", apelido);
+
+    printf("Hello %s %s", name, apelido);
 
     return 0;
 }
