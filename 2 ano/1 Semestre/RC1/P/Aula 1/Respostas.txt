@@ -1,0 +1,8 @@
+5.What do you conclude on the ICMP packet periodicity?
+	Concluo que a periodicidade do pacote ICMP é cerca de 1 segundo. Só é possível pois é associado um Sequence Number à reply de cada request, tornando a round-trip-time curta.
+6.
+➢ PC Ethernet address: 7c:c2:c6:18:13:03
+➢ Router Ethernet address: 00:21:d8:65:0e:70
+➢ Hexadecimal code (Type field of Ethernet header) that identifies an IP datagram:0x0800
+➢ Hexadecimal code (Protocol field of IP header) that identifies an ICMP packet: 0x0000
+➢ Hexadecimal code (Type field of ICMP header) that identifies the two ICMP packet types (Echo Request and Echo Reply): 8
