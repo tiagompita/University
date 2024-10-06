@@ -5,4 +5,4 @@
 ➢ Router Ethernet address: 00:21:d8:65:0e:70
 ➢ Hexadecimal code (Type field of Ethernet header) that identifies an IP datagram:0x0800
 ➢ Hexadecimal code (Protocol field of IP header) that identifies an ICMP packet: 0x0000
-➢ Hexadecimal code (Type field of ICMP header) that identifies the two ICMP packet types (Echo Request and Echo Reply): 8
+➢ Hexadecimal code (Type field of ICMP header) that identifies the two ICMP packet types (Echo Request and Echo Reply): 0x08 (Request) e 0 (Reply)
