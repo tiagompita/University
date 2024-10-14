@@ -11,19 +11,19 @@
 
 #include <stdio.h>
 
-int binary_search(int *a,int n,int d)
+int binary_search(int *a, int n, int d)
 {
   int lo = 0;
   int hi = n - 1;
-  while(hi >= lo)
+  while (hi >= lo)
   {
     int middle = (lo + hi) / 2;
-    if(a[middle] == d)
+    if (a[middle] == d)
       return middle; // found it
-    if(a[middle] < d)
-      lo = middle;
+    if (a[middle] < d)
+      lo = middle + 1; // fix: move lo to middle + 1
     else
-      hi = middle;
+      hi = middle - 1; // fix: move hi to middle - 1
   }
   return -1; // not found
 }
