@@ -52,7 +52,7 @@
             },
             {
                 "filters": {},
-                "link_id": "6717a8a4-37c6-4f97-804f-08231c23eb26",
+                "link_id": "8f8e0df3-0ffb-46dd-88da-520577d05431",
                 "link_style": {},
                 "nodes": [
                     {
@@ -72,12 +72,12 @@
                         "label": {
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "Ethernet 6",
+                            "text": "Ethernet 8",
                             "x": 159,
                             "y": 35
                         },
                         "node_id": "d4d7f4a0-68ff-4702-ad7d-dcf2aba84375",
-                        "port_number": 2
+                        "port_number": 3
                     }
                 ],
                 "suspend": false
@@ -186,7 +186,7 @@
                 "compute_id": "local",
                 "console": null,
                 "console_auto_start": false,
-                "console_type": null,
+                "console_type": "none",
                 "custom_adapters": [],
                 "first_port_name": null,
                 "height": 71,
@@ -231,7 +231,7 @@
                             "type": "ethernet"
                         },
                         {
-                            "name": "Ethernet 6",
+                            "name": "Ethernet 8",
                             "special": false,
                             "type": "ethernet"
                         }
@@ -253,6 +253,12 @@
                             "interface": "Ethernet 6",
                             "name": "Ethernet 6",
                             "port_number": 2,
+                            "type": "ethernet"
+                        },
+                        {
+                            "interface": "Ethernet 8",
+                            "name": "Ethernet 8",
+                            "port_number": 3,
                             "type": "ethernet"
                         }
                     ],
