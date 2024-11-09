@@ -26,6 +26,14 @@ main:	ori	$v0, $0, print_string		#
 	
 	li 	$t2, 0				# i = 0
 for:	bge 	$t2, 32, endfor			# for ( i < 32 )
+
+	rem 	$t4, $t2,4			# i % 4
+if2:	bne 	$t4, $0, endif2			# if ((i % 4) == 0)
+	
+	ori	$v0, $0, print_char		#
+	li 	$a0, ' '			#
+	syscall					# print_char(' ')
+endif2:	
 	li 	$t3, 0x80000000
 	and 	$t1, $t0, $t3			# //isola bit 31
 	

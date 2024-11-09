@@ -26,23 +26,23 @@ main:	ori	$v0, $0, print_string		#
 	
 	li 	$t2, 0				# i = 0
 for:	bge 	$t2, 32, endfor			# for ( i < 32 )
-	li 	$t3, 0x80000000
-	and 	$t1, $t0, $t3			# //isola bit 31
-	
-if: 	beq	$t1, 0, else			# if ( bit != 0 )
 
+	rem 	$t4, $t2,4			# i % 4
+if:	bne 	$t4, $0, endif			# if ((i % 4) == 0)
+	
 	ori	$v0, $0, print_char		#
-	li	$a0, '1'			#
-	syscall					# print_char('1')
+	li 	$a0, ' '			#
+	syscall					# print_char(' ')
+endif:	
+	li 	$t3, 0x80000000			#
+	and	$t1, $t0, $t3			# value & 0x80000000
+	srl	$t1, $t1, 31			# bit = (value & 0x80000000) >> 31;
 	
-	j endif
+	ori	$v0, $0, print_char		#
+	addi 	$a0, $t1, 0x30			#
+	syscall					# print_char(0x30 + bit);
 	
-else:	ori	$v0, $0, print_char		#
-	li 	$a0, '0'			#
-	syscall					# print_char('0')
-	
-	j endif
-endif: 	sll 	$t0, $t0, 1			# shift left de 1 bit
+	sll 	$t0, $t0, 1			# shift left de 1 bit
 	
 	
 	addi $t2, $t2, 1			# i++;
