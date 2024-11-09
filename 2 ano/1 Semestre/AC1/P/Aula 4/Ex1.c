@@ -1,34 +1,29 @@
 #include <stdio.h>
+#include <string.h>
 
 #define SIZE 20
 
-void read_string(char *str, int size);
-void print_int10(int num);
-
-int main(void) {
-    static char str[SIZE + 1]; // Reserve space for an array of "SIZE+1" bytes
-    int num, i;
-    
-    read_string(str, SIZE); // Read string into str
-    
-    num = 0;
-    i = 0;
-    
-    while (str[i] != '\0') { // Iterate through the string until null terminator
-        if ((str[i] >= '0') && (str[i] <= '9')) {
-            num++; // Increment num if the character is a digit
-        }
-        i++; // Move to the next character
-    }
-    
-    print_int10(num); // Print the number of digits
-}
-
-// Dummy implementations for read_string and print_int10
 void read_string(char *str, int size) {
-    // Implementation to read a string from input
+    printf("Enter a string: ");
+    fgets(str, size + 1, stdin);
+    // Remove newline character if present
+    str[strcspn(str, "\n")] = '\0';
 }
 
 void print_int10(int num) {
-    printf("%d\n", num); // Print the integer
+    printf("Number of digits: %d\n", num);
+}
+
+void main(void) {
+    static char str[SIZE + 1]; // Reserva espaço para um array de "SIZE+1" bytes no segmento de dados ("SIZE" carateres + terminador)
+    int num, i;
+    read_string(str, SIZE); // "str" é o endereço inicial do espaço reservado para alojar a string (na memória externa)
+    num = 0;
+    i = 0;
+    while (str[i] != '\0') { // Acede ao carater (byte) na posição "i" do array e compara-o com o carater terminador (i.e. '\0' = 0x00)
+        if ((str[i] >= '0') && (str[i] <= '9'))
+            num++;
+        i++;
+    }
+    print_int10(num);
 }

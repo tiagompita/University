@@ -1,38 +1,40 @@
 # Mapa de registos
-# 	p: $t0
-#	*p: $t1 (Registo temporário para guardar o valor armazenado em memória)
-# 	lista+Size: $t2
+# p: $t0
+# *p: $t1 (Registo temporÃ¡rio para guardar o valor armazenado em memÃ³ria)
+# lista+Size: $t2
 	.data
-	.align 2
-lista:	.word 8,-4, 3, 5, 124, -15, 87, 9, 27, 15 		# a diretiva ".word" alinha num endereço
-								# múltiplo de 4
-sep:	.asciiz "; "
+	.eqv SIZE, 10
+	.eqv print_string, 4
+	.eqv print_int10, 1
+lista:	.word 8,-4,3,5,124,-15,87,9,27,15 		# a diretiva ".word" alinha num endereÃ§o
+							# mÃºltiplo de 4
 str:	.asciiz "\nConteudo do array:\n"
+str1:	.asciiz "; "
 	.text
 	.globl main
 
-main: 	la $a0,str		#
-	li $v0,4		#
-	syscall			# print_string(str)
-
-	la $t0, lista 		# p = lista
-	li $t3, 10		# $t3 = SIZE
-	sll $t3, $t3, 2		# Coloca o SIZE em tamanho de inteiro => SIZE * 4
-	addu $t2, $t0, $t3	# $t2 = lista + SIZE
+main:	li	$v0, print_string		#
+	la	$a0, str			#
+	syscall					# print_string("\nConteudo do array:\n")
 	
-while: 	bge $t0, $t2, endw	# while(p < lista+SIZE) {
-	lw $t1, 0($t0)		# $t1 = *p 	Carrega o valor de p em $t1
+	la	$t0, lista			# p = lista
+	li	$t3, SIZE			# $t3 = SIZE
+	sll	$t3, $t3, 2			# $t3 = SIZE * 4
+	addu 	$t2, $t0, $t3			#		// Ã‰ calculado a lista+SIZE de maneira a saber o valor do endereÃ§o onde acaba a lista, para o loop conseguir terminar.
 	
-	move $a0,$t1		#
-	li $v0,1		#
-	syscall			# print_int10( *p )
+while:	bgeu	$t0, $t2, endw			# while(p < lista+SIZE) {
 	
-	la $a0,sep		#
-	li $v0,4		#
-	syscall			# print_string( sep )
+	lw	$t1, 0($t0)			# *p
 	
-	addi $t0, $t0, 4
-		
+	li	$v0, print_int10		#
+	move	$a0, $t1			#
+	syscall					# print_int10( *p )
+	
+	li	$v0, print_string		#
+	la	$a0, str1			#
+	syscall					# print_string("; ")
+	
+	addiu	$t0, $t0, 4			# p++
 	j while
-endw:
-	jr $ra
+endw:	
+	jr $ra					# fim do programa
