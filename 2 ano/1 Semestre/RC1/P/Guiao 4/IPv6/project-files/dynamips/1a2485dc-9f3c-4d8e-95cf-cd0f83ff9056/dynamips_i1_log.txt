@@ -1,0 +1,33 @@
+Nov 11 19:23:13.805 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Nov 11 19:23:13.805 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 52747.
+Nov 11 19:23:14.111 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 11 19:23:14.111 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\dynamips 
+Nov 11 19:23:14.114 GENERAL: working_dir=C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\dynamips
+Nov 11 19:23:14.114 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Nov 11 19:23:14.191 HYPERVISOR: exec_cmd: nio create_udp udp-8628b371-f472-4090-95ac-229dd56ccb92 20000 127.0.0.1 20001 
+Nov 11 19:23:14.191 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-8628b371-f472-4090-95ac-229dd56ccb92 
+Nov 11 19:23:14.221 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-8628b371-f472-4090-95ac-229dd56ccb92 1 
+Nov 11 19:23:14.553 HYPERVISOR: exec_cmd: nio create_udp udp-71a41c20-3d1f-40de-bb5e-cf03ebe31eaa 20003 127.0.0.1 20002 
+Nov 11 19:23:14.553 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-71a41c20-3d1f-40de-bb5e-cf03ebe31eaa 
+Nov 11 19:23:14.563 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-71a41c20-3d1f-40de-bb5e-cf03ebe31eaa 1 
+Nov 11 19:27:34.561 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-8628b371-f472-4090-95ac-229dd56ccb92 
+Nov 11 19:27:34.577 HYPERVISOR: exec_cmd: nio delete udp-8628b371-f472-4090-95ac-229dd56ccb92 
+Nov 11 19:28:12.477 HYPERVISOR: exec_cmd: nio create_udp udp-4fff6f5c-8e0d-4715-a221-b2539c751952 20000 127.0.0.1 20001 
+Nov 11 19:28:12.477 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-4fff6f5c-8e0d-4715-a221-b2539c751952 
+Nov 11 19:28:12.480 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-4fff6f5c-8e0d-4715-a221-b2539c751952 1 
+Nov 11 19:28:55.859 HYPERVISOR: exec_cmd: nio bind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 capture 
+Nov 11 19:28:55.859 HYPERVISOR: exec_cmd: nio setup_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 en10mb C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\captures\Switch1_Ethernet0_to_LabComServer2-1_Ethernet0.pcap 
+Nov 11 19:30:28.650 HYPERVISOR: exec_cmd: nio unbind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 
+Nov 11 19:30:42.301 HYPERVISOR: exec_cmd: nio bind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 capture 
+Nov 11 19:30:42.301 HYPERVISOR: exec_cmd: nio setup_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 en10mb C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\captures\Switch1_Ethernet0_to_LabComServer2-1_Ethernet0.pcap 
+Nov 11 19:35:04.422 HYPERVISOR: exec_cmd: nio unbind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 
+Nov 11 19:35:06.621 HYPERVISOR: exec_cmd: nio bind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 capture 
+Nov 11 19:35:06.621 HYPERVISOR: exec_cmd: nio setup_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 en10mb C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\captures\Switch1_Ethernet0_to_LabComServer2-1_Ethernet0.pcap 
+Nov 11 19:37:27.582 HYPERVISOR: exec_cmd: nio unbind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 
+Nov 11 19:37:29.751 HYPERVISOR: exec_cmd: nio bind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 capture 
+Nov 11 19:37:29.751 HYPERVISOR: exec_cmd: nio setup_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 en10mb C:\Users\tiago\Documents\University\2 ano\1 Semestre\RC1\P\Guiao 4\IPv6\project-files\captures\Switch1_Ethernet0_to_LabComServer2-1_Ethernet0.pcap 
+Nov 11 19:40:53.529 HYPERVISOR: exec_cmd: nio unbind_filter udp-4fff6f5c-8e0d-4715-a221-b2539c751952 2 
+Nov 11 19:41:17.675 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Nov 11 19:41:17.711 HYPERVISOR: exec_cmd: hypervisor stop 
+Nov 11 19:41:17.907 HYPERVISOR: Stopped.
+Nov 11 19:41:17.907 GENERAL: reset done.
