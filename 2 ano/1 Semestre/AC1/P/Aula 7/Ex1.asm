@@ -8,15 +8,15 @@ str:	.asciiz "Arquitetura de Computadores I"
 	.text
 	.globl main
 	
-main:	la	$a0, str		# $a0 = str
+main:	move $s0, $ra			# guarda do valor de $ra para que o programa possa terminar.
+	la	$a0, str		# $a0 = str
 	jal	strlen			# strlen(str)
 	
 	move 	$a0, $v0		# $a0 = strlen(str)
 	li	$v0, print_int10	#
 	syscall				# print_int10(strlen(str))
 	
-	li	$v0, 10			#
-	syscall				# exit program
+	jr $s0				# exit program
 
 #########################################
 
