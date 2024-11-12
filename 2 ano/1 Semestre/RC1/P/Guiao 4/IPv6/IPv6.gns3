@@ -20,7 +20,39 @@
         "links": [
             {
                 "filters": {},
-                "link_id": "3dafd519-af10-49ff-b758-479bd0506515",
+                "link_id": "dcbeb799-28cd-477c-8aca-f572a38c6073",
+                "link_style": {},
+                "nodes": [
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "e0",
+                            "x": 72,
+                            "y": 32
+                        },
+                        "node_id": "1fb558d2-19d7-4b3f-84b5-c94754596465",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "e0",
+                            "x": -4,
+                            "y": 12
+                        },
+                        "node_id": "8ad5219b-c607-4de2-bbe9-b2d4410b3e91",
+                        "port_number": 0
+                    }
+                ],
+                "suspend": false
+            },
+            {
+                "filters": {},
+                "link_id": "39c8632f-7777-40c3-ac6d-e4743e454fc2",
                 "link_style": {},
                 "nodes": [
                     {
@@ -30,9 +62,9 @@
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "g0/0",
                             "x": -6,
-                            "y": 24
+                            "y": 22
                         },
-                        "node_id": "1a2485dc-9f3c-4d8e-95cf-cd0f83ff9056",
+                        "node_id": "9ade6ad5-c569-42de-8116-ef17fee65e73",
                         "port_number": 0
                     },
                     {
@@ -42,87 +74,16 @@
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                             "text": "e1",
                             "x": 75,
-                            "y": 13
+                            "y": 15
                         },
                         "node_id": "8ad5219b-c607-4de2-bbe9-b2d4410b3e91",
                         "port_number": 1
                     }
                 ],
                 "suspend": false
-            },
-            {
-                "filters": {},
-                "link_id": "50f2f773-1d3d-4476-8332-f2901b040efe",
-                "link_style": {},
-                "nodes": [
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "e0",
-                            "x": -4,
-                            "y": 15
-                        },
-                        "node_id": "8ad5219b-c607-4de2-bbe9-b2d4410b3e91",
-                        "port_number": 0
-                    },
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "e0",
-                            "x": 72,
-                            "y": 29
-                        },
-                        "node_id": "7274ed33-95da-462a-8a6a-dd36fd693540",
-                        "port_number": 0
-                    }
-                ],
-                "suspend": false
             }
         ],
         "nodes": [
-            {
-                "compute_id": "local",
-                "console": null,
-                "console_auto_start": false,
-                "console_type": "none",
-                "custom_adapters": [],
-                "first_port_name": "",
-                "height": 59,
-                "label": {
-                    "rotation": 0,
-                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                    "text": "LabComServer2-1",
-                    "x": -48,
-                    "y": -25
-                },
-                "locked": false,
-                "name": "LabComServer2-1",
-                "node_id": "7274ed33-95da-462a-8a6a-dd36fd693540",
-                "node_type": "virtualbox",
-                "port_name_format": "Ethernet{0}",
-                "port_segment_size": 0,
-                "properties": {
-                    "adapter_type": "Intel PRO/1000 MT Desktop (82540EM)",
-                    "adapters": 1,
-                    "headless": false,
-                    "linked_clone": false,
-                    "on_close": "power_off",
-                    "ram": 1024,
-                    "usage": "",
-                    "use_any_adapter": false,
-                    "vmname": "LabComServer2"
-                },
-                "symbol": ":/symbols/vbox_guest.svg",
-                "template_id": "cf3d01a0-4dc9-43a9-8286-ba180d94c2f0",
-                "width": 65,
-                "x": -242,
-                "y": 3,
-                "z": 1
-            },
             {
                 "compute_id": "local",
                 "console": 5000,
@@ -220,7 +181,7 @@
                 },
                 "locked": false,
                 "name": "R1",
-                "node_id": "1a2485dc-9f3c-4d8e-95cf-cd0f83ff9056",
+                "node_id": "9ade6ad5-c569-42de-8116-ef17fee65e73",
                 "node_type": "dynamips",
                 "port_name_format": "Ethernet{0}",
                 "port_segment_size": 0,
@@ -237,7 +198,7 @@
                     "idlesleep": 30,
                     "image": "c7200-adventerprisek9-mz.151-4.M2.image",
                     "image_md5sum": "d54b063e3d0b368a702ffb49f497825e",
-                    "mac_addr": "ca01.188c.0000",
+                    "mac_addr": "ca01.34cc.0000",
                     "midplane": "vxr",
                     "mmap": true,
                     "npe": "npe-400",
@@ -268,14 +229,53 @@
                 "symbol": ":/symbols/router.svg",
                 "template_id": "17de574e-60f5-4293-8892-f50459943527",
                 "width": 66,
-                "x": 166,
-                "y": 8,
+                "x": 170,
+                "y": 11,
+                "z": 1
+            },
+            {
+                "compute_id": "local",
+                "console": null,
+                "console_auto_start": false,
+                "console_type": "none",
+                "custom_adapters": [],
+                "first_port_name": "",
+                "height": 59,
+                "label": {
+                    "rotation": 0,
+                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                    "text": "LabComServer2-1",
+                    "x": -48,
+                    "y": -25
+                },
+                "locked": false,
+                "name": "LabComServer2-1",
+                "node_id": "1fb558d2-19d7-4b3f-84b5-c94754596465",
+                "node_type": "virtualbox",
+                "port_name_format": "Ethernet{0}",
+                "port_segment_size": 0,
+                "properties": {
+                    "adapter_type": "Intel PRO/1000 MT Desktop (82540EM)",
+                    "adapters": 1,
+                    "headless": false,
+                    "linked_clone": false,
+                    "on_close": "power_off",
+                    "ram": 1024,
+                    "usage": "",
+                    "use_any_adapter": false,
+                    "vmname": "LabComServer2"
+                },
+                "symbol": ":/symbols/vbox_guest.svg",
+                "template_id": "cf3d01a0-4dc9-43a9-8286-ba180d94c2f0",
+                "width": 65,
+                "x": -262,
+                "y": 3,
                 "z": 1
             }
         ]
     },
     "type": "topology",
     "variables": null,
-    "version": "2.2.50",
+    "version": "2.2.49",
     "zoom": 100
 }
