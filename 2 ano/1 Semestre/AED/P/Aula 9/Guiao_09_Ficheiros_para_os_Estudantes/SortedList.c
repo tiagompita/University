@@ -120,9 +120,19 @@ void ListSetCurrentItem(const List* l, void* p) {
 // If search fails. return -1 and don't change the current node.
 // (Try to optimize the search to start at the current node if possible.)
 int ListSearch(List* l, const void* p) {
-  // COMPLETE ...
-
-  return 0;
+  assert(l != NULL);
+  struct _ListNode* aux = l->head;
+  int i = 0;
+  while (aux != NULL) {
+    if (l->compare(aux->item, p) == 0) {
+      l->current = aux;
+      l->currentPos = i;
+      return 0;  // success
+    }
+    aux = aux->next;
+    i++;
+  }
+  return -1;  // failure
 }
 
 // Move to functions
@@ -141,8 +151,11 @@ void ListMove(List* l, int newPos) {
   } else if (newPos == l->size - 1) {  // move to tail
     l->current = l->tail;
   } else {  // move to an inner node
-    // Start at head (or current position) and move forward until newPos.
-    // COMPLETE ...
+    struct _ListNode* aux = l->head;
+    for (int i = 0; i < newPos; i++) {
+      aux = aux->next;
+    }
+    l->current = aux;
   }
   l->currentPos = newPos;
 }
@@ -271,9 +284,14 @@ void* ListRemoveCurrent(List* l) {
   else if (l->currentPos == l->size - 1)
     item = ListRemoveTail(l);
   else {
-    // find node before current, change its next field,
-    // free current, change current, change size
-    // COMPLETE ...
+    struct _ListNode* prev = l->head;
+    for (int i = 0; i < l->currentPos - 1; i++) {
+      prev = prev->next;
+    }
+    prev->next = l->current->next;
+    free(l->current);
+    l->current = prev->next;
+    l->size--;
   }
   return item;
 }
