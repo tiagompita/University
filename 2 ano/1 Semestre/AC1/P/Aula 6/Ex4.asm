@@ -13,19 +13,19 @@ str2:   .asciiz ": "
 	.text
 	.globl main
 
-main:	move	$s0, $a0	# temp = $a0
+main:	move	$t9, $a0	# temp = $a0
 
     	li  $v0, print_string	#
     	la  $a0, str		#
     	syscall                 # print_string("Nr. de parametros: ")
     
     	li  $v0, print_int10
-    	move $a0, $s0           # argc
+    	move $a0, $t9           # argc
     	syscall                 # print_int10(argc)
     
     	li  $t0, 0              # i = 0
     
-for:	bge $t0, $a0, endfor    # for (i = 0; i < argc; i++) {
+for:	bge $t0, $t9, endfor    # for (i = 0; i < argc; i++) {
     
     	li  $v0, print_string	#
     	la  $a0, str1		#
