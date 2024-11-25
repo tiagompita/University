@@ -1,5 +1,5 @@
-# O argumento da fun√ß√£o √© passado em $a0
-# O resultado √© devolvido em $v0
+# O argumento da funÁ„o È passado em $a0
+# O resultado È devolvido em $v0
 # Sub-rotina terminal: n√£o devem ser usados registos $sx
 
 	.data
@@ -8,7 +8,10 @@ str:	.asciiz "Arquitetura de Computadores I"
 	.text
 	.globl main
 	
-main:	move $s0, $ra			# guarda do valor de $ra para que o programa possa terminar.
+main:	addiu	$sp, $sp, -4		# Salvaguarda do valor de $ra 
+	sw	$ra, 0($sp)		# para que o programa possa terminar.
+					
+					
 	la	$a0, str		# $a0 = str
 	jal	strlen			# strlen(str)
 	
@@ -16,7 +19,10 @@ main:	move $s0, $ra			# guarda do valor de $ra para que o programa possa termina
 	li	$v0, print_int10	#
 	syscall				# print_int10(strlen(str))
 	
-	jr $s0				# exit program
+	lw	$ra, 0($sp)		# Repoem o valor de $ra
+	addiu	$sp, $sp, 4		# Clear na Stack
+	
+	jr $ra				# exit program
 
 #########################################
 

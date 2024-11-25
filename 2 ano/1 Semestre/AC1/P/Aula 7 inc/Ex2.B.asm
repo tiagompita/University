@@ -1,3 +1,26 @@
+	.data
+str:	.asciiz "ITED - orievA ed edadisrevinU"
+	.text
+	.globl main
+	
+main:	addiu	$sp, $sp, -4	# Salvaguardar o registo $ra
+	sw	$ra, 0($sp)	#
+
+	la	$t0, str	# $t0 = $str
+	
+	move 	$a0, $t0	# Colocar o endereço da str no argumento para a funçao
+	
+	jal strrev		#
+	
+	move	$a0, $v0	#
+	li	$v0, 4		#
+	syscall			# print_string(strrev(str))
+	
+	lw	$ra, 0($sp)	# Repor o registo $ra
+	addiu	$sp, $sp, 4	# Libertar o espaço da stack
+	
+	jr $ra
+	
 # Mapa de registos:
 # str: $a0 -> $s0 (argumento é passado em $a0)
 # p1: $s1 (registo callee-saved)
