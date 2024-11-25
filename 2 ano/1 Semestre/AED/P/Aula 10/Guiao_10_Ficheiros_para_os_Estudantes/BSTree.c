@@ -84,10 +84,16 @@ unsigned int BSTreeGetNumberOfNodes(const BSTree* header) {
 
 // Compute the height of the (sub-)tree whose root node is root.
 // (Internal RECURSIVE function, that can be used for checking.)
-static int _treeGetHeightREC(const struct _BSTreeNode* root) {
-  // COMPLETE
-  // ...
-  return -1;
+static int _treeGetHeightREC(const struct _BSTreeNode *root)
+{
+
+  if (root == NULL)
+    return -1;
+
+  int left_h = _treeGetHeightREC(root->left);
+  int right_h = _treeGetHeightREC(root->right);
+
+  return 1 + maximo(left_h, right_h);
 }
 
 // Internal function that acccesses the height field, if the node exists

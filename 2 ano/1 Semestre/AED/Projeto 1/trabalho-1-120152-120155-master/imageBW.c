@@ -11,12 +11,12 @@
 /// 2024
 
 // Student authors (fill in below):
-// NMec:
-// Name:
-// NMec:
-// Name:
+// NMec: 120152
+// Name: Tiago Pita
+// NMec: 120155
+// Name: Gabriel Marta
 //
-// Date:
+// Date: 25/11/2024
 //
 
 #include "imageBW.h"
@@ -264,8 +264,28 @@ Image ImageCreate(uint32 width, uint32 height, uint8 val) {
 ///
 /// On success, a new image is returned.
 /// (The caller is responsible for destroying the returned image!)
-Image ImageCreateChessboard(uint32 width, uint32 height, uint32 square_edge,
-                            uint8 first_value) {
+Image ImageCreateChessboard(uint32 width, uint32 height, uint32 square_edge,uint8 first_value) {
+  assert(width>0 && height>00); //Verifica se a width e a height são não negativas
+  assert(first_value==WHITE || first_value==BLACK);//Verifica se o valor do primeiro pixel é preto ou branco
+  assert(width%square_edge==0 && height%square_edge==0);//Verifica se o tamanho dos lados dos quadrados são múltiplos da width e da height
+
+  Image newImage = AllocateImageHeader(width,height);//Aloca e inicializa uma estrutura que contém as informações principais sobre a imagem
+
+  uint8 control = first_value;//controla quando se deve passar a outra linha de quadrados
+
+  uint32 heightsquares = height/square_edge;//número de linhas de quadrados
+
+  uint32 widthsquares = width/square_edge;//número de colunas de quadrados
+
+  for(uint32 i = 0;i < height;i++){
+    if(i>=square_edge && i%square_edge==0){
+      control = ~control;
+    }
+    else if (control==BLACK){
+      newImage->row[i] 
+    }
+  }
+  }
   // COMPLETE THE CODE
   // ...
 
