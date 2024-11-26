@@ -169,14 +169,16 @@ else:
 	addiu	$t0, $a3, -1		# i = size-1
 	
 	
-for_ins: bge	$t0, $a2, endfor_ins	# i >= pos
+for_ins: blt	$t0, $a2, endfor_ins	# i >= pos
 	
-	sll	$t5, $t0, 2		# i * 4
-	addu	$t1, $a0, $t5		# array+i
-	lw	$t2, 0($t1)		# array[i]
-	
-	addiu	$t2, $t2, 4		# array+i+1
-	sw	$t2, 0($t1)		# array[i+1] = array[i]
+	sll 	$t5, $t0, 2         	# i * 4
+	addu 	$t1, $a0, $t5      	# array + i
+	lw 	$t2, 0($t1)          	# array[i]
+
+	addiu   $t5, $t5, 4         	# Endereço array[i+1]
+    	addu    $t1, $a0, $t5       	# Calcula array[i+1]
+    	sw      $t2, 0($t1)         	# array[i+1] = array[i]
+
 	
 	addiu	$t0, $t0, -1		# i--
 	j for_ins
