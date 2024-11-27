@@ -1,9 +1,3 @@
-# This the configuration for Gemini
-#
-# Uncomment the following line to enable DHCP
-# dhcp
-# or the line below to manually setup an IP address and subnet mask
-# ip 192.168.1.1 255.0.0.0
-#
-
 set pcname Gemini
+ip 172.20.23.66 172.20.23.65 26
+ip 2002:a201:bc52:1::2/64
