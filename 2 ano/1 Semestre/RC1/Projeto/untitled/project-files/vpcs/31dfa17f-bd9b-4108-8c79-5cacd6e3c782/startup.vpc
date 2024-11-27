@@ -1,2 +1,2 @@
 set pcname Aires
-ip 2002:a201:bc52::3/64
+dhcp
