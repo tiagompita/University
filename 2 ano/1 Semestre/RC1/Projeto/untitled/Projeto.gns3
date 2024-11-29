@@ -1293,18 +1293,8 @@
                             "type": "ethernet"
                         },
                         {
-                            "name": "Liga\u00e7\u00e3o de Rede Bluetooth",
+                            "name": "Ethernet",
                             "special": false,
-                            "type": "ethernet"
-                        },
-                        {
-                            "name": "VMware Network Adapter VMnet1",
-                            "special": true,
-                            "type": "ethernet"
-                        },
-                        {
-                            "name": "VMware Network Adapter VMnet8",
-                            "special": true,
                             "type": "ethernet"
                         },
                         {
@@ -1741,6 +1731,6 @@
     },
     "type": "topology",
     "variables": null,
-    "version": "2.2.49",
+    "version": "2.2.50",
     "zoom": 71
 }
