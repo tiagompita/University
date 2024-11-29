@@ -1,0 +1,2 @@
+set pcname February
+ip 172.25.22.5 172.25.22.1 24

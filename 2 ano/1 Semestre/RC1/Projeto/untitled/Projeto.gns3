@@ -205,6 +205,15 @@
                 "x": -18,
                 "y": -97,
                 "z": 2
+            },
+            {
+                "drawing_id": "633c85a7-71dc-4c83-ab42-b43c34f1111c",
+                "locked": false,
+                "rotation": 0,
+                "svg": "<svg width=\"81\" height=\"29\"><text font-family=\"TypeWriter\" font-size=\"10.0\" font-weight=\"bold\" fill=\"#000000\" fill-opacity=\"1.0\">Ethernet</text></svg>",
+                "x": -461,
+                "y": -36,
+                "z": 2
             }
         ],
         "links": [
@@ -1275,12 +1284,12 @@
                 "label": {
                     "rotation": 0,
                     "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                    "text": "Cloud1",
-                    "x": 54,
+                    "text": "CloudPC1",
+                    "x": 34,
                     "y": -25
                 },
                 "locked": false,
-                "name": "Cloud1",
+                "name": "CloudPC1",
                 "node_id": "7412acd6-d55d-46bd-ab0c-7e4a0749a903",
                 "node_type": "cloud",
                 "port_name_format": "Ethernet{0}",
@@ -1293,8 +1302,18 @@
                             "type": "ethernet"
                         },
                         {
-                            "name": "Ethernet",
+                            "name": "Liga\u00e7\u00e3o de Rede Bluetooth",
                             "special": false,
+                            "type": "ethernet"
+                        },
+                        {
+                            "name": "VMware Network Adapter VMnet1",
+                            "special": true,
+                            "type": "ethernet"
+                        },
+                        {
+                            "name": "VMware Network Adapter VMnet8",
+                            "special": true,
                             "type": "ethernet"
                         },
                         {
@@ -1731,6 +1750,6 @@
     },
     "type": "topology",
     "variables": null,
-    "version": "2.2.50",
+    "version": "2.2.49",
     "zoom": 71
 }
