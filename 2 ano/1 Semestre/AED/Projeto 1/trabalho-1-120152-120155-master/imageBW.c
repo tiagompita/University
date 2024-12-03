@@ -11,12 +11,12 @@
 /// 2024
 
 // Student authors (fill in below):
-// NMec: 120152
-// Name: Tiago Pita
-// NMec: 120155
-// Name: Gabriel Marta
+// NMec:120152
+// Name:Tiago Pita
+// NMec:120155
+// Name:Gabriel Marta
 //
-// Date: 25/11/2024
+// Date:
 //
 
 #include "imageBW.h"
@@ -218,6 +218,10 @@ static uint8* UncompressRow(uint32 image_width, const int* RLE_row) {
   return row;
 }
 
+static uint32 Max(int a,int b){
+	return (a > b) ? a : b;
+}
+
 // Add your auxiliary functions here...
 
 /// Image management functions
@@ -273,23 +277,21 @@ Image ImageCreateChessboard(uint32 width, uint32 height, uint32 square_edge,uint
 
   uint8 control = first_value;//controla quando se deve passar a outra linha de quadrados
 
-  uint32 heightsquares = height/square_edge;//número de linhas de quadrados
-
   uint32 widthsquares = width/square_edge;//número de colunas de quadrados
 
   for(uint32 i = 0;i < height;i++){
     if(i>=square_edge && i%square_edge==0){
-      control = ~control;
+      control ^= 1; //Negar o control se já se tiver preenchido um quadrado com altura igual ao square_edge
     }
-    else if (control==BLACK){
-      newImage->row[i] 
-    }
+    newImage->row[i] = AllocateRLERowArray(widthsquares + 2);//Alocar memória para a ilha, que vai necessitar de espaço para cada run(igual ao número de quadrados na largura) e para o EOR e first_value
+	  newImage->row[i][0] = control;
+	  newImage->row[i][widthsquares+1] = EOR;
+	  for(uint32 a = 1;a<=widthsquares;a++){
+		  newImage->row[i][a] = square_edge;//Colocar runs do tamanho dos lados do quadrado
+	  }
+    
   }
-  }
-  // COMPLETE THE CODE
-  // ...
-
-  return NULL;
+  return newImage;
 }
 
 /// Destroy the image pointed to by (*imgp).
@@ -440,9 +442,8 @@ Image ImageLoad(const char* filename) {  ///
 }
 
 /// Save image to PBM file.
-/// On success, returns nonzero.
-/// On failure, returns 0, and
-/// a partial and invalid file may be left in the system.
+/// On success, returns unspecified integer. (No need to check!)
+/// On failure, does not return, EXITS program!
 int ImageSave(const Image img, const char* filename) {  ///
   assert(img != NULL);
   int w = img->width;
@@ -463,8 +464,8 @@ int ImageSave(const Image img, const char* filename) {  ///
     // Fill padding pixels with WHITE
     memset(raw_row + w, WHITE, nbytes * 8 - w);
     packBits(nbytes, bytes, raw_row);
-    check(fwrite(bytes, sizeof(uint8), nbytes, f) == (size_t)nbytes,
-          "Writing pixels failed");
+    size_t written = fwrite(bytes, sizeof(uint8), nbytes, f);
+    check(written == (size_t)nbytes, "Writing pixels failed");
     free(raw_row);
   }
 
@@ -492,10 +493,24 @@ int ImageHeight(const Image img) {
 int ImageIsEqual(const Image img1, const Image img2) {
   assert(img1 != NULL && img2 != NULL);
 
-  // COMPLETE THE CODE
-  // ...
+  if (img1->width != img2->width || img1->height != img2->height) { //Se o tamanho das imagens for diferente retornar 0
+    return 0;
+  }
 
-  return 0;
+  for (uint32 i = 0; i < img1->height; i++) {
+    uint32 num_elems1 = GetSizeRLERowArray(img1->row[i]);
+    uint32 num_elems2 = GetSizeRLERowArray(img2->row[i]);
+    if (num_elems1 != num_elems2) { //Se o número de elementos for diferente retornar 0
+      return 0;
+    }
+    for (uint32 j = 0; j < num_elems1; j++) {
+      if (img1->row[i][j] != img2->row[i][j]) { //Se os elementos forem diferentes retornar 0
+        return 0;
+      }
+    }
+  }
+
+  return 1;
 }
 
 int ImageIsDifferent(const Image img1, const Image img2) {
@@ -535,36 +550,78 @@ Image ImageNEG(const Image img) {
 }
 
 Image ImageAND(const Image img1, const Image img2) {
-  assert(img1 != NULL && img2 != NULL);
+	assert(img1 != NULL && img2 != NULL);
+	assert(img1->width == img2->width && img1->height == img2->height); //Verificar que as imagens têm o mesmo tamanho
+	
+	Image newImage = AllocateImageHeader(img1->width,img1->height); 
+	
+	for (uint32 i = 0;i < img1->height;i++){
+		uint8* auxrow1 = UncompressRow(img1->width,img1->row[i]); //Descomprimir uma linha da img1
+		uint8* auxrow2 = UncompressRow(img1->width,img2->row[i]); //Descomprimir uma linha da img2
+		uint8* auxrow3 = (uint8*)malloc(img1->width *sizeof(uint8)); //Alocar memória para um array que guarde as linhas resultantes descomprimidas
+		assert(auxrow3 != NULL);
+		for (uint32 a = 0;a < img1->width;a++){
+			auxrow3[a] = auxrow1[a] & auxrow2[a]; //Fazer o and entre cada elemento da linha e guarda no array temporário
+		}
+		newImage->row[i] = CompressRow(img1->width,auxrow3); //Comprimir as linhas do array temporário e colocar nas linhas da nova imagem
+		
+		free(auxrow1);
+		free(auxrow2);
+		free(auxrow3);
+		
+	}
 
-  // COMPLETE THE CODE
-  // You might consider using the UncompressRow and CompressRow auxiliary files
-  // Or devise a more efficient alternative
-  // ...
-
-  return NULL;
+  return newImage;
 }
 
 Image ImageOR(const Image img1, const Image img2) {
-  assert(img1 != NULL && img2 != NULL);
+  	assert(img1 != NULL && img2 != NULL);
+	assert(img1->width == img2->width && img1->height == img2->height);
+	
+	Image newImage = AllocateImageHeader(img1->width,img1->height);
+	
+	for (uint32 i = 0;i < img1->height;i++){
+		uint8* auxrow1 = UncompressRow(img1->width,img1->row[i]);
+		uint8* auxrow2 = UncompressRow(img1->width,img2->row[i]);
+		uint8* auxrow3 = (uint8*)malloc(img1->width *sizeof(uint8));
+		assert(auxrow3 != NULL);
+		for (uint32 a = 0;a < img1->width;a++){
+			auxrow3[a] = auxrow1[a] | auxrow2[a]; //A única diferença do and está aqui, onde se faz or em vez do and
+		}
+		newImage->row[i] = CompressRow(img1->width,auxrow3);
+		
+		free(auxrow1);
+		free(auxrow2);
+		free(auxrow3);
+		
+	}
 
-  // COMPLETE THE CODE
-  // You might consider using the UncompressRow and CompressRow auxiliary files
-  // Or devise a more efficient alternative
-  // ...
-
-  return NULL;
+  return newImage;
 }
 
 Image ImageXOR(Image img1, Image img2) {
-  assert(img1 != NULL && img2 != NULL);
+  	assert(img1 != NULL && img2 != NULL);
+	assert(img1->width == img2->width && img1->height == img2->height);
+	
+	Image newImage = AllocateImageHeader(img1->width,img1->height);
+	
+	for (uint32 i = 0;i < img1->height;i++){
+		uint8* auxrow1 = UncompressRow(img1->width,img1->row[i]);
+		uint8* auxrow2 = UncompressRow(img1->width,img2->row[i]);
+		uint8* auxrow3 = (uint8*)malloc(img1->width *sizeof(uint8));
+		assert(auxrow3 != NULL);
+		for (uint32 a = 0;a < img1->width;a++){
+			auxrow3[a] = auxrow1[a] ^ auxrow2[a]; //Em vez de and faz-se xor
+		}
+		newImage->row[i] = CompressRow(img1->width,auxrow3);
+		
+		free(auxrow1);
+		free(auxrow2);
+		free(auxrow3);
+		
+	}
 
-  // COMPLETE THE CODE
-  // You might consider using the UncompressRow and CompressRow auxiliary files
-  // Or devise a more efficient alternative
-  // ...
-
-  return NULL;
+  return newImage;
 }
 
 /// Geometric transformations
@@ -589,8 +646,11 @@ Image ImageHorizontalMirror(const Image img) {
 
   Image newImage = AllocateImageHeader(width, height);
 
-  // COMPLETE THE CODE
-  // ...
+  for (uint32 i = 0; i < height; i++) {
+    uint32 numelements = GetSizeRLERowArray(img->row[i]);
+    newImage->row[height - 1 - i] = AllocateRLERowArray(numelements);
+    memcpy(newImage->row[height - 1 - i], img->row[i], numelements * sizeof(int)); // Colocar a linha i da img na linha height-1-i da nova imagem
+  }
 
   return newImage;
 }
@@ -602,17 +662,30 @@ Image ImageHorizontalMirror(const Image img) {
 /// On success, a new image is returned.
 /// (The caller is responsible for destroying the returned image!)
 Image ImageVerticalMirror(const Image img) {
-  assert(img != NULL);
+	assert(img != NULL);
 
-  uint32 width = img->width;
-  uint32 height = img->height;
+	uint32 width = img->width;
+	uint32 height = img->height;
 
-  Image newImage = AllocateImageHeader(width, height);
-
-  // COMPLETE THE CODE
-  // ...
-
-  return newImage;
+	Image newImage = AllocateImageHeader(width, height);
+	
+	for(uint32 i = 0; i < height;i++){
+		uint32 numelements = GetSizeRLERowArray(img->row[i]);
+		newImage->row[i] = AllocateRLERowArray(numelements);
+		newImage->row[i][0] = img->row[i][0];
+		newImage->row[i][numelements-1] = EOR;
+		uint32 numruns = GetNumRunsInRLERow(img->row[i]);
+		uint32 aux = numruns;
+		if (numruns >= 2 && numruns % 2 == 0){
+			newImage->row[i][0] ^= 1; //Se o número de runs for para, ao espelharmos a imagem o valor do primeiro pixel vai inverter
+		}
+		for (uint32 a = 1; a <= numruns;a++){
+			newImage->row[i][a] = img->row[i][aux]; //Inverter a ordem das runs
+			aux--;
+		}
+	}
+	
+	return newImage;
 }
 
 /// Replicate img2 at the bottom of imag1, creating a larger image
@@ -623,16 +696,26 @@ Image ImageVerticalMirror(const Image img) {
 /// On success, a new image is returned.
 /// (The caller is responsible for destroying the returned image!)
 Image ImageReplicateAtBottom(const Image img1, const Image img2) {
-  assert(img1 != NULL && img2 != NULL);
-  assert(img1->width == img2->width);
+  assert(img1 != NULL && img2 != NULL); 
+  assert(img1->width == img2->width); //Certificação de que as imagens têm a mesma largura
 
-  uint32 new_width = img1->width;
-  uint32 new_height = img1->height + img2->height;
+  uint32 new_width = img1->width; //A largura da nova imagem é igual á largura das imagens
+  uint32 new_height = img1->height + img2->height; //A altura da nova imagem é a soma das alturas das duas imagens
 
   Image newImage = AllocateImageHeader(new_width, new_height);
-
-  // COMPLETE THE CODE
-  // ...
+  
+  for (uint32 i = 0; i < new_height;i++){
+	  if(i < img1->height){ //Copiar os elementos das rows da img1 em rows da nova imagem até se atingir a altura da img1
+		uint32 numelements = GetSizeRLERowArray(img1->row[i]);
+		newImage->row[i] = AllocateRLERowArray(numelements);
+		memcpy(newImage->row[i],img1->row[i],numelements * sizeof(int));
+	  }
+	  else{//Copiar os elementos das rows da img2 a partir da altura da img1 até á altura da nova imagem
+		uint32 numelements2 = GetSizeRLERowArray(img2->row[i-img1->height]);
+		newImage->row[i] = AllocateRLERowArray(numelements2);
+		memcpy(newImage->row[i],img2->row[i-img1->height],numelements2 * sizeof(int));
+	  }
+  }
 
   return newImage;
 }
@@ -648,13 +731,30 @@ Image ImageReplicateAtRight(const Image img1, const Image img2) {
   assert(img1 != NULL && img2 != NULL);
   assert(img1->height == img2->height);
 
-  uint32 new_width = img1->width + img2->width;
+  uint32 new_width = img1->width + img2->width; //Nova largura
   uint32 new_height = img1->height;
 
   Image newImage = AllocateImageHeader(new_width, new_height);
 
-  // COMPLETE THE CODE
-  // ...
+  for (uint32 i = 0;i < new_height;i++){
+	uint8* auxrow1 = UncompressRow(img1->width,img1->row[i]); //Descomprimir os arrays
+	uint8* auxrow2 = UncompressRow(img2->width,img2->row[i]);
+	uint8* auxrow3 = (uint8*)malloc(new_width *sizeof(uint8)); //Alocar memória para o array onde se coloca o resultado
+	assert(auxrow3 != NULL);
+	for(uint32 a = 0;a < new_width;a++){
+		if(a < img1->width){ //Colocar os elementos da img1 no array resultado até á largura da img1
+			auxrow3[a] = auxrow1[a];
+		}
+		else{
+			auxrow3[a] = auxrow2[a-img1->width]; //Colocar os elementos da img2 á direita
+		}
+	}
+	newImage->row[i] = CompressRow(new_width,auxrow3); //Comprimir o array resultado
+	
+	free(auxrow1);
+	free(auxrow2);
+	free(auxrow3);
+  }
 
   return newImage;
 }

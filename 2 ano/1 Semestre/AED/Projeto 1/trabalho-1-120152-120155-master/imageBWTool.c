@@ -117,7 +117,7 @@ int main(int ac, char* av[]) {
     } else if (strcmp(av[k], "create") == 0) {
       if (++k >= ac) { err = 1; break; }  // enough arguments?
       if (n >= N) { err = 3; break; } // enough space for output?
-      uint c;  // color
+      uint32 c;  // color
       if (sscanf(av[k], "%u,%u,%u", &w, &h, &c) != 3) { err = 4; break; }
       if (c > 1) { err = 4; break; }   // precondition check!
       fprintf(log, "ImageCreate(%u, %u, %u) -> I%d\n", w, h, c, n);
@@ -128,7 +128,7 @@ int main(int ac, char* av[]) {
       if (++k >= ac) { err = 1; break; }  // enough arguments?
       if (n >= N) { err = 3; break; } // enough space for output?
       uint32 edge;  // square edge length
-      uint c;  // color
+      uint32 c;  // color
       if (sscanf(av[k], "%u,%u,%u,%u", &w, &h, &edge, &c) != 4) { err = 4; break; }
       if (c > 1) { err = 4; break; }   // precondition check!
       fprintf(log, "ImageCreateChessBoard(%u, %u, %u, %u) -> I%d\n", w, h, edge, c, n);
@@ -180,8 +180,8 @@ int main(int ac, char* av[]) {
     } else if (strcmp(av[k], "vmirror") == 0) {
       if (n < 1) { err = 2; break; }  // enough input images?
       if (n >= N) { err = 3; break; } // enough space for output?
-      fprintf(log, "ImageHorizontalMirror(I%d) -> I%d\n", n-1, n);
-      img[n] = ImageHorizontalMirror(img[n-1]);
+      fprintf(log, "ImageVerticalMirror(I%d) -> I%d\n", n-1, n);
+      img[n] = ImageVerticalMirror(img[n-1]);
       n++;
     } else if (strcmp(av[k], "repb") == 0) {
       if (n < 2) { err = 2; break; }  // enough input images?

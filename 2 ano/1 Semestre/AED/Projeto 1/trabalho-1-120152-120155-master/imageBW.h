@@ -82,10 +82,9 @@ void ImageRLEPrint(const Image img);
 /// (The caller is responsible for destroying the returned image!)
 Image ImageLoad(const char* filename);
 
-/// Save image to PBM BW image file.
-/// On success, returns nonzero.
-/// On failure, returns 0, and
-/// a partial and invalid file may be left in the system.
+/// Save image to PBM file.
+/// On success, returns unspecified integer. (No need to check!)
+/// On failure, does not return, EXITS program!
 int ImageSave(const Image img, const char* filename);
 
 /// Information queries
