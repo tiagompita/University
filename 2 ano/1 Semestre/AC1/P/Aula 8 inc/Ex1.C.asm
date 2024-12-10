@@ -3,7 +3,7 @@
 # s: $a0
 # *s: $t0
 # digit: $t1
-# Sub-rotina terminal: não devem ser usados registos $sx
+# Sub-rotina terminal: nï¿½o devem ser usados registos $sx
 
 	.data
 	.eqv print_int10, 1
@@ -11,7 +11,7 @@ str:	.asciiz "10001101"
 	.text
 	.globl main
 	
-main:	addiu 	$sp, $sp, -4	# Reservar um espaço na memoria para o $ra
+main:	addiu 	$sp, $sp, -4	# Reservar um espaï¿½o na memoria para o $ra
 	sw	$ra, 0($sp)	#
 	
 	la $a0, str		# $a0 = str
@@ -35,8 +35,8 @@ while:	lb $t0, 0($a0) 		# while((*s >= '0') && (*s <= '1'))
 	
 	
 	li $t2, '0'		# $t2 = '0'
-	subu $t1, $t0, $t2	# digit = *s - '0';
 	addi $a0, $a0, 1	# s++
+	subu $t1, $t0, $t2	# digit = *s - '0';
 	
 	mulu  $v0, $v0, 2 	# res = 2 * res;
 	addu  $v0, $v0, $t1  	# res = 2 * res + digit;
