@@ -792,38 +792,6 @@
                     }
                 ],
                 "suspend": false
-            },
-            {
-                "filters": {},
-                "link_id": "3dfa534f-1571-4f5b-b4ee-ee39c306b3a5",
-                "link_style": {},
-                "nodes": [
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "Ethernet 5",
-                            "x": 159,
-                            "y": 34
-                        },
-                        "node_id": "7412acd6-d55d-46bd-ab0c-7e4a0749a903",
-                        "port_number": 0
-                    },
-                    {
-                        "adapter_number": 0,
-                        "label": {
-                            "rotation": 0,
-                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "g0/0",
-                            "x": -6,
-                            "y": 22
-                        },
-                        "node_id": "733c4d8d-906d-4c5f-a745-63f7e4fd5e2b",
-                        "port_number": 0
-                    }
-                ],
-                "suspend": false
             }
         ],
         "nodes": [
@@ -1357,17 +1325,12 @@
                             "name": "Ethernet 3",
                             "special": false,
                             "type": "ethernet"
-                        },
-                        {
-                            "name": "Ethernet 5",
-                            "special": false,
-                            "type": "ethernet"
                         }
                     ],
                     "ports_mapping": [
                         {
-                            "interface": "Ethernet 5",
-                            "name": "Ethernet 5",
+                            "interface": "Liga\u00e7\u00e3o de \u00c1rea Local",
+                            "name": "Liga\u00e7\u00e3o de \u00c1rea Local",
                             "port_number": 0,
                             "type": "ethernet"
                         }
