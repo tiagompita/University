@@ -1,82 +1,65 @@
-# Mapa de registos
-#
-# str:	$s0
-# val: 	$s1
-# O main e', neste caso, uma sub-rotina interme'dia
-
 	.data
-	.eqv MAX_STR_SIZE, 33
-	.eqv print_string, 4
-	.eqv read_int, 5
-nline:	.asciiz "\n"
-str:	.space 33
+str1:	.asciiz "Int: "
+str2:	.asciiz "Base: "
 	.text
 	.globl main
-
-main:	addiu	$sp, $sp, -12		# reserva espa�o na stack, guarda reg. $ra, $s0, $s1 na stack
+	
+main:	addiu	$sp, $sp, -4		#
 	sw	$ra, 0($sp)		#
-	sw	$s0, 0($sp)		#
-	sw	$s1, 0($sp)		#
 	
-do: 					# do {
-	li 	$v0, read_int 		#
-	syscall 			#
-	move 	$s1,$v0 		# val = read_int()
-############	
-	move	$a0, $s1		#
-	li	$a1, 2			#
-	la	$a3, str		#
-	jal	itoa			# itoa(val, 2, str)
+	la	$a0, str1		#
+	li	$v0, 4			#
+	syscall				# print_string(str1)
 	
+	li	$v0, 5			#
+	syscall				# read_int()
+	
+	move	$t0, $v0
+	
+	la	$a0, str2		#
+	li	$v0, 4			#
+	syscall				# print_string(str2)
+	
+	li	$v0, 5			#
+	syscall				# read_int()
+	
+	move	$a0, $t0		#
+	move	$a1, $v0		#
+	
+	jal 	print_int_ac1		# print_int_ac1(unsigned int val, unsigned int base)
+	
+	li	$v0, 0			# return 0
+	
+	lw	$ra, 0($sp)		#
+	addiu	$sp, $sp, 4		#
+	
+	jr $ra
+
+# Mapa de registos
+# 
+# val : $a0
+# base: $a1
+# buf : $a2
+	.data
+buf:	.space 33
+	.text
+	
+print_int_ac1:
+	addiu	$sp, $sp, -4		# Salvaguardar $ra
+	sw	$ra, 0($sp)		#
+
+	la	$a2, buf		# $a2 = buf
+	
+	jal	itoa			# itoa(val, base, buf)
+
 	move	$a0, $v0		#
-	li 	$v0, print_string	#
-	syscall				# print_string ( itoa(val, 2, str) )
+	li 	$v0, 4			#
+	syscall				# print_string( itoa(val, base, buf) )
 	
-	la	$a0, nline		#
-	li	$v0, print_string	#
-	syscall				# print_string("\n")
-############
-	move	$a0, $s1		#
-	li	$a1, 8			#
-	la	$a3, str		#
-	jal	itoa			# itoa(val, 8, str)
+	lw	$ra, 0($sp)		#
+	addiu	$sp, $sp, 4		#
 	
-	move	$a0, $v0		#
-	li 	$v0, print_string	#
-	syscall				# print_string ( itoa(val, 8, str) )
-	
-	la	$a0, nline		#
-	li	$v0, print_string	#
-	syscall				# print_string("\n")
-#############
-	move	$a0, $s1		#
-	li	$a1, 16			#
-	la	$a3, str		#
-	jal	itoa			# itoa(val, 16, str)
-	
-	move	$a0, $v0		#
-	li 	$v0, print_string	#
-	syscall				# print_string ( itoa(val, 16, str) )
-	
-	la	$a0, nline		#
-	li	$v0, print_string	#
-	syscall				# print_string("\n")
-	
-	bne 	$s1, 0, do 		# } while(val != 0)
-	
-	li 	$v0, 0 			# return 0;
-
-
-
-
-
-	lw	$ra, 0($sp)		# repoe os registos $ra, $s0, $s1. Liberta espa�o na stack
-	lw	$s0, 0($sp)		#
-	lw	$s1, 0($sp)		#
-	addiu	$sp, $sp, 12		#
-	
-	jr $ra				# fim do programa
-
+	jr 	$ra
 
 # Mapa de registos
 # 
