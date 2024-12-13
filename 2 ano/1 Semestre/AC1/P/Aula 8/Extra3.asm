@@ -1,34 +1,77 @@
 	.data
-dst:    .asciiz "AQUI: "           	# String destino
-src:    .asciiz "inserida"   		# String de origem
-pos:    .word 6              		# Posição onde a string será inserida
-msg:    .asciiz "\nResultado: " 	# Mensagem para imprimir o resultado
+msg1:	.asciiz	"Enter a string: "
+msg2:	.asciiz	"Enter a string to insert: "
+msg3:	.asciiz	"Enter the position: "
+msg4:	.asciiz	"Original string: "
+msg5:	.asciiz	"\nModified string: "
+msg6:	.asciiz "\n"
+str1:	.space 101
+str2:	.space 51
 	.text
 	.globl main
 	
 main:	addi	$sp, $sp, -4		#
 	sw	$ra, 0($sp)		#
 	
-	la	$a0, dst		#
-	la	$a1, src		#
-	la	$a2, pos		#
-	
-	jal	insert			# char *insert(char *dst, char *src, int pos)
-	
-	move	$v0, $t0		# Salvaguardar o retorno da funçao insert
-	
-	la	$a0, msg		#
+	la	$a0, msg1		#
 	li	$v0, 4			#
-	syscall				# print_string(msg)
+	syscall				# print_string("Enter a string: ");
 	
-	move	$t0, $a0		#
+	la	$a0, str1		#
+	li	$a1, 50			#
+	li	$v0, 8			#
+	syscall				# read_string(str1, 50);
+	
+	la	$a0, msg2		#
 	li	$v0, 4			#
-	syscall				# print_string( insert (...) )
+	syscall				# print_string("Enter a string to insert: ");
+	
+	la	$a0, str2		#
+	li	$a1, 50			#
+	li	$v0, 8			#
+	syscall				# read_string(str2, 50);
+	
+	la	$a0, msg3		#
+	li	$v0, 4			#
+	syscall				# print_string("Enter the position: ");
+	
+	li	$v0, 5			#
+	syscall				# read_int()
+	move	$t0, $v0		# insert_pos = read_int()
+	
+	la	$a0, msg4		#
+	li	$v0, 4			#
+	syscall				# print_string("Original string: ");
+	
+	la	$a0, str1		#
+	li	$v0, 4			#
+	syscall				# print_string(str1);
+	
+	la	$a0, str1		#
+	la	$a1, str2		#
+	move	$a2, $t0		#
+	
+	jal insert			# insert(str1, str2, insert_pos);
+	
+	
+	la	$a0, msg5		#
+	li	$v0, 4			#
+	syscall				# print_string("\nModified string: ");
+	
+	la	$a0, str1		#
+	li	$v0, 4			#
+	syscall				# print_string(str1);
+	
+	la	$a0, msg6		#
+	li	$v0, 4			#
+	syscall				# print_string("\n");
 	
 	lw	$ra, 0($sp)		#
 	addi	$sp, $sp, 4		#
 
-	jr $ra
+	li 	$v0, 0			# return 0
+	jr	$ra
+	
 
 #########################################
 
@@ -50,11 +93,11 @@ insert:	addi	$sp, $sp, -4		#
 	move	$s2, $a2		#
 	
 	jal	strlen			# strlen(dst)
-	move	$v0, $t1		# len_dst = strlen(dst)
+	move	$t1, $v0		# len_dst = strlen(dst)
 	
 	move	$a0, $s1		# 
 	jal 	strlen			# strlen(src)
-	move	$v0, $t2		# len_src = strlen(src)
+	move	$t2, $v0		# len_src = strlen(src)
 	
 if:	bgt	$s2, $t1, endif		# if(pos <= len_dst)
 
