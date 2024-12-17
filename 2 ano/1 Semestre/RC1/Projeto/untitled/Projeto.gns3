@@ -1334,11 +1334,6 @@
                             "type": "ethernet"
                         },
                         {
-                            "name": "Liga\u00e7\u00e3o de Rede Bluetooth",
-                            "special": false,
-                            "type": "ethernet"
-                        },
-                        {
                             "name": "VMware Network Adapter VMnet1",
                             "special": true,
                             "type": "ethernet"
@@ -1355,11 +1350,6 @@
                         },
                         {
                             "name": "Ethernet 3",
-                            "special": false,
-                            "type": "ethernet"
-                        },
-                        {
-                            "name": "Ethernet 6",
                             "special": false,
                             "type": "ethernet"
                         }
