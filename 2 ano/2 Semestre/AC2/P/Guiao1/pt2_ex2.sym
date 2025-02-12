@@ -1,0 +1,11 @@
+GAS LISTING pt2_ex2.s 			page 1
+
+
+DEFINED SYMBOLS
+           pt2_ex2.s:10     .text:0000000000000000 main
+           pt2_ex2.s:13     .text:0000000000000004 do
+           pt2_ex2.s:17     .text:000000000000000c if
+           pt2_ex2.s:23     .text:0000000000000028 else
+           pt2_ex2.s:27     .text:0000000000000034 endif
+
+NO UNDEFINED SYMBOLS
