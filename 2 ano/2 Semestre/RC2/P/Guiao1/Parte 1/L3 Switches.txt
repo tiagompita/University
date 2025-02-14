@@ -1,0 +1,75 @@
+CORE1:
+vlan database
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+exit
+conf t
+interface range f1/0 - 2
+switchport mode trunk
+end
+write
+
+
+DIST1:
+vlan database
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+exit
+conf t
+interface range f1/0
+switchport mode access
+switchport access vlan 10
+interface range f1/1
+switchport mode access
+switchport access vlan 20
+interface range f1/15
+switchport mode trunk
+end
+write
+
+
+DIST2:
+vlan database
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+exit
+conf t
+interface range f1/0
+switchport mode access
+switchport access vlan 10
+interface range f1/1
+switchport mode access
+switchport access vlan 20
+interface range f1/2
+switchport mode access
+switchport access vlan 30
+interface range f1/15
+switchport mode trunk
+end
+write
+
+
+DIST3:
+vlan database
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+exit
+conf t
+interface range f1/0
+switchport mode access
+switchport access vlan 10
+interface range f1/1
+switchport mode access
+switchport access vlan 40
+interface range f1/15
+switchport mode trunk
+end
+write

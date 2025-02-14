@@ -1,0 +1,16 @@
+conf t
+ip routing
+interface vlan 10
+ip address 192.10.1.254 255.255.255.0
+no shutdown
+interface vlan 20
+ip address 192.20.1.254 255.255.255.0
+no shutdown
+interface vlan 30
+ip address 192.30.1.254 255.255.255.0
+no shutdown
+interface vlan 40
+ip address 192.40.1.254 255.255.255.0
+no shutdown
+end
+write
