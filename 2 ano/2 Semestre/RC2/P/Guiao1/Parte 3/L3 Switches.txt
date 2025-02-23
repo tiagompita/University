@@ -1,0 +1,113 @@
+CORE1:
+vlan database
+vlan 10
+vlan 20
+vlan 50
+exit
+conf t
+ip routing
+ip route 192.30.1.0 255.255.255.0 192.1.1.2
+ip route 192.40.1.0 255.255.255.0 192.1.1.3
+interface f1/0
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,1002-1005
+interface f1/1
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,50,1002-1005
+interface f1/2
+switchport mode trunk
+switchport trunk allowed vlan 1,10,50,1002-1005
+interface vlan 10
+no shutdown
+ip address 192.10.1.254 255.255.255.0
+interface vlan 20
+no shutdown
+ip address 192.20.1.254 255.255.255.0
+interface vlan 50
+no shutdown
+ip address 192.1.1.1 255.255.255.0
+end
+write
+
+
+DIST1:
+vlan database
+vlan 10
+vlan 20
+exit
+conf t
+interface f1/0
+switchport mode access
+switchport access vlan 10
+interface f1/1
+switchport mode access
+switchport access vlan 20
+interface f1/15
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,1002-1005
+end
+write
+
+
+DIST2:
+vlan database
+vlan 10
+vlan 20
+vlan 30
+vlan 50
+exit
+conf t
+ip routing
+ip route 192.10.1.0 255.255.255.0 192.1.1.1
+ip route 192.20.1.0 255.255.255.0 192.1.1.1
+ip route 192.40.1.0 255.255.255.0 192.1.1.3
+interface f1/0
+switchport mode access
+switchport access vlan 10
+interface f1/1
+switchport mode access
+switchport access vlan 20
+interface f1/2
+switchport mode access
+switchport access vlan 30
+interface f1/15
+switchport mode trunk
+switchport trunk allowed vlan 1,10,20,50,1002-1005
+interface vlan 30
+no shutdown
+ip address 192.30.1.254 255.255.255.0
+interface vlan 50
+no shutdown
+ip address 192.1.1.2 255.255.255.0
+end
+write
+
+
+DIST3:
+vlan database
+vlan 10
+vlan 40
+vlan 50
+exit
+conf t
+ip routing
+ip route 192.10.1.0 255.255.255.0 192.1.1.1
+ip route 192.20.1.0 255.255.255.0 192.1.1.1
+ip route 192.30.1.0 255.255.255.0 192.1.1.2
+interface f1/0
+switchport mode access
+switchport access vlan 10
+interface f1/1
+switchport mode access
+switchport access vlan 40
+interface f1/15
+switchport mode trunk
+switchport trunk allowed vlan 1,10,50,1002-1005
+interface vlan 40
+no shutdown
+ip address 192.40.1.254 255.255.255.0
+interface vlan 50
+no shutdown
+ip address 192.1.1.3 255.255.255.0
+end
+write

@@ -1,0 +1,32 @@
+Feb 21 12:46:27.326 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 21 12:46:27.326 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 65160.
+Feb 21 12:46:27.830 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 21 12:46:27.831 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 1\project-files\dynamips 
+Feb 21 12:46:27.832 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 1\project-files\dynamips
+Feb 21 12:46:27.832 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 1\project-files\dynamips\1638ed22-3ce9-410f-bff2-6c1c1a57ef29 
+Feb 21 12:46:27.839 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 1\project-files\dynamips\1638ed22-3ce9-410f-bff2-6c1c1a57ef29
+Feb 21 12:46:27.840 HYPERVISOR: exec_cmd: vm create DIST2 3 c3725 
+Feb 21 12:46:27.841 VM: VM DIST2 created.
+Feb 21 12:46:27.843 HYPERVISOR: exec_cmd: vm set_con_tcp_port DIST2 5020 
+Feb 21 12:46:27.843 HYPERVISOR: exec_cmd: c3725 get_mac_addr DIST2 
+Feb 21 12:46:27.844 HYPERVISOR: exec_cmd: vm set_disk0 DIST2 1 
+Feb 21 12:46:27.845 HYPERVISOR: exec_cmd: vm set_exec_area DIST2 64 
+Feb 21 12:46:27.845 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 21 12:46:27.845 HYPERVISOR: exec_cmd: vm set_idle_pc DIST2 0x0 
+Feb 21 12:46:27.847 HYPERVISOR: exec_cmd: vm set_ios DIST2 C:/Users/tiago/GNS3/images/IOS/c3725-adventerprisek9-mz.124-25d.image 
+Feb 21 12:46:27.848 HYPERVISOR: exec_cmd: c3725 set_mac_addr DIST2 c203.4be0.0000 
+Feb 21 12:46:27.849 HYPERVISOR: exec_cmd: vm set_nvram DIST2 256 
+Feb 21 12:46:27.850 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 21 12:46:27.850 HYPERVISOR: exec_cmd: vm slot_add_binding DIST2 1 0 NM-16ESW 
+Feb 21 12:46:29.256 HYPERVISOR: exec_cmd: nio create_udp udp-f38667b8-72f2-4020-8ab2-4731ce7c4c5e 20018 127.0.0.1 20019 
+Feb 21 12:46:29.530 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 15 udp-f38667b8-72f2-4020-8ab2-4731ce7c4c5e 
+Feb 21 12:46:29.531 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 21 12:46:30.022 HYPERVISOR: exec_cmd: nio create_udp udp-89581b94-c795-458c-9779-4a9192ecedcc 20036 127.0.0.1 20037 
+Feb 21 12:46:30.027 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 0 udp-89581b94-c795-458c-9779-4a9192ecedcc 
+Feb 21 12:46:30.028 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 21 12:46:30.075 HYPERVISOR: exec_cmd: nio create_udp udp-bbddb643-4285-4a5e-9e01-7981604d89f2 20040 127.0.0.1 20041 
+Feb 21 12:46:30.079 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 1 udp-bbddb643-4285-4a5e-9e01-7981604d89f2 
+Feb 21 12:46:30.080 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 21 12:46:30.127 HYPERVISOR: exec_cmd: nio create_udp udp-b070ff75-7b35-4e41-a244-97799a8941ea 20044 127.0.0.1 20045 
+Feb 21 12:46:30.131 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 2 udp-b070ff75-7b35-4e41-a244-97799a8941ea 
+Feb 21 12:46:30.131 HYPERVISOR: exec_cmd: vm get_status DIST2 
