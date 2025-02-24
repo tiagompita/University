@@ -65,10 +65,9 @@ while:
 
     li      $v0, 6              #
     move    $a0, $t0            #
-    li      $a1, 10             #
     li      $t2, 5              # $temp = 5
-    sll     $t2, $t2, 4         # 5 << 16
-    or      $a1, $a1, $t2
+    sll     $t2, $t2, 16        # 5 << 16
+    ori     $a1, $t2, 10
     syscall                     # printInt(value, 10 | 5 << 16)
 
     j while

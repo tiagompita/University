@@ -1,0 +1,14 @@
+GAS LISTING pt2_ex3.s 			page 1
+
+
+DEFINED SYMBOLS
+           pt2_ex3.s:6      .data:0000000000000000 msg1
+           pt2_ex3.s:7      .data:000000000000002a msg2
+           pt2_ex3.s:8      .data:0000000000000047 msg3
+           pt2_ex3.s:9      .data:000000000000005a msg4
+           pt2_ex3.s:10     .data:000000000000006e msg5
+           pt2_ex3.s:11     .data:000000000000008d msg6
+           pt2_ex3.s:16     .text:0000000000000000 main
+           pt2_ex3.s:17     .text:0000000000000000 while
+
+NO UNDEFINED SYMBOLS

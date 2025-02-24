@@ -1,0 +1,32 @@
+a) Determine o valor da constante "K", de modo a que para "ms" igual a 1 o atraso gerado 
+seja de 1ms (note que K=20*106*t, em que "t" é o valor do atraso, em segundos).
+    Para um atraso de 1ms, temos:
+        t = 1ms = 0,001s
+
+    A constante é dada por K=20×10^6×t 
+
+    Substituindo:
+        K=20 × 10^6 × 0,001 = 20×10^3 = 20000 
+
+    Portanto, para que o atraso gerado seja de 1ms quando ms=1, a constante K deve ser 20000.
+
+b) Com o valor de "K" que obteve na alínea anterior, calcule o valor máximo de atraso que 
+é possível gerar com a função delay(). 
+Traduza para assembly do MIPS a função delay() e teste-a com diferentes valores de 
+entrada (para o teste utilize como base o código C fornecido no ponto 1)
+
+    O CoreTimer varia de 0 a 2^32 - 1
+
+    Logo para a comparação lógica:
+
+        2^32 - 1  < K * ms
+
+        ms_max > 2^32 - 1 / K
+
+        ms_max > 4294967295 ÷ 20000
+
+        ms_max > 214748 ms
+
+    Convertendo para segundos:
+
+        214748 ms ≈ 214.748s ≈ 3 minutos e 34,75 segundos
