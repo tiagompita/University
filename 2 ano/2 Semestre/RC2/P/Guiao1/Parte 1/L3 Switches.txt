@@ -20,13 +20,13 @@ vlan 30
 vlan 40
 exit
 conf t
-interface range f1/0
+interface f1/0
 switchport mode access
 switchport access vlan 10
-interface range f1/1
+interface f1/1
 switchport mode access
 switchport access vlan 20
-interface range f1/15
+interface f1/15
 switchport mode trunk
 end
 write
@@ -40,16 +40,16 @@ vlan 30
 vlan 40
 exit
 conf t
-interface range f1/0
+interface f1/0
 switchport mode access
 switchport access vlan 10
-interface range f1/1
+interface f1/1
 switchport mode access
 switchport access vlan 20
-interface range f1/2
+interface f1/2
 switchport mode access
 switchport access vlan 30
-interface range f1/15
+interface f1/15
 switchport mode trunk
 end
 write
@@ -63,13 +63,13 @@ vlan 30
 vlan 40
 exit
 conf t
-interface range f1/0
+interface f1/0
 switchport mode access
 switchport access vlan 10
-interface range f1/1
+interface f1/1
 switchport mode access
 switchport access vlan 40
-interface range f1/15
+interface f1/15
 switchport mode trunk
 end
 write
