@@ -1,0 +1,41 @@
+Esta é a visão Geral da Solução da MultiPower
+
+Como atores existem os utilizadores, as pessoas que conduzem os seus veículos elétricos. Estes poderão usar a aplicação para o seu benefício, com o principal foco na fiabilidade e facilidade de uso para carregar o seus veículos.
+
+Os fornecedores das infraestruturas de carregamento, por exemplo MOBI-E (uma grande fornecedora de pontos de carregamento em Portugal), têm o objetivo de manter os postos de carregamento. A MultiPower oferece-lhes uma plataforma para alcançar um público maior e gerenciar o seus serviços de forma eficiente.
+
+Por fim a MultiPower é a entidade que desenvolve e opera a aplicação, atuando como intermediária entre os condutores e os fornecedores.
+
+
+A motivação para a criação desta aplicação nasce do crescimento de condutores com veículos elétricos onde precisam de lidar com múltiplas aplicações e sistemas diferentes de fornecedores. Isso cria uma experiência fragmentada e frustrante.
+A MultiPower Visa resolver esse problema oferencendo uma plataforma única que integra todas as estações de carregamento, independentemente do fornecedor.
+
+
+Os casos de utilização da aplicação podem ser repartidos da seguinte maneira:
+
+Visualizar Mapa
+
+Permite uma visão geral rápida e em tempo real da disponibilidade de todos os postos, facilitando a tomada de decisões.
+
+Navegar no Mapa
+
+A navegação pelo mapa permite ampliar e reduzir o mesmo de maneira a oferecer uma busca mais detalhada e personalizada consoante àquilo que o utilizador pretende.
+
+Pesquisar localizações
+
+Pesquisar uma localização permite ao utilizador colocar um endereço ou um ponto de interesse para encontrar estações de carregamentos próximas a esse local. Isto permite a facilidade de encontrar estações em locais específicos perto de casa, do trabalho ou até mesmo um destino de viagem.
+
+
+
+Pagamento
+
+O utilizador pode usar a aplicação para desbloquear o posto e iniciar o carregamento. O pagamento é processado automaticamente pela aplicação através da cobrança pela carteira digital ou débito direto caso associado.
+
+Isto elimina a necessidade de cartões físicos ou métodos de pagamento complicados ou incompatíveis.
+
+
+Estatísticas de Custos e Consumos
+
+A aplicação disponibiliza ao utilizador um histórico detalhado dos seus carregamentos, incluindo custos, tempo gasto, energia consumida e outras informações relevantes.
+
+Isto permite um controlo preciso dos gastos e do consumo de energia, oque facilita ao condutor uma melhor otimização do uso do veículo.
