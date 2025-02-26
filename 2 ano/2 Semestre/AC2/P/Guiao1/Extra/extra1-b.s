@@ -7,6 +7,7 @@
 
     .equ UP, 1
     .equ DOWN, 0
+    .equ STOP, 2
     
     .data
     .text
