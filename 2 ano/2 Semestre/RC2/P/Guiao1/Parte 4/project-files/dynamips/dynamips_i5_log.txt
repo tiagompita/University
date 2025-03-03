@@ -1,0 +1,62 @@
+Feb 28 11:20:07.313 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 28 11:20:07.314 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 51360.
+Feb 28 11:20:07.316 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 28 11:20:07.317 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips 
+Feb 28 11:20:07.317 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips
+Feb 28 11:20:07.317 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\90109c89-c7ad-4bdd-955e-75e0b404f6c0 
+Feb 28 11:20:07.325 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\90109c89-c7ad-4bdd-955e-75e0b404f6c0
+Feb 28 11:20:07.325 HYPERVISOR: exec_cmd: vm create CORE2 5 c3725 
+Feb 28 11:20:07.327 VM: VM CORE2 created.
+Feb 28 11:20:07.328 HYPERVISOR: exec_cmd: vm set_con_tcp_port CORE2 5012 
+Feb 28 11:20:07.328 HYPERVISOR: exec_cmd: c3725 get_mac_addr CORE2 
+Feb 28 11:20:07.329 HYPERVISOR: exec_cmd: vm set_disk0 CORE2 1 
+Feb 28 11:20:07.329 HYPERVISOR: exec_cmd: vm set_exec_area CORE2 64 
+Feb 28 11:20:07.331 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:07.331 HYPERVISOR: exec_cmd: vm set_idle_pc CORE2 0x6024681c 
+Feb 28 11:20:07.332 HYPERVISOR: exec_cmd: vm set_ios CORE2 C:/Users/tiago/GNS3/images/IOS/c3725-adventerprisek9-mz.124-25d.image 
+Feb 28 11:20:07.333 HYPERVISOR: exec_cmd: c3725 set_mac_addr CORE2 c205.2abc.0000 
+Feb 28 11:20:07.334 HYPERVISOR: exec_cmd: vm set_nvram CORE2 256 
+Feb 28 11:20:07.334 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:07.334 HYPERVISOR: exec_cmd: vm slot_add_binding CORE2 1 0 NM-16ESW 
+Feb 28 11:20:09.016 HYPERVISOR: exec_cmd: nio create_udp udp-85e173b3-c6f7-4118-8f57-372d0f26e51c 20048 127.0.0.1 20049 
+Feb 28 11:20:09.299 HYPERVISOR: exec_cmd: vm slot_add_nio_binding CORE2 1 3 udp-85e173b3-c6f7-4118-8f57-372d0f26e51c 
+Feb 28 11:20:09.299 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:09.360 HYPERVISOR: exec_cmd: nio create_udp udp-a09a8d18-3eac-42bf-bea5-29f50ed31f2f 20054 127.0.0.1 20055 
+Feb 28 11:20:09.373 HYPERVISOR: exec_cmd: vm slot_add_nio_binding CORE2 1 2 udp-a09a8d18-3eac-42bf-bea5-29f50ed31f2f 
+Feb 28 11:20:09.374 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:09.430 HYPERVISOR: exec_cmd: nio create_udp udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 20060 127.0.0.1 20061 
+Feb 28 11:20:09.434 HYPERVISOR: exec_cmd: vm slot_add_nio_binding CORE2 1 0 udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 
+Feb 28 11:20:09.434 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:09.490 HYPERVISOR: exec_cmd: nio create_udp udp-4295b788-76aa-4204-ab17-c7f672df38fc 20066 127.0.0.1 20067 
+Feb 28 11:20:09.493 HYPERVISOR: exec_cmd: vm slot_add_nio_binding CORE2 1 1 udp-4295b788-76aa-4204-ab17-c7f672df38fc 
+Feb 28 11:20:09.494 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:45.533 HYPERVISOR: exec_cmd: vm set_ghost_status CORE2 2 
+Feb 28 11:20:45.535 HYPERVISOR: exec_cmd: vm set_ghost_file CORE2 C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\c3725-adventerprisek9-mz.124-25d.image-128.ghost 
+Feb 28 11:20:45.538 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 11:20:45.558 HYPERVISOR: exec_cmd: vm set_config CORE2 configs\i5_startup-config.cfg 
+Feb 28 11:20:45.558 HYPERVISOR: exec_cmd: vm start CORE2 
+Feb 28 11:23:46.032 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 11:23:46.052 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 11:32:46.307 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 11:32:46.325 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 12:01:20.263 HYPERVISOR: exec_cmd: nio bind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 capture 
+Feb 28 12:01:20.263 HYPERVISOR: exec_cmd: nio setup_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 en10mb C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\captures\CORE2-DIST1.pcap 
+Feb 28 12:09:46.130 HYPERVISOR: exec_cmd: nio unbind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 
+Feb 28 12:15:49.968 HYPERVISOR: exec_cmd: nio bind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 capture 
+Feb 28 12:15:49.968 HYPERVISOR: exec_cmd: nio setup_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 en10mb C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\captures\CORE2_FastEthernet10_to_DIST1_FastEthernet114.pcap 
+Feb 28 12:37:40.317 HYPERVISOR: exec_cmd: nio unbind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 
+Feb 28 12:38:19.072 HYPERVISOR: exec_cmd: nio bind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 capture 
+Feb 28 12:38:19.072 HYPERVISOR: exec_cmd: nio setup_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 en10mb C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\captures\CORE2_FastEthernet10_to_DIST1_FastEthernet114.pcap 
+Feb 28 12:44:18.556 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 12:44:18.570 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 12:49:10.072 HYPERVISOR: exec_cmd: nio unbind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 
+Feb 28 12:49:17.174 HYPERVISOR: exec_cmd: nio bind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 capture 
+Feb 28 12:49:17.175 HYPERVISOR: exec_cmd: nio setup_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 en10mb C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\captures\CORE2_FastEthernet10_to_DIST1_FastEthernet114.pcap 
+Feb 28 12:50:47.828 HYPERVISOR: exec_cmd: nio unbind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 
+Feb 28 12:59:36.091 HYPERVISOR: exec_cmd: nio bind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 capture 
+Feb 28 12:59:36.091 HYPERVISOR: exec_cmd: nio setup_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 en10mb C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\captures\CORE2_FastEthernet10_to_DIST1_FastEthernet114.pcap 
+Feb 28 13:00:57.733 HYPERVISOR: exec_cmd: vm get_status CORE2 
+Feb 28 13:00:57.733 HYPERVISOR: exec_cmd: vm stop CORE2 
+Feb 28 13:00:57.887 VM: VM CORE2 shutdown.
+Feb 28 13:00:57.889 HYPERVISOR: exec_cmd: vm extract_config CORE2 
+Feb 28 13:00:57.895 HYPERVISOR: exec_cmd: nio unbind_filter udp-87cee52a-447a-4fef-9ff0-f741ff9e2a69 2 

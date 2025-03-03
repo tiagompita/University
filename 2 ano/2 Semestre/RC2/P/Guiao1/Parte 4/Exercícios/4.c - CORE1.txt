@@ -1,0 +1,106 @@
+CORE1#show spanning-tree brief
+
+VLAN1
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     c201.0abc.0000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32768
+             Address     c201.0abc.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface                                   Designated
+Name                 Port ID Prio Cost  Sts Cost  Bridge ID            Port ID
+-------------------- ------- ---- ----- --- ----- -------------------- -------
+FastEthernet1/0      128.41   128    19 FWD     0 32768 c201.0abc.0000 128.41
+FastEthernet1/1      128.42   128    19 FWD     0 32768 c201.0abc.0000 128.42
+FastEthernet1/2      128.43   128    19 FWD     0 32768 c201.0abc.0000 128.43
+FastEthernet1/3      128.44   128    19 FWD     0 32768 c201.0abc.0000 128.44
+
+
+VLAN10
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     c201.0abc.0001
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32768
+             Address     c201.0abc.0001
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface                                   Designated
+Name                 Port ID Prio Cost  Sts Cost  Bridge ID            Port ID
+-------------------- ------- ---- ----- --- ----- -------------------- -------
+FastEthernet1/0      128.41   128    19 FWD     0 32768 c201.0abc.0001 128.41
+FastEthernet1/1      128.42   128    19 FWD     0 32768 c201.0abc.0001 128.42
+FastEthernet1/2      128.43   128    19 FWD     0 32768 c201.0abc.0001 128.43
+FastEthernet1/3      128.44   128    19 FWD     0 32768 c201.0abc.0001 128.44
+
+
+VLAN20
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     c201.0abc.0002
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32768
+             Address     c201.0abc.0002
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface                                   Designated
+Name                 Port ID Prio Cost  Sts Cost  Bridge ID            Port ID
+-------------------- ------- ---- ----- --- ----- -------------------- -------
+FastEthernet1/0      128.41   128    19 FWD     0 32768 c201.0abc.0002 128.41
+FastEthernet1/1      128.42   128    19 FWD     0 32768 c201.0abc.0002 128.42
+FastEthernet1/2      128.43   128    19 FWD     0 32768 c201.0abc.0002 128.43
+FastEthernet1/3      128.44   128    19 FWD     0 32768 c201.0abc.0002 128.44
+
+
+VLAN30
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     c201.0abc.0003
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32768
+             Address     c201.0abc.0003
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface                                   Designated
+Name                 Port ID Prio Cost  Sts Cost  Bridge ID            Port ID
+-------------------- ------- ---- ----- --- ----- -------------------- -------
+FastEthernet1/0      128.41   128    19 FWD     0 32768 c201.0abc.0003 128.41
+FastEthernet1/1      128.42   128    19 FWD     0 32768 c201.0abc.0003 128.42
+FastEthernet1/2      128.43   128    19 FWD     0 32768 c201.0abc.0003 128.43
+FastEthernet1/3      128.44   128    19 FWD     0 32768 c201.0abc.0003 128.44
+
+
+VLAN40
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32768
+             Address     c201.0abc.0004
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32768
+             Address     c201.0abc.0004
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time 300
+
+Interface                                   Designated
+Name                 Port ID Prio Cost  Sts Cost  Bridge ID            Port ID
+-------------------- ------- ---- ----- --- ----- -------------------- -------
+FastEthernet1/0      128.41   128    19 FWD     0 32768 c201.0abc.0004 128.41
+FastEthernet1/1      128.42   128    19 FWD     0 32768 c201.0abc.0004 128.42
+FastEthernet1/2      128.43   128    19 FWD     0 32768 c201.0abc.0004 128.43
+FastEthernet1/3      128.44   128    19 FWD     0 32768 c201.0abc.0004 128.44
+
