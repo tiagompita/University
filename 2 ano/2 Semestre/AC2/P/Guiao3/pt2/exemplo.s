@@ -31,9 +31,12 @@ main:
     andi        $t1, $t1, 0xFFE1                # MODIFY 1111 1111 1110 0001
     sw          $t1, TRISE($t0)                 # WRITE
 
+    lw          $t1, TRISB($t0)                 # READ
+    ori         $t1, $t1, 0x001E                # MODIFY 0000 0000 0001 1110
+    sw          $t1, TRISB($t0)                 # WRITE
+
     li          $t2, 0                          # up counter (initial value 0)
 
-loop:
     lw          $t1, LATE($t0)                  # READ
     andi        $t1, $t1, 0xFFE1                # Reset bits 4-1
     sll         $t3, $t2, 1                     # Shift counter value to "position" 1
@@ -46,13 +49,11 @@ loop:
 wait:
     li          $v0, READ_CORE_TIMER
     syscall
-    blt         $v0, 20000000, wait              # e.g. f = 4.6Hz
+    blt         $v0, 4347826, wait              # e.g. f = 4.6Hz
 
 
     addi        $t2, $t2, 1
     andi        $t2, $t2, 0x000F                # e.g. up counter MOD 16
-
-    j loop
 
     lw          $ra, 0($sp)
     addi        $sp, $sp, 4
