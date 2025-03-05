@@ -33,7 +33,7 @@ main:
     ori         $t1, $t1, 0x0002                # MODIFY 0000 0000 0000 0010
     sw          $t1, TRISB($t0)                 # WRITE
 
-    li          $t2, 1                         # down counter (initial value 15)
+    li          $t2, 0                         # down counter (initial value 15)
 
 loop:
     lw          $t1, LATE($t0)                  # READ
@@ -56,10 +56,10 @@ wait:
     beqz         $t7, shiftright                # if (RB2 != 0)
 
 shiftleft:    
-    andi	    $t1, $t2, 0x0001		        # isolar bit0
+    andi	    $t1, $t2, 0x0008		        # isolar bit 3
+	srl	        $t1, $t1, 3			            # colocar bit na posição menos significativa para o contador
 	xori	    $t1, $t1, 0x0001		        # negar bit
-    sll         $t1, $t1, 3                     # Passar bit0 para bit4
-	srl	        $t2, $t2, 1			            # shift right do contador
+	sll	        $t2, $t2, 1			            # shift left do contador
 	or	        $t2, $t2, $t1			        # colocar bit lido no contador
     j endshift
 
