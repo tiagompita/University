@@ -29,7 +29,11 @@ main:
     andi        $t1, $t1, 0xFFE1                # MODIFY 1111 1111 1110 0001
     sw          $t1, TRISE($t0)                 # WRITE
 
-    li          $t2, 15                         # down counter (initial value 15)
+    lw          $t1, TRISB($t0)                 # READ
+    ori         $t1, $t1, 0x0008                # MODIFY 0000 0000 0000 1000
+    sw          $t1, TRISB($t0)                 # WRITE
+
+    li          $t2, 0                         # down counter (initial value 15)
 
 loop:
     lw          $t1, LATE($t0)                  # READ
@@ -38,16 +42,23 @@ loop:
     or          $t1, $t1, $t3                   # Merge counter w/ LATE value
     sw          $t1, LATE($t0)                  # Update LATE register 
 
+    lw          $t7, PORTB($t0)                 # READ
+    andi        $t7, $t7, 0x0008                # Only keep bit3
+
     li          $v0, RESET_CORE_TIMER
     syscall
 wait:
     li          $v0, READ_CORE_TIMER
     syscall
-    blt         $v0, 5000000, wait              # e.g. f = 4Hz
+    blt         $v0, 10000000, wait              # e.g. f = 2Hz
 
-    addi        $t2, $t2, -1
+    beq         $t7, 0x0000, decrement           # if (RB3 != 0)
+    addi        $t2, $t2, 1
+    j endif
+decrement:
+    addi        $t2, $t2, -1 
+endif:
     andi        $t2, $t2, 0x000F                # e.g. down counter MOD 16
-
     j loop
 
     jr  $ra

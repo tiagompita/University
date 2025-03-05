@@ -29,7 +29,11 @@ main:
     andi        $t1, $t1, 0xFFE1                # MODIFY 1111 1111 1110 0001
     sw          $t1, TRISE($t0)                 # WRITE
 
-    li          $t2, 15                         # down counter (initial value 15)
+    lw          $t1, TRISB($t0)                 # READ
+    ori         $t1, $t1, 0x0002                # MODIFY 0000 0000 0000 0010
+    sw          $t1, TRISB($t0)                 # WRITE
+
+    li          $t2, 1                         # down counter (initial value 15)
 
 loop:
     lw          $t1, LATE($t0)                  # READ
@@ -38,14 +42,35 @@ loop:
     or          $t1, $t1, $t3                   # Merge counter w/ LATE value
     sw          $t1, LATE($t0)                  # Update LATE register 
 
+    lw          $t7, PORTB($t0)                 # READ
+    andi        $t7, $t7, 0x0004                # Only keep bit2 (0100)
+
     li          $v0, RESET_CORE_TIMER
     syscall
 wait:
     li          $v0, READ_CORE_TIMER
     syscall
-    blt         $v0, 5000000, wait              # e.g. f = 4Hz
+    blt         $v0, 13333333, wait              # e.g. f = 1.5Hz
 
-    addi        $t2, $t2, -1
+    # ---------- CHECK SWITCH ----------
+    beqz         $t7, shiftright                # if (RB2 != 0)
+
+shiftleft:    
+    andi	    $t1, $t2, 0x0001		        # isolar bit0
+	xori	    $t1, $t1, 0x0001		        # negar bit
+    sll         $t1, $t1, 3                     # Passar bit0 para bit4
+	srl	        $t2, $t2, 1			            # shift right do contador
+	or	        $t2, $t2, $t1			        # colocar bit lido no contador
+    j endshift
+
+shiftright:
+    andi	    $t1, $t2, 0x0001		        # isolar bit0
+	xori	    $t1, $t1, 0x0001		        # negar bit
+    sll         $t1, $t1, 3                     # Passar bit0 para bit4
+	srl	        $t2, $t2, 1			            # shift right do contador
+	or	        $t2, $t2, $t1			        # colocar bit lido no contador
+
+endshift:
     andi        $t2, $t2, 0x000F                # e.g. down counter MOD 16
 
     j loop

@@ -29,7 +29,7 @@ main:
     andi        $t1, $t1, 0xFFE1                # MODIFY 1111 1111 1110 0001
     sw          $t1, TRISE($t0)                 # WRITE
 
-    li          $t2, 15                         # down counter (initial value 15)
+    li          $t2, 1                          # down counter (initial value 15)
 
 loop:
     lw          $t1, LATE($t0)                  # READ
@@ -43,11 +43,18 @@ loop:
 wait:
     li          $v0, READ_CORE_TIMER
     syscall
-    blt         $v0, 5000000, wait              # e.g. f = 4Hz
+    blt         $v0, 13333333, wait              # e.g. f = 1.5Hz
 
-    addi        $t2, $t2, -1
+    # ---------- JOHNSON COUNTER ----------
+
+    andi	    $t1, $t2, 0x0008		        # isolar bit 3
+	srl	        $t1, $t1, 3			            # colocar bit na posição menos significativa para o contador
+	xori	    $t1, $t1, 0x0001		        # negar bit
+	sll	        $t2, $t2, 1			            # shift left do contador
+	or	        $t2, $t2, $t1			        # colocar bit lido no contador
+
     andi        $t2, $t2, 0x000F                # e.g. down counter MOD 16
-
+    
     j loop
 
     jr  $ra

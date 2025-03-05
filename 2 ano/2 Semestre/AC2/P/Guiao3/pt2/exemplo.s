@@ -15,15 +15,13 @@
     .equ PORTE, 0x6110
     .equ LATE, 0x6120
 
-    .equ RESET_CORE_TIMER, 11
-    .equ READ_CORE_TIMER, 12
+    .equ READ_CORE_TIMER, 11
+    .equ RESET_CORE_TIMER, 12
     .data
     .text
     .globl main
 
 main:
-    addi        $sp, $sp, -4
-    sw          $ra, 0($sp)
 
     lui         $t0, ADDR_BASE_HI               # $t0 = 0xBF880000
 
@@ -54,8 +52,5 @@ wait:
 
     addi        $t2, $t2, 1
     andi        $t2, $t2, 0x000F                # e.g. up counter MOD 16
-
-    lw          $ra, 0($sp)
-    addi        $sp, $sp, 4
 
     jr  $ra

@@ -25,7 +25,7 @@ main:
     sw          $t2,TRISD($t1)              # WRITE     Write TRISD register
 
     lw          $t3, TRISE($t1)             # READ      Mem_addr = 0xBF886040
-    andi        $t3, $t2, 0xFFFE            # MODIFY    bit 0 (0 means OUTPUT)
+    andi        $t3, $t3, 0xFFFE            # MODIFY    bit 0 (0 means OUTPUT)
     sw          $t3, TRISE($t1)             # WRITE     TRISE register
 
 while:                                      # while(1)
