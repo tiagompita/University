@@ -1,0 +1,6 @@
+conf t
+interface f1/15
+spanning-tree vlan 10 cost 39
+spanning-tree vlan 20 cost 39
+end
+write

@@ -4,20 +4,57 @@ vlan 10
 vlan 20
 vlan 30
 vlan 40
+vlan 50
 exit
 conf t
-interface range f1/0 - 2
+ip routing
+interface range f1/0 - 3
 switchport mode trunk
+interface vlan 30
+no shutdown
+ip address 192.30.1.254 255.255.255.0
+interface vlan 40
+no shutdown
+ip address 192.40.1.254 255.255.255.0
+interface vlan 50
+ip address 192.50.1.254 255.255.255.0
+exit
+ip route 192.10.1.0 255.255.255.0 192.50.1.253
+ip route 192.20.1.0 255.255.255.0 192.50.1.253
 end
 write
 
-
-DIST1:
+CORE2:
 vlan database
 vlan 10
 vlan 20
 vlan 30
 vlan 40
+vlan 50
+exit
+conf t
+ip routing
+interface range f1/0 - 3
+switchport mode trunk
+interface vlan 10
+no shutdown
+ip address 192.10.1.254 255.255.255.0
+interface vlan 20
+no shutdown
+ip address 192.20.1.254 255.255.255.0
+interface vlan 50
+no shutdown
+ip address 192.50.1.253 255.255.255.0
+exit
+ip route 192.30.1.0 255.255.255.0 192.50.1.254
+ip route 192.40.1.0 255.255.255.0 192.50.1.254
+end
+write
+
+DIST1:
+vlan database
+vlan 10
+vlan 20
 exit
 conf t
 interface f1/0
@@ -26,7 +63,7 @@ switchport access vlan 10
 interface f1/1
 switchport mode access
 switchport access vlan 20
-interface f1/15
+interface range f1/14 - 15
 switchport mode trunk
 end
 write
@@ -37,7 +74,6 @@ vlan database
 vlan 10
 vlan 20
 vlan 30
-vlan 40
 exit
 conf t
 interface f1/0
@@ -49,7 +85,7 @@ switchport access vlan 20
 interface f1/2
 switchport mode access
 switchport access vlan 30
-interface f1/15
+interface range f1/14 - 15
 switchport mode trunk
 end
 write
@@ -58,8 +94,6 @@ write
 DIST3:
 vlan database
 vlan 10
-vlan 20
-vlan 30
 vlan 40
 exit
 conf t
@@ -69,7 +103,7 @@ switchport access vlan 10
 interface f1/1
 switchport mode access
 switchport access vlan 40
-interface f1/15
+interface range f1/14 - 15
 switchport mode trunk
 end
 write

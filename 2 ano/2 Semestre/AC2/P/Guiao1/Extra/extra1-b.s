@@ -7,6 +7,7 @@
 
     .equ UP, 1
     .equ DOWN, 0
+    .equ STOP, 2
     
     .data
     .text
@@ -14,66 +15,86 @@
 
 main:
     addi    $sp, $sp, -16
-    sb      $s0, 0($sp)
-    sb      $s1, 4($sp)
-    sb      $s2, 8($sp)
+    sw      $s0, 0($sp)
+    sw      $s1, 4($sp)
+    sw      $s2, 8($sp)
     sw      $ra, 12($sp)
 
-    li      $s0, 0          # int state = 0
-    li      $s1, 0          # int cnt = 0
+    li      $s0, STOP               # int state = STOP
+    li      $s1, 0                  # int cnt = 0
 
-do: li      $v0, 3          #
-    li      $a0, '\r'       #
-    syscall                 # putChar('\r') // Carriage return character
+do: li      $v0, 3                  #
+    li      $a0, '\r'               #
+    syscall                         # putChar('\r') // Carriage return character
 
-    li      $v0, 6          #
-    move    $a0, $s1        #
-    li      $t0, 3          # temp = 3
-    sll     $t0, $t0, 16    # temp = 3 << 16
-    ori     $a1, $t0, 10    # 10 | 3 << 16
-    syscall                 # printInt(cnt, 10 | 3 << 16) //0x0003000A: decimal w/ 3 digits
+    li      $v0, 6                  #
+    move    $a0, $s1                #
+    li      $t0, 3                  # temp = 3
+    sll     $t0, $t0, 16            # temp = 3 << 16
+    ori     $a1, $t0, 10            # 10 | 3 << 16
+    syscall                         # printInt(cnt, 10 | 3 << 16) //0x0003000A: decimal w/ 3 digits
 
-    li      $v0, 3          #
-    li      $a0, '\t'       #
-    syscall                 # putChar('\t') // Tab character
+    li      $v0, 3                  #
+    li      $a0, '\t'               #
+    syscall                         # putChar('\t') // Tab character
 
-    li      $v0, 6          #
-    move    $a0, $t1        #
-    li      $t0, 8          # temp = 8
-    sll     $t0, $t0, 16    # temp = 8 << 16
-    ori     $a1, $t0, 2     # 2 | 8 << 16
-    syscall                 # printInt(cnt, 2 | 8 << 16) //0x00080002: decimal w/ 8 digits
+    li      $v0, 6                  #
+    move    $a0, $s1                #
+    li      $t0, 8                  # temp = 8
+    sll     $t0, $t0, 16            # temp = 8 << 16
+    ori     $a1, $t0, 2             # 2 | 8 << 16
+    syscall                         # printInt(cnt, 2 | 8 << 16) //0x00080002: decimal w/ 8 digits
 
-    li      $a0, 5          #
-    jal     wait
+    li      $a0, 5                  #
+    jal     wait        
 
-    li      $v0, 1          #
-    syscall                 # inkey()
-    move    $s2, $v0        # c = inkey()
+    li      $v0, 1                  #
+    syscall                         # inkey()
+    move    $s2, $v0                # c = inkey()
 
-    bne     $s2, '+', endif # if (c == '+')
-    li      $s0, UP
-endif:
-    bne     $s2, '-', endif2 # if (c == '-')
-    li      $s0, DOWN
-endif2:
+    bne     $s2, '+', elsif         # if (c == '+')
+    li      $s0, UP                 # state = UP
+    j endif 
 
-    bne     $s0, UP, else   # if (state == UP)
-    addi    $s1, $s1, 1     # cnt = cnt + 1
-    andi    $s1, $s1, 0xFF  # (cnt + 1) & 0xFF  //Up counter MOD 256
-    j endif3
+elsif:      
+
+    bne     $s2, '-', elsif2        # if (c == '-')
+    li      $s0, DOWN               # state = DOWN
+    j endif 
+    
+elsif2:
+
+    bne     $s2, 's', elsif3        # if(c == 's')
+    li      $s0, STOP               # state = STOP
+    j endif 
+
+elsif3:
+
+    bne     $s2, 'r', else          # if (c == 'r')
+    li      $s1, 0                  # cnt = 0
+    j endif 
+             
 else:
-    addi    $s1, $s1, -1    # cnt = cnt - 1
-    andi    $s1, $s1, 0xFF  # (cnt + 1) & OxFF  //Down counter MOD 256
-endif3:
+    
+    bne     $s0, UP, elsif4           # if (state == UP)
+    addi    $s1, $s1, 1               # cnt = cnt + 1
+    andi    $s1, $s1, 0xFF            # (cnt + 1) & 0xFF  //Up counter MOD 256
+    j endif 
+elsif4:
 
-    bne     $s2, 'q', do    # while (c != 'q')
+    bne     $s0, DOWN, endif          # if (state == DOWN)
+    addi    $s1, $s1, -1              # cnt = cnt - 1
+    andi    $s1, $s1, 0xFF            # (cnt + 1) & OxFF  //Down counter MOD 256
 
-    li      $v0, 0          # return 0
+endif:       
+          
+    bne     $s2, 'q', do              # while (c != 'q')
+          
+    li      $v0, 0                    # return 0
 
-    lb      $s0, 0($sp)
-    lb      $s1, 4($sp)
-    lb      $s2, 8($sp)
+    lw      $s0, 0($sp)
+    lw      $s1, 4($sp)
+    lw      $s2, 8($sp)
     lw      $ra, 12($sp)
     addi    $sp, $sp, 16
     

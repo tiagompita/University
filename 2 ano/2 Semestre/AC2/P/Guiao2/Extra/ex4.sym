@@ -1,0 +1,24 @@
+GAS LISTING ex4.s 			page 1
+
+
+DEFINED SYMBOLS
+               ex4.s:1      *ABS*:000000000000000b READ_CORE_TIMER
+               ex4.s:2      *ABS*:000000000000000c RESET_CORE_TIMER
+               ex4.s:3      *ABS*:0000000000004e20 K
+               ex4.s:9      .text:0000000000000000 main
+               ex4.s:28     .text:0000000000000038 loop
+               ex4.s:46     .text:000000000000007c set_double
+               ex4.s:50     .text:0000000000000084 set_normal
+               ex4.s:54     .text:000000000000008c set_pause
+               ex4.s:58     .text:0000000000000094 set_resume
+               ex4.s:62     .text:000000000000009c continue_delay
+               ex4.s:153    .text:00000000000001a4 delay
+               ex4.s:71     .text:00000000000000b4 update_counters
+               ex4.s:90     .text:00000000000000fc print_loop
+               ex4.s:79     .text:00000000000000d8 inc_cnt5
+               ex4.s:81     .text:00000000000000dc skip_cnt5
+               ex4.s:86     .text:00000000000000f8 inc_cnt1
+               ex4.s:88     .text:00000000000000fc skip_cnt1
+               ex4.s:157    .text:00000000000001ac delay_loop
+
+NO UNDEFINED SYMBOLS

@@ -38,7 +38,7 @@ do: li      $v0, 3          #
     syscall                 # putChar('\t') // Tab character
 
     li      $v0, 6          #
-    move    $a0, $t1        #
+    move    $a0, $s1        #
     li      $t0, 8          # temp = 8
     sll     $t0, $t0, 16    # temp = 8 << 16
     ori     $a1, $t0, 2     # 2 | 8 << 16

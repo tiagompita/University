@@ -1,0 +1,15 @@
+GAS LISTING ex2.s 			page 1
+
+
+DEFINED SYMBOLS
+               ex2.s:1      *ABS*:0000000000004e20 K
+               ex2.s:2      *ABS*:000000000000000b READ_CORE_TIMER
+               ex2.s:3      *ABS*:000000000000000c RESET_CORE_TIMER
+               ex2.s:8      .text:0000000000000000 main
+               ex2.s:51     .text:0000000000000078 configD11
+               ex2.s:12     .text:0000000000000008 while
+               ex2.s:61     .text:000000000000008c outD11
+               ex2.s:72     .text:00000000000000a8 delay
+               ex2.s:77     .text:00000000000000b0 while_delay
+
+NO UNDEFINED SYMBOLS

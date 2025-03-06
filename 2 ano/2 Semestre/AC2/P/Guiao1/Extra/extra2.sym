@@ -1,0 +1,26 @@
+GAS LISTING extra2.s 			page 1
+
+
+DEFINED SYMBOLS
+            extra2.s:6      *ABS*:0000000000000014 SIZE
+            extra2.s:8      .data:0000000000000000 str1
+            extra2.s:9      .data:0000000000000015 str2
+            extra2.s:10     .data:000000000000002a str3
+            extra2.s:12     .data:0000000000000053 msg1
+            extra2.s:13     .data:0000000000000069 msg2
+            extra2.s:14     .data:0000000000000076 newline
+            extra2.s:19     .text:0000000000000000 main
+            extra2.s:100    .text:000000000000011c strlen
+            extra2.s:120    .text:0000000000000140 strcpy
+            extra2.s:145    .text:0000000000000164 strcat
+            extra2.s:187    .text:00000000000001c0 strcmp
+            extra2.s:102    .text:0000000000000120 len_loop
+            extra2.s:111    .text:0000000000000138 len_end
+            extra2.s:123    .text:0000000000000144 copy_loop
+            extra2.s:133    .text:000000000000015c copy_end
+            extra2.s:156    .text:0000000000000184 cat_loop
+            extra2.s:162    .text:0000000000000198 cat_end
+            extra2.s:188    .text:00000000000001c0 cmp_copy
+            extra2.s:197    .text:00000000000001e4 cmp_end
+
+NO UNDEFINED SYMBOLS

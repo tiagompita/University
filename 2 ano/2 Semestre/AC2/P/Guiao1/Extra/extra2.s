@@ -11,6 +11,8 @@ str3: .space 41
 
 msg1: .asciiz "Introduza 2 strings: "
 msg2: .asciiz "Resultados:\n"
+newline: .asciiz "\n"
+
     .text
     .globl main
 
@@ -44,6 +46,10 @@ main:
     li      $a1, 10             #
     syscall                     # printInt( strlen(str1), 10 )
 
+    li      $v0, 8              #
+    la      $a0, newline        #
+    syscall                     # printStr("\n");
+
     la      $a0, str2           #
     jal     strlen              # strlen(str2)
 
@@ -51,6 +57,10 @@ main:
     li      $v0, 6              #
     li      $a1, 10             #
     syscall                     # printInt( strlen(str2), 10 )
+
+    li      $v0, 8              #
+    la      $a0, newline        #
+    syscall                     # printStr("\n");
 
     la      $a0, str3           #
     la      $a1, str1           #
@@ -64,13 +74,17 @@ main:
     li      $v0, 8              #
     syscall                     # printStr( strcat(str3, str2) )
 
+    li      $v0, 8              #
+    la      $a0, newline        #
+    syscall                     # printStr("\n");
+
     la      $a0, str1           #
     la      $a1, str2           #
     jal strcmp                  # strcmp(str1, str2)
 
     move    $a0, $v0            #
     li      $v0, 7
-    syscall                     # printInt10( str1, str2)
+    syscall                     # printInt10(strcmp(str1, str2))
 
     lw      $ra, 0($sp)
     addi    $sp, $sp, 4
@@ -87,7 +101,7 @@ strlen:
     li      $t0, 0              # len = 0
 len_loop:
     lb      $t1, 0($a0)         # *str
-    beq     $t1, 0, len_end      # while (*str != '\0')
+    beq     $t1, 0, len_end     # while (*str != '\0')
 
     addi    $a0, $a0, 1         # str++
     addi    $t0, $t0, 1         # len++
@@ -104,19 +118,20 @@ len_end:
 #   p = $t0
 
 strcpy:
-    move    $t0, $a0                # *p = dst
-copy_loop:
-    lb      $t1, 0($a1)             # $t1 = *src
-    sb      $t1, 0($a0)             # *dst = $t1
-    beq     $t1, 0, copy_end         # *dst != '\0'
 
-    addi    $a0, $a0, 1             # dst++
-    addi    $a1, $a1, 1             # src++
+    move    $t0, $a0            # *p = dst
+copy_loop:
+    lb      $t1, 0($a1)         # $t1 = *src
+    sb      $t1, 0($a0)         # *dst = $t1
+    beq     $t1, 0, copy_end    # *dst != '\0'
+
+    addi    $a0, $a0, 1         # dst++
+    addi    $a1, $a1, 1         # src++
 
     j copy_loop
 
 copy_end:
-    move    $v0, $t0                # return p
+    move    $v0, $t0            # return p
     jr      $ra
 
 #####################################    
@@ -128,8 +143,11 @@ copy_end:
 #   $s2 = $a1 (src)
 
 strcat:
-    addi    $sp, $sp, -4
+    addi    $sp, $sp, -16
     sw      $ra, 0($sp)
+    sw      $s0, 4($sp)
+    sw      $s1, 8($sp)
+    sw      $s2, 12($sp)
 
     move    $s1, $a0
     move    $s2, $a1
@@ -149,7 +167,10 @@ cat_end:
     move    $v0, $s0                # return p
 
     lw      $ra, 0($sp)
-    addi    $sp, $sp, 4
+    lw      $s0, 4($sp)
+    lw      $s1, 8($sp)
+    lw      $s2, 12($sp)
+    addi    $sp, $sp, 16
     jr $ra
 
 ######################################

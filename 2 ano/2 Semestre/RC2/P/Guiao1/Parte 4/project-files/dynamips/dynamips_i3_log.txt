@@ -1,0 +1,48 @@
+Feb 28 11:20:06.062 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Feb 28 11:20:06.062 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 51347.
+Feb 28 11:20:06.568 HYPERVISOR: exec_cmd: hypervisor version 
+Feb 28 11:20:06.569 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips 
+Feb 28 11:20:06.570 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips
+Feb 28 11:20:06.570 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\9cb2237b-840e-45f0-96fa-8785503dd89f 
+Feb 28 11:20:06.573 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\9cb2237b-840e-45f0-96fa-8785503dd89f
+Feb 28 11:20:06.573 HYPERVISOR: exec_cmd: vm create DIST2 3 c3725 
+Feb 28 11:20:06.574 VM: VM DIST2 created.
+Feb 28 11:20:06.576 HYPERVISOR: exec_cmd: vm set_con_tcp_port DIST2 5009 
+Feb 28 11:20:06.576 HYPERVISOR: exec_cmd: c3725 get_mac_addr DIST2 
+Feb 28 11:20:06.576 HYPERVISOR: exec_cmd: vm set_disk0 DIST2 1 
+Feb 28 11:20:06.577 HYPERVISOR: exec_cmd: vm set_exec_area DIST2 64 
+Feb 28 11:20:06.579 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:06.579 HYPERVISOR: exec_cmd: vm set_idle_pc DIST2 0x0 
+Feb 28 11:20:06.581 HYPERVISOR: exec_cmd: vm set_ios DIST2 C:/Users/tiago/GNS3/images/IOS/c3725-adventerprisek9-mz.124-25d.image 
+Feb 28 11:20:06.581 HYPERVISOR: exec_cmd: c3725 set_mac_addr DIST2 c203.4be0.0000 
+Feb 28 11:20:06.583 HYPERVISOR: exec_cmd: vm set_nvram DIST2 256 
+Feb 28 11:20:06.584 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:06.585 HYPERVISOR: exec_cmd: vm slot_add_binding DIST2 1 0 NM-16ESW 
+Feb 28 11:20:08.113 HYPERVISOR: exec_cmd: nio create_udp udp-574c50c1-241f-49e5-9b28-99c0df2a0c6a 20018 127.0.0.1 20019 
+Feb 28 11:20:08.362 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 15 udp-574c50c1-241f-49e5-9b28-99c0df2a0c6a 
+Feb 28 11:20:08.363 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:08.837 HYPERVISOR: exec_cmd: nio create_udp udp-cbe5708e-dbf5-4159-9089-e1b15e237d27 20036 127.0.0.1 20037 
+Feb 28 11:20:08.845 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 0 udp-cbe5708e-dbf5-4159-9089-e1b15e237d27 
+Feb 28 11:20:08.846 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:08.897 HYPERVISOR: exec_cmd: nio create_udp udp-e434fe16-e7f8-4f17-becf-30ef44e3339b 20040 127.0.0.1 20041 
+Feb 28 11:20:08.901 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 1 udp-e434fe16-e7f8-4f17-becf-30ef44e3339b 
+Feb 28 11:20:08.902 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:08.957 HYPERVISOR: exec_cmd: nio create_udp udp-7554e9cc-51d1-47a8-9d10-346d33e75102 20044 127.0.0.1 20045 
+Feb 28 11:20:08.961 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 2 udp-7554e9cc-51d1-47a8-9d10-346d33e75102 
+Feb 28 11:20:08.961 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:09.502 HYPERVISOR: exec_cmd: nio create_udp udp-3c232fc4-9806-4952-9d63-a083c569c04f 20068 127.0.0.1 20069 
+Feb 28 11:20:09.506 HYPERVISOR: exec_cmd: vm slot_add_nio_binding DIST2 1 14 udp-3c232fc4-9806-4952-9d63-a083c569c04f 
+Feb 28 11:20:09.507 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:42.275 HYPERVISOR: exec_cmd: vm set_ghost_status DIST2 2 
+Feb 28 11:20:42.286 HYPERVISOR: exec_cmd: vm set_ghost_file DIST2 C:\University\2 ano\2 Semestre\RC2\P\Guiao1\Parte 4\project-files\dynamips\c3725-adventerprisek9-mz.124-25d.image-128.ghost 
+Feb 28 11:20:42.287 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 11:20:42.298 HYPERVISOR: exec_cmd: vm set_config DIST2 configs\i3_startup-config.cfg 
+Feb 28 11:20:42.298 HYPERVISOR: exec_cmd: vm start DIST2 
+Feb 28 12:30:15.210 HYPERVISOR: exec_cmd: vm extract_config DIST2 
+Feb 28 12:30:15.231 HYPERVISOR: exec_cmd: vm extract_config DIST2 
+Feb 28 12:58:46.067 HYPERVISOR: exec_cmd: vm extract_config DIST2 
+Feb 28 12:58:46.084 HYPERVISOR: exec_cmd: vm extract_config DIST2 
+Feb 28 13:00:56.532 HYPERVISOR: exec_cmd: vm get_status DIST2 
+Feb 28 13:00:56.532 HYPERVISOR: exec_cmd: vm stop DIST2 
+Feb 28 13:00:56.765 VM: VM DIST2 shutdown.
+Feb 28 13:00:56.766 HYPERVISOR: exec_cmd: vm extract_config DIST2 
