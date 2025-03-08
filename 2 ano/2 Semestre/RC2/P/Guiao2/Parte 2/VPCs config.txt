@@ -1,0 +1,15 @@
+PC1:
+ip 192.1.1.100/24 192.1.1.2
+save
+
+#Configure the Virtual Router Redundancy Protocol (VRRP)
+ip 192.1.1.100/24 192.1.1.254
+save
+
+PC2:
+ip 192.2.2.100/24 192.2.2.5
+save
+
+PC3:
+ip 192.3.3.100/24 192.3.3.5
+save
