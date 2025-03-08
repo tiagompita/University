@@ -21,21 +21,6 @@ void delay(unsigned int ms)
     while(readCoreTimer() < 20000 * ms);
 }
 
-// Função auxiliar para imprimir um número com 5 dígitos e zeros à esquerda
-void printNum(int num)
-{
-    char buffer[6];
-    int i;
-    buffer[5] = '\0';
-    for(i = 4; i >= 0; i--) {
-        buffer[i] = (num % 10) + '0';
-        num /= 10;
-    }
-    for(i = 0; i < 5; i++) {
-        putChar(buffer[i]);
-    }
-}
-
 int main(void)
 {
     int cnt1 = 0, cnt5 = 0, cnt10 = 0;
@@ -62,15 +47,11 @@ int main(void)
         putChar('\r');
         
         // 2) Imprime cnt1, cnt5 e cnt10, com 3 espaços entre eles
-        printNum(cnt1);
-        putChar(' ');
-        putChar(' ');
-        putChar(' ');
-        printNum(cnt5);
-        putChar(' ');
-        putChar(' ');
-        putChar(' ');
-        printNum(cnt10);
+        printInt(cnt1, 10 | 5 << 16);
+        putChar('\t');
+        printInt(cnt5, 10 | 5 << 16);
+        putChar('\t');
+        printInt(cnt10, 10 | 5 << 16);
     }
     
     return 0;
