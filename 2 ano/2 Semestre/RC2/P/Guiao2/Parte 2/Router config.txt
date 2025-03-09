@@ -1,0 +1,178 @@
+R1:
+conf t
+int f1/0
+no shutdown
+ip address 192.1.1.1 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.12.1 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.13.1 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.13.0
+end
+write
+
+#Tornar a porta F1/0 STUB ( sem saída )
+conf t
+router rip
+passive-interface f1/0
+end
+write
+
+#Configuration of VRRP in an interface of router R1
+conf t
+int f1/0
+vrrp 1 ip 192.1.1.254
+vrrp 1 priority 120
+end
+write
+
+R2:
+conf t
+int f1/0
+no shutdown
+ip address 192.1.1.2 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.12.2 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.24.2 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.24.0
+end
+write
+
+#Tornar a porta F1/0 STUB ( sem saída )
+conf t
+router rip
+passive-interface f1/0
+end
+write
+
+#Configuration of VRRP in an interface of router R2
+conf t
+int f1/0
+vrrp 1 ip 192.1.1.254
+vrrp 1 priority 120
+end
+write
+
+R3:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.35.3 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.34.3 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.13.3 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.0.13.0
+network 192.0.34.0
+network 192.0.35.0
+end
+write
+
+R4:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.46.4 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.34.4 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.24.4 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.0.24.0
+network 192.0.34.0
+network 192.0.46.0
+end
+write
+
+R5:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.35.5 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.56.5 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.3.3.5 255.255.255.0
+int f1/1
+no shutdown
+ip address 192.2.2.5 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.0.35.0
+network 192.0.56.0
+end
+write
+
+#Configuration of router R5 as the destination of a default RIP route:
+conf t
+router rip
+default-information originate
+end
+write
+
+R6:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.46.6 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.56.6 255.255.255.0
+end
+write
+
+#Configurar o RIPv2
+conf t
+router rip
+version 2
+network 192.0.56.0
+network 192.0.46.0
+end
+write

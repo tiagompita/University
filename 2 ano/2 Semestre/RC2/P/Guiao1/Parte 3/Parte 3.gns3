@@ -602,7 +602,7 @@
                 "template_id": "2f70a7f6-b37a-4c15-99c8-407e4ba71b67",
                 "width": 51,
                 "x": -63,
-                "y": -289,
+                "y": -290,
                 "z": 1
             },
             {
@@ -715,8 +715,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "2f70a7f6-b37a-4c15-99c8-407e4ba71b67",
                 "width": 51,
-                "x": -62,
-                "y": 23,
+                "x": -63,
+                "y": 21,
                 "z": 1
             },
             {
@@ -772,8 +772,8 @@
                 "symbol": ":/symbols/multilayer_switch.svg",
                 "template_id": "2f70a7f6-b37a-4c15-99c8-407e4ba71b67",
                 "width": 51,
-                "x": 350,
-                "y": -142,
+                "x": 363,
+                "y": -147,
                 "z": 1
             },
             {
