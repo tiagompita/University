@@ -36,7 +36,7 @@ while:                                      # while(1)
     lw          $t3, LATE($t1)              # Read from LATE
     andi        $t3, $t3, 0xFFFE            # Reset bit0 to 0
 
-    nor          $t4, $t3, $t2              # Put bit0 from RB0 negate on RE0
+    nor         $t4, $t3, $t2               # Put bit0 from RB0 negate on RE0
     sw          $t4, LATE($t1)              # Store         
 
     j while
