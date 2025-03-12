@@ -3,7 +3,7 @@
 void delay(unsigned int ms)
 {
     resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms); // 2Hz
+    while (readCoreTimer() < 20000 * ms); 
 }
 
 int main()

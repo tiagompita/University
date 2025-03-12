@@ -3,8 +3,7 @@
 void delay(unsigned int ms)
 {
     resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms)
-        ; // 2Hz
+    while (readCoreTimer() < 20000 * ms);
 }
 
 int main()
@@ -26,7 +25,7 @@ int main()
         {
             // send "segment" value to display
             LATB = (LATB & 0x80FF) | disp7Scodes[i] << 8;
-            // 1Hz
+            // 2Hz
             delay(500);
         }
         // toggle display selection
