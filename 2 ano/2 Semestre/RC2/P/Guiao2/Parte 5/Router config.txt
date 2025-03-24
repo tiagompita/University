@@ -1,0 +1,39 @@
+R1:
+conf t
+ipv6 unicast-routing
+int f1/0
+ipv6 enable
+ipv6 address 2001:1:1::1/64
+int f0/1
+ipv6 enable
+ipv6 address 2001:0:13::1/64
+end
+write
+
+R3:
+conf t
+ipv6 unicast-routing
+int f1/0
+ipv6 enable
+ipv6 address 2001:0:35::3/64
+int f0/1
+ipv6 enable
+ipv6 address 2001:0:13::3/64
+end
+write
+
+R5:
+conf t
+ipv6 unicast-routing
+int f1/0
+ipv6 enable
+ipv6 address 2001:0:35::5/64
+int f0/1
+ipv6 enable
+ipv6 address 2001:3:3::5/64
+int f1/1
+ipv6 enable
+ipv6 address 2001:2:2::5/64
+end
+write
+

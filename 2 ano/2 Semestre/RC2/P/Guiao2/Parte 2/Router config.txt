@@ -100,6 +100,7 @@ network 192.0.35.0
 end
 write
 
+
 R4:
 conf t
 int f1/0

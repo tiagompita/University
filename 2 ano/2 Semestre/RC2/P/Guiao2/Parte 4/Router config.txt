@@ -12,20 +12,20 @@ ip address 192.0.13.1 255.255.255.0
 end
 write
 
-#Configurar o OSPF
+#Desativar OSPF e ativar RIP
 conf t
-int f0/0
-ip ospf 1 area 0
-int f0/1
-ip ospf 1 area 0
-int f1/0
-ip ospf 1 area 0
+no router ospf 1
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.13.0
 end
 write
 
-#Tornar a porta F1/0 STUB ( sem saída )
+#Interface f1/0 como passive
 conf t
-router ospf 1
+router rip
 passive-interface f1/0
 end
 write
@@ -52,23 +52,24 @@ ip address 192.0.24.2 255.255.255.0
 end
 write
 
-#Configurar o OSPF
+#Desativar OSPF e ativar RIP
 conf t
-int f1/0
-ip ospf 1 area 0
-int f0/0
-ip ospf 1 area 0
-int f0/1
-ip ospf 1 area 0
+no router ospf 1
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.24.0
 end
 write
 
-#Tornar a porta F1/0 STUB ( sem saída )
+#Interface f1/0 como passive
 conf t
-router ospf 1
+router rip
 passive-interface f1/0
 end
 write
+
 
 #Configuration of VRRP in an interface of router R2
 conf t
@@ -92,21 +93,36 @@ ip address 192.0.13.3 255.255.255.0
 end
 write
 
-#Configurar o OSPF
+#Desativar OSPF e ativar RIP na interface f0/1
 conf t
-int f1/0
-ip ospf 1 area 0
-int f0/0
-ip ospf 1 area 0
 int f0/1
-ip ospf 1 area 0
+no ip ospf 1 area 0
+router rip
+version 2
+network 192.0.13.0
 end
 write
 
-#Configurar o custo OSPF
+#Redistribuição das redes RIP para o OSPF
 conf t
-int f1/0
-ip ospf cost 3
+router ospf 1
+redistribute rip subnets
+end
+write
+
+#Redistribuição das redes OSPF para o RIP
+conf t
+router rip
+no auto-summary
+redistribute ospf 1 metric 1
+end
+write
+
+#Redistribuição a partir de uma rede default
+conf t
+router rip
+no redistribute ospf 1 metric 1
+default-information originate
 end
 write
 
@@ -133,6 +149,38 @@ int f0/0
 ip ospf 1 area 0
 int f0/1
 ip ospf 1 area 0
+end
+write
+
+#Desativar OSPF e ativar RIP na interface f0/1
+conf t
+int f0/1
+no ip ospf 1 area 0
+router rip
+version 2
+network 192.0.24.0
+end
+write
+
+#Redistribuição a partir de uma rede default
+conf t
+router rip
+no redistribute ospf 1 metric 1
+default-information originate
+end
+write
+
+#Redistribute RIP into OSPF using type E1 and external cost 1
+conf t
+router ospf 1
+redistribute rip subnets metric-type 1 metric 1
+end
+write
+
+#Configure the RIP administrative distance
+conf t
+router rip
+distance 100
 end
 write
 
