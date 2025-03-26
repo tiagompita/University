@@ -70,7 +70,6 @@ int main(void) {
 
     int i = 0;
     int V = 0;
-    int teste = 0;
 
     while(1) 
     { 
@@ -94,9 +93,6 @@ int main(void) {
             printInt(media, 10 | 4 << 16);
             printStr(" | V: ");
             printInt(V, 10 | 4 << 16);
-            printStr(" | teste: ");
-            printInt(teste, 10);
-            teste++;
             putChar('\r');
             // Reset AD1IF 
             IFS1bits.AD1IF = 0;
