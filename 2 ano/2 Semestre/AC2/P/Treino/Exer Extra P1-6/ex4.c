@@ -6,34 +6,26 @@ void delay(unsigned int ms)
     while (readCoreTimer() < 20000 * ms);
 }
 
-unsigned char toBcd(unsigned char value) 
-{ 
-    return ((value / 10) << 4) + (value % 10); 
-}
-
-void send2displays(unsigned int val)
+void send2displays(unsigned char value)
 {
+    static const char disp7Scodes[16] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71};
+    static char displayFlag = 0;
 
-    static int segments[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,
-                             0x7F, 0x6F, 0x77, 0x7C, 0x39, 0xE5, 0x79, 0x71};
-    static int flag = 0;
+    int digit_low = value & 0x0F;
+    int digit_high = value >> 4;
 
-    int digitLow = toBcd(val) % 16;
-    int digitHigh = toBcd(val) / 16;
-
-    if (flag == 0)
+    if (displayFlag == 0)
     {
-        LATDbits.LATD5 = 1;
-        LATDbits.LATD6 = 0;
-        LATB = (LATB & 0x80FF) | (segments[digitLow] << 8);
+        LATD = (LATD & 0xFF9F) | 0x0020;
+        LATB = (LATB & 0x80FF) | (disp7Scodes[digit_low] << 8);
     }
     else
     {
-        LATDbits.LATD5 = 0;
-        LATDbits.LATD6 = 1;
-        LATB = (LATB & 0x80FF) | (segments[digitHigh] << 8);
+        LATD = (LATD & 0xFF9F) | 0x0040;
+        LATB = (LATB & 0x80FF) | (disp7Scodes[digit_high] << 8);
     }
-    flag = !flag;
+
+    displayFlag = !displayFlag;
 }
 
 int main()
@@ -41,8 +33,8 @@ int main()
     TRISE &= 0xFFF0;
 
     // configure RB8-RB14 as outputs
-    TRISB &= 0x80FF;
     // configure RD5-RD6 as outputs
+    TRISB &= 0x80FF;
     TRISD &= 0xFF9F;
 
     LATE &= 0x0000;
