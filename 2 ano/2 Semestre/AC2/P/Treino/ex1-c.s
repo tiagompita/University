@@ -29,8 +29,8 @@ main:
     sw      $t2, TRISB($t1)         # WRITE (Write TRISB register)
 
     lw      $t2, TRISE($t1)         # READ
-    andi    $t2, $t2, 0xFFF0        # MODIFY
-    sw      $t2, TRISD($t1)         #
+    andi    $t2, $t2, 0xFF0F        # MODIFY
+    sw      $t2, TRISE($t1)         #
 
 loop:                               # while(1)
 
@@ -38,22 +38,22 @@ loop:                               # while(1)
     andi    $t2, $t2, 0x000F        # MODIFY (only keep bit3-bit0)
 
     lw      $t3, LATE($t1)          # READ
-    andi    $t3, $t3, 0xFFF0        # MODIFY (reset bit3-bit0 to 0)
+    andi    $t3, $t3, 0xFF0F        # MODIFY (reset bit7-bit4 to 0)
 
     sll     $t4, $t2, 1             # Shift RB3 to 4
     sll     $t5, $t2, 7             # Shift RB0 to 7
-    andi    $t4, $t4, 0x0010        # Only keep bit4
-    andi    $t5, $t5, 0x0080        # Only keep bit7
+    andi    $t4, $t4, 0x0010        # Only keep bit0
+    andi    $t5, $t5, 0x0080        # Only keep bit3
 
-    sll     $t6, $t2, 4             # Shift RB2 to 1
-    sll     $t7, $t2, 4             # Shift RB1 to 2
-    andi    $t6, $t6, 0x0020        # Only keep bit5
-    andi    $t7, $t7, 0x0040        # Only keep bit6
+    sll     $t6, $t2, 5             # Shift RB2 to 5
+    sll     $t7, $t2, 3             # Shift RB1 to 6
+    andi    $t6, $t6, 0x0040        # Only keep bit5
+    andi    $t7, $t7, 0x0020        # Only keep bit6
 
 
     or      $t4, $t4, $t5           # merge bit4 and 7
     or      $t6, $t6, $t7           # merge bit5 and 6
-    or      $t4, $t6, $t3           # merge all 4 bits
+    or      $t4, $t6, $t4           # merge all 4 bits
 
     or      $t3, $t3, $t4           # merge PORTB to LATE
 

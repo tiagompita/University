@@ -53,7 +53,7 @@ loop:                               # while(1)
 
     or      $t4, $t4, $t5           # merge bit0 and 3
     or      $t6, $t6, $t7           # merge bit1 and 2
-    or      $t4, $t6, $t3           # merge all 4 bits
+    or      $t4, $t6, $t4           # merge all 4 bits
 
     or      $t3, $t3, $t4           # merge PORTB to LATE
 

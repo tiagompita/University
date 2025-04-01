@@ -26,59 +26,61 @@ main:
     lui     $t0, ADDR_BASE_HI       
     lw      $t1, TRISE($t0)         # READ
     andi    $t1, $t1, 0xFFF0        # MODIFY
-    sw      $t1, TRISE($t1)         # WRITE
+    sw      $t1, TRISE($t0)         # WRITE
+
+    andi    $t1, $t1, 0x0000        # Start with all LEDs off
+    sw      $t1, LATE($t0)
 
 loop:                               # while(1)
-
-    andi     $t1, $t1, 0x0000       # Start with all LEDs off
-    sw       $t1, LATE($t0)
 
     li      $v0, 2                  # getChar()
     syscall
 
-if1:
-    bne     $v0, 0, if2
+case1:
+    bne     $v0, 48, case2
+    andi	$t1, $t1, 0xFFF0
     ori     $t1, $t1, 0x0001        # Set bit0 = 1
-    andi    $t1, $t1, 0x0001        # Only bit0
+    sw      $t1, LATE($t0)          # WRITE
     j endif
 
-if2:
-    bne     $v0, 1, if3
+case2:
+    bne     $v0, 49, case3
+    andi	$t1, $t1, 0xFFF0
     ori     $t1, $t1, 0x0002        # Set bit0 = 1
-    andi    $t1, $t1, 0x0002        # Only bit0
+    sw      $t1, LATE($t0)          # WRITE
     j endif
 
-if3:
-    bne     $v0, 2, if4
+case3:
+    bne     $v0, 50, case4
+    andi	$t1, $t1, 0xFFF0
     ori     $t1, $t1, 0x0004        # Set bit0 = 1
-    andi    $t1, $t1, 0x0004        # Only bit0
+    sw      $t1, LATE($t0)          # WRITE
     j endif
 
-if4:
-    bne     $v0, 3, if5
+case4:
+    bne     $v0, 51, case5
+    andi	$t1, $t1, 0xFFF0
     ori     $t1, $t1, 0x0008        # Set bit0 = 1
-    andi    $t1, $t1, 0x0008        # Only bit0
+    sw      $t1, LATE($t0)          # WRITE
     j endif
 
-if5:
+case5:
+    andi	$t1, $t1, 0xFFF0
     ori     $t1, $t1, 0x000F        # Set 4 LSB = 1
-    andi    $t1, $t1, 0x000F        # Only
 
     sw      $t1, LATE($t0)          # WRITE
 
     li      $v0, resetCoreTimer
     syscall
-
 wait:
     li      $v0, readCoreTimer
     syscall
     blt     $v0, 20000000, wait     # f = 1Hz
 
+    andi    $t1, $t1, 0x0000        # turn off all LEDs
+    sw      $t1, LATE($t0)
+
 endif:
-
-    sw      $t1, LATE($t0)          # WRITE
-
-
 
     j loop
 

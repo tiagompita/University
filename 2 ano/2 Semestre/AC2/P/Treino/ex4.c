@@ -6,15 +6,20 @@ void delay(unsigned int ms)
     while (readCoreTimer() < 20000 * ms);
 }
 
+unsigned char toBcd(unsigned char value) 
+{ 
+    return ((value / 10) << 4) + (value % 10); 
+}
+
 void send2displays(unsigned int val)
 {
 
-    int static segments[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,
+    static int segments[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,
                              0x7F, 0x6F, 0x77, 0x7C, 0x39, 0xE5, 0x79, 0x71};
-    int static flag = 0;
+    static int flag = 0;
 
-    int digitLow = val % 16;
-    int digitHigh = val / 16;
+    int digitLow = toBcd(val) % 16;
+    int digitHigh = toBcd(val) / 16;
 
     if (flag == 0)
     {
@@ -40,26 +45,26 @@ int main()
     // configure RD5-RD6 as outputs
     TRISD &= 0xFF9F;
 
+    LATE &= 0x0000;
+
     while (1)
     {
-        LATE &= 0x0000;
-        send2displays(0);
 
         char c = getChar();
 
-        if (c == 0)
+        if (c == '0')
         {
             send2displays(c);
         }
-        else if (c == 1)
+        else if (c == '1')
         {
             send2displays(c);
         }
-        else if (c == 2)
+        else if (c == '2')
         {
             send2displays(c);
         }
-        else if (c == 3)
+        else if (c == '3')
         {
             send2displays(c);
         }
