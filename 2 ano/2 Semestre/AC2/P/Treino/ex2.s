@@ -25,7 +25,7 @@ main:
 
     lui     $t0, ADDR_BASE_HI       
     lw      $t1, TRISE($t0)         # READ
-    ori     $t1, $t1, 0x000F        # MODIFY
+    andi    $t1, $t1, 0xFFF0        # MODIFY
     sw      $t1, TRISE($t1)         # WRITE
 
 loop:                               # while(1)
@@ -72,7 +72,7 @@ if5:
 wait:
     li      $v0, readCoreTimer
     syscall
-    blt     $v0, 20000000, wait              # f = 1Hz
+    blt     $v0, 20000000, wait     # f = 1Hz
 
 endif:
 

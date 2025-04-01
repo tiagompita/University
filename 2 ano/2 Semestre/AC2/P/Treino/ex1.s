@@ -30,7 +30,7 @@ main:
 
     lw      $t2, TRISE($t1)         # READ
     andi    $t2, $t2, 0xFFF0        # MODIFY
-    sw      $t2, TRISD($t1)         #
+    sw      $t2, TRISE($t1)         #
 
 loop:                               # while(1)
 
