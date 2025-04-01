@@ -1,12 +1,10 @@
-delay:  li $v0,RESET_CORE_TIMER
-        syscall
+li      $v0, RESET_CORE_TIMER
+    syscall
 
-whiled: li $v0,READ_CORE_TIMER
-        syscall
-        mul $a0,$a0,20000
-        blt $v0,$a0,whiled
-        jr $ra
-
+wait:
+    li      $v0, READ_CORE_TIMER
+    syscall
+    blt     $v0, 200000, wait              # e.g. f = 100Hz
 
 
 void send2displays(unsigned int val){
