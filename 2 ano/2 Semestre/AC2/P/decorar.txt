@@ -32,19 +32,12 @@ void send2displays(unsigned char value)
     
     if (displayFlag == 0)
     {
-        // select display low
         LATD = (LATD & 0xFF9F) | 0x0020;
-        // send digit_low (dl) to display: 
         LATB = (LATB & 0x80FF) | (disp7Scodes[digit_low] << 8); 
-    }
-    else
-    {
-        // select display high
+    } else {
         LATD = (LATD & 0xFF9F) | 0x0040;
-        // send digit_high (dh) to display: 
         LATB = (LATB & 0x80FF) | (disp7Scodes[digit_high] << 8); 
     }
-    
     displayFlag = !displayFlag;
 
 }
@@ -60,16 +53,13 @@ while(1)
             // wait 20 ms (1/50Hz)
             delay(20); 
         } while(++i < 10); // 10 * 20 ms = 200 ms (1/5Hz)
-        // increment counter (mod 256)
         counter = (counter + 1) % 256; 
     }
 
 if (displayCounter++ >= (freq / 50)) { //50Hz com frequencia variavel
-            send2displays(print_value);
-            displayCounter = 0; // Resetar o contador do display
+    send2displays(print_value);
+    displayCounter = 0;               // Resetar o contador do display
 }
-
-#include <detpic32.h>
 
 int main(void) { 
     // Configure the A/D module and port RB4 as analog input 
@@ -80,13 +70,8 @@ int main(void) {
     AD1CON1bits.CLRASAM = 1;
     AD1CON3bits.SAMC = 16;
     AD1CON2bits.SMPI = 2-1;
-
-        
-    AD1CHSbits.CH0SA = 4;
-                        
+    AD1CHSbits.CH0SA = 4;              
     AD1CON1bits.ON = 1;  
-
-            
 
     while(1) 
     { 
