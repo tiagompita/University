@@ -5,7 +5,8 @@
 void delay(unsigned int ms)
 {
     resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms);
+    while (readCoreTimer() < 20000 * ms)
+        ;
 }
 
 unsigned char toBcd(unsigned char value)
@@ -39,12 +40,17 @@ void send2displays(unsigned char value)
     displayFlag = !displayFlag;
 }
 
-volatile int voltage = 0;               // Global variable
+volatile int voltage = 0; // Global variable
 
-void _int_(4) isr_T1(void) {
-    //Start A/D conversion
-    AD1CON1bits.ASAM = 1;
-    //Reset T1IF flag
+void _int_(4) isr_T1(void)
+{
+    // Start A/D conversion
+    if (PORTBbits.RB0 == 1 && PORTBbits.RB1 == 0) {
+        AD1CON1bits.ASAM = 0;
+    } else {
+        AD1CON1bits.ASAM = 1;
+    }
+    // Reset T1IF flag
     IFS0bits.T1IF = 0;
 }
 
@@ -53,7 +59,7 @@ void _int_(12) isr_T3(void)
     // Send the value of the global variable "voltage" to the displays
     // using BCD (decimal) format
     send2displays(voltage);
-    
+
     // Reset T3IF flag
     IFS0bits.T3IF = 0;
 }
@@ -80,24 +86,28 @@ void _int_(27) isr_adc(void)
     IFS1bits.AD1IF = 0; // Reset AD1IF flag
 }
 
-void configureAll(void) {
+void configureAll(void)
+{
     // Configure Timers T1 and T3 with interrupts enabled)
 
-    T1CONbits.TCKPS = 2;        // 1:64 prescaler (fout_presc = 312500Hz)
-    PR1 = 62499;                // PR1 value for 5Hz (assuming 20 MHz PBCLK)
-    TMR1 = 0;                   // Reset Timer T1 count register
-    T1CONbits.TON = 1;          // Enable Timer T1
+    // Timer 1
+    T1CONbits.TCKPS = 2;    // 1:64 prescaler (fout_presc = 312500Hz)
+    PR1 = 62499;            // PR1 value for 5Hz (assuming 20 MHz PBCLK)
+    TMR1 = 0;               // Reset Timer T1 count register
+    T1CONbits.TON = 1;      // Enable Timer T1
 
-    IPC1bits.T1IP = 2;          // Interrupt priority (must be in range [1..6])
-    IEC0bits.T1IE = 1;          // Enable timer T1 interrupts
-    IFS0bits.T1IF = 0;          // Reset timer T1 interrupt flag
+    // Interrupt T1
+    IPC1bits.T1IP = 2;      // Interrupt priority (must be in range [1..6])
+    IEC0bits.T1IE = 1;      // Enable timer T1 interrupts
+    IFS0bits.T1IF = 0;      // Reset timer T1 interrupt flag
 
-
-    T3CONbits.TCKPS = 2;        // 1:4 (fout_presc = 5MHz)
-    PR3 = 49999;                // PR3 value for 5MHz
+    // Timer 3
+    T3CONbits.TCKPS = 2;    // 1:4 (fout_presc = 5MHz)
+    PR3 = 49999;            // PR3 value for 5MHz
     TMR3 = 0;
     T3CONbits.TON = 1;
 
+    // Interrupt T3
     IPC3bits.T3IP = 2;
     IEC0bits.T3IE = 1;
     IFS0bits.T3IF = 0;
@@ -122,13 +132,13 @@ void configureAll(void) {
                               //  This must the last command of the A/D
                               //  configuration sequence
 
-    //ADC Interrupt
+    // ADC Interrupt
     IPC6bits.AD1IP = 2;
     IEC1bits.AD1IE = 1;
     IFS1bits.AD1IF = 0;
 
     // configure RB8-RB14 as outputs and RB0 as input
-    TRISB = (TRISB & 0x80FF) | 0x0001;
+    TRISB = (TRISB & 0x80FF) | 0x0003;
     // configure RD5-RD6 as outputs
     TRISD &= 0xFF9F;
 }
@@ -136,10 +146,11 @@ void configureAll(void) {
 int main(void)
 {
 
-    configureAll();         // Function to configure all (digital I/O, analog
-                            // input, A/D module, timers T1 and T3, interrupts)
+    int dutyCycle;
+    configureAll(); // Function to configure all (digital I/O, analog
+                    // input, A/D module, timers T1 and T3, interrupts)
 
-    EnableInterrupts();     // Global Interrupt Enable
+    EnableInterrupts(); // Global Interrupt Enable
     while (1)
     {
         IdleMode();
