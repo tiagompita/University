@@ -1,0 +1,30 @@
+ROUTER 3
+
+conf t
+router bgp 100
+neighbor 192.3.5.5 remote-as 300
+redistribute ospf 1
+end
+write
+
+
+ROUTER 4
+
+conf t
+router bgp 400
+neighbor 192.4.5.5 remote-as 300
+network 200.40.0.0
+network 200.40.1.0
+end
+write
+
+
+ROUTER 5
+
+conf t
+router bgp 300
+neighbor 192.4.5.4 remote-as 400
+neighbor 192.3.5.3 remote-as 100
+network 200.30.0.0
+end
+write
