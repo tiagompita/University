@@ -4,6 +4,8 @@ conf t
 router bgp 100
 neighbor 192.3.5.5 remote-as 300
 redistribute ospf 1
+router ospf 1
+default-information originate always
 end
 write
 

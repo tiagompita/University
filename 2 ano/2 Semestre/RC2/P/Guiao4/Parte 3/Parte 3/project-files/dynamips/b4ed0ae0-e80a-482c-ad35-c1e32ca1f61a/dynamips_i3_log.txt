@@ -1,0 +1,68 @@
+May 09 11:17:23.165 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+May 09 11:17:23.180 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 65251.
+May 09 11:17:23.673 HYPERVISOR: exec_cmd: hypervisor version 
+May 09 11:17:23.674 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips 
+May 09 11:17:23.674 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips
+May 09 11:17:23.675 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\eb281700-9453-43d4-9eac-89df55fbb4e0 
+May 09 11:17:23.681 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\eb281700-9453-43d4-9eac-89df55fbb4e0
+May 09 11:17:23.681 HYPERVISOR: exec_cmd: vm create R3 3 c7200 
+May 09 11:17:23.681 VM: VM R3 created.
+May 09 11:17:23.685 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5002 
+May 09 11:17:23.685 HYPERVISOR: exec_cmd: c7200 get_mac_addr R3 
+May 09 11:17:23.685 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.685 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-FE 
+May 09 11:17:23.687 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:23.688 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.688 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x601712a8 
+May 09 11:17:23.690 HYPERVISOR: exec_cmd: vm set_exec_area R3 64 
+May 09 11:17:23.690 HYPERVISOR: exec_cmd: vm set_ram R3 512 
+May 09 11:17:23.691 HYPERVISOR: exec_cmd: vm set_nvram R3 512 
+May 09 11:17:23.691 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+May 09 11:17:23.691 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.691 HYPERVISOR: exec_cmd: vm slot_remove_binding R3 0 0 
+May 09 11:17:23.694 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.695 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-2FE 
+May 09 11:17:23.695 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.696 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 PA-2FE-TX 
+May 09 11:17:23.696 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:17:23.698 HYPERVISOR: exec_cmd: vm slot_add_binding R3 2 0 PA-2FE-TX 
+May 09 11:17:23.756 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:49.951 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:54.112 HYPERVISOR: exec_cmd: vm set_ios R3 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:18:14.562 HYPERVISOR: exec_cmd: nio create_udp udp-fa68467b-ba66-424d-81ba-bb3a88a1b3c8 20002 127.0.0.1 20003 
+May 09 11:18:14.955 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-fa68467b-ba66-424d-81ba-bb3a88a1b3c8 
+May 09 11:18:14.956 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:18:18.204 HYPERVISOR: exec_cmd: nio create_udp udp-b5383ee2-483c-4e74-955b-6d2d882e4872 20008 127.0.0.1 20009 
+May 09 11:18:18.217 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 1 udp-b5383ee2-483c-4e74-955b-6d2d882e4872 
+May 09 11:18:18.217 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:18:54.620 HYPERVISOR: exec_cmd: nio create_udp udp-0f5f8ef0-b192-4136-bbc8-358affa1eb5b 20050 127.0.0.1 20051 
+May 09 11:18:54.623 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 1 0 udp-0f5f8ef0-b192-4136-bbc8-358affa1eb5b 
+May 09 11:18:54.624 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:52:43.760 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+May 09 11:52:43.776 HYPERVISOR: exec_cmd: vm set_ghost_file R3 C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+May 09 11:52:43.776 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:52:43.792 HYPERVISOR: exec_cmd: vm set_config R3 configs\i3_startup-config.cfg 
+May 09 11:52:43.792 HYPERVISOR: exec_cmd: vm start R3 
+May 09 11:53:14.179 HYPERVISOR: exec_cmd: vm extract_config R3 
+May 09 11:53:21.342 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:53:21.397 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x60608040 
+May 09 11:53:51.400 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:53:51.400 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x0 
+May 09 11:53:51.401 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:53:51.401 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:53:51.403 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R3 0 
+May 09 11:54:06.770 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:54:06.773 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x601712a8 
+May 09 11:54:06.773 HYPERVISOR: exec_cmd: vm cpu_usage R3 0 
+May 09 11:54:09.787 HYPERVISOR: exec_cmd: vm cpu_usage R3 0 
+May 09 11:54:42.321 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:54:42.328 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x60608040 
+May 09 11:55:13.219 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:55:13.223 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x601712a8 
+May 09 11:56:38.765 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:56:38.827 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x60608040 
+May 09 11:57:24.601 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:57:24.606 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x601712a8 
+May 09 11:57:46.547 HYPERVISOR: exec_cmd: vm get_status R3 
+May 09 11:57:46.605 HYPERVISOR: exec_cmd: vm set_idle_pc_online R3 0 0x60608040 
+May 09 11:59:44.307 HYPERVISOR: exec_cmd: vm extract_config R3 
