@@ -1,12 +1,4 @@
 #include <detpic32.h>
-#include <string.h>
-
-void delay(unsigned int ms)
-{
-    resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms)
-        ;
-}
 
 void configureUART2(void)
 {
@@ -23,15 +15,15 @@ void configureUART2(void)
     // 2 – Configure number of data bits, parity and number of stop bits
     // (see U2MODE register)
     U2MODEbits.PDSEL = 0;
-    // PDSEL<1 : 0> : Parity and Data Selection bits 
-    // 11 = 9 - bit data, no parity 
-    // 10 = 8 - bit data, odd parity 
-    // 01 = 8 - bit data, even parity 
-    // 00 = 8 - bit data, no parity 
+    // PDSEL<1 : 0> : Parity and Data Selection bits
+    // 11 = 9 - bit data, no parity
+    // 10 = 8 - bit data, odd parity
+    // 01 = 8 - bit data, even parity
+    // 00 = 8 - bit data, no parity
     U2MODEbits.STSEL = 0;
     // STSEL:
-    // Stop Selection bit 
-    // 1 = 2 Stop bits 
+    // Stop Selection bit
+    // 1 = 2 Stop bits
     // 0 = 1 Stop bit
 
     // 3 – Enable the trasmitter and receiver modules (see register U2STA)
@@ -51,15 +43,14 @@ void putc(char byte)
     U2TXREG = byte;
 }
 
-void putstr(char *str)
+char getc(void)
 {
-    // use putc() function to send each charater ('\0' should not be sent)
-    unsigned int i;
-    for (i = 0; i < strlen(str); i++)
-    {
-        putc(str[i]);
-        // delay(1000); Observar a impressão char a char
-    }
+
+    // Wait while URXDA == 0
+    while(U2STAbits.URXDA == 0);
+
+    // Return U2RXREG
+    return U2RXREG;
 }
 
 int main(void)
@@ -68,9 +59,7 @@ int main(void)
     configureUART2();
     while (1)
     {
-        putstr("String de teste\n");
-        // wait 1 s
-        delay(1000);
+        putc(getc());
     }
     return 0;
 }

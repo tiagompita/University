@@ -1,16 +1,16 @@
 Archive member included because of file (symbol)
 
 /opt/pic32mx/lib/libc.a(strlen.o)
-                              ex5.o (strlen)
+                              ex7.o (strlen)
 
 Microchip PIC32 Memory-Usage Report
 
 kseg0 Program-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.text                   0x9d001400          0x37c         892  Application's executable code 
-.rodata                 0x9d00177c           0x28          40  Read-only constant data 
-      Total kseg0_program_mem used  :       0x3a4         932  0.2% of 0x7ec00
+.text                   0x9d001400          0x3f0        1008  Application's executable code 
+.rodata                 0x9d0017f0           0x18          24  Read-only constant data 
+      Total kseg0_program_mem used  :       0x408        1032  0.2% of 0x7ec00
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -29,7 +29,7 @@ section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
          Total kseg1_boot_mem used  :           0           0  <1% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :       0x668        1640  0.3% of 0x80480
+         Total Program Memory used  :       0x6cc        1740  0.3% of 0x80480
         --------------------------------------------------------------------------
 
 
@@ -60,7 +60,7 @@ sfrs             0x00000000bf800000 0x0000000000100000
 
 Linker script and memory map
 
-LOAD ex5.o
+LOAD ex7.o
 LOAD /opt/pic32mx/lib/libdetpic32.a
 LOAD /opt/pic32mx/lib/gcc/pic32mx/3.4.4/libgcc.a
 LOAD /opt/pic32mx/lib/libm.a
@@ -372,53 +372,54 @@ LOAD /opt/pic32mx/lib/startup.o
  *(.vector_63)
                 0x0000000000000001                ASSERT (((_vector_spacing == 0x0) || (SIZEOF (.vector_63) <= (_vector_spacing << 0x5))), function at exception vector 63 too large)
 
-.text           0x000000009d001400      0x37c
+.text           0x000000009d001400      0x3f0
                 0x000000009d001400                _text_begin = .
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x000000009d001400      0x164 ex5.o
-                0x000000009d0014d4                putstr
-                0x000000009d001530                main
-                0x000000009d0014a8                putc
+ .text          0x000000009d001400      0x1d8 ex7.o
+                0x000000009d0014d8                putstr
+                0x000000009d001578                main
+                0x000000009d0014ac                putc
                 0x000000009d001400                delay
                 0x000000009d00143c                configureUART2
- .text          0x000000009d001564      0x168 /opt/pic32mx/lib/libc.a(strlen.o)
-                0x000000009d001564                strlen
- .text          0x000000009d0016cc       0xb0 /opt/pic32mx/lib/startup.o
-                0x000000009d00173c                printStr
-                0x000000009d00171c                printInt
-                0x000000009d0016fc                readInt
-                0x000000009d001774                resetCoreTimer
-                0x000000009d0016ec                putChar
-                0x000000009d00174c                readStr
-                0x000000009d00175c                exxt
-                0x000000009d00172c                printInt10
-                0x000000009d0016cc                inkey
-                0x000000009d0016dc                getChar
-                0x000000009d00170c                readInt10
-                0x000000009d00176c                readCoreTimer
+                0x000000009d001534                toBinaryStr
+ .text          0x000000009d0015d8      0x168 /opt/pic32mx/lib/libc.a(strlen.o)
+                0x000000009d0015d8                strlen
+ .text          0x000000009d001740       0xb0 /opt/pic32mx/lib/startup.o
+                0x000000009d0017b0                printStr
+                0x000000009d001790                printInt
+                0x000000009d001770                readInt
+                0x000000009d0017e8                resetCoreTimer
+                0x000000009d001760                putChar
+                0x000000009d0017c0                readStr
+                0x000000009d0017d0                exxt
+                0x000000009d0017a0                printInt10
+                0x000000009d001740                inkey
+                0x000000009d001750                getChar
+                0x000000009d001780                readInt10
+                0x000000009d0017e0                readCoreTimer
  *(.text.*personality*)
  *(.gnu.warning)
  *(.mips16.fn.*)
  *(.mips16.call.*)
-                0x000000009d00177c                _text_end = .
+                0x000000009d0017f0                _text_end = .
 
-.rodata         0x000000009d00177c       0x28
+.rodata         0x000000009d0017f0       0x18
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x000000009d00177c       0x11 ex5.o
-                                         0x14 (size before relaxing)
- .rodata        0x000000009d00178d       0x15 /opt/pic32mx/lib/startup.o
+                0x000000009d0017f0        0x2 ex7.o
+                                          0x4 (size before relaxing)
+ .rodata        0x000000009d0017f2       0x15 /opt/pic32mx/lib/startup.o
  *(.rodata1)
-                0x000000009d0017a4                . = ALIGN (0x4)
- *fill*         0x000000009d0017a2        0x2 00
+                0x000000009d001808                . = ALIGN (0x4)
+ *fill*         0x000000009d001807        0x1 00
 
-.sdata2         0x000000009d0017a4        0x0
+.sdata2         0x000000009d001808        0x0
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x000000009d0017a4                . = ALIGN (0x4)
+                0x000000009d001808                . = ALIGN (0x4)
 
-.sbss2          0x000000009d0017a4        0x0
+.sbss2          0x000000009d001808        0x0
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
-                0x000000009d0017a4                . = ALIGN (0x4)
+                0x000000009d001808                . = ALIGN (0x4)
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -429,12 +430,12 @@ LOAD /opt/pic32mx/lib/startup.o
 .dbg_data       0x00000000a0000000        0x0
                 0x00000000a0000000                . = (. + DEFINED (_DEBUGGER)?0x200:0x0)
 
-.data           0x00000000a0000000        0x0 load address 0x000000009d0017a4
+.data           0x00000000a0000000        0x0 load address 0x000000009d001808
                 0x00000000a0000000                _data_begin = .
  *(.data .data.* .gnu.linkonce.d.*)
  *(.gnu.linkonce.d.*personality*)
  *(.data1)
-                0x000000009d0017a4                _data_image_begin = LOADADDR (.data)
+                0x000000009d001808                _data_image_begin = LOADADDR (.data)
 
 .eh_frame
  *(.eh_frame)
@@ -444,7 +445,7 @@ LOAD /opt/pic32mx/lib/startup.o
  *(.got.plt)
  *(.got)
 
-.sdata          0x00000000a0000000        0x0 load address 0x000000009d0017a4
+.sdata          0x00000000a0000000        0x0 load address 0x000000009d001808
                 0x00000000a0000000                _sdata_begin = .
  *(.sdata .sdata.* .gnu.linkonce.s.*)
                 0x00000000a0000000                _sdata_end = .
@@ -488,12 +489,12 @@ LOAD /opt/pic32mx/lib/startup.o
                 0x00000000a0002000                . = (. + _min_stack_size)
  *fill*         0x00000000a0000000     0x2000 00
 
-.ramfunc        0x00000000a0002000        0x0 load address 0x000000009d0017a4
+.ramfunc        0x00000000a0002000        0x0 load address 0x000000009d001808
                 0x00000000a0002000                _ramfunc_begin = .
  *(.ramfunc .ramfunc.*)
                 0x00000000a0002000                . = ALIGN (0x4)
                 0x00000000a0002000                _ramfunc_end = .
-                0x000000009d0017a4                _ramfunc_image_begin = LOADADDR (.ramfunc)
+                0x000000009d001808                _ramfunc_image_begin = LOADADDR (.ramfunc)
                 0x0000000000000000                _ramfunc_length = SIZEOF (.ramfunc)
                 0x0000000000002000                _bmxdkpba_address = (_ramfunc_begin - 0xa0000000)
                 0x0000000000020000                _bmxdudba_address = 0x20000
@@ -501,14 +502,14 @@ LOAD /opt/pic32mx/lib/startup.o
                 0x00000000a0020000                _stack = (_ramfunc_length > 0x0)?(_ramfunc_begin - 0x4):0xa0020000
                 0x0000000000000001                ASSERT (((_min_stack_size + _min_heap_size) <= (_stack - _heap)), Not enough space to allocate both stack and heap.  Reduce heap and/or stack size.)
 
-.pdr            0x0000000000000000       0xc0
+.pdr            0x0000000000000000       0xe0
  *(.pdr)
- .pdr           0x0000000000000000       0xa0 ex5.o
- .pdr           0x00000000000000a0       0x20 /opt/pic32mx/lib/libc.a(strlen.o)
+ .pdr           0x0000000000000000       0xc0 ex7.o
+ .pdr           0x00000000000000c0       0x20 /opt/pic32mx/lib/libc.a(strlen.o)
 
 .reginfo        0x0000000000000000       0x18
  *(.reginfo)
- .reginfo       0x0000000000000000       0x18 ex5.o
+ .reginfo       0x0000000000000000       0x18 ex7.o
 
 .stab
  *(.stab)
@@ -530,7 +531,7 @@ LOAD /opt/pic32mx/lib/startup.o
 
 .comment        0x0000000000000000       0xa3
  *(.comment)
- .comment       0x0000000000000000       0x4d ex5.o
+ .comment       0x0000000000000000       0x4d ex7.o
  .comment       0x000000000000004d       0x56 /opt/pic32mx/lib/libc.a(strlen.o)
 
 .debug
@@ -586,6 +587,6 @@ LOAD /opt/pic32mx/lib/startup.o
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(ex5.elf elf32-tradlittlemips)
+OUTPUT(ex7.elf elf32-tradlittlemips)
 
-.mdebug.abi32   0x000000009d0017a4        0x0
+.mdebug.abi32   0x000000009d001808        0x0

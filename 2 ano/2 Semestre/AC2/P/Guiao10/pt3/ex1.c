@@ -23,15 +23,15 @@ void configureUART2(void)
     // 2 – Configure number of data bits, parity and number of stop bits
     // (see U2MODE register)
     U2MODEbits.PDSEL = 0;
-    // PDSEL<1 : 0> : Parity and Data Selection bits 
-    // 11 = 9 - bit data, no parity 
-    // 10 = 8 - bit data, odd parity 
-    // 01 = 8 - bit data, even parity 
-    // 00 = 8 - bit data, no parity 
+    // PDSEL<1 : 0> : Parity and Data Selection bits
+    // 11 = 9 - bit data, no parity
+    // 10 = 8 - bit data, odd parity
+    // 01 = 8 - bit data, even parity
+    // 00 = 8 - bit data, no parity
     U2MODEbits.STSEL = 0;
     // STSEL:
-    // Stop Selection bit 
-    // 1 = 2 Stop bits 
+    // Stop Selection bit
+    // 1 = 2 Stop bits
     // 0 = 1 Stop bit
 
     // 3 – Enable the trasmitter and receiver modules (see register U2STA)
@@ -45,7 +45,8 @@ void configureUART2(void)
 void putc(char byte)
 {
     // wait while UART2 UTXBF == 1
-    while (U2STAbits.UTXBF == 1);
+    while (U2STAbits.UTXBF == 1)
+        ;
 
     // Copy "byte" to the U2TXREG register
     U2TXREG = byte;
@@ -66,11 +67,18 @@ int main(void)
 {
     // Configure UART2 (115200, N, 8, 1)
     configureUART2();
+
+    // config RD11 as output
+    // 1111 0111 1111 1111
+    TRISD &=0xF7FF;
     while (1)
     {
-        putstr("String de teste\n");
-        // wait 1 s
-        delay(1000);
+        while(U2STAbits.TRMT == 0);
+        LATDbits.LATD11 = 1;
+        putstr("12345");
+
+        //Reset RD11
+        LATDbits.LATD11 = 0;
     }
     return 0;
 }

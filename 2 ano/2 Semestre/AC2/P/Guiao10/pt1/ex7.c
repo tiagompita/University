@@ -4,8 +4,7 @@
 void delay(unsigned int ms)
 {
     resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms)
-        ;
+    while (readCoreTimer() < 20000 * ms);
 }
 
 void configureUART2(void)
@@ -23,15 +22,15 @@ void configureUART2(void)
     // 2 – Configure number of data bits, parity and number of stop bits
     // (see U2MODE register)
     U2MODEbits.PDSEL = 0;
-    // PDSEL<1 : 0> : Parity and Data Selection bits 
-    // 11 = 9 - bit data, no parity 
-    // 10 = 8 - bit data, odd parity 
-    // 01 = 8 - bit data, even parity 
-    // 00 = 8 - bit data, no parity 
+    // PDSEL<1 : 0> : Parity and Data Selection bits
+    // 11 = 9 - bit data, no parity
+    // 10 = 8 - bit data, odd parity
+    // 01 = 8 - bit data, even parity
+    // 00 = 8 - bit data, no parity
     U2MODEbits.STSEL = 0;
     // STSEL:
-    // Stop Selection bit 
-    // 1 = 2 Stop bits 
+    // Stop Selection bit
+    // 1 = 2 Stop bits
     // 0 = 1 Stop bit
 
     // 3 – Enable the trasmitter and receiver modules (see register U2STA)
@@ -62,15 +61,32 @@ void putstr(char *str)
     }
 }
 
+void toBinaryStr(unsigned int value, char *str, int bits)
+{
+    int i;
+    for (i = bits - 1; i >= 0; i--) {
+        str[bits - 1 - i] = (value & (1 << i)) ? '1' : '0';
+    }
+    str[bits] = '\0';
+}
+
 int main(void)
 {
     // Configure UART2 (115200, N, 8, 1)
     configureUART2();
+
+    unsigned int cnt = 0;
+    char binStr[5]; // 4 bits + '\0'
     while (1)
     {
-        putstr("String de teste\n");
-        // wait 1 s
-        delay(1000);
+        for (; cnt < 10; cnt++)
+        {
+            toBinaryStr(cnt, binStr, 4); // 4 bits para valores de 0 a 9
+            putstr(binStr);
+            putstr("\n");
+            delay(200);
+        }
+        cnt = 0;
     }
     return 0;
 }
