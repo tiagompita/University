@@ -1942,8 +1942,8 @@
                     "rotation": 0,
                     "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
                     "text": "Switch6",
-                    "x": -3,
-                    "y": -25
+                    "x": 9,
+                    "y": 25
                 },
                 "locked": false,
                 "name": "Switch6",

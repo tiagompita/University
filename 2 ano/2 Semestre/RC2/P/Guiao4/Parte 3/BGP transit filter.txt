@@ -1,0 +1,17 @@
+ROUTER 1:
+
+conf t
+ip as-path access-list 1 permit ^$
+router bgp 200
+neighbor 192.1.3.3 filter-list 1 out
+end
+write
+
+ROUTER 2:
+
+conf t
+ip as-path access-list 1 permit ^$
+router bgp 200
+neighbor 192.2.4.4 filter-list 1 out
+end
+write
