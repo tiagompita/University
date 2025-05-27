@@ -22,4 +22,4 @@ Nas aulas teórico-práticas e práticas de LSDig são abordados os seguintes t�
 - Depuração e teste baseado em placas de desenvolvimento com diversos tipos de periféricos e interfaces.
 - Ferramentas de suporte às diversas etapas do fluxo de projeto.
 
-# Nota Final: ??
+# Nota Final: 14
