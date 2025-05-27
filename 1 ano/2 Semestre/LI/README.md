@@ -17,4 +17,4 @@
 * Possui como objetivo continuar o trabalho realizado na disciplina de Introdução à Engenharia Informática, mas com um forte foco na exploração programática.
 * Pretende-se que os conceitos sejam explorados de forma programática, promovendo uma estratégia de aplicação generalizada da programação para a resolução de problemas.
 
-# Nota Final: ??
+# Nota Final: 16
