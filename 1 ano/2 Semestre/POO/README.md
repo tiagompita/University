@@ -15,7 +15,7 @@
 ## Objetivos
 - Este curso é uma introdução à programação orientada a objetos (OOP), usando a linguagem Java. O objectivo é abordar temas como encapsulamento, herança, polimorfismo, estruturas de dados, de modo que os alunos sejam capazes de decompor e construir uma solução de acordo com princípios de OOP.
 
-# Nota Final: ??
+# Nota Final: 17
 
 ## Folder Structure
 
