@@ -6,6 +6,7 @@ void setPWM(unsigned int dutyCycle) {
         OC1RS = ((PR3 +1) * dutyCycle) / 100;
     } else {
         printf("Valor do dutyCycle fora do intervalo.");
+        return;
     }
 }
 

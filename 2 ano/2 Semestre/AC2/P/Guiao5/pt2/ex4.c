@@ -53,7 +53,7 @@ int main()
     // configure RD5-RD6 as outputs
     TRISD &= 0xFF9F;
     // configure RC14 (D11) as output
-    TRISC &= 0xBFFF;
+    TRISCbits.TRISC14 = 0;
 
     while(1) 
     { 
@@ -71,7 +71,7 @@ int main()
                 if(ledTime <= 10)  // se faltam 10ms ou menos
                 {
                     ledTime = 0;
-                    LATCbits.LATC14 = 0;  // desliga o LED
+                    LATCbits.LATC14 = 0;
                 }
                 else
                     ledTime -= 10;
@@ -80,24 +80,18 @@ int main()
 
         if (PORTBbits.RB0 == 1)
         {
-            // Se atingir 59 e o LED ainda não estiver ativo, ativa-o por 5s
-            if(counter == 59 && ledTime == 0)
-            {
-                LATCbits.LATC14 = 1;
-                ledTime = 5000;
-            }
             // increment counter (mod 256)
             counter = (counter + 1) % 60; 
         }
         else
         {
-            if(counter == 0 && ledTime == 0)
-            {
-                LATCbits.LATC14 = 1;
-                ledTime = 5000;
-            }
             // increment counter (mod 256)
             counter = (counter - 1 + 60) % 60; 
+        }
+
+        if ((counter == 59 || counter == 0) && ledTime == 0) {
+            LATCbits.LATC14 = 1;
+            ledTime = 5000;
         }
         
     } 

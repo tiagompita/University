@@ -4,12 +4,10 @@
 void delay(unsigned int ms)
 {
     resetCoreTimer();
-    while (readCoreTimer() < 20000 * ms)
-        ;
+    while (readCoreTimer() < 20000 * ms);
 }
 
-void configureUART2(void)
-{
+void configureUART2(void) {
     // Configure UART2:
     // 1 - Configure BaudRate Generator
 
@@ -74,6 +72,7 @@ int main(void)
     while (1)
     {
         while(U2STAbits.TRMT == 0);
+        
         LATDbits.LATD11 = 1;
         putstr("12345");
 

@@ -66,12 +66,10 @@ int main()
 
         if (PORTBbits.RB0 == 1)
         {
-            // increment counter (mod 256)
             counter = (counter + 1) % 60; 
         }
         else
         {
-            // increment counter (mod 256)
             counter = (counter - 1 + 60) % 60; 
         }
         

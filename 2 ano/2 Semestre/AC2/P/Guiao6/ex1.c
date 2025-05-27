@@ -29,8 +29,8 @@ int main(void) {
         while( IFS1bits.AD1IF == 0 );
         // Read conversion result (ADC1BUF0 value) and print it 
 
-        printInt(ADC1BUF0, 16 | 3 << 16);
-        putChar('\n');
+        printInt(ADC1BUF1, 16 | 3 << 16);
+        putChar('\r');
 
  
         // Reset AD1IF 
