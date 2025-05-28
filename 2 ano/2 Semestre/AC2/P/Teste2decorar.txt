@@ -47,8 +47,19 @@ void send2displays(unsigned char value) {
     AD1CHSbits.CH0SA = 4;
     AD1CON1bits.ON = 1; 
 
+    IPC6bits.AD1IP = 1;                 // Interrupt
+    IFS1bits.AD1IF = 0;
+    IEC1bits.AD1IE = 1;
+    
+    EnableInterrupts();
+
+    ### while
+
     AD1CON1bits.ASAM = 1;
     
+    while( IFS1bits.AD1IF == 0 );       // polling
+    IFS1bits.AD1IF = 0;
+
     int *p = (int *)(&ADC1BUF0);
     int media = 0;
     for(; p <= (int *)(&ADC1BUFF); p+=4 ) { 
@@ -58,13 +69,7 @@ void send2displays(unsigned char value) {
         
     V = (media * 33 + 511) / 1023;
 
-    while( IFS1bits.AD1IF == 0 );       // polling
-    IFS1bits.AD1IF = 0;
 
-    IPC6bits.AD1IP = 1;                 // Interrupt
-    IFS1bits.AD1IF = 0;
-    IEC1bits.AD1IE = 1;
-    EnableInterrupts();
 
 void _int_(VECTOR) isr_adc(void) {     // VECTOR number page 74-76
     (...)
@@ -89,6 +94,8 @@ void _int_(VECTOR) isr_adc(void) {     // VECTOR number page 74-76
     OC1CONbits.OCTSEL =?;
     OC1RS = ?;
     OC1CONbits.ON = 1;
+
+    EnableInterrupts();
 
 #######################-UART-#######################
 
@@ -124,24 +131,29 @@ void configureUART2(void) {
     U2MODEbits.ON = 1;
 }
 
-#####-UART Interrupt receiver
+#####-UART receiver Interrupt 
 
     IEC1bits.U2RXIE = 1;
     IEC1bits.U2TXIE = 0;
     IPC8bits.U2IP = 1;
+    U2STAbits.URXISEL = 0;
+
     IFS1bits.U2RXIF = 0;
 
-####### -UART Interrupt transmitter
+    EnableInterrupts();
+
+####### -UART transmitter Interrupt 
 
     IEC1bits.U2TXIE = 0;
     IEC1bits.U2RXIE = 0;
     IPC8bits.U2IP = 2;
     U2STAbits.UTXISEL = 0;
+
     IFS1bits.U2TXIF = 0;
 
     EnableInterrupts();
 
-#############
+####### -UART transmitter polling
 
 void putc(char byte) {
     while (U2STAbits.UTXBF == 1);
@@ -150,8 +162,15 @@ void putc(char byte) {
 }
 
 void putstr(char *str){
-    unsigned int i;
-    for (i = 0; i < strlen(str); i++) {
-        putc(str[i]);
+    while(*str){
+        putc(*str++);
     }
+}
+
+####### -UART receiver polling
+
+char getc(char byte) {
+    while (U2STAbits.URXDA == 0);
+
+    return U2RXREG;
 }
