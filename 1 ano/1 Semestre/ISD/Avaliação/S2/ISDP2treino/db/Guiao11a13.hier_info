@@ -1,0 +1,27 @@
+|SeqDet1011completo
+Q1 <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+clk => inst2.CLK
+clk => inst3.CLK
+reset => inst5.IN1
+reset => inst4.IN1
+x => SeqDet1101:inst.X
+x => inst6.IN2
+Q0 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+y <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SeqDet1011completo|SeqDet1101:inst
+D1 <= inst8.DB_MAX_OUTPUT_PORT_TYPE
+Q1 => inst3.IN0
+Q1 => inst.IN0
+Q1 => inst7.IN1
+Q1 => inst5.IN0
+Q0 => inst2.IN1
+Q0 => inst4.IN0
+Q0 => inst7.IN0
+X => inst2.IN2
+X => inst6.IN1
+X => inst10.IN0
+D0 <= inst9.DB_MAX_OUTPUT_PORT_TYPE
+
+

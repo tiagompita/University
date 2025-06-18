@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity win_lights is
+    Port (
+        clk : in std_logic;
+        enable : in std_logic;
+        led : out std_logic_vector(17 downto 0)
+    );
+end win_lights;
+
+architecture Behavioral of win_lights is
+    signal led_state : std_logic_vector(17 downto 0) := (others => '0');
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if enable = '1' then
+                led_state <= not led_state;
+            end if;
+        end if;
+    end process;
+
+    led <= led_state;
+end Behavioral;

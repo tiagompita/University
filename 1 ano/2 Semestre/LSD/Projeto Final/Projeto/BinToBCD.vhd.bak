@@ -1,0 +1,33 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity int_to_bcd is
+    port(
+        binary_in : in  std_logic_vector(13 downto 0);
+        bcd_out   : out std_logic_vector(13 downto 0)
+    );
+end entity int_to_bcd;
+
+architecture behavioral of int_to_bcd is
+    signal thousands : integer range 0 to 9;
+    signal hundreds  : integer range 0 to 9;
+    signal tens      : integer range 0 to 9;
+    signal ones      : integer range 0 to 9;
+begin
+
+    process(binary_in)
+    begin
+        -- Extrai os dígitos
+        thousands := (binary_in / 1000) mod 10;
+        hundreds  := (binary_in / 100) mod 10;
+        tens      := (binary_in / 10) mod 10;
+        ones      := binary_in mod 10;
+
+        -- Converte para BCD
+        bcd_out <= std_logic_vector(to_unsigned(thousands, 4)) &
+                   std_logic_vector(to_unsigned(hundreds, 4)) &
+                   std_logic_vector(to_unsigned(tens, 4)) &
+                   std_logic_vector(to_unsigned(ones, 4));
+    end process;
+end architecture behavioral;

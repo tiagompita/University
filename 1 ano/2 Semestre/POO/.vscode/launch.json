@@ -1,0 +1,469 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+<<<<<<< Updated upstream
+            "name": "TicketBookingApp",
+            "request": "launch",
+            "mainClass": "ExamePratico.TicketBookingApp",
+            "projectName": "POO_f7082fd2"
+=======
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "POO_41e4f5da"
+>>>>>>> Stashed changes
+        },
+        {
+            "type": "java",
+            "name": "MovieProgram",
+            "request": "launch",
+            "mainClass": "aula12.MovieProgram",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Movie",
+            "request": "launch",
+            "mainClass": "aula12.Movie",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "AllWordsOrganized",
+            "request": "launch",
+            "mainClass": "aula12.AllWordsOrganized",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "wordCounter",
+            "request": "launch",
+            "mainClass": "aula12.wordCounter",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Voo",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.Voo",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "CollectionTester",
+            "request": "launch",
+            "mainClass": "aula09.Ex2.CollectionTester",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "MostrarSeparadores",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.MostrarSeparadores",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "Voo",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.Voo",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "VooTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex4.VooTester",
+            "projectName": "POO_f7082fd2"
+        },
+        {
+            "type": "java",
+            "name": "EnergyUsageReportTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex3.EnergyUsageReportTester",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "GradebookTester",
+            "request": "launch",
+            "mainClass": "aula11.Ex2.GradebookTester",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Gradebook",
+            "request": "launch",
+            "mainClass": "aula11.Ex2.Gradebook",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "aula11.Ex1.test",
+            "projectName": "POO_41e4f5da"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "MyFirstClass",
+            "request": "launch",
+            "mainClass": "MyFirstClass",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Pneu",
+            "request": "launch",
+            "mainClass": "Pneu",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "KmToMiles",
+            "request": "launch",
+            "mainClass": "aula01.KmToMiles",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "PescadaDeRaboNaBoca",
+            "request": "launch",
+            "mainClass": "aula01.PescadaDeRaboNaBoca",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "ReadFileExample",
+            "request": "launch",
+            "mainClass": "aula01.ReadFileExample",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "StringExample",
+            "request": "launch",
+            "mainClass": "aula01.StringExample",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex1",
+            "request": "launch",
+            "mainClass": "aula02.Ex1",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex10",
+            "request": "launch",
+            "mainClass": "aula02.Ex10",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex11",
+            "request": "launch",
+            "mainClass": "aula02.Ex11",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex2",
+            "request": "launch",
+            "mainClass": "aula02.Ex2",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex3",
+            "request": "launch",
+            "mainClass": "aula02.Ex3",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex4",
+            "request": "launch",
+            "mainClass": "aula02.Ex4",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex5",
+            "request": "launch",
+            "mainClass": "aula02.Ex5",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex6",
+            "request": "launch",
+            "mainClass": "aula02.Ex6",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex7",
+            "request": "launch",
+            "mainClass": "aula02.Ex7",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex8",
+            "request": "launch",
+            "mainClass": "aula02.Ex8",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex9",
+            "request": "launch",
+            "mainClass": "aula02.Ex9",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex1(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex1",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex2(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex2",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex3(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex3",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex4(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex4",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex5(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex5",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex6(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex6",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex7(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex7",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Ex8(1)",
+            "request": "launch",
+            "mainClass": "aula03.Ex8",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "CarDemo",
+            "request": "launch",
+            "mainClass": "aula04.CarDemo",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "CashRegisterDemo",
+            "request": "launch",
+            "mainClass": "aula04.CashRegisterDemo",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "aula04.Ex1.Menu",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "MenuCalendar",
+            "request": "launch",
+            "mainClass": "aula05.MenuCalendar",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "MenuDate",
+            "request": "launch",
+            "mainClass": "aula05.MenuDate",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Conjunto",
+            "request": "launch",
+            "mainClass": "aula06.Conjunto",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Contactos",
+            "request": "launch",
+            "mainClass": "aula06.Contactos",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "aula06.Test",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "Menu(1)",
+            "request": "launch",
+            "mainClass": "aula07.Ex1.Menu",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "DateNDTest",
+            "request": "launch",
+            "mainClass": "aula07.Ex2.DateNDTest",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "MenuDate(1)",
+            "request": "launch",
+            "mainClass": "aula07.Ex2.MenuDate",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "A08E02",
+            "request": "launch",
+            "mainClass": "aula08.Ex2.A08E02",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "ShoppingCartTester",
+            "request": "launch",
+            "mainClass": "aula08.Ex3.ShoppingCartTester",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "ALDemo",
+            "request": "launch",
+            "mainClass": "aula09.Ex1.ALDemo",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "CollectionTester",
+            "request": "launch",
+            "mainClass": "aula09.Ex2.CollectionTester",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "PlaneTester",
+            "request": "launch",
+            "mainClass": "aula09.Ex3.PlaneTester",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "App(1)",
+            "request": "launch",
+            "mainClass": "aula10.Ex1.App",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "App(2)",
+            "request": "launch",
+            "mainClass": "aula10.Ex2.App",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "App(3)",
+            "request": "launch",
+            "mainClass": "aula10.Ex3.App",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "App(4)",
+            "request": "launch",
+            "mainClass": "aula10.Ex4.App",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "EnergyUsageReportTester",
+            "request": "launch",
+            "mainClass": "aula11.EnergyUsageReportTester",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "WordPairs",
+            "request": "launch",
+            "mainClass": "aula11.Ex1.WordPairs",
+            "projectName": "POO_2750c659"
+        },
+        {
+            "type": "java",
+            "name": "GradebookTester",
+            "request": "launch",
+            "mainClass": "aula11.GradebookTester",
+            "projectName": "POO_2750c659"
+        }
+    ]
+}

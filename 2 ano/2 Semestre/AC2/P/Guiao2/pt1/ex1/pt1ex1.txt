@@ -1,0 +1,12 @@
+a) Qual a frequência de incremento da variável counter?
+    100Hz
+
+b) Traduza o código C fornecido para assembly do MIPS, e teste-o na placa. 
+    Ficheiro pt1ex1.s
+
+c) Altere sucessivamente o código que escreveu de forma a que a variável seja 
+incrementada com uma frequência de 10 Hz, 5 HZ e de 1Hz, e teste o resultado. 
+
+    10Hz => while(readCoreTimer() < 2 000 000);
+    5Hz => while(readCoreTimer() < 4 000 000);
+    1Hz => while(readCoreTimer() < 20 000 000);

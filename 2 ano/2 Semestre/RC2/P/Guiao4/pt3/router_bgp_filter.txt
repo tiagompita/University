@@ -1,0 +1,36 @@
+R1  ##############################################
+
+configure terminal
+ip as-path access-list 1 permit ^$
+router bgp 200
+neighbor 192.1.3.3 filter-list 1 out
+end
+write
+
+
+REMOVE ############
+
+configure terminal
+router bgp 200
+no neighbor 192.1.3.3 filter-list 1 out
+end
+write
+
+
+R2  ##############################################
+
+configure terminal
+ip as-path access-list 1 permit ^$
+router bgp 200
+neighbor 192.2.4.4 filter-list 1 out
+end
+write
+
+
+REMOVE ############
+
+configure terminal
+router bgp 200
+no neighbor 192.2.4.4 filter-list 1 out
+end
+write

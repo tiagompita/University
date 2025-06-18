@@ -1,0 +1,5 @@
+Then delete text 
+-novopt 
+from the vsim
+command and insert there 
+-voptargs="+acc"

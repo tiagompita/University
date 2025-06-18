@@ -1,0 +1,256 @@
+R1:
+conf t
+int f1/0
+no shutdown
+ip address 192.1.1.1 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.12.1 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.13.1 255.255.255.0
+end
+write
+
+#Desativar OSPF e ativar RIP
+conf t
+no router ospf 1
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.13.0
+end
+write
+
+#Interface f1/0 como passive
+conf t
+router rip
+passive-interface f1/0
+end
+write
+
+#Configuration of VRRP in an interface of router R1
+conf t
+int f1/0
+vrrp 1 ip 192.1.1.254
+vrrp 1 priority 120
+end
+write
+
+R2:
+conf t
+int f1/0
+no shutdown
+ip address 192.1.1.2 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.12.2 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.24.2 255.255.255.0
+end
+write
+
+#Desativar OSPF e ativar RIP
+conf t
+no router ospf 1
+router rip
+version 2
+network 192.1.1.0
+network 192.0.12.0
+network 192.0.24.0
+end
+write
+
+#Interface f1/0 como passive
+conf t
+router rip
+passive-interface f1/0
+end
+write
+
+
+#Configuration of VRRP in an interface of router R2
+conf t
+int f1/0
+vrrp 1 ip 192.1.1.254
+vrrp 1 priority 120
+end
+write
+
+R3:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.35.3 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.34.3 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.13.3 255.255.255.0
+end
+write
+
+#Desativar OSPF e ativar RIP na interface f0/1
+conf t
+int f0/1
+no ip ospf 1 area 0
+router rip
+version 2
+network 192.0.13.0
+end
+write
+
+#Redistribuição das redes RIP para o OSPF
+conf t
+router ospf 1
+redistribute rip subnets
+end
+write
+
+#Redistribuição das redes OSPF para o RIP
+conf t
+router rip
+no auto-summary
+redistribute ospf 1 metric 1
+end
+write
+
+#Redistribuição a partir de uma rede default
+conf t
+router rip
+no redistribute ospf 1 metric 1
+default-information originate
+end
+write
+
+
+R4:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.46.4 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.34.4 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.0.24.4 255.255.255.0
+end
+write
+
+#Configurar o OSPF
+conf t
+int f1/0
+ip ospf 1 area 0
+int f0/0
+ip ospf 1 area 0
+int f0/1
+ip ospf 1 area 0
+end
+write
+
+#Desativar OSPF e ativar RIP na interface f0/1
+conf t
+int f0/1
+no ip ospf 1 area 0
+router rip
+version 2
+network 192.0.24.0
+end
+write
+
+#Redistribuição a partir de uma rede default
+conf t
+router rip
+no redistribute ospf 1 metric 1
+default-information originate
+end
+write
+
+#Redistribute RIP into OSPF using type E1 and external cost 1
+conf t
+router ospf 1
+redistribute rip subnets metric-type 1 metric 1
+end
+write
+
+#Configure the RIP administrative distance
+conf t
+router rip
+distance 100
+end
+write
+
+R5:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.35.5 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.56.5 255.255.255.0
+int f0/1
+no shutdown
+ip address 192.3.3.5 255.255.255.0
+int f1/1
+no shutdown
+ip address 192.2.2.5 255.255.255.0
+end
+write
+
+#Configurar o OSPF
+conf t
+int f1/0
+ip ospf 1 area 0
+int f0/0
+ip ospf 1 area 0
+end
+write
+
+#router R5 to announce itself to all other OSPF routers as the destination of a default OSPF route
+conf t
+router ospf 1
+default-information originate Always
+end
+write
+
+
+R6:
+conf t
+int f1/0
+no shutdown
+ip address 192.0.46.6 255.255.255.0
+int f0/0
+no shutdown
+ip address 192.0.56.6 255.255.255.0
+end
+write
+
+#Configurar o OSPF
+conf t
+int f1/0
+ip ospf 1 area 0
+int f0/0
+ip ospf 1 area 0
+end
+write
+
+#R6 to announce itself to all other OSPF routers as the destination of a default OSPF route, but with an external cost of 3
+conf t
+router ospf 1
+default-information originate always metric 3
+default-information originate always metric-type 1
+end
+write
+
+# Eliminate the configuration of the default route in router R6:
+conf t
+router ospf 1
+no default-information originate
+end
+write
+
+

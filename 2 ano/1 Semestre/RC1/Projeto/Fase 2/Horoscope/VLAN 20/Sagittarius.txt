@@ -1,0 +1,3 @@
+set pcname Sagittarius
+ip 2002:a201:bc52:101::3/64
+dhcp

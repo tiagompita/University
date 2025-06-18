@@ -1,0 +1,7 @@
+
+State Machine - |SeqDetFSM|PS
+Name PS.E100 PS.E10 PS.E1 PS.E0 
+PS.E0 0 0 0 0 
+PS.E1 0 0 1 1 
+PS.E10 0 1 0 1 
+PS.E100 1 0 0 1 

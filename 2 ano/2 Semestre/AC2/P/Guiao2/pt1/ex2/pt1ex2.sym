@@ -1,0 +1,15 @@
+GAS LISTING pt1ex2.s 			page 1
+
+
+DEFINED SYMBOLS
+            pt1ex2.s:5      *ABS*:000000000000000b READ_CORE_TIMER
+            pt1ex2.s:6      *ABS*:000000000000000c RESET_CORE_TIMER
+            pt1ex2.s:7      *ABS*:0000000000000003 PUT_CHAR
+            pt1ex2.s:8      *ABS*:0000000000000006 PRINT_INT
+            pt1ex2.s:13     .text:0000000000000000 main
+            pt1ex2.s:19     .text:000000000000000c while
+            pt1ex2.s:50     .text:0000000000000054 delay
+            pt1ex2.s:48     *ABS*:0000000000004e20 K
+            pt1ex2.s:55     .text:000000000000005c while3
+
+NO UNDEFINED SYMBOLS

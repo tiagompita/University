@@ -1,0 +1,75 @@
+table{
+    border-color: black;
+    border-radius: 3px;
+    border-style: ridge;
+    border-width: 10px;
+
+    height: 30px;
+}
+td, th {
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+#coldest {
+    background-color: lightblue;
+}
+#coldest:hover {
+    background-color: blue;
+}
+.hottest {
+    background-color: lightcoral;
+}
+.hottest:hover {
+    background-color: red;
+}
+.first {
+    background-color: lightgreen;
+}
+.first:hover {
+    background-color: green;
+}
+.last {
+    background-color: darkslateblue;
+}
+.last:hover {
+    background-color: darkblue;
+}      
+.button-ok {
+    background-color: lightgreen;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 1px black;
+}
+.button-ok:hover {
+    background-color: green;
+}
+.button-cancel {
+    background-color: lightcoral;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+}
+.button-cancel:hover {
+    background-color: red;
+}
+div {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    padding: 10px;
+}
+body {
+    background-color: lightgray;
+    font-size: 15px;
+}

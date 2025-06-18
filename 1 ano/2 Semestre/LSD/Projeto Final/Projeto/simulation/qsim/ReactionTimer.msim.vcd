@@ -1,0 +1,2325 @@
+$comment
+	File created using the following command:
+		vcd file ReactionTimer.msim.vcd -direction
+$end
+$date
+	Sun Jun  2 20:27:08 2024
+$end
+$version
+	Questa Intel Starter FPGA Edition Version 2023.3
+$end
+$timescale
+	1ps
+$end
+
+$scope module mef_competition_vhd_vec_tst $end
+$var wire 1 ! clk $end
+$var wire 1 " confirm $end
+$var wire 1 # confirm_prev_in $end
+$var wire 1 $ ConfirmedNumberOut [6] $end
+$var wire 1 % ConfirmedNumberOut [5] $end
+$var wire 1 & ConfirmedNumberOut [4] $end
+$var wire 1 ' ConfirmedNumberOut [3] $end
+$var wire 1 ( ConfirmedNumberOut [2] $end
+$var wire 1 ) ConfirmedNumberOut [1] $end
+$var wire 1 * ConfirmedNumberOut [0] $end
+$var wire 1 + cycle $end
+$var wire 1 , enable $end
+$var wire 1 - HEX0 [1] $end
+$var wire 1 . HEX0 [0] $end
+$var wire 1 / HEX1 [1] $end
+$var wire 1 0 HEX1 [0] $end
+$var wire 1 1 HEX2 [1] $end
+$var wire 1 2 HEX2 [0] $end
+$var wire 1 3 HEX3 [1] $end
+$var wire 1 4 HEX3 [0] $end
+$var wire 1 5 MaxPoints [6] $end
+$var wire 1 6 MaxPoints [5] $end
+$var wire 1 7 MaxPoints [4] $end
+$var wire 1 8 MaxPoints [3] $end
+$var wire 1 9 MaxPoints [2] $end
+$var wire 1 : MaxPoints [1] $end
+$var wire 1 ; MaxPoints [0] $end
+$var wire 1 < PlayerAPenalty $end
+$var wire 1 = PlayerATime [13] $end
+$var wire 1 > PlayerATime [12] $end
+$var wire 1 ? PlayerATime [11] $end
+$var wire 1 @ PlayerATime [10] $end
+$var wire 1 A PlayerATime [9] $end
+$var wire 1 B PlayerATime [8] $end
+$var wire 1 C PlayerATime [7] $end
+$var wire 1 D PlayerATime [6] $end
+$var wire 1 E PlayerATime [5] $end
+$var wire 1 F PlayerATime [4] $end
+$var wire 1 G PlayerATime [3] $end
+$var wire 1 H PlayerATime [2] $end
+$var wire 1 I PlayerATime [1] $end
+$var wire 1 J PlayerATime [0] $end
+$var wire 1 K PlayerBPenalty $end
+$var wire 1 L PlayerBTime [13] $end
+$var wire 1 M PlayerBTime [12] $end
+$var wire 1 N PlayerBTime [11] $end
+$var wire 1 O PlayerBTime [10] $end
+$var wire 1 P PlayerBTime [9] $end
+$var wire 1 Q PlayerBTime [8] $end
+$var wire 1 R PlayerBTime [7] $end
+$var wire 1 S PlayerBTime [6] $end
+$var wire 1 T PlayerBTime [5] $end
+$var wire 1 U PlayerBTime [4] $end
+$var wire 1 V PlayerBTime [3] $end
+$var wire 1 W PlayerBTime [2] $end
+$var wire 1 X PlayerBTime [1] $end
+$var wire 1 Y PlayerBTime [0] $end
+$var wire 1 Z Points_A [6] $end
+$var wire 1 [ Points_A [5] $end
+$var wire 1 \ Points_A [4] $end
+$var wire 1 ] Points_A [3] $end
+$var wire 1 ^ Points_A [2] $end
+$var wire 1 _ Points_A [1] $end
+$var wire 1 ` Points_A [0] $end
+$var wire 1 a Points_B [6] $end
+$var wire 1 b Points_B [5] $end
+$var wire 1 c Points_B [4] $end
+$var wire 1 d Points_B [3] $end
+$var wire 1 e Points_B [2] $end
+$var wire 1 f Points_B [1] $end
+$var wire 1 g Points_B [0] $end
+$var wire 1 h reset $end
+$var wire 1 i TotalCycles [6] $end
+$var wire 1 j TotalCycles [5] $end
+$var wire 1 k TotalCycles [4] $end
+$var wire 1 l TotalCycles [3] $end
+$var wire 1 m TotalCycles [2] $end
+$var wire 1 n TotalCycles [1] $end
+$var wire 1 o TotalCycles [0] $end
+$var wire 1 p winner $end
+
+$scope module i1 $end
+$var wire 1 q gnd $end
+$var wire 1 r vcc $end
+$var wire 1 s unknown $end
+$var wire 1 t devoe $end
+$var wire 1 u devclrn $end
+$var wire 1 v devpor $end
+$var wire 1 w ww_devoe $end
+$var wire 1 x ww_devclrn $end
+$var wire 1 y ww_devpor $end
+$var wire 1 z ww_clk $end
+$var wire 1 { ww_reset $end
+$var wire 1 | ww_enable $end
+$var wire 1 } ww_confirm $end
+$var wire 1 ~ ww_cycle $end
+$var wire 1 !! ww_PlayerATime [13] $end
+$var wire 1 "! ww_PlayerATime [12] $end
+$var wire 1 #! ww_PlayerATime [11] $end
+$var wire 1 $! ww_PlayerATime [10] $end
+$var wire 1 %! ww_PlayerATime [9] $end
+$var wire 1 &! ww_PlayerATime [8] $end
+$var wire 1 '! ww_PlayerATime [7] $end
+$var wire 1 (! ww_PlayerATime [6] $end
+$var wire 1 )! ww_PlayerATime [5] $end
+$var wire 1 *! ww_PlayerATime [4] $end
+$var wire 1 +! ww_PlayerATime [3] $end
+$var wire 1 ,! ww_PlayerATime [2] $end
+$var wire 1 -! ww_PlayerATime [1] $end
+$var wire 1 .! ww_PlayerATime [0] $end
+$var wire 1 /! ww_PlayerBTime [13] $end
+$var wire 1 0! ww_PlayerBTime [12] $end
+$var wire 1 1! ww_PlayerBTime [11] $end
+$var wire 1 2! ww_PlayerBTime [10] $end
+$var wire 1 3! ww_PlayerBTime [9] $end
+$var wire 1 4! ww_PlayerBTime [8] $end
+$var wire 1 5! ww_PlayerBTime [7] $end
+$var wire 1 6! ww_PlayerBTime [6] $end
+$var wire 1 7! ww_PlayerBTime [5] $end
+$var wire 1 8! ww_PlayerBTime [4] $end
+$var wire 1 9! ww_PlayerBTime [3] $end
+$var wire 1 :! ww_PlayerBTime [2] $end
+$var wire 1 ;! ww_PlayerBTime [1] $end
+$var wire 1 <! ww_PlayerBTime [0] $end
+$var wire 1 =! ww_ConfirmedNumberOut [6] $end
+$var wire 1 >! ww_ConfirmedNumberOut [5] $end
+$var wire 1 ?! ww_ConfirmedNumberOut [4] $end
+$var wire 1 @! ww_ConfirmedNumberOut [3] $end
+$var wire 1 A! ww_ConfirmedNumberOut [2] $end
+$var wire 1 B! ww_ConfirmedNumberOut [1] $end
+$var wire 1 C! ww_ConfirmedNumberOut [0] $end
+$var wire 1 D! ww_confirm_prev_in $end
+$var wire 1 E! ww_Points_A [6] $end
+$var wire 1 F! ww_Points_A [5] $end
+$var wire 1 G! ww_Points_A [4] $end
+$var wire 1 H! ww_Points_A [3] $end
+$var wire 1 I! ww_Points_A [2] $end
+$var wire 1 J! ww_Points_A [1] $end
+$var wire 1 K! ww_Points_A [0] $end
+$var wire 1 L! ww_Points_B [6] $end
+$var wire 1 M! ww_Points_B [5] $end
+$var wire 1 N! ww_Points_B [4] $end
+$var wire 1 O! ww_Points_B [3] $end
+$var wire 1 P! ww_Points_B [2] $end
+$var wire 1 Q! ww_Points_B [1] $end
+$var wire 1 R! ww_Points_B [0] $end
+$var wire 1 S! ww_TotalCycles [6] $end
+$var wire 1 T! ww_TotalCycles [5] $end
+$var wire 1 U! ww_TotalCycles [4] $end
+$var wire 1 V! ww_TotalCycles [3] $end
+$var wire 1 W! ww_TotalCycles [2] $end
+$var wire 1 X! ww_TotalCycles [1] $end
+$var wire 1 Y! ww_TotalCycles [0] $end
+$var wire 1 Z! ww_MaxPoints [6] $end
+$var wire 1 [! ww_MaxPoints [5] $end
+$var wire 1 \! ww_MaxPoints [4] $end
+$var wire 1 ]! ww_MaxPoints [3] $end
+$var wire 1 ^! ww_MaxPoints [2] $end
+$var wire 1 _! ww_MaxPoints [1] $end
+$var wire 1 `! ww_MaxPoints [0] $end
+$var wire 1 a! ww_PlayerAPenalty $end
+$var wire 1 b! ww_PlayerBPenalty $end
+$var wire 1 c! ww_HEX3 [1] $end
+$var wire 1 d! ww_HEX3 [0] $end
+$var wire 1 e! ww_HEX2 [1] $end
+$var wire 1 f! ww_HEX2 [0] $end
+$var wire 1 g! ww_HEX1 [1] $end
+$var wire 1 h! ww_HEX1 [0] $end
+$var wire 1 i! ww_HEX0 [1] $end
+$var wire 1 j! ww_HEX0 [0] $end
+$var wire 1 k! ww_winner $end
+$var wire 1 l! \Points_A[0]~output_o\ $end
+$var wire 1 m! \Points_A[1]~output_o\ $end
+$var wire 1 n! \Points_A[2]~output_o\ $end
+$var wire 1 o! \Points_A[3]~output_o\ $end
+$var wire 1 p! \Points_A[4]~output_o\ $end
+$var wire 1 q! \Points_A[5]~output_o\ $end
+$var wire 1 r! \Points_A[6]~output_o\ $end
+$var wire 1 s! \Points_B[0]~output_o\ $end
+$var wire 1 t! \Points_B[1]~output_o\ $end
+$var wire 1 u! \Points_B[2]~output_o\ $end
+$var wire 1 v! \Points_B[3]~output_o\ $end
+$var wire 1 w! \Points_B[4]~output_o\ $end
+$var wire 1 x! \Points_B[5]~output_o\ $end
+$var wire 1 y! \Points_B[6]~output_o\ $end
+$var wire 1 z! \TotalCycles[0]~output_o\ $end
+$var wire 1 {! \TotalCycles[1]~output_o\ $end
+$var wire 1 |! \TotalCycles[2]~output_o\ $end
+$var wire 1 }! \TotalCycles[3]~output_o\ $end
+$var wire 1 ~! \TotalCycles[4]~output_o\ $end
+$var wire 1 !" \TotalCycles[5]~output_o\ $end
+$var wire 1 "" \TotalCycles[6]~output_o\ $end
+$var wire 1 #" \MaxPoints[0]~output_o\ $end
+$var wire 1 $" \MaxPoints[1]~output_o\ $end
+$var wire 1 %" \MaxPoints[2]~output_o\ $end
+$var wire 1 &" \MaxPoints[3]~output_o\ $end
+$var wire 1 '" \MaxPoints[4]~output_o\ $end
+$var wire 1 (" \MaxPoints[5]~output_o\ $end
+$var wire 1 )" \MaxPoints[6]~output_o\ $end
+$var wire 1 *" \HEX3[0]~output_o\ $end
+$var wire 1 +" \HEX3[1]~output_o\ $end
+$var wire 1 ," \HEX2[0]~output_o\ $end
+$var wire 1 -" \HEX2[1]~output_o\ $end
+$var wire 1 ." \HEX1[0]~output_o\ $end
+$var wire 1 /" \HEX1[1]~output_o\ $end
+$var wire 1 0" \HEX0[0]~output_o\ $end
+$var wire 1 1" \HEX0[1]~output_o\ $end
+$var wire 1 2" \winner~output_o\ $end
+$var wire 1 3" \clk~input_o\ $end
+$var wire 1 4" \Add4~0_combout\ $end
+$var wire 1 5" \PlayerAPenalty~input_o\ $end
+$var wire 1 6" \enable~input_o\ $end
+$var wire 1 7" \ConfirmedNumberOut[0]~input_o\ $end
+$var wire 1 8" \reset~input_o\ $end
+$var wire 1 9" \state.init_competition~q\ $end
+$var wire 1 :" \MaxPoints[0]~0_combout\ $end
+$var wire 1 ;" \Add4~1\ $end
+$var wire 1 <" \Add4~4_combout\ $end
+$var wire 1 =" \PlayerATime[13]~input_o\ $end
+$var wire 1 >" \PlayerBTime[13]~input_o\ $end
+$var wire 1 ?" \PlayerATime[12]~input_o\ $end
+$var wire 1 @" \PlayerBTime[12]~input_o\ $end
+$var wire 1 A" \PlayerATime[11]~input_o\ $end
+$var wire 1 B" \PlayerBTime[11]~input_o\ $end
+$var wire 1 C" \PlayerATime[10]~input_o\ $end
+$var wire 1 D" \PlayerBTime[10]~input_o\ $end
+$var wire 1 E" \PlayerATime[9]~input_o\ $end
+$var wire 1 F" \PlayerBTime[9]~input_o\ $end
+$var wire 1 G" \PlayerATime[8]~input_o\ $end
+$var wire 1 H" \PlayerBTime[8]~input_o\ $end
+$var wire 1 I" \PlayerATime[7]~input_o\ $end
+$var wire 1 J" \PlayerBTime[7]~input_o\ $end
+$var wire 1 K" \PlayerATime[6]~input_o\ $end
+$var wire 1 L" \PlayerBTime[6]~input_o\ $end
+$var wire 1 M" \PlayerATime[5]~input_o\ $end
+$var wire 1 N" \PlayerBTime[5]~input_o\ $end
+$var wire 1 O" \PlayerATime[4]~input_o\ $end
+$var wire 1 P" \PlayerBTime[4]~input_o\ $end
+$var wire 1 Q" \PlayerATime[3]~input_o\ $end
+$var wire 1 R" \PlayerBTime[3]~input_o\ $end
+$var wire 1 S" \PlayerATime[2]~input_o\ $end
+$var wire 1 T" \PlayerBTime[2]~input_o\ $end
+$var wire 1 U" \PlayerATime[1]~input_o\ $end
+$var wire 1 V" \PlayerBTime[1]~input_o\ $end
+$var wire 1 W" \PlayerATime[0]~input_o\ $end
+$var wire 1 X" \PlayerBTime[0]~input_o\ $end
+$var wire 1 Y" \LessThan2~1_cout\ $end
+$var wire 1 Z" \LessThan2~3_cout\ $end
+$var wire 1 [" \LessThan2~5_cout\ $end
+$var wire 1 \" \LessThan2~7_cout\ $end
+$var wire 1 ]" \LessThan2~9_cout\ $end
+$var wire 1 ^" \LessThan2~11_cout\ $end
+$var wire 1 _" \LessThan2~13_cout\ $end
+$var wire 1 `" \LessThan2~15_cout\ $end
+$var wire 1 a" \LessThan2~17_cout\ $end
+$var wire 1 b" \LessThan2~19_cout\ $end
+$var wire 1 c" \LessThan2~21_cout\ $end
+$var wire 1 d" \LessThan2~23_cout\ $end
+$var wire 1 e" \LessThan2~25_cout\ $end
+$var wire 1 f" \LessThan2~26_combout\ $end
+$var wire 1 g" \Add2~0_combout\ $end
+$var wire 1 h" \Add4~5\ $end
+$var wire 1 i" \Add4~6_combout\ $end
+$var wire 1 j" \Add2~1\ $end
+$var wire 1 k" \Add2~2_combout\ $end
+$var wire 1 l" \points_A_int~3_combout\ $end
+$var wire 1 m" \points_A_int[0]~0_combout\ $end
+$var wire 1 n" \points_A_int[1]~2_combout\ $end
+$var wire 1 o" \Add4~7\ $end
+$var wire 1 p" \Add4~8_combout\ $end
+$var wire 1 q" \Add2~3\ $end
+$var wire 1 r" \Add2~4_combout\ $end
+$var wire 1 s" \points_A_int~4_combout\ $end
+$var wire 1 t" \Add4~9\ $end
+$var wire 1 u" \Add4~10_combout\ $end
+$var wire 1 v" \Add2~5\ $end
+$var wire 1 w" \Add2~6_combout\ $end
+$var wire 1 x" \points_A_int~5_combout\ $end
+$var wire 1 y" \Add4~11\ $end
+$var wire 1 z" \Add4~12_combout\ $end
+$var wire 1 {" \Add2~7\ $end
+$var wire 1 |" \Add2~8_combout\ $end
+$var wire 1 }" \points_A_int~6_combout\ $end
+$var wire 1 ~" \Add4~13\ $end
+$var wire 1 !# \Add4~14_combout\ $end
+$var wire 1 "# \Add2~9\ $end
+$var wire 1 ## \Add2~10_combout\ $end
+$var wire 1 $# \points_A_int~7_combout\ $end
+$var wire 1 %# \Add4~15\ $end
+$var wire 1 &# \Add4~16_combout\ $end
+$var wire 1 '# \Add2~11\ $end
+$var wire 1 (# \Add2~12_combout\ $end
+$var wire 1 )# \points_A_int~8_combout\ $end
+$var wire 1 *# \LessThan0~0_combout\ $end
+$var wire 1 +# \LessThan0~1_combout\ $end
+$var wire 1 ,# \points_A_int~1_combout\ $end
+$var wire 1 -# \ConfirmedNumberOut[1]~input_o\ $end
+$var wire 1 .# \confirmed_number_int[1]~0_combout\ $end
+$var wire 1 /# \Equal0~0_combout\ $end
+$var wire 1 0# \confirm_prev_in~input_o\ $end
+$var wire 1 1# \confirm~input_o\ $end
+$var wire 1 2# \state~10_combout\ $end
+$var wire 1 3# \LessThan3~1_cout\ $end
+$var wire 1 4# \LessThan3~3_cout\ $end
+$var wire 1 5# \LessThan3~5_cout\ $end
+$var wire 1 6# \LessThan3~7_cout\ $end
+$var wire 1 7# \LessThan3~9_cout\ $end
+$var wire 1 8# \LessThan3~11_cout\ $end
+$var wire 1 9# \LessThan3~13_cout\ $end
+$var wire 1 :# \LessThan3~15_cout\ $end
+$var wire 1 ;# \LessThan3~17_cout\ $end
+$var wire 1 <# \LessThan3~19_cout\ $end
+$var wire 1 =# \LessThan3~21_cout\ $end
+$var wire 1 ># \LessThan3~23_cout\ $end
+$var wire 1 ?# \LessThan3~25_cout\ $end
+$var wire 1 @# \LessThan3~26_combout\ $end
+$var wire 1 A# \points_B_int~0_combout\ $end
+$var wire 1 B# \Add3~0_combout\ $end
+$var wire 1 C# \Add5~0_combout\ $end
+$var wire 1 D# \PlayerBPenalty~input_o\ $end
+$var wire 1 E# \playerB_penalty_applied~q\ $end
+$var wire 1 F# \Add5~2_combout\ $end
+$var wire 1 G# \Add5~3_combout\ $end
+$var wire 1 H# \Add5~1\ $end
+$var wire 1 I# \Add5~4_combout\ $end
+$var wire 1 J# \points_B_int~1_combout\ $end
+$var wire 1 K# \points_B_int[1]~2_combout\ $end
+$var wire 1 L# \Add3~1\ $end
+$var wire 1 M# \Add3~3_combout\ $end
+$var wire 1 N# \Add5~5\ $end
+$var wire 1 O# \Add5~6_combout\ $end
+$var wire 1 P# \points_B_int~3_combout\ $end
+$var wire 1 Q# \Add3~4\ $end
+$var wire 1 R# \Add3~5_combout\ $end
+$var wire 1 S# \Add5~7\ $end
+$var wire 1 T# \Add5~8_combout\ $end
+$var wire 1 U# \points_B_int~4_combout\ $end
+$var wire 1 V# \Add3~6\ $end
+$var wire 1 W# \Add3~7_combout\ $end
+$var wire 1 X# \Add5~9\ $end
+$var wire 1 Y# \Add5~10_combout\ $end
+$var wire 1 Z# \points_B_int~5_combout\ $end
+$var wire 1 [# \Add3~8\ $end
+$var wire 1 \# \Add3~9_combout\ $end
+$var wire 1 ]# \Add5~11\ $end
+$var wire 1 ^# \Add5~12_combout\ $end
+$var wire 1 _# \points_B_int~6_combout\ $end
+$var wire 1 `# \Add3~10\ $end
+$var wire 1 a# \Add3~11_combout\ $end
+$var wire 1 b# \Add5~13\ $end
+$var wire 1 c# \Add5~14_combout\ $end
+$var wire 1 d# \points_B_int~7_combout\ $end
+$var wire 1 e# \LessThan1~0_combout\ $end
+$var wire 1 f# \LessThan1~1_combout\ $end
+$var wire 1 g# \Add3~2_combout\ $end
+$var wire 1 h# \Add3~12\ $end
+$var wire 1 i# \Add3~13_combout\ $end
+$var wire 1 j# \Add5~15\ $end
+$var wire 1 k# \Add5~16_combout\ $end
+$var wire 1 l# \points_B_int~8_combout\ $end
+$var wire 1 m# \internal_reset~4_combout\ $end
+$var wire 1 n# \state~11_combout\ $end
+$var wire 1 o# \Equal1~0_combout\ $end
+$var wire 1 p# \state~12_combout\ $end
+$var wire 1 q# \ConfirmedNumberOut[6]~input_o\ $end
+$var wire 1 r# \ConfirmedNumberOut[2]~input_o\ $end
+$var wire 1 s# \ConfirmedNumberOut[3]~input_o\ $end
+$var wire 1 t# \confirmed_number_int[3]~1_combout\ $end
+$var wire 1 u# \Equal1~1_combout\ $end
+$var wire 1 v# \ConfirmedNumberOut[5]~input_o\ $end
+$var wire 1 w# \ConfirmedNumberOut[4]~input_o\ $end
+$var wire 1 x# \Equal1~2_combout\ $end
+$var wire 1 y# \state~13_combout\ $end
+$var wire 1 z# \state~14_combout\ $end
+$var wire 1 {# \Equal0~1_combout\ $end
+$var wire 1 |# \Equal0~2_combout\ $end
+$var wire 1 }# \state~15_combout\ $end
+$var wire 1 ~# \state~16_combout\ $end
+$var wire 1 !$ \state~17_combout\ $end
+$var wire 1 "$ \state.game~q\ $end
+$var wire 1 #$ \internal_reset~5_combout\ $end
+$var wire 1 $$ \internal_reset~q\ $end
+$var wire 1 %$ \state_machine~0_combout\ $end
+$var wire 1 &$ \playerA_penalty_applied~q\ $end
+$var wire 1 '$ \Add4~2_combout\ $end
+$var wire 1 ($ \Add4~3_combout\ $end
+$var wire 1 )$ \total_cycles_int[0]~7_combout\ $end
+$var wire 1 *$ \cycle~input_o\ $end
+$var wire 1 +$ \cycle_last~q\ $end
+$var wire 1 ,$ \tie~0_combout\ $end
+$var wire 1 -$ \tie~1_combout\ $end
+$var wire 1 .$ \tie~q\ $end
+$var wire 1 /$ \total_cycles_int[0]~9_combout\ $end
+$var wire 1 0$ \state_machine~1_combout\ $end
+$var wire 1 1$ \total_cycles_int[0]~8\ $end
+$var wire 1 2$ \total_cycles_int[1]~10_combout\ $end
+$var wire 1 3$ \total_cycles_int[1]~11\ $end
+$var wire 1 4$ \total_cycles_int[2]~12_combout\ $end
+$var wire 1 5$ \total_cycles_int[2]~13\ $end
+$var wire 1 6$ \total_cycles_int[3]~14_combout\ $end
+$var wire 1 7$ \total_cycles_int[3]~15\ $end
+$var wire 1 8$ \total_cycles_int[4]~16_combout\ $end
+$var wire 1 9$ \total_cycles_int[4]~17\ $end
+$var wire 1 :$ \total_cycles_int[5]~18_combout\ $end
+$var wire 1 ;$ \total_cycles_int[5]~19\ $end
+$var wire 1 <$ \total_cycles_int[6]~20_combout\ $end
+$var wire 1 =$ \MaxPoints[0]~reg0_q\ $end
+$var wire 1 >$ \MaxPoints[1]~reg0_q\ $end
+$var wire 1 ?$ \MaxPoints[2]~reg0_q\ $end
+$var wire 1 @$ \MaxPoints[3]~reg0_q\ $end
+$var wire 1 A$ \MaxPoints[4]~reg0_q\ $end
+$var wire 1 B$ \MaxPoints[5]~reg0_q\ $end
+$var wire 1 C$ \MaxPoints[6]~reg0_q\ $end
+$var wire 1 D$ \state.win~q\ $end
+$var wire 1 E$ \winner~0_combout\ $end
+$var wire 1 F$ \winner~reg0_q\ $end
+$var wire 1 G$ total_cycles_int [31] $end
+$var wire 1 H$ total_cycles_int [30] $end
+$var wire 1 I$ total_cycles_int [29] $end
+$var wire 1 J$ total_cycles_int [28] $end
+$var wire 1 K$ total_cycles_int [27] $end
+$var wire 1 L$ total_cycles_int [26] $end
+$var wire 1 M$ total_cycles_int [25] $end
+$var wire 1 N$ total_cycles_int [24] $end
+$var wire 1 O$ total_cycles_int [23] $end
+$var wire 1 P$ total_cycles_int [22] $end
+$var wire 1 Q$ total_cycles_int [21] $end
+$var wire 1 R$ total_cycles_int [20] $end
+$var wire 1 S$ total_cycles_int [19] $end
+$var wire 1 T$ total_cycles_int [18] $end
+$var wire 1 U$ total_cycles_int [17] $end
+$var wire 1 V$ total_cycles_int [16] $end
+$var wire 1 W$ total_cycles_int [15] $end
+$var wire 1 X$ total_cycles_int [14] $end
+$var wire 1 Y$ total_cycles_int [13] $end
+$var wire 1 Z$ total_cycles_int [12] $end
+$var wire 1 [$ total_cycles_int [11] $end
+$var wire 1 \$ total_cycles_int [10] $end
+$var wire 1 ]$ total_cycles_int [9] $end
+$var wire 1 ^$ total_cycles_int [8] $end
+$var wire 1 _$ total_cycles_int [7] $end
+$var wire 1 `$ total_cycles_int [6] $end
+$var wire 1 a$ total_cycles_int [5] $end
+$var wire 1 b$ total_cycles_int [4] $end
+$var wire 1 c$ total_cycles_int [3] $end
+$var wire 1 d$ total_cycles_int [2] $end
+$var wire 1 e$ total_cycles_int [1] $end
+$var wire 1 f$ total_cycles_int [0] $end
+$var wire 1 g$ points_A_int [7] $end
+$var wire 1 h$ points_A_int [6] $end
+$var wire 1 i$ points_A_int [5] $end
+$var wire 1 j$ points_A_int [4] $end
+$var wire 1 k$ points_A_int [3] $end
+$var wire 1 l$ points_A_int [2] $end
+$var wire 1 m$ points_A_int [1] $end
+$var wire 1 n$ points_A_int [0] $end
+$var wire 1 o$ points_B_int [7] $end
+$var wire 1 p$ points_B_int [6] $end
+$var wire 1 q$ points_B_int [5] $end
+$var wire 1 r$ points_B_int [4] $end
+$var wire 1 s$ points_B_int [3] $end
+$var wire 1 t$ points_B_int [2] $end
+$var wire 1 u$ points_B_int [1] $end
+$var wire 1 v$ points_B_int [0] $end
+$var wire 1 w$ confirmed_number_int [31] $end
+$var wire 1 x$ confirmed_number_int [30] $end
+$var wire 1 y$ confirmed_number_int [29] $end
+$var wire 1 z$ confirmed_number_int [28] $end
+$var wire 1 {$ confirmed_number_int [27] $end
+$var wire 1 |$ confirmed_number_int [26] $end
+$var wire 1 }$ confirmed_number_int [25] $end
+$var wire 1 ~$ confirmed_number_int [24] $end
+$var wire 1 !% confirmed_number_int [23] $end
+$var wire 1 "% confirmed_number_int [22] $end
+$var wire 1 #% confirmed_number_int [21] $end
+$var wire 1 $% confirmed_number_int [20] $end
+$var wire 1 %% confirmed_number_int [19] $end
+$var wire 1 &% confirmed_number_int [18] $end
+$var wire 1 '% confirmed_number_int [17] $end
+$var wire 1 (% confirmed_number_int [16] $end
+$var wire 1 )% confirmed_number_int [15] $end
+$var wire 1 *% confirmed_number_int [14] $end
+$var wire 1 +% confirmed_number_int [13] $end
+$var wire 1 ,% confirmed_number_int [12] $end
+$var wire 1 -% confirmed_number_int [11] $end
+$var wire 1 .% confirmed_number_int [10] $end
+$var wire 1 /% confirmed_number_int [9] $end
+$var wire 1 0% confirmed_number_int [8] $end
+$var wire 1 1% confirmed_number_int [7] $end
+$var wire 1 2% confirmed_number_int [6] $end
+$var wire 1 3% confirmed_number_int [5] $end
+$var wire 1 4% confirmed_number_int [4] $end
+$var wire 1 5% confirmed_number_int [3] $end
+$var wire 1 6% confirmed_number_int [2] $end
+$var wire 1 7% confirmed_number_int [1] $end
+$var wire 1 8% confirmed_number_int [0] $end
+$var wire 1 9% \ALT_INV_state_machine~0_combout\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+0#
+0+
+1,
+0<
+0K
+1h
+0p
+0q
+1r
+xs
+1t
+1u
+1v
+1w
+1x
+1y
+0z
+1{
+1|
+1}
+0~
+0D!
+0a!
+0b!
+0k!
+0l!
+0m!
+0n!
+0o!
+0p!
+0q!
+0r!
+0s!
+0t!
+0u!
+0v!
+0w!
+0x!
+0y!
+0z!
+0{!
+0|!
+0}!
+0~!
+0!"
+0""
+0#"
+0$"
+0%"
+0&"
+0'"
+0("
+0)"
+0*"
+0+"
+1,"
+0-"
+0."
+1/"
+10"
+11"
+02"
+03"
+14"
+05"
+16"
+07"
+18"
+09"
+0:"
+0;"
+0<"
+0="
+0>"
+0?"
+0@"
+0A"
+0B"
+0C"
+0D"
+0E"
+0F"
+1G"
+0H"
+1I"
+1J"
+1K"
+1L"
+1M"
+0N"
+1O"
+0P"
+0Q"
+1R"
+1S"
+0T"
+0U"
+0V"
+0W"
+0X"
+0Y"
+1Z"
+0["
+0\"
+0]"
+1^"
+0_"
+1`"
+0a"
+1b"
+0c"
+1d"
+0e"
+0f"
+1g"
+1h"
+0i"
+0j"
+1k"
+0l"
+0m"
+0n"
+0o"
+0p"
+1q"
+1r"
+0s"
+1t"
+0u"
+0v"
+1w"
+0x"
+0y"
+0z"
+1{"
+1|"
+0}"
+1~"
+0!#
+0"#
+1##
+0$#
+0%#
+0&#
+1'#
+1(#
+0)#
+1*#
+1+#
+0,#
+1-#
+0.#
+0/#
+00#
+11#
+02#
+03#
+14#
+15#
+16#
+17#
+08#
+19#
+0:#
+1;#
+0<#
+1=#
+0>#
+1?#
+1@#
+1A#
+1B#
+1C#
+0D#
+0E#
+1F#
+1G#
+0H#
+0I#
+0J#
+0K#
+0L#
+1M#
+1N#
+0O#
+0P#
+1Q#
+1R#
+0S#
+0T#
+0U#
+0V#
+1W#
+1X#
+0Y#
+0Z#
+1[#
+1\#
+0]#
+0^#
+0_#
+0`#
+1a#
+1b#
+0c#
+0d#
+1e#
+1f#
+0g#
+1h#
+1i#
+0j#
+0k#
+0l#
+0m#
+0n#
+0o#
+1p#
+0q#
+0r#
+0s#
+1t#
+0u#
+0v#
+0w#
+1x#
+0y#
+0z#
+0{#
+1|#
+0}#
+1~#
+1!$
+0"$
+0#$
+0$$
+1%$
+0&$
+1'$
+0($
+1)$
+0*$
+0+$
+0,$
+0-$
+0.$
+0/$
+00$
+01$
+12$
+13$
+14$
+05$
+16$
+17$
+18$
+09$
+1:$
+1;$
+1<$
+0=$
+0>$
+0?$
+0@$
+0A$
+0B$
+0C$
+0D$
+0E$
+0F$
+09%
+0$
+0%
+0&
+0'
+0(
+1)
+0*
+0=
+0>
+0?
+0@
+0A
+1B
+1C
+1D
+1E
+1F
+0G
+1H
+0I
+0J
+0L
+0M
+0N
+0O
+0P
+0Q
+1R
+1S
+0T
+0U
+1V
+0W
+0X
+0Y
+0Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+05
+06
+07
+08
+09
+0:
+0;
+03
+04
+01
+12
+1/
+00
+1-
+1.
+0!!
+0"!
+0#!
+0$!
+0%!
+1&!
+1'!
+1(!
+1)!
+1*!
+0+!
+1,!
+0-!
+0.!
+0/!
+00!
+01!
+02!
+03!
+04!
+15!
+16!
+07!
+08!
+19!
+0:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+0A!
+1B!
+0C!
+xG$
+xH$
+xI$
+xJ$
+xK$
+xL$
+xM$
+xN$
+xO$
+xP$
+xQ$
+xR$
+xS$
+xT$
+xU$
+xV$
+xW$
+xX$
+xY$
+xZ$
+x[$
+x\$
+x]$
+x^$
+x_$
+0`$
+0a$
+0b$
+0c$
+0d$
+0e$
+0f$
+0g$
+0h$
+0i$
+0j$
+0k$
+0l$
+0m$
+0n$
+0o$
+0p$
+0q$
+0r$
+0s$
+0t$
+0u$
+0v$
+xw$
+xx$
+xy$
+xz$
+x{$
+x|$
+x}$
+x~$
+x!%
+x"%
+x#%
+x$%
+x%%
+x&%
+x'%
+x(%
+x)%
+x*%
+x+%
+x,%
+x-%
+x.%
+x/%
+x0%
+x1%
+02%
+03%
+04%
+05%
+06%
+07%
+08%
+0E!
+0F!
+0G!
+0H!
+0I!
+0J!
+0K!
+0L!
+0M!
+0N!
+0O!
+0P!
+0Q!
+0R!
+0S!
+0T!
+0U!
+0V!
+0W!
+0X!
+0Y!
+0Z!
+0[!
+0\!
+0]!
+0^!
+0_!
+0`!
+0c!
+0d!
+0e!
+1f!
+1g!
+0h!
+1i!
+1j!
+$end
+#10000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#20000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#30000
+1+
+1!
+0h
+1~
+1z
+0{
+08"
+13"
+1*$
+1/$
+10$
+1:"
+0%$
+19%
+02$
+04$
+06$
+08$
+0:$
+0<$
+#40000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#50000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#60000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#70000
+1+
+0"
+1~
+0}
+01#
+1*$
+1/$
+10$
+12#
+0p#
+1z#
+1n#
+02$
+04$
+06$
+08$
+0:$
+0<$
+0~#
+0!$
+#80000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#90000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+15%
+1>$
+1u#
+1{#
+02$
+04$
+06$
+08$
+0:$
+0<$
+1}#
+1y#
+1$"
+1_!
+1:
+#100000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#110000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#120000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#130000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#140000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#150000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#160000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#170000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#180000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#190000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#200000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#210000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#220000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#230000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#240000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#250000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#260000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#270000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#280000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#290000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#300000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#310000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#320000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#330000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#340000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#350000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#360000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#370000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#380000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#390000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#400000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#410000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#420000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#430000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#440000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#450000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#460000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#470000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#480000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#490000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#500000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#510000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#520000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#530000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#540000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#550000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#560000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#570000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#580000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#590000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#600000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#610000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#620000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#630000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#640000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#650000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#660000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#670000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#680000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#690000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#700000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#710000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#720000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#730000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#740000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#750000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#760000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#770000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#780000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#790000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#800000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#810000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#820000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#830000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#840000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#850000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#860000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#870000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#880000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#890000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#900000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#910000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#920000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#930000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#940000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#950000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#960000
+0+
+0!
+0~
+0z
+03"
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#970000
+1+
+1~
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#980000
+0+
+0~
+0*$
+0/$
+00$
+12$
+14$
+16$
+18$
+1:$
+1<$
+#990000
+1+
+1!
+1~
+1z
+13"
+1*$
+1/$
+10$
+02$
+04$
+06$
+08$
+0:$
+0<$
+#1000000

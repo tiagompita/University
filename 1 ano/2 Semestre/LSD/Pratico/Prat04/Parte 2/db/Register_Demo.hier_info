@@ -1,0 +1,65 @@
+|Register_Demo
+LEDR[0] <= RegisterNBits:inst.dataOut[0]
+LEDR[1] <= RegisterNBits:inst.dataOut[1]
+LEDR[2] <= RegisterNBits:inst.dataOut[2]
+LEDR[3] <= RegisterNBits:inst.dataOut[3]
+LEDR[4] <= RegisterNBits:inst.dataOut[4]
+LEDR[5] <= RegisterNBits:inst.dataOut[5]
+LEDR[6] <= RegisterNBits:inst.dataOut[6]
+LEDR[7] <= RegisterNBits:inst.dataOut[7]
+SW[0] => RegisterNBits:inst.dataIn[0]
+SW[1] => RegisterNBits:inst.dataIn[1]
+SW[2] => RegisterNBits:inst.dataIn[2]
+SW[3] => RegisterNBits:inst.dataIn[3]
+SW[4] => RegisterNBits:inst.dataIn[4]
+SW[5] => RegisterNBits:inst.dataIn[5]
+SW[6] => RegisterNBits:inst.dataIn[6]
+SW[7] => RegisterNBits:inst.dataIn[7]
+SW[8] => RegisterNBits:inst.enable
+SW[9] => RegisterNBits:inst.reset
+KEY[0] => RegisterNBits:inst.clk
+
+
+|Register_Demo|RegisterNBits:inst
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+reset => dataOut.OUTPUTSELECT
+clk => dataOut[0]~reg0.CLK
+clk => dataOut[1]~reg0.CLK
+clk => dataOut[2]~reg0.CLK
+clk => dataOut[3]~reg0.CLK
+clk => dataOut[4]~reg0.CLK
+clk => dataOut[5]~reg0.CLK
+clk => dataOut[6]~reg0.CLK
+clk => dataOut[7]~reg0.CLK
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+enable => dataOut.OUTPUTSELECT
+dataIn[0] => dataOut.DATAB
+dataIn[1] => dataOut.DATAB
+dataIn[2] => dataOut.DATAB
+dataIn[3] => dataOut.DATAB
+dataIn[4] => dataOut.DATAB
+dataIn[5] => dataOut.DATAB
+dataIn[6] => dataOut.DATAB
+dataIn[7] => dataOut.DATAB
+dataOut[0] <= dataOut[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[1] <= dataOut[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[2] <= dataOut[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[3] <= dataOut[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[4] <= dataOut[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[5] <= dataOut[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[6] <= dataOut[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOut[7] <= dataOut[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

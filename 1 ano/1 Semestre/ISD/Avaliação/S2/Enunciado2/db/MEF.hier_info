@@ -1,0 +1,11 @@
+|MEF
+Q1 <= inst11.DB_MAX_OUTPUT_PORT_TYPE
+CLK => D1.CLK
+CLK => D0.CLK
+X => inst4.IN0
+X => inst5.IN0
+X => inst6.IN0
+RESET_L => inst10.IN0
+Q0 <= inst12.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,6 @@
+def totalOfIntegers(s):
+    sum = 0
+    for c in s.split():
+        if c.isdigit():
+            sum += int(c)
+    return sum

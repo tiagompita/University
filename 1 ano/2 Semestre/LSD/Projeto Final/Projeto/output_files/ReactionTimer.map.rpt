@@ -1,0 +1,1086 @@
+Analysis & Synthesis report for ReactionTimer
+Sun Jun  2 23:44:35 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |ReactionGame|DonAssignment:inst25|state
+  9. State Machine - |ReactionGame|StateMachine:state|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: pulse_gen:1kHz
+ 16. Parameter Settings for User Entity Instance: pulse_gen:1Hz
+ 17. Parameter Settings for User Entity Instance: pulse_gen:10Hz
+ 18. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Mod1
+ 19. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Div0
+ 20. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Mod0
+ 21. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Mod1
+ 22. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Mod0
+ 24. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Mod1
+ 25. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Div0
+ 26. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Mod0
+ 27. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Mod1
+ 28. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Mod1
+ 29. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Div0
+ 30. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Mod0
+ 31. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Div0
+ 32. Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Mod0
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jun  2 23:44:35 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; ReactionTimer                                  ;
+; Top-level Entity Name              ; ReactionGame                                   ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 991                                            ;
+;     Total combinational functions  ; 917                                            ;
+;     Dedicated logic registers      ; 296                                            ;
+; Total registers                    ; 296                                            ;
+; Total pins                         ; 87                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; ReactionGame       ; ReactionTimer      ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; competition/XORPenalty.vhd       ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/XORPenalty.vhd      ;         ;
+; competition/or2_7bits.vhd        ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/or2_7bits.vhd       ;         ;
+; winner/win_lights.vhd            ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/win_lights.vhd           ;         ;
+; winner/PlayerBWin.vhd            ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerBWin.vhd           ;         ;
+; winner/PlayerAWin.vhd            ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerAWin.vhd           ;         ;
+; competition/mux4to1_7bits.vhd    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/mux4to1_7bits.vhd   ;         ;
+; MEF_GERAL.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/MEF_GERAL.vhd                   ;         ;
+; competition/tEStDisplay.vhd      ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/tEStDisplay.vhd     ;         ;
+; competition/MEF_competition.vhd  ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/MEF_competition.vhd ;         ;
+; init/Bin7SegDecoderEN.vhd        ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd       ;         ;
+; init/init.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd                   ;         ;
+; init/ConFDisplay.vhd             ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd            ;         ;
+; init/BinToBCD50.vhd              ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd             ;         ;
+; DonAssignment.vhd                ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd               ;         ;
+; LightAndReactionTime.vhd         ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd        ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd                ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd              ;         ;
+; RandomTimeGen.vhd                ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd               ;         ;
+; pulse_gen.vhd                    ; yes             ; User VHDL File                     ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd                   ;         ;
+; ReactionGame.bdf                 ; yes             ; User Block Diagram/Schematic File  ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/ReactionGame.bdf                ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                              ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                             ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                         ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                       ; h:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                              ;         ;
+; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_m9m.tdf           ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_bkh.tdf      ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a4f.tdf            ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf              ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf              ;         ;
+; db/lpm_divide_hhm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_hhm.tdf           ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9kh.tdf      ;         ;
+; db/alt_u_div_64f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_64f.tdf            ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 991                  ;
+;                                             ;                      ;
+; Total combinational functions               ; 917                  ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 276                  ;
+;     -- 3 input functions                    ; 159                  ;
+;     -- <=2 input functions                  ; 482                  ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 593                  ;
+;     -- arithmetic mode                      ; 324                  ;
+;                                             ;                      ;
+; Total registers                             ; 296                  ;
+;     -- Dedicated logic registers            ; 296                  ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 87                   ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; pulse_gen:1kHz|pulse ;
+; Maximum fan-out                             ; 208                  ;
+; Total fan-out                               ; 3694                 ;
+; Average fan-out                             ; 2.66                 ;
++---------------------------------------------+----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name          ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |ReactionGame                             ; 917 (2)             ; 296 (0)                   ; 0           ; 0            ; 0       ; 0         ; 87   ; 0            ; |ReactionGame                                                                                                                   ; ReactionGame         ; work         ;
+;    |Bin7SegDecoder:inst72|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|Bin7SegDecoder:inst72                                                                                             ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoder:inst74|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|Bin7SegDecoder:inst74                                                                                             ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoder:inst76|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|Bin7SegDecoder:inst76                                                                                             ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoder:inst78|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|Bin7SegDecoder:inst78                                                                                             ; Bin7SegDecoder       ; work         ;
+;    |Bin7SegDecoderEN:inst19|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|Bin7SegDecoderEN:inst19                                                                                           ; Bin7SegDecoderEN     ; work         ;
+;    |BinToBCD50:inst16|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst16|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |BinToBCD50:inst41|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst41|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |BinToBCD50:inst44|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst44|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |BinToBCD50:inst47|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst47|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |BinToBCD50:inst50|                    ; 66 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50                                                                                                 ; BinToBCD50           ; work         ;
+;       |lpm_divide:Div0|                   ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_hhm:auto_generated|  ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Div0|lpm_divide_hhm:auto_generated                                                   ; lpm_divide_hhm       ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 30 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh  ; work         ;
+;                |alt_u_div_64f:divider|    ; 30 (30)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Div0|lpm_divide_hhm:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_64f:divider ; alt_u_div_64f        ; work         ;
+;       |lpm_divide:Mod1|                   ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_m9m:auto_generated|  ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                   ; lpm_divide_m9m       ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 36 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh  ; work         ;
+;                |alt_u_div_a4f:divider|    ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|BinToBCD50:inst50|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f        ; work         ;
+;    |DebounceUnit:inst2|                   ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|DebounceUnit:inst2                                                                                                ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst3|                   ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|DebounceUnit:inst3                                                                                                ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst4|                   ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|DebounceUnit:inst4                                                                                                ; DebounceUnit         ; work         ;
+;    |DebounceUnit:inst|                    ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|DebounceUnit:inst                                                                                                 ; DebounceUnit         ; work         ;
+;    |DonAssignment:inst25|                 ; 76 (76)             ; 56 (56)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|DonAssignment:inst25                                                                                              ; DonAssignment        ; work         ;
+;    |LightAndReactionTime:PLAYER_A|        ; 21 (21)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|LightAndReactionTime:PLAYER_A                                                                                     ; LightAndReactionTime ; work         ;
+;    |LightAndReactionTime:PLAYER_B|        ; 21 (21)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|LightAndReactionTime:PLAYER_B                                                                                     ; LightAndReactionTime ; work         ;
+;    |MEF_competition:MEF|                  ; 126 (126)           ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|MEF_competition:MEF                                                                                               ; MEF_competition      ; work         ;
+;    |OR2_7Bits:inst89|                     ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|OR2_7Bits:inst89                                                                                                  ; OR2_7Bits            ; work         ;
+;    |RandomTimeGen:inst24|                 ; 51 (51)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|RandomTimeGen:inst24                                                                                              ; RandomTimeGen        ; work         ;
+;    |StateMachine:state|                   ; 9 (9)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|StateMachine:state                                                                                                ; StateMachine         ; work         ;
+;    |XORPenalty:inst94|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|XORPenalty:inst94                                                                                                 ; XORPenalty           ; work         ;
+;    |XORPenalty:inst95|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|XORPenalty:inst95                                                                                                 ; XORPenalty           ; work         ;
+;    |init:inst11|                          ; 37 (37)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|init:inst11                                                                                                       ; init                 ; work         ;
+;    |mux4to1_7bits:5453|                   ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:5453                                                                                                ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst60|                 ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst60                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst61|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst61                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst62|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst62                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst63|                 ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst63                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst64|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst64                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst65|                 ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst65                                                                                              ; mux4to1_7bits        ; work         ;
+;    |mux4to1_7bits:inst66|                 ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|mux4to1_7bits:inst66                                                                                              ; mux4to1_7bits        ; work         ;
+;    |pulse_gen:10Hz|                       ; 37 (37)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|pulse_gen:10Hz                                                                                                    ; pulse_gen            ; work         ;
+;    |pulse_gen:1Hz|                        ; 45 (45)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|pulse_gen:1Hz                                                                                                     ; pulse_gen            ; work         ;
+;    |pulse_gen:1kHz|                       ; 27 (27)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|pulse_gen:1kHz                                                                                                    ; pulse_gen            ; work         ;
+;    |win_lights:inst80|                    ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ReactionGame|win_lights:inst80                                                                                                 ; win_lights           ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------+
+; State Machine - |ReactionGame|DonAssignment:inst25|state                                                ;
++---------------------+----------------+---------------+---------------------+---------------+------------+
+; Name                ; state.penalty2 ; state.penalty ; state.wait_response ; state.running ; state.idle ;
++---------------------+----------------+---------------+---------------------+---------------+------------+
+; state.idle          ; 0              ; 0             ; 0                   ; 0             ; 0          ;
+; state.running       ; 0              ; 0             ; 0                   ; 1             ; 1          ;
+; state.wait_response ; 0              ; 0             ; 1                   ; 0             ; 1          ;
+; state.penalty       ; 0              ; 1             ; 0                   ; 0             ; 1          ;
+; state.penalty2      ; 1              ; 0             ; 0                   ; 0             ; 1          ;
++---------------------+----------------+---------------+---------------------+---------------+------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------+
+; State Machine - |ReactionGame|StateMachine:state|state                                               ;
++-------------------+-------------------+-------------------+------------+----------------+------------+
+; Name              ; state.win_state_B ; state.win_state_A ; state.game ; state.gameINFO ; state.init ;
++-------------------+-------------------+-------------------+------------+----------------+------------+
+; state.init        ; 0                 ; 0                 ; 0          ; 0              ; 0          ;
+; state.gameINFO    ; 0                 ; 0                 ; 0          ; 1              ; 1          ;
+; state.game        ; 0                 ; 0                 ; 1          ; 0              ; 1          ;
+; state.win_state_A ; 0                 ; 1                 ; 0          ; 0              ; 1          ;
+; state.win_state_B ; 1                 ; 0                 ; 0          ; 0              ; 1          ;
++-------------------+-------------------+-------------------+------------+----------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                           ;
++--------------------------------------------------+-----------------------------------------------------------+
+; Register name                                    ; Reason for Removal                                        ;
++--------------------------------------------------+-----------------------------------------------------------+
+; MEF_competition:MEF|HEX0[0]                      ; Stuck at VCC due to stuck port data_in                    ;
+; MEF_competition:MEF|confirmed_number_int[6..30]  ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX3[0,1]                    ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX2[1]                      ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX2[0]                      ; Stuck at VCC due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX1[1]                      ; Stuck at VCC due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX1[0]                      ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|HEX0[1]                      ; Stuck at VCC due to stuck port data_in                    ;
+; MEF_competition:MEF|confirmed_number_int[5]      ; Merged with MEF_competition:MEF|MaxPoints[5]              ;
+; MEF_competition:MEF|confirmed_number_int[4]      ; Merged with MEF_competition:MEF|MaxPoints[4]              ;
+; MEF_competition:MEF|confirmed_number_int[3]      ; Merged with MEF_competition:MEF|MaxPoints[3]              ;
+; MEF_competition:MEF|confirmed_number_int[2]      ; Merged with MEF_competition:MEF|MaxPoints[2]              ;
+; MEF_competition:MEF|confirmed_number_int[1]      ; Merged with MEF_competition:MEF|MaxPoints[1]              ;
+; LightAndReactionTime:PLAYER_A|light_active[1..3] ; Merged with LightAndReactionTime:PLAYER_A|light_active[0] ;
+; LightAndReactionTime:PLAYER_B|light_active[1..3] ; Merged with LightAndReactionTime:PLAYER_B|light_active[0] ;
+; win_lights:inst80|led_state[1..17]               ; Merged with win_lights:inst80|led_state[0]                ;
+; LightAndReactionTime:PLAYER_A|reactTime[13]      ; Stuck at GND due to stuck port data_in                    ;
+; LightAndReactionTime:PLAYER_B|reactTime[13]      ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|playerA_time_last[13]        ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|playerB_time_last[13]        ; Stuck at GND due to stuck port data_in                    ;
+; MEF_competition:MEF|confirmed_number_int[0]      ; Merged with MEF_competition:MEF|MaxPoints[0]              ;
+; pulse_gen:1Hz|s_cnt[0]                           ; Merged with pulse_gen:1kHz|s_cnt[0]                       ;
+; pulse_gen:10Hz|s_cnt[0]                          ; Merged with pulse_gen:1kHz|s_cnt[0]                       ;
+; pulse_gen:10Hz|s_cnt[1]                          ; Merged with pulse_gen:1kHz|s_cnt[1]                       ;
+; pulse_gen:1Hz|s_cnt[1]                           ; Merged with pulse_gen:1kHz|s_cnt[1]                       ;
+; pulse_gen:1Hz|s_cnt[2]                           ; Merged with pulse_gen:10Hz|s_cnt[2]                       ;
+; pulse_gen:10Hz|s_cnt[2]                          ; Merged with pulse_gen:1kHz|s_cnt[2]                       ;
+; pulse_gen:1Hz|s_cnt[3]                           ; Merged with pulse_gen:10Hz|s_cnt[3]                       ;
+; pulse_gen:10Hz|s_cnt[3]                          ; Merged with pulse_gen:1kHz|s_cnt[3]                       ;
+; pulse_gen:1Hz|s_cnt[4]                           ; Merged with pulse_gen:10Hz|s_cnt[4]                       ;
+; pulse_gen:1Hz|s_cnt[5]                           ; Merged with pulse_gen:10Hz|s_cnt[5]                       ;
+; MEF_competition:MEF|total_cycles_int[6..31]      ; Lost fanout                                               ;
+; Total Number of Removed Registers = 102          ;                                                           ;
++--------------------------------------------------+-----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++---------------------------------------------+---------------------------+-------------------------------------------+
+; Register name                               ; Reason for Removal        ; Registers Removed due to This Register    ;
++---------------------------------------------+---------------------------+-------------------------------------------+
+; LightAndReactionTime:PLAYER_A|reactTime[13] ; Stuck at GND              ; MEF_competition:MEF|playerA_time_last[13] ;
+;                                             ; due to stuck port data_in ;                                           ;
+; LightAndReactionTime:PLAYER_B|reactTime[13] ; Stuck at GND              ; MEF_competition:MEF|playerB_time_last[13] ;
+;                                             ; due to stuck port data_in ;                                           ;
++---------------------------------------------+---------------------------+-------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 296   ;
+; Number of registers using Synchronous Clear  ; 69    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 194   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 218   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------+
+; Inverted Register Statistics                           ;
++----------------------------------------------+---------+
+; Inverted Register                            ; Fan out ;
++----------------------------------------------+---------+
+; init:inst11|s_blink                          ; 10      ;
+; init:inst11|counter[3]                       ; 9       ;
+; init:inst11|counter[1]                       ; 8       ;
+; MEF_competition:MEF|MaxPoints[0]             ; 9       ;
+; DebounceUnit:inst|s_key_prev                 ; 15      ;
+; DebounceUnit:inst2|s_key_prev                ; 150     ;
+; DebounceUnit:inst4|s_key_prev                ; 11      ;
+; DebounceUnit:inst3|s_key_prev                ; 2       ;
+; DonAssignment:inst25|Don[3]                  ; 1       ;
+; DonAssignment:inst25|Don[7]                  ; 1       ;
+; DonAssignment:inst25|Don[8]                  ; 1       ;
+; DonAssignment:inst25|Don[9]                  ; 1       ;
+; DonAssignment:inst25|Don[12]                 ; 1       ;
+; MEF_competition:MEF|confirmed_number_int[31] ; 2       ;
+; RandomTimeGen:inst24|temp[3]                 ; 3       ;
+; RandomTimeGen:inst24|temp[5]                 ; 3       ;
+; RandomTimeGen:inst24|temp[6]                 ; 3       ;
+; RandomTimeGen:inst24|temp[7]                 ; 3       ;
+; RandomTimeGen:inst24|temp[8]                 ; 3       ;
+; RandomTimeGen:inst24|temp[9]                 ; 3       ;
+; Total number of inverted registers = 20      ;         ;
++----------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_B|reactTime[7]   ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_A|reactTime[3]   ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 13 LEs               ; 26 LEs                 ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_A|react_time[0]  ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 13 LEs               ; 26 LEs                 ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_B|react_time[11] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ReactionGame|MEF_competition:MEF|points_B_int[3]          ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ReactionGame|MEF_competition:MEF|points_A_int[5]          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |ReactionGame|init:inst11|counter[2]                       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_A|state[1]       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ReactionGame|LightAndReactionTime:PLAYER_B|state[1]       ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |ReactionGame|DonAssignment:inst25|Don[0]                  ;
+; 10:1               ; 13 bits   ; 78 LEs        ; 13 LEs               ; 65 LEs                 ; Yes        ; |ReactionGame|DonAssignment:inst25|timer[1]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |ReactionGame|init:inst11|counter[1]                       ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ReactionGame|DonAssignment:inst25|Don[7]                  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst66|Mux2                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst64|Mux1                    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst60|Mux3                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |ReactionGame|StateMachine:state|Selector4                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst65|Mux0                    ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst65|Mux5                    ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ReactionGame|mux4to1_7bits:inst63|Mux6                    ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 15 LEs               ; 25 LEs                 ; No         ; |ReactionGame|DonAssignment:inst25|state.running           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_gen:1kHz ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; max            ; 50000 ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_gen:1Hz ;
++----------------+----------+--------------------------------+
+; Parameter Name ; Value    ; Type                           ;
++----------------+----------+--------------------------------+
+; max            ; 50000000 ; Signed Integer                 ;
++----------------+----------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_gen:10Hz ;
++----------------+---------+----------------------------------+
+; Parameter Name ; Value   ; Type                             ;
++----------------+---------+----------------------------------+
+; max            ; 5000000 ; Signed Integer                   ;
++----------------+---------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst44|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst41|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst47|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst50|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_hhm ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BinToBCD50:inst16|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 87                          ;
+; cycloneiii_ff         ; 296                         ;
+;     CLR               ; 12                          ;
+;     ENA               ; 26                          ;
+;     ENA CLR           ; 123                         ;
+;     ENA CLR SCLR      ; 59                          ;
+;     ENA SCLR          ; 10                          ;
+;     plain             ; 66                          ;
+; cycloneiii_lcell_comb ; 917                         ;
+;     arith             ; 324                         ;
+;         2 data inputs ; 203                         ;
+;         3 data inputs ; 121                         ;
+;     normal            ; 593                         ;
+;         0 data inputs ; 30                          ;
+;         1 data inputs ; 31                          ;
+;         2 data inputs ; 218                         ;
+;         3 data inputs ; 38                          ;
+;         4 data inputs ; 276                         ;
+;                       ;                             ;
+; Max LUT depth         ; 10.20                       ;
+; Average LUT depth     ; 5.23                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Sun Jun  2 23:44:26 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file competition/xorpenalty.vhd
+    Info (12022): Found design unit 1: XORPenalty-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/XORPenalty.vhd Line: 12
+    Info (12023): Found entity 1: XORPenalty File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/XORPenalty.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file competition/or2_7bits.vhd
+    Info (12022): Found design unit 1: OR2_7Bits-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/or2_7bits.vhd Line: 12
+    Info (12023): Found entity 1: OR2_7Bits File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/or2_7bits.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file winner/win_lights.vhd
+    Info (12022): Found design unit 1: win_lights-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/win_lights.vhd Line: 12
+    Info (12023): Found entity 1: win_lights File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/win_lights.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file winner/playerbwin.vhd
+    Info (12022): Found design unit 1: PlayerBWin-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerBWin.vhd Line: 12
+    Info (12023): Found entity 1: PlayerBWin File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerBWin.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file winner/playerawin.vhd
+    Info (12022): Found design unit 1: PlayerAWin-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerAWin.vhd Line: 12
+    Info (12023): Found entity 1: PlayerAWin File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/winner/PlayerAWin.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file competition/mux4to1_7bits.vhd
+    Info (12022): Found design unit 1: mux4to1_7bits-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/mux4to1_7bits.vhd Line: 12
+    Info (12023): Found entity 1: mux4to1_7bits File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/mux4to1_7bits.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mef_geral.vhd
+    Info (12022): Found design unit 1: StateMachine-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/MEF_GERAL.vhd Line: 23
+    Info (12023): Found entity 1: StateMachine File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/MEF_GERAL.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file competition/testdisplay.vhd
+    Info (12022): Found design unit 1: tEStDisplay-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/tEStDisplay.vhd Line: 12
+    Info (12023): Found entity 1: tEStDisplay File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/tEStDisplay.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file competition/mef_competition.vhd
+    Info (12022): Found design unit 1: MEF_competition-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/MEF_competition.vhd Line: 28
+    Info (12023): Found entity 1: MEF_competition File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/MEF_competition.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file init/bin7segdecoderen.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoderEN-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd Line: 12
+    Info (12023): Found entity 1: Bin7SegDecoderEN File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/Bin7SegDecoderEN.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file init/init.vhd
+    Info (12022): Found design unit 1: init-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd Line: 28
+    Info (12023): Found entity 1: init File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/init.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file init/confdisplay.vhd
+    Info (12022): Found design unit 1: ConFDisplay-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd Line: 12
+    Info (12023): Found entity 1: ConFDisplay File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/ConFDisplay.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file init/bintobcd50.vhd
+    Info (12022): Found design unit 1: BinToBCD50-behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 13
+    Info (12023): Found entity 1: BinToBCD50 File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file donassignment.vhd
+    Info (12022): Found design unit 1: DonAssignment-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd Line: 21
+    Info (12023): Found entity 1: DonAssignment File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file lightandreactiontime.vhd
+    Info (12022): Found design unit 1: LightAndReactionTime-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd Line: 19
+    Info (12023): Found entity 1: LightAndReactionTime File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
+    Info (12022): Found design unit 1: DebounceUnit-Behav File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 14
+    Info (12023): Found entity 1: DebounceUnit File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DebounceUnit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/Bin7SegDecoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file randomtimegen.vhd
+    Info (12022): Found design unit 1: RandomTimeGen-Behav File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 14
+    Info (12023): Found entity 1: RandomTimeGen File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bintobcd.vhd
+    Info (12022): Found design unit 1: BinToBCD-behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 12
+    Info (12023): Found entity 1: BinToBCD File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/BinToBCD.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file pulse_gen.vhd
+    Info (12022): Found design unit 1: pulse_gen-Behavioral File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 14
+    Info (12023): Found entity 1: pulse_gen File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/pulse_gen.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file testeelementar.bdf
+    Info (12023): Found entity 1: TesteElementar
+Info (12021): Found 1 design units, including 1 entities, in source file reactiongame.bdf
+    Info (12023): Found entity 1: ReactionGame
+Info (12127): Elaborating entity "ReactionGame" for the top level hierarchy
+Info (12128): Elaborating entity "mux4to1_7bits" for hierarchy "mux4to1_7bits:inst66"
+Info (12128): Elaborating entity "ConFDisplay" for hierarchy "ConFDisplay:inst15"
+Info (12128): Elaborating entity "StateMachine" for hierarchy "StateMachine:state"
+Info (12128): Elaborating entity "DebounceUnit" for hierarchy "DebounceUnit:inst2"
+Info (12128): Elaborating entity "MEF_competition" for hierarchy "MEF_competition:MEF"
+Warning (10492): VHDL Process Statement warning at MEF_competition.vhd(49): signal "internal_reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/competition/MEF_competition.vhd Line: 49
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:1kHz"
+Info (12128): Elaborating entity "DonAssignment" for hierarchy "DonAssignment:inst25"
+Warning (10492): VHDL Process Statement warning at DonAssignment.vhd(49): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/DonAssignment.vhd Line: 49
+Info (12128): Elaborating entity "RandomTimeGen" for hierarchy "RandomTimeGen:inst24"
+Warning (10492): VHDL Process Statement warning at RandomTimeGen.vhd(23): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 23
+Info (12128): Elaborating entity "init" for hierarchy "init:inst11"
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:1Hz"
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:10Hz"
+Info (12128): Elaborating entity "LightAndReactionTime" for hierarchy "LightAndReactionTime:PLAYER_A"
+Warning (10492): VHDL Process Statement warning at LightAndReactionTime.vhd(31): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/LightAndReactionTime.vhd Line: 31
+Info (12128): Elaborating entity "tEStDisplay" for hierarchy "tEStDisplay:inst37"
+Info (12128): Elaborating entity "Bin7SegDecoder" for hierarchy "Bin7SegDecoder:inst76"
+Info (12128): Elaborating entity "BinToBCD50" for hierarchy "BinToBCD50:inst44"
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(24): signal "bin_in_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(25): signal "bin_in_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(28): signal "tens" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at BinToBCD50.vhd(29): signal "ones" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 29
+Info (12128): Elaborating entity "OR2_7Bits" for hierarchy "OR2_7Bits:inst88"
+Info (12128): Elaborating entity "PlayerAWin" for hierarchy "PlayerAWin:inst84"
+Info (12128): Elaborating entity "PlayerBWin" for hierarchy "PlayerBWin:inst87"
+Info (12128): Elaborating entity "Bin7SegDecoderEN" for hierarchy "Bin7SegDecoderEN:inst19"
+Info (12128): Elaborating entity "XORPenalty" for hierarchy "XORPenalty:inst94"
+Info (12128): Elaborating entity "win_lights" for hierarchy "win_lights:inst80"
+Info (278001): Inferred 15 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst44|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst44|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst44|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst41|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst41|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst41|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst47|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst47|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst47|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst50|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst16|Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst50|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst50|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst16|Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BinToBCD50:inst16|Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst44|lpm_divide:Mod1" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+Info (12133): Instantiated megafunction "BinToBCD50:inst44|lpm_divide:Mod1" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 25
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_m9m.tdf
+    Info (12023): Found entity 1: lpm_divide_m9m File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_m9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_a4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst44|lpm_divide:Div0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12133): Instantiated megafunction "BinToBCD50:inst44|lpm_divide:Div0" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hhm.tdf
+    Info (12023): Found entity 1: lpm_divide_hhm File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/lpm_divide_hhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_64f.tdf
+    Info (12023): Found entity 1: alt_u_div_64f File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/db/alt_u_div_64f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "BinToBCD50:inst44|lpm_divide:Mod0" File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+Info (12133): Instantiated megafunction "BinToBCD50:inst44|lpm_divide:Mod0" with the following parameter: File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/init/BinToBCD50.vhd Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (13000): Registers with preset signals will power-up high File: C:/Universidade/University/1 ano/2 Semestre/LSD/Projeto Final/Projeto/RandomTimeGen.vhd Line: 21
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1082 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 82 output pins
+    Info (21061): Implemented 995 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Sun Jun  2 23:44:35 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:18
+
+

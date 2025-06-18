@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "detpic32.h": "c",
+        "p32mx795f512h.h": "c",
+        "stdarg.h": "c",
+        "pic32_i2c.h": "c"
+    }
+}

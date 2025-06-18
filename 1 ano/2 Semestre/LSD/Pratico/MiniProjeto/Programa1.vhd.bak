@@ -1,0 +1,18 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity programa1 is
+	
+	port (clk : std_logic;
+			LEDR : std_logic_vector(3 downto 0);
+			LEDG : std_logic_vector(3 downto 0))
+end programa1;
+
+architecture Behav of Programa1 is
+
+begin
+	process(clk)
+		LEDR <= "1111";
+		LEDG <= "1111";
+	end process;
+end Behav;

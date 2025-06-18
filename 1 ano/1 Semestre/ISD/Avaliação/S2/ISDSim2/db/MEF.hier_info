@@ -1,0 +1,18 @@
+|MEFsymbol
+Q[0] <= MEF:inst.Q[0]
+Q[1] <= MEF:inst.Q[1]
+X => MEF:inst.X
+CLK => MEF:inst.CLK
+RESET_L => MEF:inst.RESET_L
+
+
+|MEFsymbol|MEF:inst
+Q[0] <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= inst.DB_MAX_OUTPUT_PORT_TYPE
+CLK => inst4.CLK
+CLK => inst.CLK
+X => inst6.IN0
+X => inst5.IN1
+RESET_L => inst3.IN0
+
+

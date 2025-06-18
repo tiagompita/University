@@ -1,0 +1,41 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity programa3 is
+    Port ( CLK : in STD_LOGIC;
+           LEDR : out STD_LOGIC_VECTOR(3 downto 0);
+           LEDG : out STD_LOGIC_VECTOR(3 downto 0)
+         );
+end programa3 ;
+
+architecture Behavioral of programa3 is
+    signal counter : integer range 0 to 250000000; 
+    signal red_led_state : std_logic;
+    signal green_led_state : std_logic; 
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+
+            counter <= counter + 1;
+        if counter < 125000000 then
+                red_led_state <= '0'; 
+                if counter mod 6250000 = 0 then 
+                    green_led_state <= not green_led_state;
+                end if;
+            
+            else
+                red_led_state <= not red_led_state; 
+                green_led_state <= '0'; 
+            end if;
+            
+
+            if counter = 250000000 then
+                counter <= 0;
+            end if;
+        end if;
+    end process;
+  
+    LEDR <= (others => red_led_state);
+    LEDG <= (others => green_led_state);
+end Behavioral;

@@ -1,0 +1,45 @@
+|Block2
+Y <= TreinoMux:inst.Y
+X0 => TreinoMux:inst.X0
+X1 => TreinoMux:inst.X1
+X2 => TreinoMux:inst.X2
+X3 => TreinoMux:inst.X3
+X4 => TreinoMux:inst.X4
+X5 => TreinoMux:inst.X5
+X6 => TreinoMux:inst.X6
+X7 => TreinoMux:inst.X7
+S[0] => TreinoMux:inst.S[0]
+S[1] => TreinoMux:inst.S[1]
+
+
+|Block2|TreinoMux:inst
+Y <= or.DB_MAX_OUTPUT_PORT_TYPE
+X1 => 74153:inst.1C1
+X0 => 74153:inst.1C0
+X4 => 74153:inst.2C0
+X6 => 74153:inst.2C2
+X2 => 74153:inst.1C2
+X3 => 74153:inst.1C3
+S[0] => 74153:inst.B
+S[1] => 74153:inst.A
+X5 => 74153:inst.2C1
+X7 => 74153:inst.2C3
+
+
+|Block2|TreinoMux:inst|74153:inst
+1Y <= 9.DB_MAX_OUTPUT_PORT_TYPE
+1GN => 26.IN0
+B => 27.IN0
+A => 29.IN0
+1C0 => 1.IN3
+1C1 => 2.IN3
+1C2 => 3.IN3
+1C3 => 4.IN3
+2Y <= 10.DB_MAX_OUTPUT_PORT_TYPE
+2C0 => 5.IN0
+2GN => 25.IN0
+2C1 => 6.IN0
+2C2 => 7.IN0
+2C3 => 8.IN0
+
+

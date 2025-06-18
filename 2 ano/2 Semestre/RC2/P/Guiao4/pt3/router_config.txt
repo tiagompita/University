@@ -1,0 +1,76 @@
+R1  ######################
+
+configure terminal
+router bgp 200
+
+bgp default local-preference 150
+
+neighbor 192.1.3.3 remote-as 100
+no neighbor 200.20.2.2 remote-as 200
+neighbor 192.1.2.2 remote-as 200
+neighbor 192.1.2.2 next-hop-self
+redistribute ospf 1
+
+interface tunnel 0
+tunnel source 200.20.3.1
+tunnel destination 200.20.2.2
+tunnel mode ipip
+ip address 192.1.2.1 255.255.255.0
+
+router ospf 1
+default-information originate always metric 1
+end
+write
+
+
+R2  ######################
+
+configure terminal
+router bgp 200
+neighbor 192.2.4.4 remote-as 400
+no neighbor 200.20.3.1 remote-as 200
+neighbor 192.1.2.1 remote-as 200
+neighbor 192.1.2.1 next-hop-self
+redistribute ospf 1
+
+interface tunnel 0
+tunnel source 200.20.2.2
+tunnel destination 200.20.3.1
+tunnel mode ipip
+ip address 192.1.2.2 255.255.255.0
+
+router ospf 1
+default-information originate always metric 2
+end
+write
+
+
+R3  ######################
+
+configure terminal
+router bgp 100
+
+aggregate-address 200.10.0.0 255.255.254.0 summary-only
+
+neighbor 192.3.5.5 remote-as 300
+neighbor 192.1.3.1 remote-as 200
+redistribute ospf 1
+router ospf 1
+default-information originate always
+end
+write
+
+
+R4  ######################
+
+configure terminal
+router bgp 400
+
+aggregate-address 200.40.0.0 255.255.254.0 summary-only
+
+neighbor 192.4.5.5 remote-as 300
+neighbor 192.2.4.2 remote-as 200
+network 200.40.0.0
+network 200.40.1.0
+end
+write

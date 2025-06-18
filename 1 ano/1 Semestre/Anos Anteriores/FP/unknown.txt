@@ -1,0 +1,60 @@
+# EXERCICIO 1
+
+notaT = float(input("notaT? "))
+while (0 > notaT) or (notaT > 20):
+    print("Tem de estar em [0, 20]!")
+    notaT = float(input("notaT? "))
+    
+notaP = float(input("notaP? "))
+while (0 > notaP) or (notaP > 20):
+    print("Tem de estar em [0, 20]!")
+    notaP = float(input("notaP? "))
+
+notaF = (notaT + notaP) / 2
+
+classificacao = "REP"
+if notaF >= 13:
+    classificacao = "BOM"
+elif notaF >= 9.5:
+    classificacao = "SUF"
+
+print(f"Nota final: {notaF} {classificacao}")
+
+
+# EXERCICIO 2
+
+def funcao(sub, lst):
+    indexes = []
+    for i in range(len(lst) - len(sub) + 1):
+        if lst[i:i+len(sub)] == sub:
+            indexes.append(i)
+    return indexes
+  
+    
+# EXERCICIO 3
+
+def funcao(lst):
+    max = []
+    for i in range(1, len(lst) - 1):
+        if lst[i - 1] < lst[i] > lst[i + 1]:
+            max.append(i)
+    return max
+
+
+# EXERCICIO 4
+
+def is_isbn(isbn):
+    if '-' in isbn:
+        isbn = ''.join(isbn.split('-'))
+    
+    if (len(isbn) > 10) or (not isbn.isdigit() and (isbn[-1].upper() != 'X')):
+        return False
+        
+    totalMult = 0
+    for x in range(10, 0 , -1):
+        if (x == 1) and (isbn[-1].upper() == 'X'):
+            totalMult += 10
+            continue
+        totalMult += x * isbn[-x]
+    
+    return totalMult % 11 == 0

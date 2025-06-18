@@ -1,0 +1,91 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity MEF_competition is
+    port(
+        clk : in std_logic;
+        reset : in std_logic; 
+        confirm : in std_logic; 
+        cycle : in std_logic; 
+        enable : in std_logic; 
+
+        PlayerATime, PlayerBTime : in std_logic_vector(13 downto 0); 
+
+        ConfirmedNumberOut : in std_logic_vector(6 downto 0);
+        Points_A, Points_B, TotalCycles : out std_logic_vector(6 downto 0);
+        MaxPoints : out std_logic_vector(6 downto 0);
+
+        HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(1 downto 0)
+    );
+end MEF_competition;
+
+architecture Behavioral of MEF_competition is
+    type competition is (init_competition, game, win);
+    signal state : competition;
+
+    signal points_A_int, points_B_int, total_cycles_int : integer range 0 to 127 := 0;
+    signal confirmed_number_int : integer;
+
+begin
+
+    state_machine: process(clk, reset, cycle)
+    begin
+        if reset = '1' then -- if reset button is pressed
+            state <= init_competition;
+            points_A_int <= 0;
+            points_B_int <= 0;
+            total_cycles_int <= 0;
+        elsif rising_edge(clk) and enable = '1' then
+            case state is
+                when init_competition =>
+                    confirmed_number_int <= to_integer(unsigned(ConfirmedNumberOut));
+                    MaxPoints <= ConfirmedNumberOut;
+                    HEX3 <= "0111010";  -- 't'
+                    HEX2 <= "0110001";  -- 'E'
+                    HEX1 <= "0101001";  -- 'S'
+                    HEX0 <= "0111010";  -- 't'
+
+                    if confirm = '1' then
+                        state <= game;
+                    end if;
+                when game =>
+
+                    if PlayerAPenalty = '1' then
+                        points_A_int <= points_A_int - 2;
+                    elsif PlayerBPenalty = '1' then
+                        points_B_int <= points_B_int - 2;
+                    else
+                        if to_integer(unsigned(PlayerATime)) < to_integer(unsigned(PlayerBTime)) then
+                            points_A_int <= points_A_int + 1;
+                        elsif to_integer(unsigned(PlayerATime)) > to_integer(unsigned(PlayerBTime)) then
+                            points_B_int <= points_B_int + 1;
+                        else
+                            -- Handle tie scenario if needed
+                        end if;
+                    end if;
+
+                    if points_A_int < 0 and points_B_int < 0 then
+                        -- Both players disqualified, restart competition
+                        points_A_int <= 0;
+                        points_B_int <= 0;
+                        total_cycles_int <= 0;
+                        state <= init_competition;
+                    elsif points_A_int < 0 or points_B_int < 0 then
+                        -- One player disqualified
+                        state <= win;
+                    elsif points_A_int = 50 or points_B_int = 50 then 
+                        state <= win;
+                    end if;
+                when win =>
+                    --TODO: Implement win state
+            end case;
+        elsif cycle = '1' then
+            total_cycles_int <= total_cycles_int + 1;
+        end if;
+    end process state_machine;
+
+    Points_A <= std_logic_vector(to_unsigned(points_A_int, 7));
+    Points_B <= std_logic_vector(to_unsigned(points_B_int, 7));
+    TotalCycles <= std_logic_vector(to_unsigned(total_cycles_int, 7));
+end Behavioral;

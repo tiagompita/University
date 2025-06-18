@@ -1,0 +1,24 @@
+192.1.2.0/24 - TUNNEL NETWORK
+
+R1  ###################
+
+conf t
+interface tunnel 0
+tunnel source 200.1.1.1
+tunnel destination 200.2.2.2
+tunnel mode gre ip
+ip address 192.1.2.1 255.255.255.0
+end
+write
+
+
+R2  ###################
+
+conf t
+interface tunnel 0
+tunnel source 200.2.2.2
+tunnel destination 200.1.1.1
+tunnel mode gre ip
+ip address 192.1.2.2 255.255.255.0
+end
+write

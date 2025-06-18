@@ -1,0 +1,614 @@
+\documentclass{report}
+\usepackage[T1]{fontenc} % Fontes T1
+\usepackage[utf8]{inputenc} % Input UTF8
+\usepackage[backend=biber, style=ieee]{biblatex} % para usar bibliografia
+\usepackage{csquotes}
+\usepackage[portuguese]{babel} %Usar língua portuguesa
+\usepackage{blindtext} % Gerar texto automaticamente
+\usepackage[printonlyused]{acronym}
+\usepackage{hyperref} % para autoref
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage[acronym]{glossaries}
+
+\bibliography{bibliografia.bib}
+
+
+\begin{document}
+%%
+% Definições
+%
+\def\titulo{REAL MADRID \protect\includegraphics[height=1em]{real.png}}
+\def\data{DATA}
+\def\autores{Tiago Pita, Tiago Preguiça}
+\def\autorescontactos{(120152) tiagomsp18@ua.pt, (118683) tiagopcspreguica@ua.pt}
+\def\versao{VERSÃO 1}
+\def\departamento{Dept. de Eletrónica, Telecomunicações e Informática}
+\def\empresa{Universidade de Aveiro}
+\def\logotipo{ua.pdf}
+%
+%%%%%% CAPA %%%%%%
+%
+\begin{titlepage}
+
+\begin{center}
+%
+\vspace*{50mm}
+%
+{\Huge \titulo}\\ 
+%
+\vspace{10mm}
+%
+{\Large \empresa}\\
+%
+\vspace{10mm}
+%
+{\LARGE \autores}\\ 
+%
+\vspace{20mm}
+%
+\begin{figure}[h]
+    \center
+    \includegraphics{\logotipo}
+\end{figure}
+%
+\vspace{20mm}
+\end{center}
+%
+\begin{flushright}
+\versao
+\end{flushright}
+\end{titlepage}
+
+%%  Página de Título %%
+\title{%
+{\Huge\textbf{\titulo}}\\
+{\Large \departamento\\ \empresa}
+}
+%
+\author{%
+    \autores \\
+    \autorescontactos
+}
+%
+\date{\today}
+%
+\maketitle
+
+\pagenumbering{roman}
+
+%%%%%% RESUMO %%%%%%
+\begin{abstract}
+
+O Real Madrid, nascido em 1902 das aspirações modestas de entusiastas do futebol em Madrid, tem evoluído ao longo do tempo para se tornar uma força global. Na La Liga, o clube forjou um legado de troféus e recordes, equilibrando tradição e inovação. A conquista de títulos domésticos é apenas uma parte da história, pois na Champions League, o Real Madrid elevou-se a alturas extraordinárias, estabelecendo recordes e conquistando troféus em noites mágicas.
+
+As lendas do clube, desde os dias de Di Stéfano até a era contemporânea com Cristiano Ronaldo, personificam a grandeza madridista. Além disso, a influência dos jogadores portugueses, como Luís Figo e Cristiano Ronaldo, adicionou uma dimensão única à rica tapeçaria do Real Madrid.
+
+O estádio, Santiago Bernabéu, não é apenas um campo de jogo, mas um local sagrado onde a história é escrita. Testemunha de triunfos espetaculares, o estádio é o epicentro das emoções madridistas, onde os jogadores se tornam heróis e os sonhos se transformam em realidade.
+\end{abstract}
+
+%%%%%% Agradecimentos %%%%%%
+% Segundo glisc deveria aparecer após conclusão...
+%\renewcommand{\abstractname}{Agradecimentos}
+%\begin{abstract}
+%Eventuais agradecimentos.
+%Comentar bloco caso não existam agradecimentos a fazer.
+%\end{abstract}
+
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\listoftables     % descomentar se necessário
+\listoffigures    % descomentar se necessário
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Introdução}
+\label{chap.introducao}
+
+No panorama do futebol mundial, poucos clubes podem ostentar uma história tão rica e gloriosa quanto o Real Madrid. Desde a modesta origem até tornar-se uma potência incontestável, o Real Madrid é um emblema do desporto. 
+
+\vspace{1cm}
+
+\large\textbf{Origem do Clube}
+
+O Real Madrid \cite{realmadrid} produz a sua história a partir de raízes humildes no coração de Madrid. Fundado em 1902, o clube começou como uma modesta iniciativa de entusiastas do desporto.
+
+\vspace{1cm}
+
+\large\textbf{La Liga}
+
+O Real Madrid emergiu como uma força indomável na La Liga. Troféus erguidos, recordes estabelecidos e uma busca incessante pela superioridade fazem parte do DNA do clube na competição espanhola. Desde os dias de Di Stéfano até os momentos mais recentes sob o comando de Zidane, a história da La Liga para o Real Madrid é uma narrativa de glórias, refletindo a habilidade única do clube em equilibrar tradição e inovação.
+
+\vspace{1cm}
+
+\large\textbf{Champions League}
+
+O clube transcende para um patamar de excelência. A Champions League testemunhou os galácticos em ação, erguendo troféus de maneira majestosa. Recordes de vitórias consecutivas, momentos épicos como o "La Decima" - a décima conquista do Real Madrid na competição - solidificam sua posição como uma força inigualável no cenário continental. A busca incessante pelo prestígio europeu faz parte do ethos madridista, uma busca que não conhece limites.
+
+\vspace{1cm}
+
+\large\textbf{Lendas do Clube}
+
+O Real Madrid é entrelaçado com lendas cujos feitos ecoam pelos corredores do tempo. Desde Alfredo Di Stéfano até Cristiano Ronaldo, esses jogadores transcenderam as expectativas, personificando a grandeza madridista. Além disso, a contribuição de jogadores portugueses, como Luís Figo e Cristiano Ronaldo, adicionou uma camada única à tapeçaria do Real Madrid. O talento luso não apenas enriqueceu o jogo, mas também conquistou corações madridistas ao redor do mundo.
+
+\vspace{1cm}
+
+\large\textbf{Estádio Santiago Bernabéu}
+
+O Estádio Santiago Bernabéu, batizado em homenagem a uma das figuras mais influentes do clube. A história do Real Madrid é escrita nas arquibancadas e relvados únicos.
+
+
+
+
+\chapter{Origem do Clube \protect\includegraphics[height=1em]{real.png}}
+\label{chap.origem}
+% Adicione o texto sobre a origem do clube aqui
+
+\section{Fundação e Primeiros Passos (1902)}
+O Real Madrid \cite{realmadrid-wiki} é um clube fundado a \textbf{6 de março de 1902}, na cidade de Madrid, capital espanhola, por um grupo de entusiastas do desporto, liderados por \textbf{Juan Padrós}. A ideia era criar um clube que representasse a capital espanhola e proporcionasse aos jogadores locais uma plataforma para desenvolver seus talentos. No seguimento de uma grande expansão deste desporto em Espanha, como \textbf{Madrid Football Club}.  Contudo, a designação Real Madrid só ocorre em 1920 com o seu nome atual: \textbf{Real Madrid Club de Fútbol}.
+\\
+
+\section{O Título "Real" (1920)}
+Em 1920, o \textbf{Rei Afonso XIII} concedeu ao clube o título de \textbf{"Real"} simboliza uma ligação especial com a monarquia e conferiu ao clube um estatuto de prestígio. Tornou-se, assim, uma instituição oficialmente reconhecida e respeitada. 
+
+
+\section{Primeiros Sucessos (1930-1940)}
+Durante as décadas de 1930 e 1940, o Real Madrid começou a mostrar sua força no cenário nacional espanhol. Conquistou vários títulos regionais e nacionais, marcando o início de uma trajetória de sucesso. Esse período solidificou a reputação do clube como uma força a ser reconhecida no futebol espanhol.
+
+
+\section{A Era Di Stéfano (1950-1960)}
+Uma década marcante com a chegada do ícone argentino \textbf{Alfredo Di Stéfano} em 1953. Sob a liderança visionária do treinador Miguel Muñoz, o clube conquistou uma impressionante sequência de cinco títulos consecutivos da Liga dos Campeões \includegraphics[height=1em]{champions.png} da \acs{uefa} entre 1956 e 1960. \textbf{Di Stéfano} não só marcou época como jogador, mas sua influência como treinador e embaixador do clube perdurou por décadas.
+
+\section{Galáticos e Dominação Europeia (2000s)}
+
+Nos primeiros anos do século XXI, o Real Madrid adotou a política dos \textbf{"Galáticos"}, marcada por contratações de estrelas internacionais. Nomes como \textbf{Zinedine Zidane}, \textbf{Ronaldo Nazário}, e \textbf{David Beckham} tornaram-se sinónimos de uma era de sucesso. Sob o comando de treinadores como \textbf{Vicente del Bosque} e \textbf{Carlo Ancelotti}, o clube conquistou múltiplos títulos da La Liga \includegraphics[height=1em]{laliga.png} e da Liga dos Campeões \includegraphics[height=1em]{champions.png}, solidificando sua posição como uma força dominante no futebol mundial.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{zidanep.jpg}
+        \caption{Zinedine Zidane}\cite{realmadrid-Imagens}
+        \label{fig:zidanep}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ronaldo.jpg}
+        \caption{Ronaldo Nazário}
+        \label{fig:ronaldo}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{beckham.jpg}
+        \caption{David Beckham}
+        \label{fig:beckham}
+    \end{minipage}
+\end{figure}
+
+\section{O Presente}
+
+Hoje o Real Madrid é apontado como o clube de futebol mais valioso do mundo, com um valor estimado de \textbf{3 mil milhões de euros} e o clube de futebol mais rico do mundo em termos de receitas geradas (cerca de 695,5 milhões de euros). Segundo a empresa de consultoria britânica Brand Finance\footnote{Fonte: \url{https://www.realmadrid.com/pt/noticias/2023/06/06/o-real-madrid-e-a-marca-de-futebol-mais-forte-do-mundo-segundo-a-brand-finance}}, a marca Real Madrid é a mais valiosa do futebol mundial, estando avaliada em cerca de 1,3 biliões de euros.
+
+O clube e marca Real Madrid sempre tiveram grande projeção a nível mundial. Mas foi com \textbf{Florentino Pérez}, eleito pela primeira vez em 2000, que se tornou numa verdadeira empresa. Florentino Pérez tem como política a aquisição de estrelas de primeira grandeza do futebol mundial ficando o clube detentor dos seus direitos de imagem apostando posteriormente em agressivas campanhas de marketing, o que leva a um retorno brutal no merchandising do clube, gerando receitas verdadeiramente astronómicas o que lhes permite desse modo continuarem a apostar na aquisição de estrelas emergentes por números só ao alcance de meia dúzia de clubes.
+\begin{figure}[h]
+    \center
+    \includegraphics[scale=0.5]{florentino.jpg}
+    \caption{Florentino Pérez}
+    \label{fig:florentino}
+\end{figure}
+
+O clube tem tido um desempenho notável tanto na La Liga \includegraphics[height=1em]{laliga.png} quanto na Liga dos Campeões \includegraphics[height=1em]{champions.png}. Na La Liga, o Real Madrid assumiu a liderança após vencer o Barcelona \includegraphics[height=1em]{barcelona.png} por \textbf{2 a 1 no 'El Clásico'}, com dois golos de Bellingham \footnote{Fonte: \url{https://www.realmadrid.com/en/news/2023/10/28/1-2-bellingham-scores-brace-in-clasico-comeback}}. Real Madrid tem um registro de \textbf{10} vitórias, \textbf{2} empates e \textbf{1} derrota, colocando-o em \textbf{2°} lugar na tabela da La Liga \footnote{Fonte: \url{https://www.laliga.com/en-GB/clubs/real-madrid/stats}}.
+\\    
+
+Na \textbf{Liga dos Campeões} \includegraphics[height=1em]{champions.png}, o Real Madrid mantém-se com um resultado muito positivo. Mais recentemente, o Real Madrid\cite{realmadrid-estatisticas} derrotou o Sp. Braga \includegraphics[height=1em]{braga.png} por \textbf{3-0} no Santiago Bernabéu.\footnote{Fonte: \url{https://www.realmadrid.com/en/news/2023/11/08/3-0-into-the-champions-league-round-of-16}}
+\\    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{La Liga \protect\includegraphics[height=1em]{laliga.png}}
+\label{chap.laliga}
+% Adicione o texto sobre La Liga aqui
+O percurso do Real Madrid em La Liga tem sido de um verdadeiro dominador, sendo o clube espanhol que detém o melhor palmarés na sua competição interna.
+
+\section{Campeonato Espanhol \protect\includegraphics[height=1em]{laliga.png}}
+No seu palmarés constam 35 campeonatos espanhóis:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    1931-32 & 1932-33 & 1953-54 & 1954-55 & 1956-57 \\ \hline
+    1957-58 & 1960-61 & 1961-62 & 1962-63 & 1963-64 \\ \hline
+    1964-65 & 1966-67 & 1967-68 & 1968-69 & 1971-72 \\ \hline
+    1974-75 & 1975-76 & 1977-78 & 1978-79 & 1979-80 \\ \hline
+    1985-86 & 1986-87 & 1987-88 & 1988-89 & 1989-90 \\ \hline
+    1994-95 & 1996-97 & 2000-01 & 2002-03 & 2006-07 \\ \hline
+    2007-08 & 2011-12 & 2016-17 & 2019-20  & 2021-22 \\ \hline
+    \end{tabular}
+    \caption{Vitórias do campeonato espanhol}
+    \label{tab:vitorias}
+\end{table}
+
+\section{Taças do Rei \protect\includegraphics[height=1em]{delrey.png}}
+O Real Madrid também tem um registo impressionante na Taça do Rei, com 20 vitórias:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    1904-05 & 1905-06 & 1906-07 & 1907-08 & 1916-17 \\ \hline
+    1933-34 & 1935-36 & 1945-46 & 1946-47 & 1961-62 \\ \hline
+    1969-70 & 1973-74 & 1974-75 & 1979-80 & 1981-82 \\ \hline
+    1988-89 & 1992-93 & 2010-11 & 2013-14 & 2022-23 \\ \hline
+    \end{tabular}
+    \caption{Vitórias do campeonato espanhol}
+    \label{tab:vitorias}
+\end{table}
+
+
+\section{Supertaça de Espanha \protect\includegraphics[height=1em]{spanishsupercup.png}}
+O Real Madrid também tem um registo impressionante na Supertaça de Espanha, com 12 vitórias:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    1988 & 1989 & 1990 & 1993 & 1997 \\ \hline
+    2001 & 2003 & 2008 & 2012 & 2017 \\ \hline
+    2019 & 2022 & & & \\ \hline
+    \end{tabular}
+    \caption{Vitórias da Supertaça de Espanha}
+    \label{tab:vitorias}
+\end{table}
+
+\section{Taça da Liga \protect\includegraphics[height=1em]{copaliga.png}}
+O Real Madrid também tem um registo na Taça da Liga, com 1 vitória em 1984-85.
+
+\section{Rival: Barcelona \protect\includegraphics[height=1em]{barcelona.png}}
+O rival Barcelona\includegraphics[height=1em]{barcelona.png}, por comparação, tem menos campeonatos espanhóis \protect\includegraphics[height=1em]{laliga.png}, mas mais Taças do Rei \protect\includegraphics[height=1em]{delrey.png}. Ao todo, a equipa catalã tem mais Taças do Rei (31) \protect\includegraphics[height=1em]{delrey.png} do que campeonatos espanhóis (27) \protect\includegraphics[height=1em]{laliga.png}, tendo ainda 14 Supertaças de Espanha \includegraphics[height=1em]{spanishsupercup.png} e 2 Taças da Liga \includegraphics[height=1em]{copaliga.png}. 
+
+Num total de 68 títulos merengues contra 74 títulos dos blaugrana. A hegemonia destes dois colossos é bem vincada. Enquanto o Real Madrid é um clube da capital, representativo do país, o Barcelona \includegraphics[height=1em]{barcelona.png} é um clube catalão, representativo da zona da Catalunha. Esta rivalidade ultrapassa as fronteiras futebolísticas, pois a Catalunha com as suas reivindicações independentistas vê no FC Barcelona \includegraphics[height=1em]{barcelona.png} a bandeira para a sua causa. Daí os dérbis entre estes dois colossos serem sempre mais (mesmo na comunicação social) do que meros jogos de futebol.
+
+Apesar da ligeira supremacia do Real em Espanha no que respeita a campeonatos sobre o Barcelona, a nível externo essa supremacia é muito mais vincada. A primeira Champions do Barcelona foi na última edição da Taça dos Clubes Campeões Europeus em 1991/1992 ao passo que o seu rival já possuía 6 Taças dos Clubes Campeões Europeus no seu palmarés. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Champions League \protect\includegraphics[height=1em]{champions.png}}
+\label{chap.champions}
+% Adicione o texto sobre a Champions League aqui
+O Real Madrid é o clube mais titulado da \acs{UEFA} Champions League com um total de 14 conquistas.\cite{champions}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    1955-1956 & 1956-1957 & 1957-1958 & 1958-1959 \\ \hline
+    1959-1960 & 1965-1966 & 1997-1998 & 1999-2000 \\ \hline
+    2001-2002 & 2013-2014 & 2015-2016 & 2016-2017 \\ \hline
+    2017-2018 & 2021-2022 &           &           \\ \hline
+    \end{tabular}
+    \caption{Vitórias na \acs{uefa} Champions League}
+    \label{tab:vitorias_uefa}
+\end{table}
+O domínio do Real Madrid nesta competição é avassalador. Basta recordar que o segundo clube mais titulado nesta competição é o AC Milan \includegraphics[height=1em]{milan.png} com 7 conquistas. 
+
+Desde que o formato desta competição foi alterado, para uma espécie de mini-campeonato, o Real Madrid conquistou 8 edições num total de 31 edições. Em 69 edições da prova esteve presente em 54. A última vez que falhou em competição foi em 1996/1997, numa temporada em que não jogou nas competições europeias.
+\\
+
+Entre os recordes destaque para: melhor ataque (1.051), mais jogos (478), num total de cerca de 2,2 golos marcados por jogo, jogador com mais jogos (o antigo guarda-redes \textbf{Iker Casillas} com 152, ou seja, 86\% dos seus 177 jogos na Champions), jogador com mais golos (o português \textbf{Cristiano Ronaldo} com 105 golos marcados pelo Real Madrid, ou seja, 75\% dos seus 140 golos na Champions). O jogador com mais jogos na história da prova, \textbf{Cristiano Ronaldo} com 183 jogos, também jogou no Real Madrid. 
+\\
+
+\textbf{Paco Gento}, que jogou no Real Madrid, é o jogador mais titulado da história da prova com 6 taças. Na \acs{uefa} Champions League, a maior goleada da história (8-0) foi do Real Madrid diante do Malmö \includegraphics[height=1em]{malmo.png}, em 2015/2016, ex aequo com o Liverpool \includegraphics[height=1em]{liverpool.png}, que também goleou o Besiktas \includegraphics[height=1em]{beskitas.png} por 8-0 em 2007/2008. 
+
+A vitória mais dilatada numa final da Champions também é do Real Madrid, que em 1959/1960 goleou os alemães do Eintracht Frankfurt \includegraphics[height=1em]{frankfurt.png} por 7-3. A primeira derrota do Real Madrid numa final da Champions foi em 1961/1962, quando perdeu por 5-3 para o Benfica \includegraphics[height=1em]{benfica.png}. O Real Madrid perdeu 3 das 17 finais da Liga dos Campeões que disputou. Mais nenhum clube conseguiu ir à final 17 vezes. É também o clube que mais vezes foi à final de modo consecutivo (5).
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{casillas.jpg}
+        \caption{Iker Casillas}
+        \label{fig:casillas}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{cr7.jpg}
+        \caption{Cristiano Ronaldo}
+        \label{fig:cr7}
+    \end{minipage}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Lendas do Clube}
+\label{chap.lendas}
+% Adicione o texto sobre as lendas do clube aqui
+O Real Madrid sempre foi apelativo para os melhores jogadores do mundo de sempre. Jogaram no Real Madrid jogadores como: 
+\begin{itemize}
+    \item Dí Stéfano
+    \item Gento
+    \item Puskas
+    \item Zidane
+    \item Raúl
+    \item Casillas
+    \item Butragueño
+    \item Hugo Sánchez
+    \item Hierro
+    \item Santillana
+    \item Pirri
+    \item Sergio Ramos
+    \item Redondo
+    \item Kopa
+    \item Ronaldo Fenómeno
+    \item Roberto Carlos
+    \item Morientes
+    \item Benzema
+    \item Marcelo
+    \item Modric
+    \item Beckham
+    \item Kaká
+\end{itemize}
+Poucos foram os jogadores, que sendo considerados craques nas suas gerações, não jogaram no Real Madrid, dando como exemplos o caso de \textbf{Pelé, Eusébio, Cruijff, Maradona e Messi}.
+No Real, com tão grande constelação de estrelas, houve uns que se destacaram mais do que outros, mas talvez os nomes mais sonantes tenham sido \textbf{Dí Stéfano, Gento, Puskas, Zidane, Raúl e Ronaldo Fenómeno}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{distefano.jpg}
+    \caption{Dí Stéfano}
+    \label{fig:distefano}
+\end{figure}
+Alguns destes nomes estão ligados à maiores conquistas que o colosso espanhol conseguiu quer em Espanha quer na Europa ou no mundo. De lembrar que as cinco primeiras edições da Taça dos Clubes Campeões Europeus (precursora da atual Liga dos Campeões) teve como vencedor o Real Madrid (que é também o clube que detém o maior número de troféus – 14 taças nas suas 68 edições).
+
+\section{Jogadores Portugueses}
+O Real Madrid também já teve jogadores lusos nos seus plantéis (7): \textbf{Cristiano Ronaldo} (438 jogos, 450 golos e 119 assistências), \textbf{Pepe} (334 jogos, 15 golos e 15 assistências), \textbf{Luís Figo} (245 jogos, 57 golos e 35 assistências), \textbf{Fábio Coentrão} (106 jogos, 1 golo e 4 assistências), \textbf{Ricardo Carvalho} (77 jogos, 3 golos e 2 assistências), \textbf{Carlos Secretário} (17 jogos) e \textbf{Pedro Mendes} (1 jogo). 
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.24\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{cr77.jpg}
+        \caption{Cristiano Ronaldo}
+        \label{fig:cr77}
+    \end{minipage}\hspace{0.01\textwidth}%
+    \begin{minipage}{.24\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pepe.jpg}
+        \caption{Pepe}
+        \label{fig:pepe}
+    \end{minipage}\hspace{0.01\textwidth}%
+    \begin{minipage}{.24\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figo.jpg}
+        \caption{Luís Figo}
+        \label{fig:figo}
+    \end{minipage}\hspace{0.01\textwidth}%
+    \begin{minipage}{.24\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{coentrao.jpg}
+        \caption{Fábio Coentrão}
+        \label{fig:coentrao}
+    \end{minipage}
+    \par\bigskip % this will create a new line
+    \begin{minipage}{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ricardocarvalho.jpg}
+        \caption{Ricardo Carvalho}
+        \label{fig:ricardocarvalho}
+    \end{minipage}\hspace{0.01\textwidth}%
+    \begin{minipage}{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{carlos.jpg}
+        \caption{Carlos Secretário}
+        \label{fig:carlos}
+    \end{minipage}\hspace{0.01\textwidth}%
+    \begin{minipage}{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pedromendes.jpg}
+        \caption{Pedro Mendes}
+        \label{fig:pedromendes}
+    \end{minipage}
+\end{figure}
+
+Dos jogadores lusos, o destaque vai, evidentemente, para \textbf{Cristiano Ronaldo}, tido como o maior jogador luso de sempre. Foi contratado em 2009 ao Manchester United \includegraphics[height=1em]{manchester.png} por 94 M€, tendo abandonado Old Trafford após 6 temporadas. Na primeira época nos merengues foi a época em que fez menos jogos (35) e a época em que menos golos marcou (33). Apesar disso, foi o 3º melhor marcador da La Liga 2009/2010, atrás do colega de equipa Gonzalo Higuaín e de Lionel Messi, do Barcelona \includegraphics[height=1em]{barcelona.png}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ronaldoreal.jpg}
+    \caption{Cristiano Ronaldo}
+    \label{fig:ronaldoreal}
+\end{figure}
+
+A época em que mais golos marcou ao serviço dos merengues foi a época 2014/2015, com \textbf{61 golos}, tendo sido também a época em que fez mais passes para golo (21). Apesar dos impressionantes números, nesse ano não conseguiu ganhar a La Liga nem a Liga dos Campeões. É ainda o melhor marcador da história dos merengues, onde ganhou, entre outros títulos, 2 La Liga (2011/2012 e 2016/2017) e 4 Ligas dos Campeões (2013/2014, 2015/2016, 2016/2017 e 2017/2018). Foi vendido à Juventus por 117 M€ em julho de 2018.
+
+\textbf{Cristiano Ronaldo} é, também, detentor de \textbf{5 bolas de ouro}, prémio organizado pelo jornal francês L`equipe, que consagra o melhor jogador da época. Neste domínio, há quem diga que devia ter ganho mais duas bolas de ouro que foram atribuídas a Messi, jogador com com tem mantido uma rivalidade pelo título de melhor jogador do mundo nas últimas duas décadas.
+\\
+
+\textbf{Figo} é, por sua vez, o segundo jogador português de maior sucesso na história do futebol luso. Chegou a Madrid proveniente do Barcelona \includegraphics[height=1em]{barcelona.png} em 2000/2001 após uma polémica transferência do clube catalão para o seu maior rival de Espanha pelo valor astronómico à época de 60 milhões de euros, trocando o “sete” de Barcelona pelo “dez” de Madrid.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figo.jpg}
+    \caption{Luís Figo}
+    \label{fig:figo1}
+\end{figure}
+
+
+Sendo um ídolo em Barcelona, a sua polémica transferência valeu-lhe a alcunha de “pesetero” junto dos adeptos blaugrana. Num célebre Barcelona \includegraphics[height=1em]{barcelona.png} – Real Madrid \includegraphics[height=1em]{real.png}, realizado em 2002, em Camp Nou, um adepto do Barcelona \includegraphics[height=1em]{barcelona.png} brindou Figo com uma cabeça de leitão aquando da marcação de um canto efetuado pelo mesmo Luís Figo. Além da cabeça de leitão muitos outros objetos lhe foram arremessados como, por exemplo, isqueiros e uma garrafa de whiskey.
+Nos merengues foi sempre um titular indiscutível durante 5 temporadas. Acabou por sair em 2005 para Itália para jogar no Internazionale de Milão, acabando a sua carreira de jogador na época de 2008/2009.
+\\
+
+Outros jogadores lusos passaram pelo colosso espanhol. \textbf{Pepe} foi contratado ao FC Porto em julho de 2007 por 30 M. Teve algumas épocas conturbadas devido a lesões e a um cartão vermelho que lhe valeu uma suspensão de 10 jogos devido a uma agressão a um adversário  num jogo com o Getafe \includegraphics[height=1em]{getafe.png}. A época 2013/2014 foi a época em que mais jogou nos merengues (48), em que mais marcou (5) e, juntamente com 2014/2015, em que mais assistiu (3). Saiu dos merengues no final de 2016/2017 para rumar ao então bicampeão turco, Besiktas \includegraphics[height=1em]{beskitas.png}. 
+\\
+
+\textbf{Fábio Coentrão} aparece no meio da lista. Foi contratado em 2010/2011 ao Benfica \includegraphics[height=1em]{benfica.png} por 30 M€. Devido a problemas físicos, o lateral esquerdo internacional português nunca teve o impacto que se esperava que tivesse tido nos merengues. Teve empréstimos ao Mónaco \includegraphics[height=1em]{monaco.png} de Leonardo Jardim (2015/2016) e ao Sporting \includegraphics[height=1em]{sporting.png} (2017/2018), ano em que quase conseguia ser campeão no Sporting \includegraphics[height=1em]{sporting.png} e assim quebrar um longo jejum no clube leonino. Abandonou os merengues em 2018/2019 para rumar ao clube da sua terra natal, o Rio Ave \includegraphics[height=1em]{rioave.png}. 
+\\
+
+\textbf{Ricardo Carvalho} chegou ao Real Madrid já nos seus trinta. Após 6 épocas na Premier League ao serviço do Chelsea \includegraphics[height=1em]{chelsea.png}, o central internacional português rumou a Espanha em 2010/2011 a troco de 8 M€, onde se reencontrou com o técnico José Mourinho, que já o tinha treinado no FC Porto \includegraphics[height=1em]{fcporto.png} e no Chelsea \includegraphics[height=1em]{chelsea.png}. Também teve problemas físicos, e por isso, apesar dos 48 jogos na primeira época só fez 13 em 2011/2012 e 16 em 2012/2013. Saiu em 2013 para o Mónaco \includegraphics[height=1em]{monaco.png} a custo zero onde mais tarde viria a ser treinado por Leonardo Jardim.
+\\
+
+\textbf{Carlos Secretário}, lateral direito, trocou o FC Porto \includegraphics[height=1em]{fcporto.png} pelo Real Madrid \includegraphics[height=1em]{real.png} em 1996/1997 por um milhão de contos (5 milhões de euros na moeda atual), mas só lá esteve uma temporada, tendo voltado à Invicta na época seguinte.
+\\
+
+\textbf{Pedro Mendes} só fez 1 jogo ao serviço dos merengues na época 2011/2012, sob o comando técnico de José Mourinho. Atuou 23 minutos num triunfo dos merengues em casa do Ajax \includegraphics[height=1em]{ajax.png} por 3-0 na última jornada da fase de grupos da Liga Milionária. 
+
+\section{Curisosidades}
+\textbf{Raúl González} é o jogador com mais jogos na história do Real Madrid (741), tendo marcado 323 golos e com a curiosidade de nunca ter visto um cartão vermelho na sua carreira de futebolista, enquanto \textbf{Cristiano Ronaldo} em muito menos jogos pelos merengues foi expulso 6 vezes. \textbf{Casillas} está em segundo lugar com 725 jogos, mas podia ter chegado ao topo da lista se não tivesse perdido o estatuto de titular nas épocas 2012/2013 e 2013/2014. Sanchís completa o pódio dos jogadores mais utilizados da história do Real Madrid, com 709 jogos, e chegou a ser colega de equipa de \textbf{Raúl González} e \textbf{Iker Casillas}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{raul.jpg}
+    \caption{Raúl González}
+    \label{fig:raul}
+\end{figure}
+\\
+
+Dos jogadores do atual plantel do Real Madrid, \textbf{Luka Modric} é o que mais jogos tem pelos merengues (503), seguido de Toni Kroos (433) e do lateral direito \textbf{Daniel Carvajal} (389). \textbf{Cristiano Ronaldo} fecha o top 20 de jogadores mais utilizados dos merengues, mas estando \textbf{Toni Kroos} a 5 jogos tem elevadas probabilidades de ultrapassar o melhor jogador do mundo ainda nesta temporada.
+Como curiosidade, algumas das lendas dos merengues chegaram a passar pelo futebol português. \textbf{Iker Casillas} foi jogador do FC Porto entre 2015/2016 e 2018/2019, \textbf{Camacho} foi treinador do Benfica \includegraphics[height=1em]{benfica.png} entre 2002/2003 e 2003/2004 e na época 2007/2008 e \textbf{Di Stéfano} foi treinador do Sporting na época 1973/1974.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{luka.jpg}
+    \caption{Luka Modric}
+    \label{fig:luka}
+\end{figure}
+\\
+
+Dos jogadores do atual plantel, o jogador com mais golos marcados ao serviço dos merengues é o internacional brasileiro \textbf{Vinícius Júnior}, que já conta com 66 golos em 238 jogos ao serviço do Real Madrid, onde atua desde a temporada 2018/2019.
+\\
+
+Quanto aos treinadores que fizeram história nos merengues, o treinador com mais jogos é \textbf{Miguel Muñoz}, que esteve durante 16 temporadas a comandar a equipa técnica dos madrilenos. Fez 603 jogos entre 1958 e 1974. É com este treinador que o Real Madrid, com uma equipa de sonho, conquista cinco edições consecutivas da Taça dos Clubes Campeões Europeus.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{miguel.jpg}
+    \caption{Miguel Muñoz}
+    \label{fig:miguel}
+\end{figure}
+\\
+
+No segundo lugar, a uma muito longa distância, está \textbf{Zinédine Zidane}, que orientou o Real Madrid entre 2015/2016 e 2020/2021 (com uma pausa durante a primeira metade da época 2018/2019), mas que só orientou a equipa em 262 jogos. 
+
+Uma curiosidade é a de \textbf{Zidane}, considerado um dos melhores jogadores do mundo de todos os tempos, ter tido tanto sucesso como jogador (foi um dos galácticos, juntamente com \textbf{Figo, Beckham, Raúl, Roberto Carlos e Ronaldo fenómeno}) como quando esteve como treinador.
+
+\textbf{Carlo Ancelotti}, atual treinador dos merengues, orientou a equipa em 253 jogos. A primeira passagem durou entre 2013/2014 e 2014/2015 e a segunda passagem começou em 2021/2022. 
+
+Apesar de \textbf{Miguel Muñoz} ser o treinador com mais vitórias (356), a maior percentagem de vitórias (excluindo o interino David Bettoni da equação) pertence ao chileno  \textbf{Manuel Pellegrini}, que orientou a equipa merengue em 2009/2010 e ganhou 36 dos 48 jogos disputados (75\%). \textbf{José Mourinho} é o 7º treinador com mais jogos (178, atrás de \textbf{Miguel Muñoz, Zinédine Zidane, Carlo Ancelotti, Vicente del Bosque, Leo Beenhakker e Luis Molowny}) e o 5º com mais vitórias (128, atrás de \textbf{Miguel Muñoz, Carlo Ancelotti, Zinédine Zidane e Vicente Del Bosque}). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Estádio}\cite{santiago-bernabeu}
+\label{chap.estadio}
+% Adicione o texto sobre o estádio aqui
+Pode-se dizer que o primeiro estádio digno desse nome chamava-se \textbf{Velódromo da Cidade Linear}, desenhado por Arturo Soria com capacidade para \textbf{8.000} espetadores
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{estadio1}
+    \caption{Estádio Inicial}
+    \label{fig:estadio1}
+\end{figure}
+
+Mas um ano depois, devido às dificuldades logísticas como o transporte e comodidade, o Real Madrid construiu o \textbf{Estádio Chamartín}, abandonando desse modo, a Cidade Linear, com capacidade para \textbf{15.000} espetadores, onde jogaram durante 23 anos. Devido ao fim da segunda guerra mundial e com o crescimento do clube espanhol outras exigências foram sentidas pela direção do Real.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{estadio2}
+    \caption{Estádio Chamartín}
+    \label{fig:estadio2}
+\end{figure}
+
+Assim, em 1946 o Estádio Chamartín foi demolido e no seu local foi construído o atual \textbf{Estádio (Santiago Bernabéu)}. O Santiago Bernabéu foi inaugurado a \textbf{14 de dezembro de 1947}, e tinha capacidade para \textbf{75.145} espetadores. Este estádio só em 1955 foi batizado com o nome do lendário e mítico presidente do Real Madrid. Bernabéu assumiu a presidência do Real Madrid em um momento crítico, após a Guerra Civil Espanhola, quando o clube estava enfrentando dificuldades financeiras e estruturais. Sob sua liderança, o Real Madrid passou por uma transformação notável, não apenas no campo esportivo, mas também na expansão e modernização das instalações.
+
+Durante seu mandato, Bernabéu foi responsável por importantes decisões, como a construção do estádio que leva seu nome. O estádio inicialmente tinha uma capacidade menor do que a atual, mas passou por várias expansões ao longo dos anos para acomodar o crescente número de torcedores e atender aos padrões modernos.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{bernabeu}
+    \caption{Presidente Santiago Bernabéu}
+    \label{fig:bernabeu}
+\end{figure}
+
+O clube convidado para a sua inauguração foi o \textbf{C.F. Os Belenenses} \includegraphics[height=1em]{belenenses.png}, à época um dos maiores clubes portugueses, rivalizando inclusive, com os denominados três grandes do futebol português.
+Nesse jogo, o Belenenses \includegraphics[height=1em]{belenenses.png} foi derrotado por 3-1, um resultado apreciável se avaliado, à época, para a diferença de potencial entre o futebol luso e o futebol de “nuestros hermanos”.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{estadio3}
+    \caption{Poster do jogo de inauguração do Estádio Santiago Bernabéu}
+    \label{fig:estadio3}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{estadio4}
+    \caption{Estádio Santiago Bernabéu em 1947}
+    \label{fig:estadio4}
+\end{figure}
+
+O Estádio Santiago Bernabéu tem passado por algumas remodelações, com destaque para a remodelação de que foi alvo para o \textbf{Mundial de 1982}, organizado pela Espanha e que teve como palco da final o Santiago Bernabéu, onde se desenrolou o jogo que opôs a \textbf{Itália} e a \textbf{República Federal Alemã}, com vitória dos transalpinos.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{estadio5}
+    \caption{Estádio Santiago Bernabéu em 1982}
+    \label{fig:estadio5}
+\end{figure}
+
+Com o atual presidente, \textbf{Florentino Pérez}, deu-se início à última remodelação que deveria ter começado em \textbf{2017} mas só se iniciou em \textbf{2019} devido a questões burocráticas. Terminou este ano por causa de interrupções devido à pandemia, tendo o atual estádio capacidade para \textbf{81.044} espetadores sendo, também, completamente coberto, com uma cobertura amovível. O relvado é, também, amovível, permitindo desse modo outros espetáculos que não o futebol.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{estadio6}
+    \caption{Estádio Santiago Bernabéu atualmente}
+    \label{fig:estadio6}
+\end{figure}
+Toda a zona envolvente do estádio foi intervencionada com a construção de novas zonas comerciais e também um hotel de luxo. 
+
+Nesta remodelação, assistimos a um novo paradigma na construção/remodelação de estádios de futebol que foi implementado no Estádio Santiago Bernabéu. 
+
+Um complexo mecanismo recolhe o relvado em porções menores que é posteriormente armazenado no fundo do mesmo, permitindo desse modo que a área do relvado seja pisada por milhares de pessoas, em espetáculos musicais, por exemplo e sem que o mesmo seja danificado.
+
+Após a conclusão do espetáculo, o relvado é retirado 9 do local onde está armazenado e recolocado permitindo a realização de novos jogos de futebol.
+
+Estes novos estádios são extremamente confortáveis, seguros, dotados da mais lata tecnologia e amigos do ambiente (verdes) mas isso tem implicações nos seus custos e na sua manutenção, extremamente onerosas, o que leva a que os clubes idealizem estádios “multi-task”, aproveitando valências até então desaproveitadas de modo a conseguirem maiores proventos.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{estadio7}
+    \caption{Relvado amovível}
+    \label{fig:estadio7}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusões}
+\label{chap.conclusao}
+Em suma, a história rica e multifacetada do Real Madrid, desde a sua origem até os dias atuais, é um testemunho da grandeza e da paixão que cercam esse clube icônico. A jornada do Real Madrid na La Liga é marcada por períodos de dominância, desafios superados e uma busca constante pela excelência futebolística. Nas competições europeias, especialmente na Champions League, o Real Madrid não apenas se destacou como um gigante, mas deixou uma marca indelével ao conquistar títulos memoráveis e forjar um legado de vitórias consecutivas.
+\\
+
+As lendas do clube, desde os dias de Alfredo Di Stéfano até as eras mais recentes com Cristiano Ronaldoe outros, contribuíram para a construção de uma identidade única. Suas performances extraordinárias e dedicação incansável são lembradas como momentos imortais na história do Real Madrid.
+\\
+
+O Estádio Santiago Bernabéu, batizado em homenagem a uma das figuras mais influentes do clube, não é apenas um local de jogos, mas um santuário onde a paixão dos torcedores se entrelaça com a glória do passado e as aspirações do futuro. É um símbolo tangível da grandiosidade do Real Madrid, um palco que testemunhou vitórias épicas e celebrações inesquecíveis.
+\\
+
+O Real Madrid não é apenas um clube de futebol; é uma instituição que personifica a busca incessante pela grandeza, a tradição de vitórias e o respeito pelas raízes que o fundamentaram. Sua história continua a ser escrita, prometendo mais emoções, conquistas e contribuições duradouras para o mundo do futebol.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Contribuições dos autores}
+Cada autor contribuiu igualmente para o produto final do trabalho, sendo justamente atribuído a nota de 50\% a cada um. \\
+O autor \ac{tpi} realizou os capítulos de Origem e Estádio e Lendas do Clube. \\
+O autor \ac{tpr} realizou o capítulo de La liga, Champions League e Lendas do Clube.
+
+\vspace{10pt}
+\textbf{Indicar a percentagem de contribuição de cada autor.}\\
+
+\ac{tpi}, \ac{tpr} : 50\%, 50\%\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Acrónimos}
+\begin{acronym}
+    \acro{fifa}[FIFA]{Federação Internacional de Futebol}
+    \acro{uefa}[UEFA]{União das Associações Europeias de Futebol}
+    \acro{glisc}[GLISC]{Grey Literature International Steering Committee}
+    \acro{tpi}[TPi]{Tiago Pita}
+    \acro{tpr}[TPr]{Tiago Preguiça}
+\end{acronym}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+
+\end{document}

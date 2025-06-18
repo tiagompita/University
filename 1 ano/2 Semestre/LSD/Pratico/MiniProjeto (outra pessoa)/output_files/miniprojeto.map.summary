@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Apr 11 15:53:35 2024
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : miniprojeto
+Top-level Entity Name : programa3
+Family : Cyclone IV E
+Total logic elements : 486
+    Total combinational functions : 486
+    Dedicated logic registers : 30
+Total registers : 30
+Total pins : 9
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

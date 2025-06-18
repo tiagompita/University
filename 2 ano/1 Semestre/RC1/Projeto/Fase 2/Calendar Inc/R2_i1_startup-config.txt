@@ -1,0 +1,214 @@
+!
+
+!
+! Last configuration change at 11:55:22 UTC Thu Nov 28 2024
+upgrade fpd auto
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+ip source-route
+no ip icmp rate-limit unreachable
+ip cef
+!
+!
+!
+ip dhcp excluded-address 172.25.22.1 172.25.22.2
+ip dhcp excluded-address 172.25.23.1 172.25.23.2
+ip dhcp excluded-address 172.25.23.129 172.25.23.130
+ip dhcp excluded-address 172.25.23.193 172.25.23.194
+ip dhcp excluded-address 175.25.22.3
+ip dhcp excluded-address 172.25.22.3
+ip dhcp excluded-address 203.151.102.249
+!
+ip dhcp pool 1
+ network 172.25.22.0 255.255.255.0
+ default-router 172.25.23.225 
+ dns-server 203.151.102.250 
+!
+ip dhcp pool 2
+ network 172.25.23.0 255.255.255.128
+ default-router 172.25.23.225 
+ dns-server 203.151.102.250 
+!
+ip dhcp pool 3
+ network 172.25.23.128 255.255.255.192
+ default-router 172.25.23.225 
+ dns-server 203.151.102.250 
+!
+ip dhcp pool 4
+ network 172.25.23.192 255.255.255.224
+ default-router 172.25.23.225 
+ dns-server 203.151.102.250 
+!
+!
+no ip domain lookup
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+crypto pki token default removal timeout 0
+!
+!
+!
+redundancy
+!
+!
+ip tcp synwait-time 5
+! 
+!
+!
+!
+!
+!
+!
+!
+interface Ethernet0/0
+ no ip address
+ shutdown
+ duplex auto
+!
+interface GigabitEthernet0/0
+ ip address 192.168.101.155 255.255.255.0
+ ip access-group 2 in
+ ip access-group 2 out
+ ip nat outside
+ ip virtual-reassembly in
+ duplex full
+ speed 1000
+ media-type gbic
+ negotiation auto
+ ipv6 address 2002:5755::225/64
+ ipv6 enable
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/1
+ ip address 172.25.23.225 255.255.255.252
+ ip nat inside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+ ipv6 address 2002:A201:BC55:200::1/126
+ ipv6 enable
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/1
+ no ip address
+ ip nat inside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+ ipv6 enable
+!
+interface FastEthernet2/1.6
+ encapsulation dot1Q 6
+ ip address 172.25.23.129 255.255.255.192 secondary
+ ip address 203.151.102.129 255.255.255.192
+ ipv6 address 2002:A201:BC55::1/64
+!
+interface FastEthernet2/1.8
+ encapsulation dot1Q 8
+ ip address 172.25.23.193 255.255.255.224 secondary
+ ip address 203.151.102.241 255.255.255.248
+ ipv6 address 2002:A201:BC55:1::1/64
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip nat pool MYNATPOOL 203.151.102.252 203.151.102.253 netmask 255.255.255.252
+ip nat inside source list 2 pool MYNATPOOL overload
+ip route 0.0.0.0 0.0.0.0 192.168.101.11
+ip route 172.20.22.0 255.255.255.0 192.168.101.111
+ip route 172.20.23.0 255.255.255.192 192.168.101.111
+ip route 172.20.23.64 255.255.255.192 192.168.101.111
+ip route 172.20.23.128 255.255.255.224 192.168.101.111
+ip route 172.20.23.160 255.255.255.240 192.168.101.111
+ip route 172.25.22.0 255.255.255.0 172.25.23.255
+ip route 172.25.22.0 255.255.255.0 172.25.23.226
+ip route 172.25.22.0 255.255.255.0 172.25.22.1
+ip route 172.25.23.0 255.255.255.128 172.25.23.226
+ip route 203.20.15.0 255.255.255.224 192.168.101.111
+ip route 203.20.15.32 255.255.255.224 192.168.101.111
+ip route 203.20.15.64 255.255.255.240 192.168.101.111
+ip route 203.20.15.80 255.255.255.240 192.168.101.111
+ip route 203.20.15.96 255.255.255.240 192.168.101.111
+ip route 203.20.15.116 255.255.255.252 192.168.101.111
+ip route 203.151.102.192 255.255.255.224 172.25.23.226
+ip route 203.151.102.224 255.255.255.240 172.25.23.226
+ip route 203.151.102.248 255.255.255.252 172.25.23.226
+!
+access-list 2 deny   172.25.23.192 0.0.0.31
+access-list 2 permit 172.25.22.0 0.0.1.255
+no cdp log mismatch duplex
+ipv6 route 2002:A201:BC52::/64 2002:5755::201
+ipv6 route 2002:A201:BC52:1::/64 2002:5755::201
+ipv6 route 2002:A201:BC52:2::/64 2002:5755::201
+ipv6 route 2002:A201:BC52:100::/64 2002:5755::201
+ipv6 route 2002:A201:BC52:101::/64 2002:5755::201
+ipv6 route 2002:A201:BC52:102::/64 2002:5755::201
+ipv6 route 2002:A201:BC55:100::/64 2002:A201:BC55:200::2
+ipv6 route 2002:A201:BC55:101::/64 2002:A201:BC55:200::2
+ipv6 route 2002:A201:BC55:102::/64 2002:A201:BC55:200::2
+ipv6 route ::/0 2002:5755::1
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+mgcp profile default
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+end

@@ -1,0 +1,41 @@
+|programa3
+CLK => green_led_state.CLK
+CLK => red_led_state.CLK
+CLK => counter[0].CLK
+CLK => counter[1].CLK
+CLK => counter[2].CLK
+CLK => counter[3].CLK
+CLK => counter[4].CLK
+CLK => counter[5].CLK
+CLK => counter[6].CLK
+CLK => counter[7].CLK
+CLK => counter[8].CLK
+CLK => counter[9].CLK
+CLK => counter[10].CLK
+CLK => counter[11].CLK
+CLK => counter[12].CLK
+CLK => counter[13].CLK
+CLK => counter[14].CLK
+CLK => counter[15].CLK
+CLK => counter[16].CLK
+CLK => counter[17].CLK
+CLK => counter[18].CLK
+CLK => counter[19].CLK
+CLK => counter[20].CLK
+CLK => counter[21].CLK
+CLK => counter[22].CLK
+CLK => counter[23].CLK
+CLK => counter[24].CLK
+CLK => counter[25].CLK
+CLK => counter[26].CLK
+CLK => counter[27].CLK
+LEDR[0] <= red_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= red_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= red_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= red_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] <= green_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] <= green_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= green_led_state.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= green_led_state.DB_MAX_OUTPUT_PORT_TYPE
+
+

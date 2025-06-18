@@ -1,0 +1,9 @@
+Name	Author	Publisher	ISBN	Release Date
+Memorial do Convento	José Saramago	Porto Editora	978-972-0-04671-0	2014-09-01
+O Último Cabalista de Lisboa	Richard Zimler	Porto Editora	978-972-0-04491-4	2013-09-01
+Memorial	José Saramago	Porto Editora	971-972-0-04671-0	2014-09-01
+Filipe I de Portugal - O Rei Maldito	Isabel Stilwell	Planeta	978-989-7-77690-8	2023-04-01
+Um Cão Chamado Dinheiro	Bodo Schäfer	Self	978-989-9-03280-4	2023-05-16
+Engano	Lesley Pearse	Edições Asa	978-989-2-35744-7	2023-04-28
+Twisted Hate	Ana Huang	Clube do Autor	978-989-7-24669-2	2023-03-02
+Kokoro	Natsume Soseki	Editorial Presença	978-972-2-37090-5	2022-04-05

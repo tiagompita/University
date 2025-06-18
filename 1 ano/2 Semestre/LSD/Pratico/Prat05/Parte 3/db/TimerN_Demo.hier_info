@@ -1,0 +1,17 @@
+|TimerN
+clk => s_timerOut.CLK
+clk => s_count[0].CLK
+clk => s_count[1].CLK
+clk => s_count[2].CLK
+reset => s_timerOut.ACLR
+reset => s_count[0].ACLR
+reset => s_count[1].ACLR
+reset => s_count[2].ACLR
+enable => s_timerOut.ENA
+enable => s_count[2].ENA
+enable => s_count[1].ENA
+enable => s_count[0].ENA
+start => process_0.IN1
+timerOut <= s_timerOut.DB_MAX_OUTPUT_PORT_TYPE
+
+

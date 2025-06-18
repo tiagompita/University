@@ -1,0 +1,27 @@
+GAS LISTING ex7.s 			page 1
+
+
+DEFINED SYMBOLS
+               ex7.s:1      *ABS*:000000000000bf88 ADDR_BASE_HI
+               ex7.s:2      *ABS*:0000000000006040 TRISB
+               ex7.s:3      *ABS*:0000000000006050 PORTB
+               ex7.s:4      *ABS*:0000000000006060 LATB
+               ex7.s:6      *ABS*:0000000000006080 TRISC
+               ex7.s:7      *ABS*:0000000000006090 PORTC
+               ex7.s:8      *ABS*:00000000000060a0 LATC
+               ex7.s:10     *ABS*:00000000000060c0 TRISD
+               ex7.s:11     *ABS*:00000000000060d0 PORTD
+               ex7.s:12     *ABS*:00000000000060e0 LATD
+               ex7.s:14     *ABS*:0000000000006100 TRISE
+               ex7.s:15     *ABS*:0000000000006110 PORTE
+               ex7.s:16     *ABS*:0000000000006120 LATE
+               ex7.s:18     *ABS*:000000000000000b READ_CORE_TIMER
+               ex7.s:19     *ABS*:000000000000000c RESET_CORE_TIMER
+               ex7.s:24     .text:0000000000000000 main
+               ex7.s:38     .text:0000000000000020 loop
+               ex7.s:50     .text:0000000000000044 wait
+               ex7.s:66     .text:0000000000000080 shiftright
+               ex7.s:58     .text:0000000000000068 shiftleft
+               ex7.s:73     .text:0000000000000094 endshift
+
+NO UNDEFINED SYMBOLS

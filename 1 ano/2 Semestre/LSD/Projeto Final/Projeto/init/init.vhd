@@ -1,0 +1,92 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity init is
+    port(
+        reset : in std_logic;
+        enable : in std_logic;
+        clk1Hz : in std_logic;
+        clk10Hz : in std_logic;
+        
+        btn_up : in std_logic;
+        btn_down : in std_logic;
+
+        HEX3 : out std_logic_vector(1 downto 0);
+        HEX2 : out std_logic_vector(1 downto 0);
+        HEX1 : out std_logic_vector(1 downto 0);
+        HEX0 : out std_logic_vector(1 downto 0);
+
+        NumberOut : out std_logic_vector(6 downto 0);
+
+		blink : out std_logic
+
+    
+    );
+end init;
+
+architecture Behavioral of init is
+    signal counter : integer range 1 to 50 := 10;
+    signal s_blink : std_logic := '1';
+
+    signal btn_up_prev : std_logic := '0';
+    signal btn_down_prev : std_logic := '0';
+
+    signal btn_up_hold_time : integer range 0 to 20 := 0;
+    signal btn_down_hold_time : integer range 0 to 20 := 0;
+begin
+    HEX3 <= "00";  -- 'C'
+    HEX2 <= "01";  -- 'o'
+    HEX1 <= "10";  -- 'n'
+    HEX0 <= "11";  -- 'F'
+
+    process(clk10Hz)
+    begin
+        if rising_edge(clk10Hz) then
+            if reset = '1' then
+                counter <= 10;
+            elsif enable = '1' then
+                if btn_up = '1' and btn_up_prev = '0' and counter < 50 then
+                    counter <= counter + 1;
+                elsif btn_down = '1' and btn_down_prev = '0' and counter > 1 then
+                    counter <= counter - 1;
+                end if;
+    
+                -- Hold button +1s up
+                if btn_up = '1' and counter < 50 then
+                    btn_up_hold_time <= btn_up_hold_time + 1;
+                else
+                    btn_up_hold_time <= 0;
+                end if;
+                if btn_up_hold_time >= 10 and counter < 50 then
+                    counter <= counter + 1;
+                end if;
+    
+                -- Hold button +1s down
+                if btn_down = '1' and counter > 1 then
+                    btn_down_hold_time <= btn_down_hold_time + 1;
+                else
+                    btn_down_hold_time <= 0;
+                end if;
+                if btn_down_hold_time >= 10 and counter > 1 then
+                    counter <= counter - 1;
+                end if;
+            end if;
+
+    
+            btn_up_prev <= btn_up;
+            btn_down_prev <= btn_down;
+        end if;
+    end process;
+
+    process(clk1Hz)
+    begin
+        if rising_edge(clk1Hz) then
+            s_blink <= not s_blink;
+        end if;
+    end process;
+
+    blink <= s_blink;
+    NumberOut <= std_logic_vector(to_unsigned(counter, NumberOut'length));
+
+end Behavioral;

@@ -1,0 +1,35 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity LED_Controller is
+    Port ( CLK : in STD_LOGIC;
+           LEDR : out STD_LOGIC_VECTOR(3 downto 0);
+           LEDG : out STD_LOGIC_VECTOR(3 downto 0)
+         );
+end LED_Controller;
+
+architecture Behavioral of LED_Controller is
+    signal counter : integer range 0 to 25000000; 
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            
+            counter <= counter + 1;
+            
+           
+            if counter < 12500000 then
+                LEDR <= "1111";
+                LEDG <= "1111"; 
+            else
+                LEDR <= "0000"; 
+                LEDG <= "0000"; 
+            end if;
+            
+
+            if counter = 25000000 then
+                counter <= 0;
+            end if;
+        end if;
+    end process;
+end Behavioral;

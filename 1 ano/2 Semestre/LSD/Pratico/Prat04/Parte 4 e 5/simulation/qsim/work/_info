@@ -1,0 +1,126 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+!s11e vcom 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Universidade/University/1 ano/2 Semestre/LSD/Pratico/Prat04/Parte 4/simulation/qsim
+T_opt
+!s110 1716756777
+VTX0?aio44^j:lI>3Q54@o2
+04 23 16 work freqdivider_vhd_vec_tst freqdivider_arch 1
+=1-18c04d30a0ae-6653a128-27c-20d8
+R1
+!s12b OEM100
+!s124 OEM10U2 
+o-quiet -auto_acc_if_foreign -work work -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+R2
+Efreqdivider
+Z3 w1716756909
+Z4 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 JFD354ZMY?;ZG1UUQ_P^@1
+Z5 DPx10 cycloneive 21 cycloneive_components 0 22 :CA=Yg0R^TdJ3>^OGfeMR2
+Z6 DPx4 ieee 16 vital_primitives 0 22 Y]H?Y_]z4@VoaWAGJ=36m1
+Z7 DPx6 altera 11 dffeas_pack 0 22 mB4IFnUT3:DoZN@NS]Gzg0
+Z8 DPx4 ieee 12 vital_timing 0 22 6STbz=m1W[80IE06h_el^0
+Z9 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z10 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+Z11 DPx6 altera 28 altera_primitives_components 0 22 >1_OP3SHemAi5ZBLF?7g43
+!i122 10
+R2
+Z12 8FreqDivider_Demo.vho
+Z13 FFreqDivider_Demo.vho
+l0
+L37 1
+VXzDi8X6DLRzBTglV`0j^01
+!s100 QoYIKY1LL7KAHV`enj<M73
+Z14 OL;C;2023.3;77
+32
+Z15 !s110 1716756910
+!i10b 1
+Z16 !s108 1716756910.000000
+Z17 !s90 -work|work|FreqDivider_Demo.vho|
+Z18 !s107 FreqDivider_Demo.vho|
+!i113 0
+Z19 o-work work
+Z20 tExplicit 1 CvgOpt 0
+Astructure
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+R11
+DEx4 work 11 freqdivider 0 22 XzDi8X6DLRzBTglV`0j^01
+!i122 10
+l339
+L45 3588
+VhQzZVCb^4SDdO@QH?nPIZ1
+!s100 GE?RJg5Pg0Ol?WVW_z0zJ2
+R14
+32
+R15
+!i10b 1
+R16
+R17
+R18
+!i113 0
+R19
+R20
+Efreqdivider_vhd_vec_tst
+Z21 w1716756908
+R9
+R10
+!i122 11
+R2
+Z22 8FreqDivider.vwf.vht
+Z23 FFreqDivider.vwf.vht
+l0
+L32 1
+VK1T4RYWATzok?lR2`kE4T3
+!s100 M8mL8a>JY5MJ@lN9I^23X0
+R14
+32
+R15
+!i10b 1
+R16
+Z24 !s90 -work|work|FreqDivider.vwf.vht|
+Z25 !s107 FreqDivider.vwf.vht|
+!i113 0
+R19
+R20
+Afreqdivider_arch
+R9
+R10
+Z26 DEx4 work 23 freqdivider_vhd_vec_tst 0 22 K1T4RYWATzok?lR2`kE4T3
+!i122 11
+l47
+Z27 L34 226
+Z28 VZG@7Fme`YYn]_315ILmJj2
+Z29 !s100 YOnFNSgiE6@TF_J:R2RZC3
+R14
+32
+R15
+!i10b 1
+R16
+R24
+R25
+!i113 0
+R19
+R20

@@ -1,0 +1,368 @@
+$comment
+	File created using the following command:
+		vcd file PEnc4_2Demo.msim.vcd -direction
+$end
+$date
+	Thu Mar  7 10:30:17 2024
+$end
+$version
+	Questa Intel Starter FPGA Edition Version 2021.2
+$end
+$timescale
+	1ps
+$end
+
+$scope module penc4_2_vhd_vec_tst $end
+$var wire 1 ! decodedIn [3] $end
+$var wire 1 " decodedIn [2] $end
+$var wire 1 # decodedIn [1] $end
+$var wire 1 $ decodedIn [0] $end
+$var wire 1 % encodedOut [1] $end
+$var wire 1 & encodedOut [0] $end
+$var wire 1 ' validOut $end
+
+$scope module i1 $end
+$var wire 1 ( gnd $end
+$var wire 1 ) vcc $end
+$var wire 1 * unknown $end
+$var wire 1 + devoe $end
+$var wire 1 , devclrn $end
+$var wire 1 - devpor $end
+$var wire 1 . ww_devoe $end
+$var wire 1 / ww_devclrn $end
+$var wire 1 0 ww_devpor $end
+$var wire 1 1 ww_decodedIn [3] $end
+$var wire 1 2 ww_decodedIn [2] $end
+$var wire 1 3 ww_decodedIn [1] $end
+$var wire 1 4 ww_decodedIn [0] $end
+$var wire 1 5 ww_encodedOut [1] $end
+$var wire 1 6 ww_encodedOut [0] $end
+$var wire 1 7 ww_validOut $end
+$var wire 1 8 \encodedOut[0]~output_o\ $end
+$var wire 1 9 \encodedOut[1]~output_o\ $end
+$var wire 1 : \validOut~output_o\ $end
+$var wire 1 ; \decodedIn[0]~input_o\ $end
+$var wire 1 < \decodedIn[2]~input_o\ $end
+$var wire 1 = \decodedIn[3]~input_o\ $end
+$var wire 1 > \decodedIn[1]~input_o\ $end
+$var wire 1 ? \encodedOut~0_combout\ $end
+$var wire 1 @ \encodedOut~1_combout\ $end
+$var wire 1 A \validOut~0_combout\ $end
+$var wire 1 B \ALT_INV_encodedOut~1_combout\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0'
+0(
+1)
+x*
+1+
+1,
+1-
+1.
+1/
+10
+07
+18
+19
+0:
+0;
+0<
+0=
+0>
+1?
+0@
+0A
+1B
+0!
+0"
+0#
+0$
+1%
+1&
+01
+02
+03
+04
+15
+16
+$end
+#40000
+1$
+14
+1;
+1A
+1:
+17
+1'
+#80000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#120000
+1$
+14
+1;
+1?
+18
+16
+1&
+#160000
+0$
+0#
+1"
+04
+03
+12
+1<
+0>
+0;
+1@
+0B
+09
+05
+0%
+#200000
+1$
+14
+1;
+0@
+1B
+19
+15
+1%
+#240000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#280000
+1$
+14
+1;
+1?
+18
+16
+1&
+#320000
+0$
+0#
+0"
+1!
+04
+03
+02
+11
+1=
+0<
+0>
+0;
+0?
+1@
+0B
+08
+09
+06
+05
+0&
+0%
+#360000
+1$
+14
+1;
+1?
+0@
+1B
+18
+19
+16
+15
+1&
+1%
+#400000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#440000
+1$
+14
+1;
+1?
+18
+16
+1&
+#480000
+0$
+0#
+1"
+04
+03
+12
+1<
+0>
+0;
+1@
+0B
+09
+05
+0%
+#520000
+1$
+14
+1;
+0@
+1B
+19
+15
+1%
+#560000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#600000
+1$
+14
+1;
+1?
+18
+16
+1&
+#640000
+0$
+0#
+0"
+0!
+04
+03
+02
+01
+0=
+0<
+0>
+0;
+0A
+0:
+07
+0'
+#680000
+1$
+14
+1;
+1A
+1:
+17
+1'
+#720000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#760000
+1$
+14
+1;
+1?
+18
+16
+1&
+#800000
+0$
+0#
+1"
+04
+03
+12
+1<
+0>
+0;
+1@
+0B
+09
+05
+0%
+#840000
+1$
+14
+1;
+0@
+1B
+19
+15
+1%
+#880000
+0$
+1#
+04
+13
+1>
+0;
+0?
+08
+06
+0&
+#920000
+1$
+14
+1;
+1?
+18
+16
+1&
+#960000
+0$
+0#
+0"
+1!
+04
+03
+02
+11
+1=
+0<
+0>
+0;
+0?
+1@
+0B
+08
+09
+06
+05
+0&
+0%
+#1000000
