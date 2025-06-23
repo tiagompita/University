@@ -11,4 +11,4 @@
 ## Objetivos
 - Formação em matemática discreta que permita a compreensão de modelos matemáticos de natureza combinatória, muito comuns em computação, telecomunicações, indústria de processadores, desenho de circuitos integrados, criptografia e segurança na transmissão de comunicações, sistemas de tráfego, etc.
 
-# Nota Final: ??
+# Nota Final: 14
