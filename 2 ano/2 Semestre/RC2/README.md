@@ -23,4 +23,4 @@
 ## Objetivos
 * Conceitos essenciais em redes de computadores, cobrindo diferentes tecnologias actuais, mas simultaneamente identificando os fundamentos aplicados ao controlo e ao transporte dos dados.
 
-# Nota final: ??
+# Nota final: 13
