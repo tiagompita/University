@@ -1,0 +1,65 @@
+May 09 11:17:33.817 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+May 09 11:17:33.818 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 65286.
+May 09 11:17:34.319 HYPERVISOR: exec_cmd: hypervisor version 
+May 09 11:17:34.319 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips 
+May 09 11:17:34.321 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips
+May 09 11:17:34.321 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\58865b06-c65b-4022-93b6-d693133749d5 
+May 09 11:17:34.325 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\58865b06-c65b-4022-93b6-d693133749d5
+May 09 11:17:34.325 HYPERVISOR: exec_cmd: vm create R8 8 c7200 
+May 09 11:17:34.325 VM: VM R8 created.
+May 09 11:17:34.330 HYPERVISOR: exec_cmd: vm set_con_tcp_port R8 5007 
+May 09 11:17:34.330 HYPERVISOR: exec_cmd: c7200 get_mac_addr R8 
+May 09 11:17:34.330 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.330 HYPERVISOR: exec_cmd: vm slot_add_binding R8 0 0 C7200-IO-FE 
+May 09 11:17:34.334 HYPERVISOR: exec_cmd: vm set_ios R8 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:34.334 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.334 HYPERVISOR: exec_cmd: vm set_idle_pc R8 0x601712a8 
+May 09 11:17:34.335 HYPERVISOR: exec_cmd: vm set_exec_area R8 64 
+May 09 11:17:34.336 HYPERVISOR: exec_cmd: vm set_ram R8 512 
+May 09 11:17:34.336 HYPERVISOR: exec_cmd: vm set_nvram R8 512 
+May 09 11:17:34.338 HYPERVISOR: exec_cmd: vm set_disk0 R8 0 
+May 09 11:17:34.338 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.338 HYPERVISOR: exec_cmd: vm slot_remove_binding R8 0 0 
+May 09 11:17:34.338 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.340 HYPERVISOR: exec_cmd: vm slot_add_binding R8 0 0 C7200-IO-2FE 
+May 09 11:17:34.340 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.340 HYPERVISOR: exec_cmd: vm slot_add_binding R8 1 0 PA-2FE-TX 
+May 09 11:17:34.342 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:17:34.342 HYPERVISOR: exec_cmd: vm slot_add_binding R8 2 0 PA-2FE-TX 
+May 09 11:17:34.398 HYPERVISOR: exec_cmd: vm set_ios R8 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:18:03.743 HYPERVISOR: exec_cmd: vm set_ios R8 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:18:04.768 HYPERVISOR: exec_cmd: vm set_ios R8 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:18:40.691 HYPERVISOR: exec_cmd: nio create_udp udp-ae2202a4-ed19-4e85-8e80-354696b18214 20040 127.0.0.1 20041 
+May 09 11:18:40.980 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R8 0 0 udp-ae2202a4-ed19-4e85-8e80-354696b18214 
+May 09 11:18:40.981 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:21:40.918 HYPERVISOR: exec_cmd: nio create_udp udp-bfa45953-d92b-4e2d-ba5f-49d20b2188a9 20086 127.0.0.1 20087 
+May 09 11:21:40.923 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R8 0 1 udp-bfa45953-d92b-4e2d-ba5f-49d20b2188a9 
+May 09 11:21:40.924 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:52:44.621 HYPERVISOR: exec_cmd: vm set_ghost_status R8 2 
+May 09 11:52:44.624 HYPERVISOR: exec_cmd: vm set_ghost_file R8 C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+May 09 11:52:44.626 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:52:44.641 HYPERVISOR: exec_cmd: vm set_config R8 configs\i8_startup-config.cfg 
+May 09 11:52:44.641 HYPERVISOR: exec_cmd: vm start R8 
+May 09 11:53:14.964 HYPERVISOR: exec_cmd: vm extract_config R8 
+May 09 11:53:21.757 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:53:21.760 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x60608040 
+May 09 11:54:10.289 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:54:10.289 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x601712a8 
+May 09 11:54:42.677 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:54:42.686 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x60608040 
+May 09 11:55:13.514 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:55:13.522 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x601712a8 
+May 09 11:56:39.160 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:56:39.164 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x60608040 
+May 09 11:57:24.943 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:57:24.992 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x601712a8 
+May 09 11:57:28.175 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:57:28.175 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x0 
+May 09 11:57:28.176 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:57:28.176 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:57:28.177 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R8 0 
+May 09 11:57:43.384 HYPERVISOR: exec_cmd: vm get_status R8 
+May 09 11:57:43.385 HYPERVISOR: exec_cmd: vm set_idle_pc_online R8 0 0x60608040 
+May 09 11:57:43.386 HYPERVISOR: exec_cmd: vm cpu_usage R8 0 
+May 09 11:57:46.392 HYPERVISOR: exec_cmd: vm cpu_usage R8 0 
+May 09 12:00:45.094 HYPERVISOR: exec_cmd: vm extract_config R8 
