@@ -1,0 +1,72 @@
+May 09 11:17:25.662 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+May 09 11:17:25.662 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 65263.
+May 09 11:17:26.147 HYPERVISOR: exec_cmd: hypervisor version 
+May 09 11:17:26.148 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips 
+May 09 11:17:26.148 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips
+May 09 11:17:26.149 HYPERVISOR: exec_cmd: hypervisor working_dir C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\7e1de046-d097-4d40-8a6a-396a34d2ec7b 
+May 09 11:17:26.156 GENERAL: working_dir=C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\7e1de046-d097-4d40-8a6a-396a34d2ec7b
+May 09 11:17:26.157 HYPERVISOR: exec_cmd: vm create R5 5 c7200 
+May 09 11:17:26.158 VM: VM R5 created.
+May 09 11:17:26.159 HYPERVISOR: exec_cmd: vm set_con_tcp_port R5 5004 
+May 09 11:17:26.160 HYPERVISOR: exec_cmd: c7200 get_mac_addr R5 
+May 09 11:17:26.160 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.161 HYPERVISOR: exec_cmd: vm slot_add_binding R5 0 0 C7200-IO-FE 
+May 09 11:17:26.162 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:26.163 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.163 HYPERVISOR: exec_cmd: vm set_idle_pc R5 0x601712a8 
+May 09 11:17:26.164 HYPERVISOR: exec_cmd: vm set_exec_area R5 64 
+May 09 11:17:26.165 HYPERVISOR: exec_cmd: vm set_ram R5 512 
+May 09 11:17:26.165 HYPERVISOR: exec_cmd: vm set_nvram R5 512 
+May 09 11:17:26.166 HYPERVISOR: exec_cmd: vm set_disk0 R5 0 
+May 09 11:17:26.167 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.169 HYPERVISOR: exec_cmd: vm slot_remove_binding R5 0 0 
+May 09 11:17:26.170 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.170 HYPERVISOR: exec_cmd: vm slot_add_binding R5 0 0 C7200-IO-2FE 
+May 09 11:17:26.171 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.171 HYPERVISOR: exec_cmd: vm slot_add_binding R5 1 0 PA-2FE-TX 
+May 09 11:17:26.172 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:17:26.172 HYPERVISOR: exec_cmd: vm slot_add_binding R5 2 0 PA-2FE-TX 
+May 09 11:17:26.232 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:17:56.256 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:18:18.223 HYPERVISOR: exec_cmd: nio create_udp udp-e9781204-4864-4757-9d59-17a6846ddcc5 20010 127.0.0.1 20011 
+May 09 11:18:18.489 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R5 0 1 udp-e9781204-4864-4757-9d59-17a6846ddcc5 
+May 09 11:18:18.489 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:18:21.839 HYPERVISOR: exec_cmd: nio create_udp udp-3821cb18-247c-4718-9ed4-4fb9018dd182 20014 127.0.0.1 20015 
+May 09 11:18:21.849 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R5 1 0 udp-3821cb18-247c-4718-9ed4-4fb9018dd182 
+May 09 11:18:21.849 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:19:02.919 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:19:13.274 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:19:20.607 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:21:20.255 HYPERVISOR: exec_cmd: nio create_udp udp-1ebdd202-7873-45e0-98fc-dd5f6aecf7ae 20068 127.0.0.1 20069 
+May 09 11:21:20.255 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R5 0 0 udp-1ebdd202-7873-45e0-98fc-dd5f6aecf7ae 
+May 09 11:21:20.255 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:22:15.942 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:22:20.499 HYPERVISOR: exec_cmd: vm set_ios R5 C:/Users/tiago/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+May 09 11:52:44.158 HYPERVISOR: exec_cmd: vm set_ghost_status R5 2 
+May 09 11:52:44.158 HYPERVISOR: exec_cmd: vm set_ghost_file R5 C:\University\2 ano\2 Semestre\RC2\P\Guiao4\Parte 1\project-files\dynamips\c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+May 09 11:52:44.158 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:52:44.177 HYPERVISOR: exec_cmd: vm set_config R5 configs\i5_startup-config.cfg 
+May 09 11:52:44.180 HYPERVISOR: exec_cmd: vm start R5 
+May 09 11:53:14.603 HYPERVISOR: exec_cmd: vm extract_config R5 
+May 09 11:53:21.393 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:53:21.397 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x60608040 
+May 09 11:54:09.998 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:54:10.002 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x601712a8 
+May 09 11:54:42.319 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:54:42.328 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x60608040 
+May 09 11:54:54.601 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:54:54.602 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x0 
+May 09 11:54:54.604 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:54:54.604 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:54:54.605 HYPERVISOR: exec_cmd: vm get_idle_pc_prop R5 0 
+May 09 11:55:09.983 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:55:09.983 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x601712a8 
+May 09 11:55:09.983 HYPERVISOR: exec_cmd: vm cpu_usage R5 0 
+May 09 11:55:12.998 HYPERVISOR: exec_cmd: vm cpu_usage R5 0 
+May 09 11:56:38.827 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:56:38.837 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x60608040 
+May 09 11:57:24.606 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:57:24.615 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x601712a8 
+May 09 11:57:46.605 HYPERVISOR: exec_cmd: vm get_status R5 
+May 09 11:57:46.616 HYPERVISOR: exec_cmd: vm set_idle_pc_online R5 0 0x60608040 
+May 09 12:00:14.675 HYPERVISOR: exec_cmd: vm extract_config R5 
