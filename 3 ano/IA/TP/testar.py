@@ -48,4 +48,5 @@ def inverter(lst):
 #print(factorial(int(input("Factorial de: "))))
 #print(list_length(a))
 #print(contem(3, b))
-print(inverter(a))
+#print(inverter(a))
+print(a[2])
