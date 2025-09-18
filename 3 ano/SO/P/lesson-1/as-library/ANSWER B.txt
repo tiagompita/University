@@ -1,0 +1,9 @@
+The SllNode* parameter is the pointer to the head of the list — every operation needs that to start traversing the list.
+
+Traverse here means "visit each node of the linked list in order, following the next pointers from the head until you reach the end (NULL) or until a stopping condition is met."
+
+Functions that can change the list head (sllInsert, sllRemove, sllLoad, sllDestroy) therefore return an SllNode* so the caller can update its head.
+
+Even read-only operations (sllExists, sllGetName, sllPrint) accept the head so they can traverse from the start; they could instead take const SllNode* to make the intent explicit.
+
+Using SllNode* for the first argument is a simple API design: it directly exposes the list entry point so all functions operate on the same list type.
