@@ -15,5 +15,6 @@
 * Capacidade de programar sistemas que envolvam a utilização de recursos de hardware (I/O série e paralelo, interrupções, DMA, timers)
 * Compreender o sistema de memória de um sistema computacional
 
-# Nota Teórica: 8
-# Nota Prática: 18
+### Nota Teórica: 8
+### Nota Prática: 18
+# Nota Final: 12
