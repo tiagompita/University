@@ -28,6 +28,14 @@ SllNode* sllInsert(SllNode* list, uint32_t nmec, const char *name)
     assert(name != NULL && name[0] != '\0');
     assert(!sllExists(list, nmec));
 
+    SllNode* newElement = (SllNode*)malloc(sizeof(SllNode));
+    if (newElement == NULL)
+    {
+        // Allocation failed
+        fprintf(stderr, "Error: malloc failed in sllInsert\n");
+        return NULL;
+    }
+
     return list;
 }
 
