@@ -52,7 +52,14 @@ void menuChoiceInsert()
 
 void menuChoicePrint()
 {
-    sllPrint(list, stdout);
+    FILE *fout = fopen("list.txt", "a"); /* "w" sobrescreve; use "a" para anexar */
+    if (fout == NULL)
+    {
+        printf("Fail opening list.txt for writing\n");
+        return;
+    }
+    sllPrint(list, fout);
+    fclose(fout);
 }
 
 /* ******************************************** */
@@ -104,7 +111,7 @@ void menuChoiceLoad()
 int main()
 {
     bool end = false;
-    while (not end)
+    while (!end)
     {
         /* print menu */
         printMenu();
