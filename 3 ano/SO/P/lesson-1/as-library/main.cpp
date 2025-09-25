@@ -52,7 +52,7 @@ void menuChoiceInsert()
 
 void menuChoicePrint()
 {
-    FILE *fout = fopen("list.txt", "a"); /* "w" sobrescreve; use "a" para anexar */
+    FILE *fout = fopen("list.txt", "w"); /* "w" sobrescreve; use "a" para anexar */
     if (fout == NULL)
     {
         printf("Fail opening list.txt for writing\n");
