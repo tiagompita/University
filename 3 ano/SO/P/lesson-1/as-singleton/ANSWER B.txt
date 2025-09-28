@@ -1,0 +1,8 @@
+Because those structs are implementation details they are kept in the .cpp to hide internals from users. This gives:
+
+    encapsulation / information hiding (callers cannot depend on or modify fields),
+    freedom to change representation without recompiling users,
+    smaller header surface and fewer name collisions,
+    faster incremental builds and stronger enforcement of invariants.
+
+If you need a public handle, expose an opaque pointer in the header (e.g. typedef struct SllNode SllNode;) and keep the full definition in the .cpp.

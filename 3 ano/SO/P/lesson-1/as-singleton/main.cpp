@@ -50,7 +50,14 @@ void menuChoiceInsert()
 
 void menuChoicePrint()
 {
-    sllPrint(stdout);
+    FILE *fout = fopen("list1.txt", "w"); /* "w" sobrescreve; use "a" para anexar */
+    if (fout == NULL)
+    {
+        printf("Fail opening list.txt for writing\n");
+        return;
+    }
+    sllPrint(fout);
+    fclose(fout);
 }
 
 /* ******************************************** */

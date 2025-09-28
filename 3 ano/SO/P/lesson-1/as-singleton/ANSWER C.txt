@@ -1,0 +1,5 @@
+Internal linkage: o identificador list só existe dentro desse ficheiro .cpp — outros ficheiros não o conseguem ver nem ligar a ele.
+
+Duração estática: a variável é alocada antes do programa começar, inicializada a zero e permanece durante toda a execução.
+
+Consequências práticas: não há conflito de símbolos entre ficheiros, o valor persiste entre chamadas de função e não podes usar extern noutro .cpp para aceder a ela.
