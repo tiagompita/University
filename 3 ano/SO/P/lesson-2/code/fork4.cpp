@@ -15,7 +15,21 @@ int main(void)
   pid_t ret = pfork();
   if (ret == 0)
   {
-    execl("./child", "./child", NULL);
+    // Se execl falhar, nao há esse tratamento de erro. É praticamente obrigatorio ter esse tratamento para uma programaçao defensiva!
+    pexecl("./child", "./child", (char *)NULL);
+    /* Usar pexecl salva o codigo em caso de erro, no entanto pexecl é apenas disponivel para esta cadeira.
+    
+    Usar um if ((execl("./child", "./child", NULL)) == -1) é a soluçao geral para o tratamento de erro.
+    
+    if ((execl("./child", "./child", (char *)NULL)) == -1) {
+      perror("execl failed");
+      _exit(EXIT_FAILURE);
+    }
+
+    You should use _exit  to abort the child program when the exec fails, 
+    because in this situation, the child process may interfere with the parent process' external data (files) by calling its atexit handlers, 
+    calling its signal handlers, and/or flushing buffers.
+    */
     printf("why doesn't this message show up?\n");
     return EXIT_FAILURE;
   }
