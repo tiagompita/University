@@ -19,3 +19,4 @@ int main(void)
   return EXIT_SUCCESS;
 }
 
+// se ret = 0, o responsável pelo print é o child.
