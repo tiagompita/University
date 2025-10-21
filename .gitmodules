@@ -1,6 +1,3 @@
-[submodule "3 ano/IA/P/prog-estilo-funcional-BravooZ"]
-	path = 3 ano/IA/P/prog-estilo-funcional-BravooZ
-	url = git@github.com:detiuaveiro/prog-estilo-funcional-BravooZ.git
 [submodule "3 ano/IA/P/resolucao-automatica-de-problemas-BravooZ"]
 	path = 3 ano/IA/P/resolucao-automatica-de-problemas-BravooZ
 	url = git@github.com:detiuaveiro/resolucao-automatica-de-problemas-BravooZ.git
