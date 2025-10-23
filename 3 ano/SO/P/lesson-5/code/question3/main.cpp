@@ -19,37 +19,63 @@
 #include "utils.h"
 #include "thread.h"
 
+static int N;
 static int status;
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t cond1 = PTHREAD_COND_INITIALIZER;
-pthread_cond_t cond2 = PTHREAD_COND_INITIALIZER;
+pthread_cond_t condOdd = PTHREAD_COND_INITIALIZER;
+pthread_cond_t condEven = PTHREAD_COND_INITIALIZER;
 
 void *threadChild1(void *arg)
 {
-
-    int *N = (int *)arg;
-
-    if (*N == 1) {
-        status = EXIT_SUCCESS;
-        pthread_exit(&status);
+    while (1)
+    {
+        mutex_lock(&mutex);
+        while ((N % 2 == 0) && (N > 0))
+        { // espera enquanto NÃO é a vez do child1
+            cond_wait(&condOdd, &mutex);
+        }
+        if (N < 1) {
+            cond_signal(&condEven);             
+            mutex_unlock(&mutex);
+            break;
+        }
+        printf("Thread1 (pid %d): %d\n", (int)getpid(), N);
+        N--;
+        cond_signal(&condEven); // acorda a outra thread
+        mutex_unlock(&mutex);
     }
+
+    status = EXIT_SUCCESS;
+    pthread_exit(&status);
 }
 
 void *threadChild2(void *arg)
 {
-
-    int *N = (int *)arg;
-
-    if (*N == 1) {
-        status = EXIT_SUCCESS;
-        pthread_exit(&status);
+    while (1)
+    {
+        mutex_lock(&mutex);
+        while ((N % 2 != 0) && (N > 0))
+        { 
+            cond_wait(&condEven, &mutex);
+        }
+        if (N < 1) {
+            cond_signal(&condOdd);
+            mutex_unlock(&mutex);
+            break;
+        }
+        printf("Thread2 (pid %d): %d\n", (int)getpid(), N);
+        N--;
+        cond_signal(&condOdd); // acorda a outra thread
+        mutex_unlock(&mutex);
     }
+
+    status = EXIT_SUCCESS;
+    pthread_exit(&status);
 }
 
 int main (int argc, char *argv[])
 {
 
-    static int N;
     printf("Choose a number between 10 and 20 (N): ");
     fflush(stdout);
     if (scanf("%d", &N) == 0) {
@@ -62,29 +88,14 @@ int main (int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    
-    mutex_init(&mutex, NULL);
-
-    pthread_cond_t cond1;
-    cond_init(&cond1, NULL);
-
-    pthread_cond_t cond2;
-    cond_init(&cond2, NULL);
-
-
     pthread_t thr1;
     pthread_t thr2;
-    if (pthread_create(&thr1, NULL, threadChild1, &N) && pthread_create(&thr2, NULL, threadChild2, &N) != 0)
-    {
-        perror("Fail launching threads");
-        return EXIT_FAILURE;
-    }
+    thread_create(&thr1, NULL, threadChild1, NULL);
+    thread_create(&thr2, NULL, threadChild2, NULL);
 
-    if (pthread_join(thr1, NULL) && pthread_join(thr2, NULL) != 0)
-    {
-        perror("Fail joining childs");
-        return EXIT_FAILURE;
-    }
+    thread_join(thr1, NULL);
+    thread_join(thr2, NULL);
+
 
     return EXIT_SUCCESS;
 }
