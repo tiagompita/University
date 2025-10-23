@@ -199,6 +199,11 @@ int main (int argc, char *argv[])
         printf("Producer %u finished\n", i+1);
     }
 
+    for (uint32_t i = 0; i < nc; i++)
+    {
+        pthread_cancel(cthr[i]);
+    }
+
     /* wait for consumers to finish */
     for (uint32_t i = 0; i < nc; i++)
     {
