@@ -69,7 +69,7 @@ class SearchNode:
         self.expanded = False
         self.cost = cost
         self.heuristic = heuristic
-        self.action = action if parent == None else parent
+        self.action = None if parent == None else action
     def __str__(self):
         return "no(" + str(self.state) + "," + str(self.parent) + ")"
     def __repr__(self):
@@ -98,7 +98,7 @@ class SearchTree:
         self.highest_cost_nodes = []
         self.average_depth = 0
 
-        self.plan = {}
+        self.plan = []
     
     @property
     def length(self):
@@ -128,6 +128,15 @@ class SearchTree:
         path += [node.state]
         return(path)
 
+    def get_plan(self, node):
+        if node.parent == None:
+            return []
+        plan = self.get_plan(node.parent)
+        plan += [node.action]
+
+        return plan
+
+
     # procurar a solucao
     def search(self, limit=None):
         while self.open_nodes != []:
@@ -143,6 +152,8 @@ class SearchTree:
                 self.non_terminals = len([n for n in self.all_nodes if n.expanded])
                 self.terminals = len(self.all_nodes) - self.non_terminals
                 
+                self.plan = self.get_plan(node)
+
                 if self.all_nodes:
                     max_cost = max(n.cost for n in self.all_nodes)
                     self.highest_cost_nodes = [n for n in self.all_nodes if n.cost == max_cost]
@@ -169,7 +180,7 @@ class SearchTree:
                             continue
                         child_cost = node.cost + action_cost
                         h = self.problem.domain.heuristic(newstate, self.problem.goal)
-                        newnode = SearchNode(newstate, node, cost=child_cost, heuristic=h, action=)
+                        newnode = SearchNode(newstate, node, cost=child_cost, heuristic=h, action=a)
 
                         lnewnodes.append(newnode)
                         self.all_nodes.append(newnode)
