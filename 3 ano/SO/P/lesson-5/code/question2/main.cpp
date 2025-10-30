@@ -31,12 +31,14 @@ void *threadChild (void *arg) {
     {
         fprintf(stderr, "Fail assigning N2\n");
         status = EXIT_FAILURE;
+        _exit(status);
     }
 
     if (N2 < 10 || N2 > 20)
     {
-        fprintf(stderr, "N1 not between 1 and 9\n");
+        fprintf(stderr, "N2 not between 1 and 9\n");
         status = EXIT_FAILURE;
+        _exit(status);
     }
 
     for(; *N1 <= N2; (*N1)++) {

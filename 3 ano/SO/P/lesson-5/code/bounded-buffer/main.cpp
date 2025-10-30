@@ -86,6 +86,10 @@ void consumerLifeCycle(uint32_t id)
         /* retrieve item from fifo */
         Item item = fifoRetrieve(theFifo);
 
+        if (item.id == 0) {
+            break;
+        }
+
         /* print it */
         uint32_t id1 = item.v1 / 1000000;
         uint32_t id2 = item.v2 / 1000000;
@@ -201,7 +205,8 @@ int main (int argc, char *argv[])
 
     for (uint32_t i = 0; i < nc; i++)
     {
-        pthread_cancel(cthr[i]);
+        Item poison_pill = {0,0,0};
+        fifoInsert(theFifo, poison_pill);
     }
 
     /* wait for consumers to finish */
@@ -213,7 +218,7 @@ int main (int argc, char *argv[])
 
     /* destroy fifo */
     fifoDestroy(theFifo);
-
+    
     return 0;
 }
 
