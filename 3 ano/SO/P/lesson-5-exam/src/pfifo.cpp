@@ -106,13 +106,13 @@ int retrieve_pfifo(PriorityFIFO* pfifo)
             pfifo->array[idx].priority--;
          idx = (idx + 1) % FIFO_MAXSIZE;
       }
+
+      cond_broadcast(&pfifo->notFull);
    }
 
-   ensure ((result >= 0 && result <= MAX_ID) || is_closed_pfifo(pfifo), "OPEN FIFO with an invalid id");  // a false value indicates a program error
-
-   cond_broadcast(&pfifo->notFull);
-
    mutex_unlock(&pfifo->mutex);
+
+   ensure ((result >= 0 && result <= MAX_ID) || is_closed_pfifo(pfifo), "OPEN FIFO with an invalid id");  // a false value indicates a program error
 
    return result;
 }
@@ -138,7 +138,7 @@ int is_closed_pfifo(PriorityFIFO* pfifo)
    int result = pfifo->is_closed;
    mutex_unlock(&pfifo->mutex);
 
-   return result
+   return result;
 }
 
 /* --------------------------------------- */
