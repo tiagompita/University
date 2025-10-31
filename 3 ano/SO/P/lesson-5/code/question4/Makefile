@@ -9,7 +9,7 @@ OBJS = thread.o utils.o
 
 all: $(TARGETS)
 
-main: main.o $(OBJS)
+main: main.o fifo-mon-safe.o $(OBJS)
 	$(CXX) -o $@ $^ $(CXXFLAGS)
 
 *.o:	*.h
