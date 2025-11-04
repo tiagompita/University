@@ -150,8 +150,87 @@ class SemanticNetwork:
     
     def associations_by_user(self, user):
         count = 0
+        lst = []
         for d in self.declarations:
-            if d.user == user and isinstance(d.relation, Association):
+            if d.user == user and isinstance(d.relation, Association) and d.relation.name not in lst:
                 count += 1
+                lst += [d.relation.name]
+                #print(d)
 
         return count
+    
+    def list_local_associations_by_entity(self, entity):
+        lst = []
+        for d in self.declarations:
+            if d.relation.entity1 == entity and isinstance(d.relation, Association) and (d.relation.name, d.user) not in lst:
+                lst += [(d.relation.name, d.user)]
+                #print(lst)
+        
+        return sorted(lst)
+    
+    def predecessor(self, A, B):
+        for d in self.declarations:
+            if (isinstance(d.relation, Member) or isinstance(d.relation, Subtype)) and d.relation.entity1 == B:
+                parent = d.relation.entity2
+
+                if parent == A:
+                    return True
+                
+                if self.predecessor(A, parent):
+                    return True
+                
+        return False
+    
+    def predecessor_path(self, e1, e2):
+        for d in self.declarations:
+            if (isinstance(d.relation, Member) or isinstance(d.relation, Subtype)) and d.relation.entity1 == e2:
+                parent = d.relation.entity2
+
+                if parent == e1:
+                    return [e1,e2]
+                
+                path = self.predecessor_path(e1, parent)
+                
+                if path is not None:
+                    return path + [e2]
+                
+        return None
+    
+    def query(self, e1=None, rel=None):
+        def get_ancestors(entity):
+            ancestors = []
+
+            for d in self.declarations:
+                if (isinstance(d.relation, Member) or isinstance(d.relation, Subtype)) and d.relation.entity1 == entity:
+                    parent = d.relation.entity2
+
+                    if parent not in ancestors:
+                        ancestors.append(parent)
+
+                    ancestors += get_ancestors(parent)
+            return ancestors
+
+        entities = [e1] + get_ancestors(e1)
+        
+        # Passo 2: para cada entidade, fazer query_local
+        results = []
+        for entity in entities:
+            local_results = self.query_local(e1=entity, rel=rel)
+            for r in local_results:
+                if r not in results:
+                    results.append(r)
+    
+        if rel is None:
+            member_relations = self.query_local(e1=e1, rel='member')
+            for m in member_relations:
+                if m not in results:
+                    results.append(m)
+
+            for entity in get_ancestors(e1):
+                subtype_relations = self.query_local(e1=entity, rel='subtype')
+                for s in subtype_relations:
+                    if s not in results:
+                        results.append(s)
+
+        #print(results)
+        return results
