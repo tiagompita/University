@@ -144,9 +144,11 @@ int doctor_iteration(int id) // return value can be used to request termination
    random_wait();
    printf("\e[32;01mDoctor %d: patient %d treated\e[0m\n", id, patient);
    // TODO point: PUT YOUR PATIENT CONSULTATION FINISHED NOTIFICATION CODE HERE:
-   hd->all_patients[patient].done = 1;
 
+   mutex_lock(&hd->all_patients[patient].px_mutex);
+   hd->all_patients[patient].done = 1;
    cond_broadcast(&hd->all_patients[patient].px_cond);
+   mutex_unlock(&hd->all_patients[patient].px_mutex);
 
    return 0;
 }

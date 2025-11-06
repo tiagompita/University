@@ -1,0 +1,9 @@
+Fazer um test_prog com 2 ou mais argumentos.
+
+O script deve testar a execuçao de um programa
+ciclo que executa N vezes
+usar o 'seq' ver no manual 'man seq'
+
+test_prog <N> <prog> ...
+
+Se o programa nao responder em x tempo, fazer um "timeout"

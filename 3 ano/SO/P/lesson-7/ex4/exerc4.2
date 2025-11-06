@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+touch a1 a2 a3 a4 a22 # to create some files
+z=a*
+echo $z
+echo "$z" # reference to variables are expanded within weak quotes
+echo ’$z’ # reference to variables are not expanded within strong quotes
