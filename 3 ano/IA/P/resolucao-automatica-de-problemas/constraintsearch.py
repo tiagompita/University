@@ -11,10 +11,11 @@ class ConstraintSearch:
 
     # domains é um dicionário com o domínio de cada variável;
     # constaints e' um dicionário com a restrição aplicável a cada aresta;
-    def __init__(self,domains,constraints):
+    def __init__(self,domains,constraints, propagate=True):
         self.domains = domains
         self.constraints = constraints
         self.calls = 0
+        self.propagate_constraints = propagate
 
     # domains é um dicionário com os domínios actuais
     # de cada variável
@@ -48,9 +49,33 @@ class ConstraintSearch:
                 for val in domains[var]:
                     newdomains = dict(domains)
                     newdomains[var] = [val]
-                    solution = self.search(newdomains)
-                    if solution != None:
-                        return solution
+                    
+                    if self.propagate_constraints:
+                        if self.propagate(newdomains,var):
+                            solution = self.search(newdomains)
+                            if solution != None:
+                                return solution
+                    else:
+                        solution = self.search(newdomains)
+                        if solution != None:
+                            return solution
         return None
+
+    def propagate(self, domains, var):
+        for neighbor in [v for v in domains if (var,v) in self.constraints]:
+            constraint = self.constraints[var,neighbor]
+            
+            # domains[var] has been reduced to a single value
+            val_var = domains[var][0]
+            
+            # Filter neighbor domain
+            new_domain = [val for val in domains[neighbor] if constraint(var, val_var, neighbor, val)]
+            
+            if len(new_domain) < len(domains[neighbor]):
+                domains[neighbor] = new_domain
+            
+            if not domains[neighbor]:
+                return False
+        return True
 
 
