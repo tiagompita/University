@@ -28,6 +28,15 @@ class BayesNet:
                     prob*=(p if val else 1-p)
         return prob
 
+    def individualProb(self, var, val):
+        import itertools
+        variables = [v for v in self.dependencies.keys() if v != var]
+        prob = 0
+        for values in itertools.product([True, False], repeat=len(variables)):
+            conjunction = [(var, val)] + list(zip(variables, values))
+            prob += self.jointProb(conjunction)
+        return prob
+
 
 # Footnote 1:
 # Default arguments are evaluated on function definition,
