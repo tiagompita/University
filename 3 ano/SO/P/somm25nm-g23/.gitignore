@@ -1,0 +1,14 @@
+# avoid build, lib and bin folders
+build
+lib
+bin
+include
+lib
+bin
+src/main.cpp
+.vscode
+src/bash
+real
+student
+src/sim_test copy.cpp
+src/sim_test2.cpp

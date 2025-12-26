@@ -1,0 +1,174 @@
+from abc import ABC, abstractmethod
+import time
+
+class SearchDomain(ABC):
+    @abstractmethod
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def actions(self, state):
+        pass
+
+    @abstractmethod
+    def result(self, state, action):
+        pass
+
+    @abstractmethod
+    def cost(self, state, action):
+        pass
+
+    @abstractmethod
+    def heuristic(self, state, goal):
+        pass
+
+    @abstractmethod
+    def satisfies(self, state, goal):
+        pass
+
+class SearchProblem:
+    def __init__(self, domain, initial, goal):
+        self.domain = domain
+        self.initial = initial
+        self.goal = goal
+
+    def goal_test(self, state):
+        return self.domain.satisfies(state, self.goal)
+
+class SearchNode:
+    def __init__(self, state, parent, cost, heuristic, action=None):
+        self.state = state
+        self.parent = parent
+        self.depth = (parent.depth + 1) if parent is not None else 0
+        self.cost = cost
+        self.heuristic = heuristic
+        self.action = action
+
+    def __str__(self):
+        return "no(" + str(self.state) + "," + str(self.parent) + "," + str(self.depth) + str(self.cost) + str(self.heuristic) + ")"
+
+    def __repr__(self):
+        return str(self)
+
+    def in_parent(self, newstate):
+        if self.parent is None:
+            return False
+        if self.parent.state == newstate:
+            return True
+        return self.parent.in_parent(newstate)
+
+
+class SearchTree:
+    def __init__(self, problem, strategy="breadth"):
+        self.problem = problem
+        root = SearchNode(
+            problem.initial,
+            None,
+            0,
+            self.problem.domain.heuristic(self.problem.initial, self.problem.goal),
+        )
+        self.open_nodes = [root]
+        self.strategy = strategy
+        self.solution: SearchNode | None = None
+        self.non_terminals = 0
+        self.highest_cost_nodes = [root]
+        self.sum_depths = 0
+
+    def get_path(self, node):
+        if node.parent is None:
+            return [node.state]
+        path = self.get_path(node.parent)
+        path += [node.state]
+        return path
+
+    def path(self):
+        return self.get_path(self.solution)
+    
+    def plan(self):
+        return self.get_plan(self.solution)
+
+    def get_plan(self, node):
+        if node.parent is None:
+            return []
+        plan = self.get_plan(node.parent)
+        plan += [node.action]
+        return plan
+    
+    @property
+    def average_depth(self):
+        return self.sum_depths / (self.terminals + self.non_terminals - 1)
+
+    @property
+    def length(self):
+        return self.solution.depth if self.solution else 0
+
+    @property
+    def terminals(self):
+        return len(self.open_nodes) + 1
+
+    @property
+    def avg_branching(self):
+        return (self.non_terminals + self.terminals - 1) / self.non_terminals
+
+    @property
+    def cost(self):
+        return self.solution.cost if self.solution else None
+
+    def search(self, limit=None, timeout=None):
+        start_time = time.time()
+        
+        while self.open_nodes != []:
+            
+            if timeout and (time.time() - start_time) > timeout:
+                return None
+            
+            node = self.open_nodes.pop(0)
+            self.non_terminals += 1
+            if self.problem.goal_test(node.state):
+                self.non_terminals -= 1
+                self.solution = node
+                return self.get_path(node)
+
+            if limit is not None and node.depth >= limit:
+                continue
+
+            lnewnodes = []
+            for a in self.problem.domain.actions(node.state):
+                newstate = self.problem.domain.result(node.state, a)
+                if node.in_parent(newstate):
+                    continue
+
+                cost = node.cost + self.problem.domain.cost(node.state, a)
+                newnode = SearchNode(
+                    newstate,
+                    node,
+                    cost,
+                    self.problem.domain.heuristic(newstate, self.problem.goal),
+                    a
+                )
+                lnewnodes.append(newnode)
+
+                self.sum_depths += newnode.depth
+
+                if newnode.cost > self.highest_cost_nodes[0].cost:
+                    self.highest_cost_nodes = [newnode]
+                elif newnode.cost == self.highest_cost_nodes[0].cost:
+                    self.highest_cost_nodes.append(newnode)
+
+            self.add_to_open(lnewnodes)
+        return None
+
+    def add_to_open(self, lnewnodes):
+        if self.strategy == "breadth":
+            self.open_nodes.extend(lnewnodes)
+        elif self.strategy == "depth":
+            self.open_nodes[:0] = lnewnodes
+        elif self.strategy == "uniform":
+            self.open_nodes.extend(lnewnodes)
+            self.open_nodes.sort(key=lambda node: node.cost)
+        elif self.strategy == "greedy":
+            self.open_nodes.extend(lnewnodes)
+            self.open_nodes.sort(key=lambda node: node.heuristic)
+        elif self.strategy == "a*":
+            self.open_nodes.extend(lnewnodes)
+            self.open_nodes.sort(key=lambda node: node.heuristic + node.cost)
