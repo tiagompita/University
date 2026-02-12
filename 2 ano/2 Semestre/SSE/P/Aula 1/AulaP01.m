@@ -56,3 +56,81 @@ ones(5,5)
 M
 N = M(:,2:4)
 M(:,2:4) = []
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Polinómios
+
+% Exercicio 1
+p = pi/2
+
+sin(p)
+cos(p)
+tan(p)
+sqrt(p)
+nthroot(p, 3)
+
+% Exercicio 2
+
+k = -1
+log(k)
+sqrt(k)
+
+% Exercicio 3
+
+x = linspace(-1, 1, 100);
+y = exp(x)
+
+% Exercicio 4
+
+x = linspace(-pi, pi, 100);
+sin(x + pi/10) .* cos(x)
+
+% Exercicio 5
+
+p1 = [1 0 0 0 0 0 10];
+p2 = [1 -2 3];
+conv(p1,p2)
+
+% Exercicio 6
+
+r = [1 2 3];
+poly(r)
+
+% Exercicio 7
+
+p3 = [1 4 -3 1];
+roots(p3)
+
+w = linspace(0, 2*pi, 100);
+x = exp(1j * w);
+
+polyval(p3, x)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Exercicio 1
+x1 = linspace(0, 4*pi, 100);
+plot(x, sin(x))
+
+% Exercicio 2
+x2 = linspace(0, 2*pi, 100);
+
+y_sin = sin(x);
+y_cos = cos(x);
+
+% 3. Criar o gráfico
+figure;
+plot(x, y_sin, 'bo'); % 'b' = blue (azul), 'o' = círculos
+hold on;              % Mantém o gráfico anterior para sobrepor o próximo
+plot(x, y_cos, 'g-'); % 'g' = green (verde), '-' = linha a cheio
+
+% 4. Personalização (Legendas e títulos)
+legend('Seno', 'Coseno');
+title('Comparação: Seno vs Coseno');
+xlabel('Ângulo (radianos)');
+ylabel('Amplitude');
+grid on;
+
+
