@@ -1,0 +1,27 @@
+// Define Endianness types
+using u32_le = le u32;
+using u32_be = be u32;
+
+struct Section {
+    char magic[4];       // T33L
+    u32_le size;
+    u32_le load_addr;
+    u32_le payload_crc;
+    padding[16];      // 0x10 Padding
+    u8 payload[size];    // The actual data
+};
+
+struct GlobalHeader {
+    char magic[4];       // L33T
+    u32_le total_size;
+    u32_be section_count; // Big Endian as requested
+    u32_le global_crc;
+    
+    u8 global_padding[16]; // 0x10 Padding
+    
+    // An array of sections based on the section_count
+    Section sections[section_count];
+};
+
+// Start parsing at the beginning of the file
+GlobalHeader header @ 0x00;

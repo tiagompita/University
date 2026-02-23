@@ -1,0 +1,8 @@
+Ghidra - Versão 11.4.3
+python
+tmux
+screen
+vim
+binwalk
+xxd
+ImHex
