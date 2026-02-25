@@ -17,7 +17,36 @@ Considere um Sistema de Gestão de Stocks de uma empresa. O presente exercício 
 Identify the entities, attributes, and relationships of the database.
 
 ```
-... Write here your answer ...
+Produtos
+    - Codigo ID
+    - Nome
+    - Preço
+    - Tava IVA
+    - Quantidade
+
+Encomenda
+    - Numero ID
+    - Data
+
+Fornecedor
+    - Nome 
+    - NIF
+    - Endereço
+    - FAX
+
+Metodo de Pagamento:
+    - ID
+    - Designação
+
+Tipo de Fornecedor:
+    - ID
+    - Designação
+
+Relações:
+    Encomenda-Fornecedor
+    Encomenda-Produto (Atributo derivado "Stock")
+    Fornecedor-Tipo de Fornecedor
+    Fornecedor-Metodo de Pagamento
 
 ```
 
@@ -25,7 +54,33 @@ Identify the entities, attributes, and relationships of the database.
 Specify the relationships regarding the degree, cardinality and instances mandatory participation of the entities in the relationship.
 
 ```
-... Write here your answer ...
+Relação Encomenda-Fornecedor:
+    - Binária
+    - 1:N ( Um fornecedor pode ter várias encomendas (N), mas uma encomenda só tem apenas 1 fornecedor )
+    - Obrigatoriedade:
+        - Encomenda  : Obrigatorio   (Uma encomenda tem sempre de ter um fornecedor)
+        - Fornecedor : Opcional      (Um fornecedor pode existir sem haver encomendas no momento)
+
+Relação Encomenda-Produto:
+    - Binária
+    - N:M       ( Uma encomenda contem vários (N) produtos, e um mesmo produto pode constar em várias (M) encomendas diferentes )
+    - Obrigatoriedade:
+        - Encomenda  : Obrigatorio      (Uma encomenda tem sempre de ter um produto)
+        - Produto    : Opcional         (Um Produto pode existir sem haver encomendas no momento)
+
+Relação Fornecedor - Tipo de Fornecedor:
+    - Binária
+    - 1:N (Um Tipo de Fornecedor agrupa vários (N) Fornecedores, mas um Fornecedor tem apenas um (1) Tipo).
+    - Obrigatoriedade:
+        - Fornecedor: Obrigatório
+        - Tipo de Fornecedor: Opcional (Pode existir um tipo registado que ainda não foi atribuído a nenhum fornecedor).
+
+Relação Fornecedor - Metodo de Pagamento:
+    - Binária
+    - 1:N (Um Método de Pagamento, exemplo "30 dias", é partilhado por vários (N) fornecedores, mas cada fornecedor tem apenas 1 metodo escolhido para a encomenda).
+    - Obrigatoriedade:
+        - Fornecedor: Obrigatório (Tem de se saber como lhe pagar).
+        - Metodo de Pagamento: Opcional (Podemos ter métodos criados sem fornecedores associados).
 
 ```
 
