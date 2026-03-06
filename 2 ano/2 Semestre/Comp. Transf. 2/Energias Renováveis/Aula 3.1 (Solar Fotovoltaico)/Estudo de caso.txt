@@ -1,0 +1,14 @@
+Anotações
+
+Paineis fotovoltaicos
+Escola em Coimbra
+Autoconsumo
+
+3 kWp (Potencia máxima pretendida)
+1.5€ / Wp (Preço do sistema)
+0.2€ / kWh (Custo médio de energia)
+
+
+Taxa media de inflação anual: 3%
+Taxa anual de remuneração de capital sem risco: 2.5%
+Taxa anual de atualização do preço de energia: 4%
