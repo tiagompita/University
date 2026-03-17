@@ -1,8 +1,12 @@
-# Gestão de Projetos
+# Design Thinking
 
 ## Objetivos
-* Compreender a importância da gestão de projetos e suas múltiplas dimensões e saberes;
-* Proporcionar conhecimentos, métodos e técnicas de análise, planeamento, gestão, implementação e controlo de projetos
-* Desenvolver o espírito empreendedor e a capacidade de modelizar atividades por projetos
+* Aprendizagem de Modelos de Design Thinking
 
-# Nota Final: 17
+* Utilizar as Metodologias de Design Thinking para a resolução criativa e estratégica de problemas, designadamente:
+  - explorar e formular um problema
+  - gerar soluções potencialmente inovadoras
+  - tomar decisões no processo criativo
+  - comunicar soluções
+
+# Nota Final: 16
