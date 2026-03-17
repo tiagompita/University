@@ -25,4 +25,4 @@
 ## Objetivos
 * Aquisição de conhecimentos e competências em cálculo com uma variável incluindo o estudo de funções reais de uma variável e a integração. Resolução de equações diferenciais ordinárias.
 
-# Nota Final: ??
+# Nota Final: 15
