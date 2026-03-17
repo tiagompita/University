@@ -1,8 +1,6 @@
-# Gestão de Projetos
+# Técnicas de Comunicação e Apresentações
 
 ## Objetivos
-* Compreender a importância da gestão de projetos e suas múltiplas dimensões e saberes;
-* Proporcionar conhecimentos, métodos e técnicas de análise, planeamento, gestão, implementação e controlo de projetos
-* Desenvolver o espírito empreendedor e a capacidade de modelizar atividades por projetos
+* O principal objetivo do módulo passa por um processo de consciencialização das múltiplas componentes e técnicas que influenciam uma boa comunicação, o seu processo e as principais barreiras, bem como desenvolver uma apresentação com uma mensagem impactante e memorável.
 
-# Nota Final: 17
+# Nota Final: 14
