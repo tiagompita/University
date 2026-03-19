@@ -1,0 +1,19 @@
+Consider a generator of binary sequences modelled by the discrete time Markov Chain represented by the incomplete state transition matrix below. Consider the order of the stares represented by the matrix as 0, 1, F where the F state representes the end of the binary sequence.
+
+T = [ ? ? 0; 0.25 0.25 ?; 0.5 0.25 1 ]
+
+a) Represent in Matlab (and in this sheet) the complete state transition matrix T in which the matrix elemento t_ji corresponds to the transition probability from the state i to state j. Represent also the state diagram.
+
+
+b) Determine the probability (in %) of the sequence 1101 when the generator starts by 1.
+
+c) Determine the probability (in %) of the generated sequence having exactly 4 bits when at the beginning the generator selects the first bit as either 0 or 1 with equal probability.
+
+d) In the web pages with the connections shown in the figure below:
+A to B, D, E
+B to C
+C to D
+D to C, E
+E to A, D
+
+Compute the pagerank value of each page with the probability limits of the Google Matrix with \beta = 0.85. Indicate the highest and second highest ranked pages and their pagerank values.

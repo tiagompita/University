@@ -1,0 +1,19 @@
+Consider a diagnotic test for a particular disease and the following information:
+
+2% of the population has the disease
+
+the test correctly identifies a sick patient as positive with prob 97%
+
+the teste correct identifies a healthy patient as negative with prob 92%
+
+
+
+a) Compute the probability that a person has the disease given the test result is positive (theoretical value)
+
+
+
+b) Simulate the results of 10^5 tests and estimate, by simulation, the probability requested in the previous paragraph
+
+
+
+c) Compare the results obtained by simulation with the theoretical results and comment eventual differences.
