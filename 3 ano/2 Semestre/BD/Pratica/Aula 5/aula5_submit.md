@@ -41,28 +41,28 @@
 ### *f)* 
 
 ```
-... Write here your answer ...
+γ Dno; avg(Salary) -> AvgSalary (department ⨝ Dnumber = Dno employee)
 ```
 
 
 ### *g)* 
 
 ```
-... Write here your answer ...
+πFname,Lname (σcount>2 (γEssn; count(Dependent_name)->count dependent) ⨝ Essn=Ssn employee)
 ```
 
 
 ### *h)* 
 
 ```
-... Write here your answer ...
+π Fname,Minit,Lname, Ssn ((σ Super_ssn = null employee) ⨝ Ssn = Mgr_ssn department)
 ```
 
 
 ### *i)* 
 
 ```
-... Write here your answer ...
+π Fname,Lname,Address (employee ⨝ Ssn=Essn (works_on ⨝ Pno=Pnumber σ Plocation='Aveiro' project)) - π Fname,Lname,Address (employee ⨝ Dno=Dnumber σDlocation='Aveiro' dept_location)
 ```
 
 
@@ -71,27 +71,27 @@
 ### *a)*
 
 ```
-... Write here your answer ...
+π fornecedor.nome, fornecedor.nif, encomenda.numero, encomenda.fornecedor (σ encomenda.fornecedor = null (encomenda ⟗ fornecedor = nif fornecedor))
 ```
 
 ### *b)* 
 
 ```
-... Write here your answer ...
+τ codProd (γ codProd; avg(unidades) -> AvgUni item)
 ```
 
 
 ### *c)* 
 
 ```
-... Write here your answer ...
+γ avg(CountProd) -> AvgProdEnc (γ numEnc; count(codProd) -> CountProd item)
 ```
 
 
 ### *d)* 
 
 ```
-... Write here your answer ...
+π fornecedor.nome, produto.nome, item.unidades (fornecedor ⨝ nif = fornecedor (encomenda ⨝ numero = numEnc (item ⨝ codProd = codigo produto)))
 ```
 
 
@@ -100,37 +100,38 @@
 ### *a)*
 
 ```
-... Write here your answer ...
+π nome paciente - π nome (paciente ⨝ paciente.numUtente=prescricao.numUtente prescricao)
 ```
 
 ### *b)* 
 
 ```
-... Write here your answer ...
+γ especialidade; count(numPresc)->total (medico ⨝ numSNS=numMedico prescricao)
 ```
 
 
 ### *c)* 
 
 ```
-... Write here your answer ...
+γ farmacia; count(numPresc)->total prescricao
 ```
 
 
 ### *d)* 
 
 ```
-... Write here your answer ...
+π nome (σ farmaco.numRegFarm=906 farmaco) - π nome (σ farmaco.numRegFarm=906 (farmaco ⨝ farmaco.numRegFarm=presc_farmaco.numRegFarm presc_farmaco))
 ```
 
 ### *e)* 
 
 ```
-... Write here your answer ...
+γ farmacia,numRegFarm; count(numRegFarm)->total (prescricao ⨝ prescricao.numPresc=presc_farmaco.numPresc presc_farmaco)
 ```
 
 ### *f)* 
 
 ```
-... Write here your answer ...
+π nome (σ c>1 (γ numUtente; count(numMedico)->c prescricao) ⨝ paciente.numUtente=prescricao.numUtente paciente)
 ```
+
