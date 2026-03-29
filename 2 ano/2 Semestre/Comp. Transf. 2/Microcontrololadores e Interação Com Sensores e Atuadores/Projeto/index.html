@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Glove TinyML - Arquitetura e Guia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container { height: 250px; }
+        }
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem;
+        }
+        .nav-active {
+            border-left: 4px solid #3b82f6;
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            font-weight: 600;
+        }
+        .hide { display: none; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <!-- Chosen Palette: Slate & Blue Accent (Professional, Clean Engineering) -->
+    <!-- Application Structure Plan: A dashboard-style layout with a persistent side navigation menu. This allows the user to jump between different architectural concerns (Overview, Hardware/Data, TinyML, Web Stack, Challenges) without losing context. Interactive elements include an architectural flow diagram, a code toggler for sampling methods, a radar chart comparing ML frameworks, and a simulated live dashboard, providing a highly engaging, non-linear learning experience directly tailored to the requested engineering challenges. -->
+    <!-- Visualization & Content Choices: 
+         1. Architecture Diagram -> HTML/CSS Grid with hover/click -> Goal: Organize & Inform -> Justification: Shows data flow clearly without SVG. 
+         2. Code Toggle -> HTML buttons + JS visibility -> Goal: Compare -> Justification: Compares Polling vs Interrupts (referenced in uploaded docs) directly. 
+         3. Framework Comparison -> Chart.js Radar Chart -> Goal: Compare -> Justification: Multivariable comparison of Edge Impulse, X-CUBE-AI, and TFLite. 
+         4. Live Dashboard Mockup -> JS Interval + DOM Update -> Goal: Inform/Wow Factor -> Justification: Simulates the final goal of the project. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="w-full md:w-64 bg-white shadow-md z-10 sticky top-0 md:h-screen overflow-y-auto shrink-0">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold text-slate-800">Smart Glove <span class="text-blue-600">TinyML</span></h1>
+            <p class="text-xs text-slate-500 mt-1">Guia de Arquitetura STM32</p>
+        </div>
+        <ul class="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 border-slate-200">
+            <li><button data-target="section-overview" class="nav-btn nav-active w-full text-left px-6 py-4 text-sm hover:bg-slate-50 transition-colors whitespace-nowrap">🔍 Visão Geral & Fluxo</button></li>
+            <li><button data-target="section-pipeline" class="nav-btn w-full text-left px-6 py-4 text-sm text-slate-600 hover:bg-slate-50 transition-colors whitespace-nowrap">⚡ Pipeline de Dados (C/C++)</button></li>
+            <li><button data-target="section-tinyml" class="nav-btn w-full text-left px-6 py-4 text-sm text-slate-600 hover:bg-slate-50 transition-colors whitespace-nowrap">🧠 Frameworks TinyML</button></li>
+            <li><button data-target="section-web" class="nav-btn w-full text-left px-6 py-4 text-sm text-slate-600 hover:bg-slate-50 transition-colors whitespace-nowrap">💻 Stack Web Local</button></li>
+            <li><button data-target="section-challenges" class="nav-btn w-full text-left px-6 py-4 text-sm text-slate-600 hover:bg-slate-50 transition-colors whitespace-nowrap">🛠️ Desafios & Soluções</button></li>
+            <li><button data-target="section-simulator" class="nav-btn w-full text-left px-6 py-4 text-sm text-slate-600 hover:bg-slate-50 transition-colors whitespace-nowrap">🎮 Simulador do Dashboard</button></li>
+        </ul>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        
+        <section id="section-overview" class="content-section max-w-4xl mx-auto fade-in">
+            <h2 class="text-3xl font-bold mb-4">Arquitetura do Sistema</h2>
+            <p class="text-slate-600 mb-8 leading-relaxed">Este guia interativo detalha a arquitetura de hardware e software para a tua Smart Glove. O objetivo é fundir dados de sensores de flexão e IMU no STM32F411RE, processar os dados localmente usando TinyML e transmitir a classificação final para um dashboard web. Clica nos blocos abaixo para explorares o fluxo de dados.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md cursor-pointer transition-all text-center" onclick="updateFlowDetail('sensors')">
+                    <div class="text-3xl mb-2">🧤</div>
+                    <h3 class="font-semibold">Sensores</h3>
+                    <p class="text-xs text-slate-500 mt-1">IMU + Flexão Analógica</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md cursor-pointer transition-all text-center" onclick="updateFlowDetail('stm32')">
+                    <div class="text-3xl mb-2">⚙️</div>
+                    <h3 class="font-semibold">STM32F411RE</h3>
+                    <p class="text-xs text-slate-500 mt-1">Aquisição & Inferência</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md cursor-pointer transition-all text-center" onclick="updateFlowDetail('comms')">
+                    <div class="text-3xl mb-2">📡</div>
+                    <h3 class="font-semibold">Comunicação</h3>
+                    <p class="text-xs text-slate-500 mt-1">HC-05 (BT) via UART</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md cursor-pointer transition-all text-center" onclick="updateFlowDetail('pc')">
+                    <div class="text-3xl mb-2">💻</div>
+                    <h3 class="font-semibold">PC Local</h3>
+                    <p class="text-xs text-slate-500 mt-1">Dashboard Web</p>
+                </div>
+            </div>
+
+            <div id="flow-detail" class="bg-blue-50 p-6 rounded-xl border border-blue-100 min-h-[150px]">
+                <h4 class="font-bold text-blue-800 mb-2">Clica num bloco do diagrama acima</h4>
+                <p class="text-blue-900 text-sm">Explora as responsabilidades de cada componente na arquitetura da tua Smart Glove.</p>
+            </div>
+        </section>
+
+        <section id="section-pipeline" class="content-section max-w-4xl mx-auto hide">
+            <h2 class="text-3xl font-bold mb-4">Pipeline de Recolha de Dados & Integração</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">Para criares um dataset e posteriormente executares a inferência, deves garantir que a amostragem é determinística. Conforme abordado nas sebentas de "Timers and Interrupts" do MICSA, usar temporizadores de hardware (Timers) é muito superior a usar delays (Polling) para sinais biométricos/físicos.</p>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
+                <h3 class="font-bold text-lg mb-4">Estratégia de Amostragem (Software Integration)</h3>
+                <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700 mb-6">
+                    <li><strong>Frequência de Amostragem Ideal:</strong> Para gestos humanos (movimentos lentos), <strong>50Hz a 100Hz</strong> é o padrão da indústria. O teorema de Nyquist sugere que 50Hz capta dinâmicas até 25Hz, o que é suficiente para o movimento da mão.</li>
+                    <li><strong>Estrutura:</strong> Configura um Timer (ex: TIM2) para gerar uma interrupção a cada 20ms (50Hz). Na rotina de interrupção (ISR), define uma <em>flag</em>. No <code>main loop</code>, se a flag estiver ativa, lê o ADC (dedos) e o I2C (IMU), limpa a flag, processa os dados e envia.</li>
+                </ul>
+
+                <div class="flex space-x-2 mb-4">
+                    <button onclick="toggleCode('interrupt')" id="btn-interrupt" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded hover:bg-blue-700">Fase 1: Coleta de Dados (Dataset)</button>
+                    <button onclick="toggleCode('inference')" id="btn-inference" class="px-4 py-2 bg-slate-200 text-slate-700 text-sm font-semibold rounded hover:bg-slate-300">Fase 2: Inferência & Envio</button>
+                </div>
+
+                <div id="code-interrupt" class="code-block">
+// FASE 1: Imprimir RAW Data via UART para o PC (Para treinar o modelo)
+// Formato CSV ideal para o Edge Impulse Data Forwarder
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+  if (htim->Instance == TIM2) { data_ready_flag = 1; }
+}
+
+int main(void) {
+  // Inicializações (HAL, SystemClock, GPIO, ADC, I2C, TIM2, UART)
+  HAL_TIM_Base_Start_IT(&htim2); // Start Timer Interrupt @ 50Hz
+  
+  while (1) {
+    if (data_ready_flag) {
+      data_ready_flag = 0;
+      
+      // Lê IMU (I2C)
+      MPU6050_Read_All(&i2c1, &MPU6050);
+      
+      // Lê 5 sensores de flexão (ADC c/ DMA ou Polling rápido)
+      read_ADC_channels(flex_data); 
+      
+      // Imprime em formato CSV via UART
+      char buffer[128];
+      sprintf(buffer, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n", 
+              MPU6050.Ax, MPU6050.Ay, MPU6050.Az, 
+              MPU6050.Gx, MPU6050.Gy, MPU6050.Gz,
+              flex_data[0], flex_data[1], flex_data[2], flex_data[3], flex_data[4]);
+              
+      HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+    }
+  }
+}
+                </div>
+
+                <div id="code-inference" class="code-block hide">
+// FASE 2: Aplicação Final (TinyML a correr no STM32)
+// Envia APENAS o resultado para não saturar o Bluetooth
+int main(void) {
+  // Inicializações...
+  HAL_TIM_Base_Start_IT(&htim2);
+  
+  while (1) {
+    if (data_ready_flag) {
+      data_ready_flag = 0;
+      
+      // Adiciona novos dados ao buffer do modelo (sliding window)
+      fill_inference_buffer(&MPU6050, flex_data);
+      
+      // Quando a janela de tempo (ex: 1 segundo = 50 samples) estiver cheia
+      if (inference_buffer_full) {
+         // Executa Inferência TinyML
+         run_inference(inference_buffer, &result);
+         
+         // Envia apenas a predição via UART/Bluetooth
+         char tx_buf[32];
+         sprintf(tx_buf, "GESTO:%s,CONF:%d\r\n", result.label, result.confidence);
+         HAL_UART_Transmit(&huart2, (uint8_t*)tx_buf, strlen(tx_buf), 100);
+         
+         reset_inference_buffer();
+      }
+    }
+  }
+}
+                </div>
+            </div>
+        </section>
+
+        <section id="section-tinyml" class="content-section max-w-4xl mx-auto hide">
+            <h2 class="text-3xl font-bold mb-4">Comparativo de Frameworks TinyML</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">Para hardware específico como o STM32F411RE (ARM Cortex-M4F, 512KB Flash, 128KB RAM), existem 3 vias principais. A escolha depende da vossa familiaridade com Machine Learning vs. Engenharia de Sistemas Embebidos.</p>
+
+            <div class="chart-container mb-8">
+                <canvas id="tinyMlChart"></canvas>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
+                    <h3 class="font-bold text-lg">🥇 Edge Impulse</h3>
+                    <p class="text-sm text-slate-600 mt-2"><strong>O Melhor para Estudantes.</strong> Plataforma web End-to-End. Usa a ferramenta <em>Data Forwarder</em> para ler a UART do STM32, treina o modelo na nuvem e exporta uma biblioteca C++ pura. O F411RE tem memória suficiente para os modelos que o EI gera (Random Forest ou pequenas NNs).</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                    <h3 class="font-bold text-lg">🥈 X-CUBE-AI (ST)</h3>
+                    <p class="text-sm text-slate-600 mt-2"><strong>A Melhor Otimização.</strong> É o plugin nativo do STM32CubeIDE. Implica que já tenhas um modelo treinado (Keras, TFLite). Ele converte e comprime o modelo de forma extrema para a RAM/Flash do STM32. Requer que faças a pipeline de treino em Python no teu PC primeiro.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border-l-4 border-red-500 shadow-sm">
+                    <h3 class="font-bold text-lg">🥉 TFLite Micro</h3>
+                    <p class="text-sm text-slate-600 mt-2"><strong>O "Engine" Core.</strong> Implementar TFLM diretamente a partir do zero no STM32 em C++ é muito trabalhoso. O Edge Impulse e o X-CUBE-AI já usam os kernels do TFLM ou CMSIS-NN por baixo, poupando-te semanas de configuração de <em>Makefiles</em> e dependências.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-web" class="content-section max-w-4xl mx-auto hide">
+            <h2 class="text-3xl font-bold mb-4">Apresentação: Stack Web Local</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">Para apresentar a "tradução" da luva no ecrã em tempo real, precisas de algo que leia a porta COM (UART/Bluetooth) do teu PC e envie isso para uma interface Web (HTML/JS).</p>
+
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center">
+                    <div class="text-4xl mr-4 mb-2 md:mb-0">🟩</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Recomendação Principal: Node.js + SerialPort + Socket.io</h3>
+                        <p class="text-sm text-slate-600 mt-1">É a abordagem mais robusta e "real-time". Um script Node.js usa a biblioteca <code>serialport</code> para ler os dados que chegam via Bluetooth HC-05 (que no PC é visto como uma porta COM virtual). Assim que lê a string "GESTO:A", envia via WebSocket (<code>socket.io</code>) para o teu ficheiro HTML local, atualizando a DOM instantaneamente, sem <em>refreshes</em> de página.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center">
+                    <div class="text-4xl mr-4 mb-2 md:mb-0">🐍</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Alternativa Simples: Python Flask + PySerial + AJAX</h3>
+                        <p class="text-sm text-slate-600 mt-1">Se o teu grupo souber mais de Python, usa o <code>pyserial</code> para ler a porta COM. Cria uma rota Flask (ex: <code>/gesto_atual</code>) que retorna a última leitura em formato JSON. Na tua página HTML/JS, usas <code>setInterval()</code> e <code>fetch()</code> a cada 100ms para ir buscar a nova letra. É um pouco menos "real-time" que WebSockets, mas muito mais fácil de codificar inicialmente.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center">
+                    <div class="text-4xl mr-4 mb-2 md:mb-0">🌐</div>
+                    <div>
+                        <h3 class="font-bold text-lg">Experimental: Web Bluetooth API</h3>
+                        <p class="text-sm text-slate-600 mt-1">Permite que o browser (Chrome) ligue diretamente ao Bluetooth <strong>sem nenhum servidor Node ou Python</strong> (HTML/JS puro). <strong>CUIDADO:</strong> Só funciona com módulos BLE (Bluetooth Low Energy) como o HC-08, JDY-08 ou ESP32. O <strong>HC-05 é Bluetooth Clássico</strong> e não é suportado nativamente pelo Chrome nesta API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-challenges" class="content-section max-w-4xl mx-auto hide">
+            <h2 class="text-3xl font-bold mb-4">Desafios Clássicos e Soluções (Pesquisa Guiada)</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">Na montagem deste hardware/software, vão bater de frente com os seguintes problemas. Eis as palavras-chave e recursos que devem pesquisar para os resolver.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-yellow-400">🚨 Ruído & Drift do MPU6050</h3>
+                    <p class="text-sm mt-2"><strong>Problema:</strong> Se usarem apenas os valores de giroscópio (graus/s) e fizerem integração matemática, o valor vai "voar" ao fim de poucos segundos (Drift).</p>
+                    <hr class="border-slate-600 my-3">
+                    <p class="text-sm"><strong>Solução (Pesquisar):</strong> <em>"Jeff Rowberg i2cdevlib MPU6050 DMP"</em>. O MPU6050 tem um processador interno (DMP) que funde o acelerómetro e o giroscópio automaticamente e cospe Quaternions limpos e Euler Angles.</p>
+                </div>
+
+                <div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-green-400">🚨 Ruído dos Sensores de Flexão</h3>
+                    <p class="text-sm mt-2"><strong>Problema:</strong> Sensores resistivos sofrem de "jitter" analógico. O conversor A/D (ADC) do STM32 capta muita interferência eletromagnética (EMI).</p>
+                    <hr class="border-slate-600 my-3">
+                    <p class="text-sm"><strong>Solução (Pesquisar):</strong> <em>"STM32 ADC DMA Oversampling"</em> ou implementar um filtro <em>Moving Average</em> (Média Móvel) de 5-10 amostras no C. Adicionar um condensador de 10nF em paralelo com a resistência de pull-down no hardware (Filtro Low-Pass RC).</p>
+                </div>
+
+                <div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-blue-400">🚨 Latência via UART/Bluetooth</h3>
+                    <p class="text-sm mt-2"><strong>Problema:</strong> Usar `printf` ou `HAL_UART_Transmit` em modo Polling atrasa o microcontrolador e estraga a frequência de amostragem (os 50Hz não se mantêm).</p>
+                    <hr class="border-slate-600 my-3">
+                    <p class="text-sm"><strong>Solução (Pesquisar):</strong> <em>"STM32 HAL UART Transmit DMA"</em>. Usar o canal DMA permite que o processador mande a String para a UART e continue o seu trabalho sem ter que esperar que os bits saiam pelo cabo.</p>
+                </div>
+                
+                <div class="bg-slate-800 text-white p-5 rounded-xl shadow-lg">
+                    <h3 class="font-bold text-lg text-pink-400">🚨 Memória Ram do STM32F411</h3>
+                    <p class="text-sm mt-2"><strong>Problema:</strong> Redes Neuronais precisam de alocar buffers (Tensor Arena). Se o modelo for grande, dá <em>HardFault Handler</em> (crash).</p>
+                    <hr class="border-slate-600 my-3">
+                    <p class="text-sm"><strong>Solução (Pesquisar):</strong> Usar <em>"Edge Impulse EON Compiler"</em> ou <em>"CMSIS-NN"</em>. Isto reduz a RAM necessária ao evitar o interpretador TFLite, compilando a rede diretamente para código C bruto. Aumentem também o tamanho da Heap/Stack no ficheiro <code>.ld</code> no STM32CubeIDE.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-simulator" class="content-section max-w-4xl mx-auto hide">
+            <h2 class="text-3xl font-bold mb-4">Simulador de Dashboard (Output Final)</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">É assim que a aplicação web local (feita em Node.js/HTML) poderá parecer. Ela recebe a string processada pela luva e apresenta o resultado centrado ao utilizador.</p>
+            
+            <div class="bg-black text-green-400 font-mono p-4 rounded-t-xl text-xs h-32 overflow-hidden relative">
+                <div class="absolute top-2 left-2 text-slate-400">Terminal (Recepção Serial / COM3)</div>
+                <div id="terminal-output" class="absolute bottom-2 left-2 right-2 flex flex-col justify-end space-y-1">
+                    <!-- Terminal logs will appear here -->
+                </div>
+            </div>
+            <div class="bg-white border-2 border-slate-200 border-t-0 rounded-b-xl flex flex-col items-center justify-center p-10 min-h-[300px] relative shadow-inner">
+                <div class="text-slate-500 font-semibold mb-2">Tradução Atual:</div>
+                <div id="gesture-display" class="text-9xl font-bold text-blue-600 transition-transform transform scale-100">?</div>
+                <div id="confidence-display" class="mt-4 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold hide">Confiança: 0%</div>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <button onclick="toggleSimulator()" id="sim-btn" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                    ▶ Iniciar Simulação de Conexão
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Navigation Logic ---
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.content-section');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button state
+                navBtns.forEach(b => {
+                    b.classList.remove('nav-active');
+                    b.classList.add('text-slate-600');
+                });
+                btn.classList.add('nav-active');
+                btn.classList.remove('text-slate-600');
+
+                // Show target section
+                const targetId = btn.getAttribute('data-target');
+                sections.forEach(sec => {
+                    sec.classList.add('hide');
+                    sec.classList.remove('fade-in');
+                });
+                const targetSec = document.getElementById(targetId);
+                targetSec.classList.remove('hide');
+                
+                // Slight delay for animation re-trigger
+                setTimeout(() => targetSec.classList.add('fade-in'), 10);
+
+                // Trigger chart render if TinyML section is opened and chart not rendered yet
+                if(targetId === 'section-tinyml' && !window.chartRendered) {
+                    renderChart();
+                    window.chartRendered = true;
+                }
+            });
+        });
+
+        // --- Section 1: Flow Diagram Logic ---
+        const flowDetails = {
+            'sensors': { title: "Camada Sensorial (Hardware)", desc: "1x MPU6050 (Aceleração e Giroscópio, I2C).<br>5x Sensores Flex analógicos (Divisor de Tensão, ligados aos pinos ADC, ex: PA0 a PA4).<br>Exigem resistências de pull-down e acondicionamento de sinal para evitar jitter." },
+            'stm32': { title: "Microcontrolador STM32F411RE", desc: "Usa um Hardware Timer para interrupções a 50Hz.<br>Lê Sensores -> Preenche Buffer -> Executa modelo Edge Impulse (C++).<br>Gere o clock (I2C) e processa DSP (Digital Signal Processing) leve." },
+            'comms': { title: "Transmissão (HC-05 UART)", desc: "Módulo Bluetooth ligado ao USART2 do STM32 (Pinos TX/RX).<br>Transmite strings leves como <code>GESTO:A</code> a 9600 ou 115200 baudrate.<br>Configurado preferencialmente com DMA (Direct Memory Access) para não bloquear o CPU." },
+            'pc': { title: "Receptor (PC / Web)", desc: "Uma porta COM virtual emparelhada com o HC-05.<br>Um script Node.js escuta a porta e lança WebSockets.<br>O Browser escuta os websockets e atualiza o UI instantaneamente." }
+        };
+
+        function updateFlowDetail(key) {
+            const detailBox = document.getElementById('flow-detail');
+            detailBox.innerHTML = `
+                <h4 class="font-bold text-blue-800 mb-2">${flowDetails[key].title}</h4>
+                <p class="text-blue-900 text-sm leading-relaxed">${flowDetails[key].desc}</p>
+            `;
+            detailBox.classList.remove('fade-in');
+            void detailBox.offsetWidth; // trigger reflow
+            detailBox.classList.add('fade-in');
+        }
+
+        // --- Section 2: Code Toggler Logic ---
+        function toggleCode(type) {
+            const btnInt = document.getElementById('btn-interrupt');
+            const btnInf = document.getElementById('btn-inference');
+            const codeInt = document.getElementById('code-interrupt');
+            const codeInf = document.getElementById('code-inference');
+
+            if (type === 'interrupt') {
+                codeInt.classList.remove('hide');
+                codeInf.classList.add('hide');
+                btnInt.className = "px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded hover:bg-blue-700";
+                btnInf.className = "px-4 py-2 bg-slate-200 text-slate-700 text-sm font-semibold rounded hover:bg-slate-300";
+            } else {
+                codeInt.classList.add('hide');
+                codeInf.classList.remove('hide');
+                btnInf.className = "px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded hover:bg-blue-700";
+                btnInt.className = "px-4 py-2 bg-slate-200 text-slate-700 text-sm font-semibold rounded hover:bg-slate-300";
+            }
+        }
+
+        // --- Section 3: Chart.js Logic ---
+        function renderChart() {
+            const ctx = document.getElementById('tinyMlChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Facilidade de Uso', 'Integração STM32 (CubeIDE)', 'Pegada de Memória (Otimização)', 'Pipeline de Dados UI', 'Suporte Comunidade'],
+                    datasets: [{
+                        label: 'Edge Impulse',
+                        data: [9, 7, 7, 10, 8],
+                        fill: true,
+                        backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                        borderColor: 'rgb(34, 197, 94)',
+                        pointBackgroundColor: 'rgb(34, 197, 94)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(34, 197, 94)'
+                    }, {
+                        label: 'X-CUBE-AI',
+                        data: [4, 10, 9, 3, 6],
+                        fill: true,
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgb(59, 130, 246)',
+                        pointBackgroundColor: 'rgb(59, 130, 246)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(59, 130, 246)'
+                    }, {
+                        label: 'TFLite Micro (Raw)',
+                        data: [2, 5, 8, 2, 9],
+                        fill: true,
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        borderColor: 'rgb(239, 68, 68)',
+                        pointBackgroundColor: 'rgb(239, 68, 68)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(239, 68, 68)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    elements: { line: { borderWidth: 2 } },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: { font: { size: 11, family: 'Inter' } },
+                            ticks: { display: false, min: 0, max: 10 }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: 'Inter' } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) { label += context.parsed.r + '/10'; }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- Section 5: Simulator Logic ---
+        let simInterval;
+        let isSimulating = false;
+        const gestures = [
+            { char: 'A', conf: 98 }, { char: 'A', conf: 99 }, { char: 'A', conf: 95 },
+            { char: 'B', conf: 88 }, { char: 'B', conf: 92 }, 
+            { char: 'C', conf: 96 }, { char: 'C', conf: 94 },
+            { char: '👋', conf: 85 }, // Swipe/Movement
+            { char: 'L', conf: 91 }, { char: 'L', conf: 97 }
+        ];
+
+        function toggleSimulator() {
+            const btn = document.getElementById('sim-btn');
+            const display = document.getElementById('gesture-display');
+            const confDisplay = document.getElementById('confidence-display');
+            const terminal = document.getElementById('terminal-output');
+
+            if (isSimulating) {
+                clearInterval(simInterval);
+                btn.innerHTML = "▶ Iniciar Simulação de Conexão";
+                btn.classList.replace('bg-red-600', 'bg-blue-600');
+                btn.classList.replace('hover:bg-red-700', 'hover:bg-blue-700');
+                isSimulating = false;
+                display.innerText = '?';
+                confDisplay.classList.add('hide');
+                terminal.innerHTML += `<div class="text-red-400">> Conexão encerrada.</div>`;
+            } else {
+                btn.innerHTML = "⏹ Parar Simulação";
+                btn.classList.replace('bg-blue-600', 'bg-red-600');
+                btn.classList.replace('hover:bg-blue-700', 'hover:bg-red-700');
+                confDisplay.classList.remove('hide');
+                isSimulating = true;
+                terminal.innerHTML = `<div class="text-slate-400">> A aguardar dados na porta COM3 (Baud: 115200)...</div>`;
+                
+                simInterval = setInterval(() => {
+                    const randGesture = gestures[Math.floor(Math.random() * gestures.length)];
+                    
+                    // Update Terminal
+                    const logLine = document.createElement('div');
+                    logLine.innerText = `> GESTO:${randGesture.char},CONF:${randGesture.conf}`;
+                    terminal.appendChild(logLine);
+                    if(terminal.children.length > 5) terminal.removeChild(terminal.firstChild);
+
+                    // Update UI
+                    display.innerText = randGesture.char;
+                    confDisplay.innerText = `Confiança: ${randGesture.conf}%`;
+                    
+                    // Small pop animation
+                    display.style.transform = 'scale(1.2)';
+                    setTimeout(() => display.style.transform = 'scale(1)', 150);
+
+                }, 1500); // New gesture every 1.5s
+            }
+        }
+    </script>
+</body>
+</html>
