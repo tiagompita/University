@@ -66,8 +66,18 @@ CREATE TABLE NM.Medida_Item_Encomenda (
 	CONSTRAINT PK_Medida_Item PRIMARY KEY (id_medida_item)
 );
 
+CREATE TABLE NM.Cliente (
+	id_cliente			INT			NOT NULL,
+	nome				VARCHAR(40)	NOT NULL,
+	telefone			VARCHAR(20)	NOT NULL,
+	email				VARCHAR(255),
+
+	CONSTRAINT PK_Cliente			PRIMARY KEY (id_cliente)
+);
+
 CREATE TABLE NM.Medida_Cliente (
 	id_medida_cliente	INT			NOT NULL,
+	id_cliente			INT			NOT NULL,
 	braco				INT			NOT NULL,
 	costas				INT			NOT NULL,
 	peito				INT			NOT NULL,
@@ -75,18 +85,8 @@ CREATE TABLE NM.Medida_Cliente (
 	anca				INT			NOT NULL,
 	data_registo		DATE		NOT NULL,
 
-	CONSTRAINT PK_Medida_Cliente PRIMARY KEY (id_medida_cliente)
-);
-
-CREATE TABLE NM.Cliente (
-	id_cliente			INT			NOT NULL,
-	nome				VARCHAR(40)	NOT NULL,
-	telefone			VARCHAR(20)	NOT NULL,
-	email				VARCHAR(255),
-	medida_cliente		INT	UNIQUE	NOT NULL,
-
-	CONSTRAINT PK_Cliente			PRIMARY KEY (id_cliente),
-	CONSTRAINT FK_Cliente_Medida	FOREIGN KEY (medida_cliente) REFERENCES NM.Medida_Cliente(id_medida_cliente)
+	CONSTRAINT PK_Medida_Cliente PRIMARY KEY (id_medida_cliente),
+	CONSTRAINT FK_Cliente		FOREIGN KEY (id_cliente) REFERENCES NM.Cliente(id_cliente)
 );
 
 CREATE TABLE NM.Encomenda (
@@ -96,8 +96,6 @@ CREATE TABLE NM.Encomenda (
 	estado					VARCHAR(15)			NOT NULL,
 	data_pronto				DATE,
 	data_real_entrega		DATE,
-	valor_pago				DECIMAL(6,2)		NOT NULL,
-	valor_em_falta			DECIMAL(6,2),
 	valor_total				DECIMAL(10,2)		NOT NULL,
 	cliente					INT					NULL,
 
@@ -177,7 +175,7 @@ CREATE TABLE NM.Produto_Pronto (
 	id_produto_pronto		INT				NOT NULL,
 	codigo					INT UNIQUE		NOT NULL,
 	nome					VARCHAR(30)		NOT NULL,
-	tamanho					VARCHAR(10)		NOT NULL,
+	tamanho					INT				NOT NULL,
 	cor						VARCHAR(10)		NOT NULL,
 	preco					DECIMAL(6,2)	NOT NULL,
 	quantidade_stock		INT,
@@ -211,5 +209,9 @@ CREATE TABLE NM.Ajuste (
 	CONSTRAINT PK_Ajuste				PRIMARY KEY (id_ajuste),
 	CONSTRAINT CHK_Ajuste_Estado		CHECK (estado IN ('Pendente', 'Em Produção', 'Pronta', 'Entregue', 'Cancelada')),
 	CONSTRAINT FK_Ajuste_Detalhe		FOREIGN KEY (detalhe_compra) REFERENCES NM.Detalhe_Compra (id_detalhes),
-	CONSTRAINT FK_Ajuste_Item_Encomenda FOREIGN KEY (item_encomenda) REFERENCES NM.Item_Encomenda(id_item_encomenda)
+	CONSTRAINT FK_Ajuste_Item_Encomenda FOREIGN KEY (item_encomenda) REFERENCES NM.Item_Encomenda(id_item_encomenda),
+	CONSTRAINT CHK_Ajuste_Exclusivo CHECK (
+		(detalhe_compra IS NOT NULL AND item_encomenda IS NULL) OR 
+		(detalhe_compra IS NULL AND item_encomenda IS NOT NULL)
+	)
 );

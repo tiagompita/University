@@ -1,0 +1,34 @@
+changelog 15/04/2026
+
+v1:
+
+Medida_cliente passa a ser opcional, primeiro é criado um Cliente, posteriormente, se necessário, pode-se criar uma medida para o cliente.
+Anteriormente estava: para haver cliente, é necessário tirar medidas. Ora se um cliente quisesse comprar a pronto, não precisava obrigatoriamente de tirar medidas.
+
+v1.1:
+
+Adicionado:
+CONSTRAINT CHK_Ajuste_Exclusivo CHECK (
+    (detalhe_compra IS NOT NULL AND item_encomenda IS NULL) OR 
+    (detalhe_compra IS NULL AND item_encomenda IS NOT NULL)
+)
+
+Na vida real, um ajuste é feito numa peça comprada a pronto OU numa peça feita por encomenda. Da forma como a tabela estava, podia haver um ajuste que não estava associado a nenhuma das duas, ou associado a ambas em simultâneo.
+Agora obriga a, sempre que houver um ajuste, estar indentificado a qual tipo.
+
+v1.2:
+
+Na tabela, Encomenda, alterei:
+cliente					INT					NULL,
+
+para
+
+cliente					INT					NOT NULL,
+
+Uma encomenda deve estar sempre associado a um cliente, ao contrario de compra, que um pessoa, não precisa de ser cliente para comprar algo a pronto.
+
+v1.3:
+
+Na tabela Encomenda existe os campos valor_total, valor_pago e valor_em_falta. Simultaneamente, existe a tabela Pagamento_Encomenda onde é registado cada pagamento individual que o cliente faz.
+Removido os campos valor_pago e valor_em_falta da tabela Encomenda, pois podem ser calculados a partir "valor total" (Encomenda) e "valor" (Pagamento_Encomenda)
+
