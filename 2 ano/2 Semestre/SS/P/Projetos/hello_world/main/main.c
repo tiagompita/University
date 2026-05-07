@@ -2,5 +2,7 @@
 
 void app_main(void)
 {
-    printf("Hello from ESP32 !!");
+    setvbuf(stdout, NULL, _IONBF, 0);
+    printf("Hello from ESP32 !!\n");
+    fflush(stdout);
 }
