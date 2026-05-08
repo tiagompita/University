@@ -3,7 +3,8 @@
     {
       "name": "ESP-IDF",
       "compilerPath": "/home/pita/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
-      "compileCommands": "${config:idf.buildPath}/compile_commands.json",
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "intelliSenseMode": "linux-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**"
       ],

@@ -1,5 +1,7 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
+  "editor.inlineSuggest.enabled": false,
+  "idf.extensionActivationMode": "always",
   "idf.openOcdConfigs": [
     "board/esp32c6-builtin.cfg"
   ],
@@ -12,7 +14,7 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=/home/pita/Desktop/University/2 ano/2 Semestre/SS/P/Projetos/hello_world/build"
+    "--compile-commands-dir=/home/pita/Desktop/University/2 ano/2 Semestre/SS/P/Aula 9/LEDControl4.1/build"
   ],
   "idf.flashType": "UART"
 }
