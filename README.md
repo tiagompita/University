@@ -1,6 +1,6 @@
 <h1 align="center">Welcome 👋</h1>
 
-Repositório pessoal com apontamentos, exercícios e projetos da Universidade.
+Repositório pessoal com conteúdos, apontamentos, exercícios e projetos durante o meu progresso universitário.
 
 ---
 
@@ -22,6 +22,8 @@ Repositório pessoal com apontamentos, exercícios e projetos da Universidade.
 - [MD](./1%20ano/2%20Semestre/MD) - Matemática Discreta
 - [POO](./1%20ano/2%20Semestre/POO) - Programação Orientada a Objetos
 
+---
+
 ### 2º Ano
 
 #### 1º Semestre
@@ -37,6 +39,8 @@ Repositório pessoal com apontamentos, exercícios e projetos da Universidade.
 - [CT 2](./2%20ano/2%20Semestre/Comp.%20Transf.%202) - Competências Transferíveis 2
 - [RC2](./2%20ano/2%20Semestre/RC2) - Redes de Computadores 2
 - [SS](./2%20ano/2%20Semestre/SS) - Segurança de Sistemas
+
+---
 
 ### 3º Ano
 
