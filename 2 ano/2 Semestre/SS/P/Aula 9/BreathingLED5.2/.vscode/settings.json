@@ -13,7 +13,7 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=/home/pita/Desktop/University/2 ano/2 Semestre/SS/P/Aula 9/ButtonPolling4.2/build"
+    "--compile-commands-dir=/home/pita/BreathingLED5.2/build"
   ],
   "idf.flashType": "UART"
 }

@@ -19,23 +19,29 @@ void app_main(void)
 
     gpio_set_direction(GPIO_NUM_9, GPIO_MODE_INPUT);
 
-    bool flag = 0;    
+    bool estado_anterior = gpio_get_level(GPIO_NUM_9);
+
 
     while (1)
     {
-        if (gpio_get_level(GPIO_NUM_9) == 1 && flag == 0) {
-            printf("[EVENTO] Botão pressionado");
+        bool estado_atual = gpio_get_level(GPIO_NUM_9);
 
-            flag = 1;
-        }
-        
-        if (gpio_get_level(GPIO_NUM_9) == 0 && flag == 0)
-        {
-            printf("[EVENTO] Botão largado");
-            flag = 1;
-        }
+        if (estado_atual != estado_anterior) {
+            vTaskDelay(pdMS_TO_TICKS(50)); //debounce
 
+            bool estado_confirmado = gpio_get_level(GPIO_NUM_9);
+
+            if (estado_confirmado == estado_atual) {
+                if (estado_atual == 0) {
+                    printf("[EVENTO] Botão pressionado!\n");
+                } else {
+                    printf("[EVENTO] Botão largado!\n");
+                }
+
+                estado_anterior = estado_atual;
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(10));
         
-        flag = 0;
     }
 }
