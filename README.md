@@ -2,6 +2,8 @@
 
 Repositório pessoal com conteúdos, apontamentos, exercícios e projetos durante o meu progresso universitário.
 
+> **Aviso:** Qualquer foto de testes ou avaliações presentes neste repositório não é da minha autoria. Estes ficheiros são disponibilizados e utilizados exclusivamente para fins de estudo.
+
 ---
 
 ## 📚 Cadeiras

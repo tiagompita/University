@@ -150,8 +150,8 @@ void app_main(void)
                 ESP_LOGI(TAG, "A iniciar cálculos da FFT...");
 
                 for (uint32_t i = 0; i < SAMPLES_NUMBER_GOAL; i++) {
-                    array_fft[i * 2 + 0] = processed_samples[i] / 1000.0; // Dividi por 1000 para voltar a Volts!
-                    array_fft[i*2 + 1] = 0.0;
+                    array_fft[i * 2 + 0] = processed_samples[i] / 1000.0; // Dividi por 1000 para voltar a volts
+                    array_fft[i * 2 + 1] = 0.0;
                 }
                 
                 dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
@@ -160,8 +160,8 @@ void app_main(void)
 
                 dsps_bit_rev_fc32(array_fft, SAMPLES_NUMBER_GOAL);
 
-                // DICA 5: Calcular magnitude e procurar picos.
-                // Faz um ciclo for que vai apenas até METADE das amostras (SAMPLES_NUMBER_GOAL / 2) porque consideramos apenas as frequências positivas.
+                // Calcular magnitude e procurar picos.
+                // Faz um ciclo for que vai apenas até METADE das amostras (SAMPLES_NUMBER_GOAL / 2) porque consideramos apenas as frequências positivas
                 // Dentro do ciclo:
                 //   a. Extrai a parte real (índice i*2+0) e a parte imaginária (índice i*2+1).
                 //   b. Calcula a magnitude: float magnitude = sqrt((real * real) + (imag * imag));
