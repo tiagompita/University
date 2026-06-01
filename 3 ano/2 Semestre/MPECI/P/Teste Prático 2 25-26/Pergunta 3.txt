@@ -1,0 +1,15 @@
+Consider the provided Matlab function SimulatorB() that implements a discrete event simulator of a data link connection with an infinite size queue. The simulator estimates the performance parameter PAR that is returned by the function.
+
+a) Through the analysis of the provided function, identify the performance parameter PAR (and its units) estimated by the simulator and describe how it is computed.
+
+b) Through the analysis of the provided function, describe the probability mass function of the packet size considered by the simulator.
+
+c) Consider the case of a packet arrival of 3500 packets/sec, a link capacity of 10Mbps and N = 10^4. Using the provided function, develop a script and run it to compute the estimated value and the associated 90% confidence intervals of parameter PAR based on 20 runs.
+
+Matlab code of the script:
+
+d) Repeat question c) but now computing the simulation results based on 200 runs. Compare these results with the previous ones and write below your conclusions.
+
+Matlab code (describe only what is different between this code and the previous one):
+
+Conclusions:

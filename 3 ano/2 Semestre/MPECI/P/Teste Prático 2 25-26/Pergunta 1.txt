@@ -1,0 +1,32 @@
+Consider a Data Center with N servers and t maintenance technicians. The amount of time each server runs until it fails is exponentially distributed with an average of dF days. The server repair time of each technician is exponentially distributed with an average of dR hours. The Markov chain representing the number of failing servers is:
+
+State 0:
+    to 1: 6/120
+
+State 1:
+    to 0: 2
+    to 2: 5/120
+
+State 2:
+    to 1: 4
+    to 3: 4/120
+
+State 3:
+    to 2: 6
+    to 4: 3/120
+State 4:
+    to 3: 6
+    to 5: 2/120
+State 5:
+    to 4: 6
+    to 6: 1/120
+State 6:
+    to 5: 6
+
+where the state transition rates are in number of transitions per day.
+
+a) Determine from the markov chain the number of servers N, the number of technicians t, and the average times dF and dR. Justify:
+
+b) Compute the state limiting probabilities (in %) of all states. Write the probabilities of state 1 and state 2 with 6 decimal digits. Matlab code:
+
+c) Determine the average number of technicians in repairing operations and compute also the probability (in %) of none of the technicians being in repairing operations. Write both values with 6 decimal digits. Matlab code:

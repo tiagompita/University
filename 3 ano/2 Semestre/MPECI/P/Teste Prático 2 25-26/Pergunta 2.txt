@@ -1,0 +1,10 @@
+Consider a Call Center service with 100 operators such that each operator attends each cliente with an exponentially distributed time of 10 minutes. The service receives requests at an average rate of 500 requests/hour.
+
+a) Compute the percentage of requests that are immediately attended (i.e., they do not suffer queuing delay). Matlab code:
+
+b) Compute the average queuing time (in seconds) per request of the service. Matlab code:
+
+c) Develop a script to plot the average queueing time per request (in seconds) as a function of the number of operators for 90, 95, 100, 105 and 110 operators. Use matlab bar() function to make the plot. Add a grid (with the grid on command) and add also appropriate labels for both axes. Add below a justification for the results obtained in the resulting plot. 
+Matlab code:
+
+Justification:
