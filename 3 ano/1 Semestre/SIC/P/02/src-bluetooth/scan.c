@@ -123,7 +123,7 @@ main()
     /*
      * Install a discover filter
      */
-    result = install_filter( bus, "le", &error );
+    result = install_filter( bus, "auto", &error );
 
     if (!result) {
         fprintf( stderr, "Installation of discover filter failed: %s\n", error->message );

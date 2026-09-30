@@ -1,0 +1,26 @@
+PONTO 4.2 #####################################
+1. How many Bluetooth devices did you find?
+58
+
+2. Can you identify your own Bluetooth devices in the output?
+Yes
+
+3. Which reported values identify a device and which values describe its state?
+The MAC address allows me to identify the device
+Paired, bonded, connected, trutest are all reported states.
+
+4. Does repeating the scan produce exactly the same list?
+No
+
+PONTO 4.3 #####################################
+
+1. Does the number of detected devices change?
+Yes
+
+2. Do devices that were absent from the BLE-only scan now appear?
+Yes
+
+3. Which function actually sends the SetDiscoveryFilter request to BlueZ?
+Function start_discovery
+
+4. Where is the transport value passed from the application into the filter?

@@ -42,7 +42,7 @@ main( int argc, char* argv[])
     if (argc == 1) { // Get name
         result = g_dbus_connection_call_sync( bus,
                                               "org.bluez", // Bus name
-                                              "/org/bluez/hci0", // Object path
+                                              "/org/bluez/hci1", // Object path
                                               "org.freedesktop.DBus.Properties", // Interface
                                               "Get", // Method
                                               g_variant_new( "(ss)", "org.bluez.Adapter1", "Alias" ), // Parameter
@@ -55,7 +55,7 @@ main( int argc, char* argv[])
     } else { // Set name
         result = g_dbus_connection_call_sync( bus,
                                               "org.bluez", // Bus name
-                                              "/org/bluez/hci0", // Object path
+                                              "/org/bluez/hci1", // Object path
                                               "org.freedesktop.DBus.Properties", // Interface
                                               "Set", // Method
                                               g_variant_new( "(ssv)", "org.bluez.Adapter1", "Alias", g_variant_new_string( argv[1] ) ), // Parameter

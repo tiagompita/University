@@ -98,14 +98,14 @@ main()
     /*
      * Make our adapter pairable and discoverable.
      */
-    set_adapter_property_boolean( bus, "/org/bluez/hci0", "Pairable", TRUE, &error );
+    set_adapter_property_boolean( bus, "/org/bluez/hci1", "Pairable", TRUE, &error );
 
     if (error) {
         fprintf( stderr, "Warning: Could not set adapter property Pairable to True: %s\n", error->message );
         g_clear_error(&error);
     }
 
-    set_adapter_property_boolean( bus, "/org/bluez/hci0", "Discoverable", TRUE, &error );
+    set_adapter_property_boolean( bus, "/org/bluez/hci1", "Discoverable", TRUE, &error );
 
     if (error) {
         fprintf( stderr, "Warning: Could not set adapter property Discoverable to True: %s\n", error->message );
