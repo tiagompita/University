@@ -99,7 +99,7 @@ timeout( int signal )
  * Main function, App entry point
  */
 int
-main()
+main(int argc, char const *argv[])
 {
     GDBusConnection * bus = 0;
     GVariant * result ;
@@ -123,7 +123,7 @@ main()
     /*
      * Install a discover filter
      */
-    result = install_filter( bus, "auto", &error );
+    result = install_filter( bus,"auto", &error );
 
     if (!result) {
         fprintf( stderr, "Installation of discover filter failed: %s\n", error->message );
@@ -157,7 +157,11 @@ main()
      * Set alarme handler and start the alarm from some seconds from now
      */
     signal( SIGALRM, timeout );
-    alarm( 20 );
+    if (argc == 2) {
+        alarm( atoi(argv[1]) );
+    } else {
+        alarm( 20 );
+    }
 
     /*
      * Run the main loop

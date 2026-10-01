@@ -27,7 +27,7 @@ install_filter( GDBusConnection * bus, char * bluetooth_transport, GError ** err
      */
     return g_dbus_connection_call_sync( bus,
                                         "org.bluez", // Bus name (sender)
-                                        "/org/bluez/hci1", // Path to the object to call
+                                        "/org/bluez/hci0", // Path to the object to call
                                         "org.bluez.Adapter1", // Object interface to use
                                         "SetDiscoveryFilter", // Interface method to be called
                                         g_variant_new( "(a{sv})", &filter ), // Method parameters. \

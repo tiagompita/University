@@ -31,7 +31,7 @@ boolean_variant_char ( GVariant * value )
  static void
 on_properties_changed( GDBusConnection * bus,
                        const gchar * sender_name, // The unique bus name of the sender of the signal (the name given to bluetoothd on D-Bus, check with busctl)
-		       const gchar * object_path, // Should always be "/org/bluez/hci1/dev_" followed by the MAC address in theformat XX_XX_XX_XX_XX_XX
+		       const gchar * object_path, // Should always be "/org/bluez/hci0/dev_" followed by the MAC address in theformat XX_XX_XX_XX_XX_XX
 		       const gchar * interface_name, // The name of the interface for dealing with the event, should always be "org.freedesktop.DBus.Properties"
 		       const gchar * signal_name, // The name of the event, should always be "PropertiesChanged" 
 		       GVariant * parameters, // A structure with the event parameters
