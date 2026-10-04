@@ -32,8 +32,3 @@ void app_main(void)
     xTaskCreate(task2, "task 2", 2048, "task2", 2, NULL);
 
 }
-
-// Questao 1 #############
-/*
-    Atualmente a task1 e task2 não estão devidamente definidas como task para o freeRTOS, neste codigo, simplesmente são funções. Logo como a task1 está em loop infinito, nunca termina, o programa nunca chegará a executar a task2.
-*/

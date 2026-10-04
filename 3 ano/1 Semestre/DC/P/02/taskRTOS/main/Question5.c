@@ -70,11 +70,6 @@ void app_main(void)
     
 }
 
-// Questao 1 #############
-/*
-    Atualmente a task1 e task2 não estão devidamente definidas como task para o freeRTOS, neste codigo, simplesmente são funções. Logo como a task1 está em loop infinito, nunca termina, o programa nunca chegará a executar a task2.
-*/
-
 // Questao 5 #############
 /*
 
