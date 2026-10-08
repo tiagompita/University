@@ -215,7 +215,23 @@ O que eu faria para tornar o código mais robusto, sem estar aqui a escrevê-lo 
 > Locate the corresponding function in `scan-services.c` for every arrow.
 
 - **Resposta:** 
+InterfacesAdded → create GDBusProxy for org.bluez.Device1:
+    Nesta etapa o BlueZ informa que tem um dispositivo pronto a ser lido na sua interface.
 
+create GDBusProxy → asynchronous Connect():
+    O programa automaticamente dispara um proxy do D-Bus para criar uma conexão assíncrona com o dispositivo detetado.
+
+asynchronous Connect() → on_connect_done():
+    Caso a conexão seja criada, é invocada a função on_connect_done() de modo a anunciar ao programa que a conexão foi estabelecida.
+
+on_connect_done() → initial list_gatt_services() & subscribe to PropertiesChanged:
+    Com a conexão estabelecida o é invocada a função list_gatt_services() para obter os atributos iniciais disponiveis.
+    Depois subscreve ao sinal PropertiesChanged desse dispostivo até que todos os GATT sejam assinalados.
+
+subscribe to PropertiesChanged → read ServicesResolved:
+    Enquanto o programa está subscrito ao sinal PropertiesChanged, sempre que o BlueZ detetar alteraçoes nas propriedades desse dispositivo a função on_device_properties_changed() pode ser chamada. Caso seja chamada o programa a partir da função g_dbus_connection_call_sync() consulta a propriedade booleana ServicesResolved do dispositivo.
+
+    Ora como é booleana retorna true ou false. Se false o programa mantem a subscrição até que ServicesResolved seja retornado a true. Se true significa que já foi enviada para o programa toda a informação GATT para o programa, logo o programa já nao precisa de ficar à escuta do sinal PropertiesChanged. Assim termina a escuta e libera essa memoria.
 ---
 
 ### 6.6 Exercise: why is the connection asynchronous?
@@ -224,7 +240,7 @@ O que eu faria para tornar o código mais robusto, sem estar aqui a escrevê-lo 
 > Compare the connection logic in `scan-services.c` with the synchronous helper in `connect.c`. Explain why performing the connection directly and synchronously from an `InterfacesAdded` callback could prevent the program from processing other D-Bus events while it waits.
 
 - **Resposta:** 
-
+Fazer uma chamada síncrona bloqueia a thread do programa até que a ligação com o dispositivo Bluetooth seja estabelecida, concluída, ou atinja um tempo limite, caso definido. Isto não é prático se necessitamos que o programa esteja continuamente a ler a rede e a responder a eventos. O scan-services.c resolve esse problema com a conexão assíncrona, o programa nao fica bloqueado e permite que continue a responder e a ouvir outras possíveis conexões bluetooth.
 ---
 
 ### 6.7 Exercise: service discovery timing
@@ -233,7 +249,24 @@ O que eu faria para tornar o código mais robusto, sem estar aqui a escrevê-lo 
 > Run `scan-services` several times and observe whether the service UUIDs are already available at the first listing or only become complete after one or more `PropertiesChanged` notifications. Record one example and explain it using the `ServicesResolved` property.
 
 - **Resposta:** 
+Found device (paired: n, bonded = n, connected = n, trusted = n): 70:03:7A:45:A4:A1 (DIOGOSOUSAALVES), connect to it
 
+Got a conection for /org/bluez/hci0/dev_70_03_7A_45_A4_A1, proceed with service listing
+Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
+        UUID 0000180a-0000-1000-8000-00805f9b34fb
+        UUID 005eb7ca-5889-0301-0100-2cf875b73dbf
+
+Services resolved for /org/bluez/hci0/dev_70_03_7A_45_A4_A1
+Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
+        UUID 00001800-0000-1000-8000-00805f9b34fb
+        UUID 00001801-0000-1000-8000-00805f9b34fb
+        UUID 0000180a-0000-1000-8000-00805f9b34fb
+        UUID 00001849-0000-1000-8000-00805f9b34fb
+        UUID 0000184c-0000-1000-8000-00805f9b34fb
+        UUID 00001855-0000-1000-8000-00805f9b34fb
+        UUID 005eb7ca-5889-0301-0100-2cf875b73dbf
+
+    Aqui é vísivel que após outra tentativa de leitura das propriedades GATT foi possível obter ServicesResolved = true.
 ---
 
 ### 6.8 Exercise: automatic connection policy
