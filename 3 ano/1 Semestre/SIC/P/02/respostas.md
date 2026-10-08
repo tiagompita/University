@@ -1,7 +1,5 @@
 # Respostas - Guião 2: Programmatic Bluetooth in C
 
-> **Nota:** Em cada resposta às questões, indique a secção do guião, ficheiro de código-fonte ou especificação em que se apoia. Uma resposta sem fonte está incompleta.
-
 ---
 
 ## 4. Scanning for devices
@@ -11,8 +9,6 @@
 #### Questão 1
 > How many Bluetooth devices did you find?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.2
 - **Resposta:** 
 58
 
@@ -21,8 +17,6 @@ lab-bluetooth.pdf, Secção 4.2
 #### Questão 2
 > Can you identify your own Bluetooth devices in the output?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.2
 - **Resposta:** 
 Yes
 
@@ -31,8 +25,6 @@ Yes
 #### Questão 3
 > Which reported values identify a device and which values describe its state?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.2
 - **Resposta:** 
 The MAC address allows me to identify the device
 Paired, bonded, connected, trutest are all reported states.
@@ -42,8 +34,6 @@ Paired, bonded, connected, trutest are all reported states.
 #### Questão 4
 > Does repeating the scan produce exactly the same list?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.2
 - **Resposta:** 
 No
 
@@ -54,8 +44,6 @@ No
 #### Questão 1
 > Does the number of detected devices change?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.3
 - **Resposta:** 
 Yes
 
@@ -64,8 +52,6 @@ Yes
 #### Questão 2
 > Do devices that were absent from the BLE-only scan now appear?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.3
 - **Resposta:** 
 Yes
 
@@ -74,8 +60,6 @@ Yes
 #### Questão 3
 > Which function actually sends the SetDiscoveryFilter request to BlueZ?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.3 / filter.c
 - **Resposta:** 
 Function g_dbus_connection_call_sync()
 
@@ -84,8 +68,6 @@ Function g_dbus_connection_call_sync()
 #### Questão 4
 > Where is the transport value passed from the application into the filter?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.3 / scan.c & filter.c
 - **Resposta:** 
     É possivel responder a esta pergunta de duas maneiras.
     No scan.c a função chamada é a install_filter e o valor transportado é passado no 2º argumento.
@@ -98,8 +80,6 @@ lab-bluetooth.pdf, Secção 4.3 / scan.c & filter.c
 #### Questão 1
 > Whether the number of devices found changes.
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.4
 - **Resposta:** 
     Sim muda
 
@@ -108,8 +88,6 @@ lab-bluetooth.pdf, Secção 4.4
 #### Questão 2
 > Whether longer scans produce additional devices.
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.4
 - **Resposta:** 
     Mantem o scan ativo durante mais tempo, logo permite estar mais tempo a ler sinais de dispositivos
 
@@ -118,8 +96,6 @@ lab-bluetooth.pdf, Secção 4.4
 #### Questão 3
 > How the scan duration affects the practical usability of the tool.
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 4.4
 - **Resposta:** 
     Pelos resultados obtidos, uma duração mais curta faz com que encontre menos dispositivos. Logo se o meu objetivo for encontrar o máximo de dispositivos possiveis, devo usar uma duraçao longa. Cria-se tambem um problema, pois uma duraçao demasiado longa pode encontrar dispositivos que no fim da leitura já nao estão disponiveis.
 
@@ -132,8 +108,6 @@ lab-bluetooth.pdf, Secção 4.4
 #### Questão 1
 > Which properties appear repeatedly as the environment changes?
 
-- **Fonte:** 
-lab-bluetooth.pdf, Secção 5.2
 - **Resposta:** 
     Pelo que absorvei, uma propriedade sempre presente é o RSSI (Received Signal Strength Indicator).
 
@@ -142,25 +116,35 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > Which values are strings, booleans, or other D-Bus variant types?
 
-- **Fonte:** 
 - **Resposta:** 
+address - string
+name - string
+paired - boolean
+bonded - boolean
+connected - boolean
+trusted - boolean
 
+RSSI , por exemplo, é variant type
 ---
 
 #### Questão 3
 > Why does scan-plus need a GLib main loop?
 
-- **Fonte:** 
 - **Resposta:** 
+No código está comentado o seguinte:
+/*
+    * GDBus is asynchronous, so we need a GLib main loop
+    * to receive InterfacesAdded signals.
+*/
 
+O código não está implementado de modo a que haja um ciclo infinito a verificar novos eventos, existe funções de atendimento (callbacks) ao que o programa depende para receber atualizações sobre o BlueZ. O ciclo GLib do D-Bus, quando o BlueZ envia uma mensagem o GMainLoop "acorda" e invoca as funçoes callback, entregando lhes os dados.
 ---
 
 #### Questão 4
 > What new signal subscription is added compared with scan?
 
-- **Fonte:** 
 - **Resposta:** 
-
+É adicionada a função "subscribe_device_properties_changed" que o nome é quase auto-explicativo, subscreve ao sinal PropertiesChanged para receber notificações sobre alterações a propriedades de dispositivos.
 ---
 
 ### 5.3 Exercise: inspect the callback path
@@ -178,9 +162,13 @@ lab-bluetooth.pdf, Secção 5.2
 > ```
 > Write down the D-Bus interface and signal name involved at each step.
 
-- **Fonte:** 
 - **Resposta:** 
+A sequência de como o programa trabalha desde a invocação da funçao subscribe_device_properties_changed() é seguinte:
+O programa subscreve ao sinal PropertiesChanged do BlueZ na interface D-Bus org.freedesktop.DBus.Properties. Depois quando de facto o BlueZ envia um sinal para PropertiesChanged o ciclo do GLib "acorda" e invoca a função on_properties_changed() em scan-plus.c.
 
+Dentro desse sinal vem informações como o nome da interface que teve alterações, as propriedades alteradas e propriedades inválidas. Essas informações são extraídas com a função g_variant_get().
+
+Com o bloco de informação extraido o programa filtra para apenas ler sobre esta interface específica "org.bluez.Device1", assim o programa itera apenas pela informação que nos interessa e imprime as propriedades que foram alteradas.
 ---
 
 ### 5.4 Exercise: inspect assumptions made by the callback
@@ -188,9 +176,10 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > The callback assumes that the object path ends with the Bluetooth address and computes the address by taking the last 17 characters. What would happen if a signal for an object with an unexpected path reached this callback? Discuss how you would make this code more robust before using it in a general D-Bus monitoring application.
 
-- **Fonte:** 
 - **Resposta:** 
+Se o caminho tivesse menos de 17 caracteres (ex.: /org/bluez/hci0), a aritmética de ponteiros recuaria para além do início da string (out-of-bounds), provocando um Segmentation Fault (crash) ou leitura de lixo de memória. Se tivesse 17+ caracteres mas não fosse um dispositivo, imprimiria uma string sem sentido.
 
+O que eu faria para tornar o código mais robusto, sem estar aqui a escrevê-lo exatamente, seria manter a leitura como está, mas assegurar que apenas sao aceites caminhos com 17 carateres ou mais para evitar apontar para números negativos. Criar um "fallback" onde caso o caminho nao seja reconhecivel, procurar um formato "XX_XX_XX_XX_XX_XX", onde apenas aceitaria carateres válidos para endereços MAC nas posiçoes do 'X'. E finalmente se o MAC extraido não for um dispositivo válido ou reconhecido, ignorar o evento.
 ---
 
 ## 6. Connecting to discovered devices and listing services
@@ -225,7 +214,6 @@ lab-bluetooth.pdf, Secção 5.2
 > ```
 > Locate the corresponding function in `scan-services.c` for every arrow.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -235,7 +223,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Compare the connection logic in `scan-services.c` with the synchronous helper in `connect.c`. Explain why performing the connection directly and synchronously from an `InterfacesAdded` callback could prevent the program from processing other D-Bus events while it waits.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -245,7 +232,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Run `scan-services` several times and observe whether the service UUIDs are already available at the first listing or only become complete after one or more `PropertiesChanged` notifications. Record one example and explain it using the `ServicesResolved` property.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -255,7 +241,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > The source connects to every discovered device that reaches the device callback. There is no user-selection step. Modify the code so that connection only happens when a condition of your choice is met, for example a selected address or device name. Explain where in `on_interfaces_added()` the policy check should be inserted and why it should happen before creating the asynchronous connection.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -267,7 +252,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > What interface and methods are used?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -275,7 +259,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > How is the Alias property identified?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -283,7 +266,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Why does the Get call expect a result of type (v)?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -291,7 +273,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 4
 > Why does the Set call use (ssv) parameters?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -301,7 +282,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Set a new adapter name and then have another Bluetooth-capable host scan for the adapter. Determine when the new name becomes visible remotely.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -326,7 +306,6 @@ lab-bluetooth.pdf, Secção 5.2
 > ```
 > Explain how the XML description and the method-call callback together expose a D-Bus object that BlueZ can call.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -339,7 +318,6 @@ lab-bluetooth.pdf, Secção 5.2
 > - rejects the request; or
 > - simply acknowledges the method while printing information.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -347,7 +325,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > Which operations can proceed without human approval?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -355,7 +332,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Which pairing mechanisms cannot be completed because the agent has no input capability?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -363,7 +339,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 4
 > Why is automatically accepting RequestConfirmation different from a strict JustWorks-only policy?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -373,7 +348,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Modify one branch of `handle_agent_method_call()` so that a selected operation is rejected instead of automatically accepted. Test the modified policy and explain the D-Bus error returned to BlueZ.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -385,7 +359,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > What information about nearby devices is revealed by discovery?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -393,7 +366,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > Which values identify a device and which describe its current state?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -401,7 +373,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > What privacy implications follow from collecting and storing such data?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -411,7 +382,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Why does the program check interfaces and expected value types?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -419,7 +389,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > What assumptions do the callbacks make about the presence and shape of data?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -427,7 +396,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Which assumptions would need additional validation in a production program?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -437,7 +405,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Why can automatic connection be an unexpected policy decision?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -445,7 +412,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > How would you modify the program so that a user must explicitly approve a device before connection?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -453,7 +419,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Which address or property could be used to make that decision?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -463,7 +428,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > What changes in the security posture when pairing decisions are automated?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -471,7 +435,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > Why does the capability NoInputNoOutput limit which requests can be completed?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -479,7 +442,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Why should automatic authorization and service approval be treated as a policy choice rather than merely a programming detail?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -492,7 +454,6 @@ lab-bluetooth.pdf, Secção 5.2
 > - making the local adapter discoverable;
 > - allowing the local adapter to be paired.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -502,7 +463,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Discuss what an application can learn from service enumeration before it ever uses an application-level service.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -514,7 +474,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 1
 > Which Agent1 method is invoked during PIN-code pairing?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -522,7 +481,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 2
 > Why is the NoInputNoOutput capability no longer appropriate?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -530,7 +488,6 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 3
 > Where should the PIN be validated or generated, and what would be the risks of storing a permanent PIN in the program?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -538,6 +495,5 @@ lab-bluetooth.pdf, Secção 5.2
 #### Questão 4
 > How does this pairing flow differ from the current automatic acceptance of RequestConfirmation in the supplied agent?
 
-- **Fonte:** 
 - **Resposta:** 
 

@@ -1,7 +1,5 @@
 # Respostas - Guião 3: Local Network Vulnerabilities
 
-> **Nota:** Em cada resposta às questões, indique a secção do guião, comandos executados, logs de terminal ou capturas de tráfego (Wireshark) em que se apoia. Uma resposta sem fundamentação está incompleta.
-
 ---
 
 ## 3. Case 1: You are another user in the network
@@ -14,7 +12,6 @@
 > a) O que causa o envio destas mensagens pelo kernel Linux do atacante?  
 > b) Quais são os comandos `sysctl` utilizados para desativar os redirecionamentos ICMP e tornar o ataque furtivo (*stealthy*)?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -26,7 +23,6 @@
 > b) Que segundo comando de `arpspoof` é necessário executar num terminal separado para intercetar o fluxo de retorno e fechar o ataque Man-in-the-Middle (MitM)?  
 > c) Como é que o valor do TTL (127 -> 126 -> 125) e a inspeção no Wireshark confirmam o sucesso do ataque bidirecional?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -37,7 +33,6 @@
 > Could we leverage the same exploit to do a different attack?  
 > *(Hint: think about a DoS targeted to a single host.)*
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -50,7 +45,6 @@
 > a) Que configuração foi introduzida no ficheiro `/etc/dnsmasq.conf` do gateway para desviar os pedidos da API `services.web.ua.pt` para o contentor `fakeserver` (192.168.2.103)?  
 > b) Porque é que pode ser necessário executar `resolvectl flush-caches` no cliente antes de observar o resultado do ataque?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -64,7 +58,6 @@
 > ```
 > Descreva como configurou o Nginx ou o payload HTTP no `fakeserver` de modo a replicar a resposta JSON legítima da API de parques com dados falsos.
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
@@ -77,8 +70,6 @@
 > a) Como funciona a ferramenta `dnsspoof` e que ficheiro de mapeamento (*hosts*) requer para responder a pedidos DNS na LAN?  
 > b) Porque é que a corrida (*race condition*) contra um servidor DNS local (na mesma LAN/gateway) é difícil de vencer comparada com uma situação em que o cliente usa um DNS remoto (como 8.8.8.8 ou 1.1.1.1)?
 
-- **Fonte:** 
 - **Resposta:** 
 
 ---
-
