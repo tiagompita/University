@@ -276,6 +276,20 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 
 - **Resposta:** 
 
+Codigo modificado: 
+    De:
+    if (address)
+    Para:
+    if (address && (g_strcmp0(g_variant_get_string( address, NULL ), "79:FD:A4:54:BF:D9") == 0))
+
+No entanto ao testar com fones bluetooth, nao foi a coisa mais prática, pois cada vez que ligava os fones o MAC mudava, logo mudei o código para isto:
+    if (address && name && (g_strcmp0(g_variant_get_string(name, NULL), "LE-MINOR III") == 0))
+
+    Apenas entram dispositivos com nomes NAO nulos e como o nome dos meus fones nunca muda ele consegue se conectar.
+
+Há várias razoes pela qual a verificaçao deve ser feita antes da ligaçao assincrona sendo elas: evitar tráfego de rádio desnecessario, ou seja, iniciar um connect assincrono para um dispositivo que nao nos interessa só irá estar ocupar o canal de rádio. 
+    Outra razao é evitar desperdicio de recursos CPU e memória.
+    E por ultimo, as decisoes de filtragem devem ser tomadas antes de fazer alguma atribuiçao de recursos.
 ---
 
 ## 7. Changing the local Bluetooth adapter name
@@ -286,28 +300,32 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > What interface and methods are used?
 
 - **Resposta:** 
-
+A interface usada é "org.freedesktop.DBus.Properties" e os metodos usados foram "Get" e "Set"
 ---
 
 #### Questão 2
 > How is the Alias property identified?
 
 - **Resposta:** 
-
+A propriedade Alias é identificada a partir desta funçao: g_variant_new( "(ss)", "org.bluez.Adapter1", "Alias" ) e o valor dela a partir desta: G_VARIANT_TYPE("(v)")
 ---
 
 #### Questão 3
 > Why does the Get call expect a result of type (v)?
 
 - **Resposta:** 
-
+v significa Variant. O Get devolve (v) porque é um método genérico que tem de conseguir devolver qualquer tipo de propriedade (string, booleano, inteiro, etc.) num tuplo daí os «()»
 ---
 
 #### Questão 4
 > Why does the Set call use (ssv) parameters?
 
 - **Resposta:** 
+O (ssv) representa exatamente os 3 argumentos que o método Set exige segundo a norma D-Bus:
 
+1º s - O nome da interface alvo → "org.bluez.Adapter1".
+2º s - O nome da propriedade a alterar → "Alias".
+3º v - O novo valor a atribuir à propriedade → embrulhado numa variante (g_variant_new_string(argv[1])).
 ---
 
 ### 7.4 Exercise: observe the change remotely
@@ -316,8 +334,10 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Set a new adapter name and then have another Bluetooth-capable host scan for the adapter. Determine when the new name becomes visible remotely.
 
 - **Resposta:** 
-
----
+O novo nome só se torna visível remotamente quando duas condições se verificam:
+1. O adaptador local está em modo visível (Discoverable = TRUE), transmitindo ativamente os novos anúncios pelo ar;
+2. O host remoto realiza uma nova pesquisa (scan) ativa, recebendo o pacote de anúncio/resposta atualizado.
+Caso o dispositivo remoto já conhecesse o adaptador anteriormente, o nome antigo pode manter-se temporariamente na cache local até que ocorra uma nova consulta ou uma nova ligação que force a atualização.
 
 ## 8. Implementing a JustWorks pairing agent
 
@@ -340,7 +360,10 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Explain how the XML description and the method-call callback together expose a D-Bus object that BlueZ can call.
 
 - **Resposta:** 
+O XML descreve a interface org.bluez.Agent1: quais são os métodos que existem (RequestConfirmation, AuthorizeService, RequestPinCode, etc.) e os tipos dos seus argumentos. 
+Quando o BlueZ invoca um método no agente, a função handle_agent_method_call() é executada. Ela verifica, decide se aprova ou rejeita o emparelhamento e responde de volta ao BlueZ com g_dbus_method_invocation_return_value().
 
+A funçao g_dbus_connection_register_object() pega no caminho do objeto (/sic/example/justworks_agent), na interface definida pelo XML e na agent_vtable, e publica o objeto no canal do sistema D-Bus. A partir daqui, o BlueZ já pode invocar métodos diretamente no programa.
 ---
 
 ### 8.5 Exercise: analyse the pairing policy
@@ -352,13 +375,24 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > - simply acknowledges the method while printing information.
 
 - **Resposta:** 
-
+`Release` - simply acknowledges the method while printing information
+`RequestPinCode`, - rejeita
+`DisplayPinCode`, - simply acknowledges the method while printing information 
+`RequestPasskey`, - rejeita
+`DisplayPasskey`, - simply acknowledges the method while printing information
+`RequestConfirmation`, - aceita
+`RequestAuthorization`, - aceita
+`AuthorizeService`, - aceita
+`Cancel` - simply acknowledges the method while printing information
 ---
 
 #### Questão 2
 > Which operations can proceed without human approval?
 
 - **Resposta:** 
+RequestAuthorization 
+AuthorizeService 
+RequestConfirmation 
 
 ---
 
@@ -366,14 +400,18 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Which pairing mechanisms cannot be completed because the agent has no input capability?
 
 - **Resposta:** 
-
+RequestPinCode
+RequestPasskey
 ---
 
 #### Questão 4
 > Why is automatically accepting RequestConfirmation different from a strict JustWorks-only policy?
 
 - **Resposta:** 
+O RequestConfirmation pertence ao modelo "Numeric Comparison" onde ambos os dispositivos geram um codigo onde um utilizador humano tem obrigatoriamente de olhar para os dois ecras e verificar se os numeros coincidem. O propósito disto é proteger de ataquede Man-In-The-Middle.
+A politica JustWorks o dispositivo assume que nao tem ecra nem forma de interagir com o utilizador, logo numa politia JustWorks o codigo rejeitaria o RequestConfirmation, pois nao há forma visual de verificar os codigos.
 
+Este codigo finge passar-se por humano indicando que confirmou ambos os codigos daí ser possível o RequestConfirmation passar.
 ---
 
 ### 8.6 Exercise: change the policy
@@ -382,6 +420,24 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Modify one branch of `handle_agent_method_call()` so that a selected operation is rejected instead of automatically accepted. Test the modified policy and explain the D-Bus error returned to BlueZ.
 
 - **Resposta:** 
+O print foi substituido por: 
+printf( "Rejecting RequestConfirmation because this is a strict JustWorks agent\n" );
+
+E a funçao g_dbus_method_invocation_return_value por:
+g_dbus_method_invocation_return_dbus_error( invocation, "org.bluez.Error.Rejected", "Request Rejected" );
+---
+
+### 9 Exercise
+dbus.c: Estabelece a ligação ao barramento de sistema (G_BUS_TYPE_SYSTEM), onde o daemon bluetoothd corre.
+filter.c: Constrói o dicionário D-Bus (a{sv}) com o tipo de transporte ("le" ou "auto") e ativa o filtro no BlueZ.
+discovery.c: Funções simples (wrappers) para iniciar (StartDiscovery) e parar (StopDiscovery) a pesquisa no adaptador hci0.
+subscribe.c: Trata de registar a escuta aos sinais assíncronos:
+    InterfacesAdded (quando surge um novo dispositivo).
+    PropertiesChanged (quando as propriedades de um dispositivo mudam).
+connect.c: O exemplo síncrono/bloqueante de ligação ao método Connect.
+gatt.c: Percorre a árvore de objetos geridos (GetManagedObjects) e extrai os UUIDs dos serviços GATT.
+set_adapter_property.c: Altera propriedades booleanas do adaptador local (Pairable e Discoverable).
+just_works_agent.c: Demonstra como construir e registar um objeto servidor D-Bus completo em C (XML de introspeção + vtable + callback).
 
 ---
 
@@ -393,21 +449,28 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > What information about nearby devices is revealed by discovery?
 
 - **Resposta:** 
-
+MAC address
+Nome do dispositivo (ex: "LE-MINOR III")
+O RSSI (potência do sinal recebido que dá uma estimativa de proximidade física)
+Dados do fabricante (ManufacturerData) e o OUI (os primeiros 3 bytes do MAC revelam a marca do hardware: Apple, Marshall, Samsung, etc.).
+O estado de ligação/confiança (Paired, Connected, etc.)
 ---
 
 #### Questão 2
 > Which values identify a device and which describe its current state?
 
 - **Resposta:** 
-
+O que identifica o aparelho: Address, Name, ManufacturerData, Modalias
+O que identifica o estado do aparelho: Connected, Paired, Bonded, Trusted, RSSI
 ---
 
 #### Questão 3
 > What privacy implications follow from collecting and storing such data?
 
 - **Resposta:** 
-
+Tracking: Se registar o MAC e o RSSI de alguém ao longo do tempo, é possível saber por onde a pessoa andou, quando chegou, quando saiu e em que sala esteve
+Profiling: Nomes como "Computador de Maria Silva" ligam diretamente um sinal de rádio a uma pessoa física real
+Mapeamento de Rotinas e Relações: Dispositivos que aparecem sempre juntos à mesma hora revelam hábitos diários e até relações pessoais
 ---
 
 ### 10.2 Event-driven interfaces
@@ -416,21 +479,25 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Why does the program check interfaces and expected value types?
 
 - **Resposta:** 
-
+Porque tentar aceder a campos inexistentes ou com tipos incompatíveis, provoca erros de corrupção de memória ou Segmentation Fault (crash)
 ---
 
 #### Questão 2
 > What assumptions do the callbacks make about the presence and shape of data?
 
 - **Resposta:** 
-
+O callback assume que o object_path termina sempre nos 17 caracteres do MAC
+O código assume que certas propriedades vêm sempre com o formato esperado dentro do dicionário a{sv}
+Assume que certos campos (como Address) existem sempre no pacote
 ---
 
 #### Questão 3
 > Which assumptions would need additional validation in a production program?
 
 - **Resposta:** 
-
+Validar o tamanho e prefixo do caminho (strlen >= 17 e g_str_has_prefix) antes de tocar em ponteiros
+Tratar explicitamente os casos em que name é nulo
+Validar o retorno de todas as funções de procura (g_variant_lookup_value) antes de as usar
 ---
 
 ### 10.3 Automatic connections
@@ -439,21 +506,27 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Why can automatic connection be an unexpected policy decision?
 
 - **Resposta:** 
-
+Intrusão e Privacidade: Tentar ligar a qualquer dispositivo que passa no ar sem autorização é invasivo e pode fazer surgir alertas/pop-ups não solicitados nos ecrãs de pessoas à volta.
+Attack Surface: Ao ligar-se ativamente a dispositivos desconhecidos, o teu computador expõe a sua pilha Bluetooth a possíveis dispositivos maliciosos na vizinhança.
+Exaustão de Recursos / DoS: Disparar dezenas de ligações simultâneas ocupa o canal de rádio e o adaptador Bluetooth desnecessariamente.
 ---
 
 #### Questão 2
 > How would you modify the program so that a user must explicitly approve a device before connection?
 
 - **Resposta:** 
-
+Em vez de disparar o Connect automaticamente dentro do callback on_interfaces_added():
+Pedir confirmação interativa ao utilizador no terminal (ex: mostrar os dados do dispositivo e aguardar por um (s/n)).
+Ou implementar uma whitelist pré-configurada onde apenas dispositivos autorizados (por MAC ou Nome) são contactados.
 ---
 
 #### Questão 3
 > Which address or property could be used to make that decision?
 
 - **Resposta:** 
-
+O Address (endereço MAC, que é o identificador único da placa).
+O Name (o nome amigável do dispositivo, muito mais intuitivo para o utilizador).
+Os UUIDs de serviços anunciados (para só ligar a dispositivos que ofereçam um serviço pretendido, como auscultadores de áudio).
 ---
 
 ### 10.4 Automatic pairing decisions
@@ -462,21 +535,23 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > What changes in the security posture when pairing decisions are automated?
 
 - **Resposta:** 
-
+A segurança do sistema passa de um modelo de controlo de acesso com validação humana para uma postura de confiança cega (open door / zero authentication).
+Qualquer atacante nas proximidades consegue emparelhar e criar uma ligação com o computador sem o utilizador se aperceber.
 ---
 
 #### Questão 2
 > Why does the capability NoInputNoOutput limit which requests can be completed?
 
 - **Resposta:** 
-
+Porque os mecanismos que dependem de teclado ou ecrã (como introduzir um PIN em RequestPinCode ou digitar uma passkey em RequestPasskey) tornam-se impossíveis de satisfazer.
 ---
 
 #### Questão 3
 > Why should automatic authorization and service approval be treated as a policy choice rather than merely a programming detail?
 
 - **Resposta:** 
-
+Não é um mero detalhe de código porque define o modelo de privilegios e segurança do sistema operativo.
+Autorizar serviços automaticamente pode abrir portas a acessos críticos (como microfone, transferência de ficheiros, portas série virtuais ou rede local) a equipamentos externos desconhecidos.
 ---
 
 ### 10.5 Adapter discoverability
@@ -488,7 +563,9 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > - allowing the local adapter to be paired.
 
 - **Resposta:** 
-
+1. O adaptador está apenas em modo de escuta (scanner passivo). Ouve o ar à procura de anúncios de outros aparelhos sem revelar a sua própria presença.
+2. O adaptador local passa a transmitir pacotes de anúncio ativamente pelo ar para que qualquer dispositivo à volta o consiga ver.
+3. O adaptador aceita negociar chaves de emparelhamento quando recebe um pedido. (Um adaptador pode ser Pairable sem estar Discoverable)
 ---
 
 ### 10.6 Service enumeration
@@ -497,7 +574,9 @@ Device /org/bluez/hci0/dev_70_03_7A_45_A4_A1 services:
 > Discuss what an application can learn from service enumeration before it ever uses an application-level service.
 
 - **Resposta:** 
+Fingerprinting do Dispositivo: Olhando apenas para a lista de UUIDs dos serviços GATT, a aplicação descobre imediatamente que tipo de equipamento é (ex: auscultadores, teclado, lâmpada) e frequentemente a marca e modelo.
 
+Mapeamento da Superfície de Vulnerabilidades: Revela a existência de serviços proprietários ou portas de depuração que possam ter falhas de segurança conhecidas, antes sequer de estabelecer uma sessão aplicacional.
 ---
 
 ## 11. Additional programming challenges

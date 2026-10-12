@@ -105,20 +105,20 @@ static void handle_agent_method_call( GDBusConnection * bus,
     if (g_strcmp0( method_name, "RequestConfirmation" ) == 0) { 
         /*
          * With a strict JustWorks policy, we could reject this method,
-         * because numeric comparison is not JustWorks. But there isnoharm in accepting it...
+         * because numeric comparison is not JustWorks. But there is no harm in accepting it...
          */
         const gchar * device = NULL;
         guint32 passkey = 0;
 
         g_variant_get( parameters, "(&ou)", &device, &passkey );
 
-        printf( "Auto-confirming pairing with device: %s, passkey: %06u\n", device, passkey );
+        printf( "Rejecting RequestConfirmation because this is a strict JustWorks agent\n" );
 
         /*
          * Returning success confirms the pairing.
          *
          */
-        g_dbus_method_invocation_return_value( invocation, NULL );
+        g_dbus_method_invocation_return_dbus_error( invocation, "org.bluez.Error.Rejected", "Request Rejected" );
         return;
     }
 

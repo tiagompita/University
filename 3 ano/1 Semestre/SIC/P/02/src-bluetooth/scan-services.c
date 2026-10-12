@@ -154,7 +154,7 @@ on_interfaces_added( GDBusConnection * bus,
         GVariant * connected = g_variant_lookup_value( device, "Connected", G_VARIANT_TYPE_BOOLEAN );
         GVariant * trusted = g_variant_lookup_value( device, "Trusted", G_VARIANT_TYPE_BOOLEAN );
 
-        if (address) {
+        if (address && name && (g_strcmp0(g_variant_get_string(name, NULL), "LE-MINOR III") == 0)) {
 	    GError * error = 0;
 
             printf( "Found device (paired: %c, bonded = %c, connected = %c, trusted = %c): %s", boolean_variant_char( paired ),
