@@ -1,16 +1,6 @@
 @echo off
 title Debian SSH
 
-:connect
 echo A ligar ao Debian...
 
-echo A montar a pasta partilhada...
-ssh -t pita@192.168.137.128 "sudo vmhgfs-fuse .host:/SIC /home/pita/Desktop/sic/ -o allow_other -o uid=1000"
-
-echo A abrir a sessao SSH...
-ssh -t pita@192.168.137.128 "cd Desktop/sic/P/"
-
-echo.
-echo A ligacao foi terminada. Nova tentativa em 5 segundos...
-timeout /t 5 /nobreak >nul
-goto connect
+ssh -t pita@192.168.137.128 "sudo vmhgfs-fuse .host:/SIC /home/pita/Desktop/sic/ -o allow_other -o uid=1000 && cd /home/pita/Desktop/sic/P && exec bash -l"

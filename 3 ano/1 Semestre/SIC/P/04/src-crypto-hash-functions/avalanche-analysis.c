@@ -109,7 +109,23 @@ void
 change_me_a_byte( const uint8_t *source, const uint32_t source_size,
 		   uint8_t *track_mods, uint8_t *working_buf )
 {
-    assert( 1 == 0 );
+    memcpy( working_buf, source, source_size );
+
+    uint32_t byte_idx = rand() % source_size;
+
+    uint32_t try = 0;
+    while (track_mods[byte_idx] & 0xFF) { // Deja vu bit?
+	    try++;
+
+        assert( try < source_size ); // if all bits were already modified
+
+	    byte_idx = (byte_idx + 1) % source_size;
+    }
+
+    working_buf[byte_idx] ^= 0xFF; // change the byte
+    track_mods[byte_idx] |= 1; // stores the action
+
+    assert( count_diff_bits( source, working_buf, source_size ) == 8);
 }
 
 // Produces sha256 from `data` with `data_size` bytes and writes the output to `output_hash`
@@ -159,15 +175,15 @@ main( int argc, char *argv[] )
     assert( sscanf( argv[1], "%d", &source_size ) );
     assert( sscanf( argv[2], "%d", &n_variations ) );
     if (argc >= 4) {
-	if (strcmp( argv[3], "MD5" ) == 0) {
-	    func_template = EVP_md5();
-	}
-	else if (strcmp( argv[3], "SHA-256" ) == 0) {
-	    func_template = EVP_sha256();
-	}
-	else {
-	    return usage( argv[0] );
-	}
+        if (strcmp( argv[3], "MD5" ) == 0) {
+            func_template = EVP_md5();
+        }
+        else if (strcmp( argv[3], "SHA-256" ) == 0) {
+            func_template = EVP_sha256();
+        }
+        else {
+            return usage( argv[0] );
+        }
     }
 
     fprintf( stderr,"Working with M=%d and N=%d...\n", source_size, n_variations );
@@ -202,17 +218,15 @@ main( int argc, char *argv[] )
 
     unsigned int size_of_hash = EVP_MD_get_size( func_template );
 
+    // TODO: add your code here
     EVP_Digest( source, source_size, source_hash, &size_of_hash, func_template, 0 );
+    for (int i = 0; i < n_variations; i++) {
+        change_me_a_bit( source, source_size, track_mods, bit_mod );
+        EVP_Digest( bit_mod, source_size, bit_mod_hash, &size_of_hash, func_template, 0 );
 
-    // TODO: add your code here
-    // until here
-	change_me_a_bit( source, source_size, track_mods, bit_mod );
-	EVP_Digest( bit_mod, source_size, bit_mod_hash, &size_of_hash, func_template, 0 );
-
-	int n = count_diff_bits( source_hash, bit_mod_hash, size_of_hash );
-	histogram[n]++;
-    // TODO: add your code here
-    // until here
+        int n = count_diff_bits( source_hash, bit_mod_hash, size_of_hash );
+	    histogram[n]++;
+    }
 
     // make sure we have used N different 1-bit modifications
     uint8_t * zeros = calloc( source_size, 1 );
