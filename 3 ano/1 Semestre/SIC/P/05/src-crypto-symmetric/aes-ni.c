@@ -6,7 +6,7 @@
 #include "aes.h"
 
 /*
- * AES implemneted with Intel AES-NI instructions
+ * AES implemented with Intel AES-NI instructions
  * Helper file for SIC Lab on Symmetric Cryptography
  * Compile with: -Wall -msse2 -msse -maes
  */

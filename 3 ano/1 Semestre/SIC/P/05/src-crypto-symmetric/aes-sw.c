@@ -6,7 +6,7 @@
 #include "aes.h"
 
 /*
- * AES implemneted with Openssl library functions
+ * AES implemented with Openssl library functions
  * Helper file for SIC Lab on Symmetric Cryptography
  */
 
