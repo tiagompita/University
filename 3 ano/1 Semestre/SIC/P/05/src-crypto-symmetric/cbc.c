@@ -38,12 +38,14 @@ aes128_cbc_dec( const void * ctx, const uint8_t * iv, const uint8_t * ciphertext
 // add your code here
     for (int i = 0; i < cipher_size; i+=AES128_BLOCK_SIZE) { // cada i é um bloco de 16 bytes
         uint8_t dec_block[AES128_BLOCK_SIZE];
-        aes128_block_dec(ctx, ciphertext + i, dec_block);
+        aes128_block_dec(ctx, ciphertext + i, dec_block); // é preciso primeir decifrar para depois fazer a operaçao xOr
         for (int j = 0; j < 16; j++) { // cada j é um byte do bloco do i
             if (i == 0) {
                 plaintext[j] = dec_block[j] ^ iv[j];
             } else {
                 plaintext[j+i] = dec_block[j] ^ ciphertext[(i - AES128_BLOCK_SIZE) + j];
+                // usar o bloco decifrado atual com o xOr da cifra anterior
+                // slide 30 - 3.3-Modern_symmetric_cryptography-en.pdf
             }
         }
     }
