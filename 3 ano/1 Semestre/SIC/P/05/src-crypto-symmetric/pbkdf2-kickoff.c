@@ -21,7 +21,7 @@ hex_dump( char * text, uint8_t * data, int data_len )
 int
 main( int argc, char * argv[] )
 {
-    const int kdf_iter = 100000; // number of iterations to use in PKCS5_PBKDF2_HMAC
+    const int kdf_iter = 10000000; // number of iterations to use in PKCS5_PBKDF2_HMAC
     char passbuf[1024]; // space for the password read from terminal
     uint8_t salt[SHA256_DIGEST_LENGTH]; // space for a salt that would be randomly generated
     uint8_t kdf_output[SHA256_DIGEST_LENGTH]; // space for the output key
@@ -40,8 +40,10 @@ main( int argc, char * argv[] )
     close ( fd );
 
     // generate the key
-// TODO: add your code here
-// until here
+    // TODO: add your code here
+    strcpy(passbuf, argv[1]);
+    PKCS5_PBKDF2_HMAC(passbuf, strlen(argv[1]), salt, sizeof(salt), kdf_iter, EVP_sha256(), 32, kdf_output);
+    // until here
 
     // now we have a key and an IV ...
     memcpy( key, kdf_output,    16 );

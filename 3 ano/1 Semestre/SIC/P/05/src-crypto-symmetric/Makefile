@@ -12,7 +12,7 @@ aes128-test-modes: aes128-test-modes.o ecb.o cbc.o aes-sw.o
 aes128-test-modes-ni: aes128-test-modes.o ecb.o cbc.o aes-ni.o
 	$(CC) -g -o $@  $^
 
-aes128-test-padding: aes128-test-padding.o padding.o aes-sw.o 
+aes128-test-padding: aes128-test-padding.o padding.o ecb.o cbc.o aes-sw.o
 	$(CC) -g -o $@  $^ -lcrypto
 
 pbkdf2-kickoff: pbkdf2-kickoff.o
