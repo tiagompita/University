@@ -27,11 +27,12 @@ Mensagem de erro inicial do i2cdetect:
 Aplicar a configuração *i2c-tools> i2cconfig --sda 6 --scl 7*
 
 Comandos - funcionalidade
+help - Imprime o resumo de todos os comandos registados se não for fornecido nenhum argumento caso contrário, imprime o resumo do comando fornecido.
 i2cconfig - Configura a frequencia e IOs do barramento I2C
 i2cdetect - Pesquisa por dispositivos no barramento I2C
-i2cget - Lê os registos visiveís a partir do barramento I2C
+i2cget - Lê 1 valor, por omissao, de um registo do chip definido pelo utilizador
 i2cset - Define os registos visiveís a partir do barramento I2C
-i2cdump - Examina os registos visiveís a partir do barramento I2C
+i2cdump - Imprime todo os valores dos registos do chip definido pelo utilizador no barramento I2C
 ---
 
 ### Questão 3
@@ -129,7 +130,8 @@ i2cget -c 0x4d -r 0x00
 0x32 - 0011 0010 - 50ºC
 0x2f - 0010 1111 - 47ºC
 
-A resolução é [-65ºC, 127ºC] = [1011 1111, 0111 1111]
+A resolução é de 1ºC
+O intervalo é [-65ºC, 127ºC] = [1011 1111, 0111 1111]
 
 #### b)
 - **Fonte:** 
@@ -147,8 +149,15 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 > ```
 
 - **Comando utilizado:** 
+i2cget -c 0x4d -r 0x01
 - **Fonte:** 
+tc74.PDF / Tables 4-1 Tables 4-2
 - **Interpretação bit a bit:** 
+Output: 0x40 - 0100 0000
+bit 7 (STANDBY SWITCH) - está a 0, significa que o modo de funcionamento está em normal
+bit 6 (DATA READY)- está a 1, significa que os dados estão prontos a ser lidos
+Os restantes bits são reservados e retornam sempre 0
+
 
 ---
 
@@ -160,9 +169,19 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 > ```
 
 - **Comando utilizado:** 
+i2cset -c 0x4d -r 0x01 0x80
 - **Registo e valor escrito:** 
+Registo: 0x01
+Valor: 0x80 ou 0xC0
 - **Fonte:** 
+tc74.PDF / Tables 4-1 Tables 4-2
 - **Justificação:** 
+Testei com estes dois comandos:
+i2cset -c 0x4d -r 0x01 0x80 e i2cset -c 0x4d -r 0x01 0xC0
+
+O output quando o registo é lido fica igual: 0x80
+
+O bit 6 que indica Data Ready, passa a 0 por razoes obvias: o sensor agora está em modo standby, nao está a ler temperatura, nao tem dados a entregar
 
 ---
 
@@ -170,9 +189,13 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 > Aqueça novamente o sensor de temperatura soprando ar quente para o mesmo durante algum tempo. Repita o comando de leitura da temperatura. O que observa? Explique o comportamento com base na secção 3.1.1 da ficha técnica. Com os valores típicos indicados na primeira página, compare o consumo do sensor em standby com o consumo em funcionamento normal.
 
 - **Fonte:** 
+tc74.PDF / Tables 4-1 - Tables 4-2 - 3.1.1 STANDBY MODE
 - **Observações:** 
+O valor da temperatura está congelado (nao se altera)
 - **Explicação do comportamento:** 
+O modo standby deixa de ler a temperatura, nao significa que o registo fica a zeros, mas sim congela com o ultimo valor lido
 - **Comparação de consumo:** 
+O consumo do sensor decrementa para 5uA, onde em modo normal de operação consume 200uA.
 
 ---
 
@@ -188,14 +211,21 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 #### a)
 - **Fonte:** 
 - **Resposta:** 
+Sim
 
 #### b)
 - **Fonte:** 
+5.3 Serial Data SDA
 - **Resposta:** 
+No I2C, os dispositivos nunca forçam a linha a HIGH. Só a conseguem puxar para LOW. Quando ninguém puxa, alguém tem de levar a linha para HIGH. Segundo a documentaçao do sensor DHT20 "To avoid signal conflicts, the microprocessor (MCU) must only drive SDA and SCL at low level. An external pull-up resistor (for example: 4.7kΩ) is required to pull the signal to a high level"
 
 #### c)
 - **Fonte:** 
+4.6 Wiring Rules and Signal Integrity
 - **Resposta:** 
+Se as linhas de sinal de SCL e SDA forem paralelas e muito próximas uma da outra, isto pode causar interferência entre os sinais e falha na comunicação. A solução é colocar VDD e/ou GND entre as duas linhas de sinal, separar as linhas de sinal e utilizar cabos blindados. Além disso, a redução da frequência SCL também pode melhorar a integridade da transmissão do sinal. Um condensador de desacoplamento de 100 nF deve ser adicionado entre os pinos de alimentação (VDD, GND) para filtragem.
+
+Este condensador deve estar o mais próximo possível do sensor.
 
 ---
 
@@ -204,6 +234,9 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 
 - **Fonte:** 
 - **Resposta:** 
+Os sensores vêm de fábrica com um identificador predefinido (o endereço I2C), que se pode consultar antes da compra. Por isso, quando se usam vários sensores, é preciso garantir que cada um tem um endereço único no barramento.
+
+Em cada transação, logo a seguir ao START, o mestre envia o endereço do sensor com quem quer comunicar. Todos os sensores recebem esse byte, mas só aquele cujo endereço coincide responde com ACK. Os outros não puxam a linha SDA e ignoram a transação até ao STOP. Assim, a "filtragem" é feita por cada sensor, e não pelo mestre.
 
 ---
 
@@ -220,31 +253,42 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 
 #### a)
 - **Fonte:** 
+dht20.pdf
 - **Resposta:** 
+100ms
 
 #### b)
 - **Fonte:** 
 - **Resposta:** 
+O primeiro byte a ser enviado é 0x71
+0x38 -> 011 1000 -> 0111 0001 -> 0x71
 
 #### c)
 - **Fonte:** 
 - **Resposta:** 
+Enviando o byte 0x71 obtemos o estado, é suposto o bit 3 e 4 estarem ambos a 1, realizando-se assim uma operaçao bit a bit.
+Caso a operaçao AND entre o byte de estado e o valor 0x18 nao for igual a 0x18 o sensor tem de ser inicializado. O bit 3 significa se o sensor está calibrado ou nao. O objetivo é o bit 3 estar sempre a 1.
+
 
 #### d)
 - **Fonte:** 
 - **Resposta:** 
+Sao enviados os bytes 0x33 e 0x00, respetivamente no comando 0xAC.
 
 #### e)
 - **Fonte:** 
 - **Resposta:** 
+Se o bit [7] tiver a 0, a leitura está disponivel
 
 #### f)
 - **Fonte:** 
 - **Resposta:** 
+Leem-se 6 bytes. O primeiro byte é o estado, de seguida 2 bytes e metade de 1 byte para humidade. A outra metade do byte para a temperatura e 2 bytes para temperatura. 
 
 #### g)
 - **Fonte:** 
 - **Resposta:** 
+Enviar um NACK
 
 ---
 
@@ -255,16 +299,38 @@ Na tabela 4.4 o valor -25ºC é 1110 0111, em hexadecimal fica: 0xE7, logo esse 
 
 - **Fonte:** 
 - **Cálculo da Humidade Relativa (%RH):** 
+Humidade: 1011 0010 // 0011 0011 // 1010 >> 0xB233A
+>>> 0xB233A / 2**20 * 100
+69.61002349853516
+
 - **Cálculo da Temperatura (°C):** 
+Temperatura: 0101 // 1100 1110 // 1101 1001 >> 0x5CED9
+>>> 0x5CED9 / 2**20 * 200 - 50
+22.59998321533203
+
 - **Resolução de cada grandeza:** 
+Resoluçao de humidade: 0.024
+Resoluçao de temperatura: 0.01
 
 #### Leitura prática com i2cset / i2cget
 > *Em seguida, tirando partido dos comandos `i2cset` e `i2cget`, faça uma leitura da temperatura e humidade. Converta o resultado de modo a obter as respetivas temperatura e humidade.*
 
 - **Comandos executados:** 
+i2cconfig --sda 6 --scl 7
+i2cdetect
+i2cget -c 0x38 -r 0x71
+i2cset -c 0x38 -r 0xAC 0x33 0x00
+i2cget -c 0x38 -r 0x71 -l 7
 - **Valores brutos obtidos:** 
+i2c-tools> i2cget -c 0x38 -r 0x71
+0x18 
+i2c-tools> i2cset -c 0x38 -r 0xAC 0x33 0x00
+I (5875591) i2ctools: Write OK
+i2c-tools> i2cget -c 0x38 -r 0x71 -l 7
+0x18 0x9e 0x77 0x75 0xed 0x5b 0xff 
 - **Valores convertidos (Temperatura e Humidade):** 
-
+Humidade: 0x9e777 >> 61.90
+Temperatura: 0x5ed5b >> 24.08
 ---
 
 ## 4.3 Integração de sensores I2C
