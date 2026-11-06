@@ -1,0 +1,9 @@
+Command: cmake -G Ninja -B /home/pita/Desktop/University/3 ano/1 Semestre/DC/P/07/Exemplos de light e deep sleep/ls_wktimer/build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/pita/.espressif/python_env/idf6.1_py3.14_env/bin/python -DESP_PLATFORM=1 -DIDF_TARGET=esp32c6 -DCCACHE_ENABLE=False /home/pita/Desktop/University/3 ano/1 Semestre/DC/P/07/Exemplos de light e deep sleep/ls_wktimer
+NOTE: /home/pita/.espressif/v6.1/esp-idf/components/bootloader/Kconfig.projbuild:383: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/pita/.espressif/v6.1/esp-idf/components/bootloader/Kconfig.projbuild:423: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/pita/.espressif/v6.1/esp-idf/components/esp_hw_support/./lowpower/port/esp32p4/Kconfig.p4_rev3_mspi_workaround:6: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/pita/.espressif/v6.1/esp-idf/components/esp_mm/Kconfig:20: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+Loading defaults file /home/pita/Desktop/University/3 ano/1 Semestre/DC/P/07/Exemplos de light e deep sleep/ls_wktimer/sdkconfig.defaults...
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished successfully
