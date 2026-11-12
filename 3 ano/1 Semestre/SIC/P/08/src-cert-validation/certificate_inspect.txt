@@ -1,0 +1,86 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 5702892488224473455 (0x4f24be80b8dd016f)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=PT, O=SCEE - Sistema de Certificação Electrónica do Estado, OU=ECEstado, CN=Cartão de Cidadão 003
+        Validity
+            Not Before: Jun 28 14:47:41 2017 GMT
+            Not After : Aug 28 14:47:41 2023 GMT
+        Subject: C=PT, O=Cartão de Cidadão, OU=subECEstado, CN=EC de Autenticação do Cartão de Cidadão 0012
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:bd:38:27:03:a8:8f:ba:75:47:23:db:1c:d9:41:
+                    af:a4:28:aa:81:e4:e9:78:74:79:9f:57:7c:ef:f9:
+                    6b:e5:bc:40:74:7c:a7:2a:1c:c6:e7:c8:b7:32:9e:
+                    9a:53:0c:e8:69:39:46:01:7d:c5:aa:2c:94:4a:f8:
+                    b1:29:22:24:42:ac:1b:a5:7a:a3:37:41:f6:cd:3f:
+                    b0:c8:ff:a6:7a:b3:8a:77:d5:36:45:bc:84:d6:78:
+                    cc:eb:f4:92:a5:0e:9a:c4:59:9c:a1:63:3b:6b:3f:
+                    0e:b6:1e:3d:60:30:87:f8:d5:59:e6:de:38:6a:a0:
+                    d3:9a:ab:53:53:62:3c:ab:9c:85:bc:7d:a5:41:00:
+                    a3:ec:5b:8c:92:b8:a5:83:48:61:6c:85:b2:cb:84:
+                    cf:e7:b3:74:9e:f5:41:7f:8c:82:04:0f:d0:17:db:
+                    d7:6a:68:43:e0:eb:5d:d7:92:da:39:27:53:55:f8:
+                    b7:64:a0:79:a3:8f:32:9a:30:94:17:ef:87:f4:47:
+                    87:df:dc:47:7f:12:94:06:01:ef:de:4e:7f:2a:39:
+                    78:79:ee:03:e2:02:f7:e4:f7:d0:b1:c6:9e:1f:7c:
+                    51:ac:eb:a4:6a:4d:b7:46:77:9f:a5:30:a4:f3:be:
+                    fc:de:4c:10:ac:b1:e4:0a:8a:93:0c:a9:ab:e3:03:
+                    ab:2b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            Authority Information Access: 
+                OCSP - URI:http://ocsp.root.cartaodecidadao.pt/publico/ocsp
+            X509v3 Subject Key Identifier: 
+                41:6B:53:39:0A:90:09:5C:D6:18:3D:8D:C8:AF:A5:00:7D:94:D1:BF
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Authority Key Identifier: 
+                3C:DF:CA:B3:5A:3C:39:1E:8C:E6:E2:39:82:70:0A:89:AC:FD:2E:F6
+            X509v3 Certificate Policies: 
+                Policy: 2.16.620.1.1.1.2.4.0.7
+                  CPS: http://pki.cartaodecidadao.pt/publico/politicas/dpc/cc_ec_cidadao_dpc.html
+                Policy: X509v3 Any Policy
+                  CPS: http://www.scee.gov.pt/pcert
+                Policy: 2.16.620.1.1.1.2.4.0.1.3
+                  CPS: http://pki.cartaodecidadao.pt/publico/politicas/pc/cc_sub-ec_cidadao_aut_pc.html
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://pki.cartaodecidadao.pt/publico/lrc/cc_ec_cidadao_crl003_crl.crl
+
+            X509v3 Key Usage: critical
+                Certificate Sign, CRL Sign
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        34:53:51:93:0c:be:c8:c2:03:d7:60:b2:f7:75:87:3a:7b:5d:
+        a7:a1:e2:23:96:8a:45:e1:a0:b9:a8:a8:c0:65:ac:82:80:5a:
+        d2:12:99:62:92:1f:ea:6f:f6:e2:f0:7f:d9:e8:22:03:af:ac:
+        cc:ac:bc:0e:8f:00:0a:42:f0:77:a1:52:96:18:df:51:1e:19:
+        30:c7:85:89:b7:d5:0f:97:a2:29:b7:6b:b1:e8:37:c8:d3:b2:
+        fd:c6:ab:77:28:83:75:6f:1c:30:d0:02:01:01:1e:7d:9a:72:
+        85:77:23:46:58:2d:7f:31:67:3e:ee:f0:f8:5b:99:a1:31:bc:
+        5a:b9:3a:31:ee:27:62:9d:01:35:cc:59:74:bc:f3:22:72:f3:
+        f6:93:f2:f0:c0:d1:c3:ca:e3:d6:a3:0d:ff:5b:9a:d9:09:47:
+        5c:be:34:97:fb:ae:c9:ba:13:17:6a:e5:08:88:89:b6:75:65:
+        5b:e5:ba:42:4f:2a:6c:98:36:23:8b:7b:06:59:07:29:4f:63:
+        c7:70:a9:e0:fa:e7:86:ed:c0:17:29:00:d3:db:41:ce:99:86:
+        a7:f8:a3:f7:a8:91:13:bb:71:c0:20:55:00:f8:c2:48:f9:db:
+        4b:97:4c:16:e6:3b:a9:06:7d:98:0a:fa:d0:f6:bc:ee:56:92:
+        ac:77:c9:f1:73:5c:c6:93:b0:7f:2d:85:90:d5:ca:d7:1f:b4:
+        39:d2:09:4c:fd:9c:c3:d3:0f:1e:9a:bb:09:a7:1e:89:d4:e3:
+        85:62:26:fd:93:b9:27:c8:7e:49:63:f3:1d:b4:9f:ae:c1:d1:
+        10:e2:3e:15:ec:17:2f:91:bb:4a:59:f1:db:cf:c7:b9:ac:b9:
+        bf:ef:e1:21:ce:59:53:fb:a6:c2:a2:5a:9c:33:66:d1:1e:fc:
+        5d:af:21:07:ce:ef:45:fb:5a:28:34:74:5b:58:9d:bd:41:34:
+        93:f6:fa:62:f0:fd:60:f6:4a:c3:35:ec:4e:55:33:3f:7f:8f:
+        ef:6c:4e:49:06:c5:db:3f:7b:84:97:9b:9b:37:cc:59:72:fc:
+        7b:7f:51:1f:f9:78:dd:88:8c:07:a8:b1:a2:43:3f:0a:4b:91:
+        44:d8:91:dd:6a:4c:b1:05:0e:6c:b0:71:c5:3e:ae:84:b4:e7:
+        18:4f:fc:ae:0b:4f:26:f1:a1:16:3d:26:e8:f4:63:c2:12:50:
+        89:26:e2:de:26:ad:77:fe:0a:30:18:12:d7:f6:1e:d5:7e:ed:
+        4f:c4:b2:a2:ef:d5:55:a1:b7:39:37:77:df:f9:f4:85:c1:70:
+        66:94:d4:55:54:bd:ef:b5:78:f3:f3:ef:9c:12:16:f1:71:b7:
+        63:4b:22:fe:5a:05:c7:61
