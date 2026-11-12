@@ -1,0 +1,125 @@
+{
+ "title": "3.4 · Asymmetric cryptography — Cifras assimétricas",
+ "questions": [
+  {
+   "q": "A Alice quer enviar uma mensagem confidencial ao Bob usando uma cifra assimétrica. Como o faz?",
+   "options": [
+    "Cifra com a sua chave privada, e o Bob decifra com a chave pública da Alice",
+    "Cifra com a chave pública do Bob, e o Bob decifra com a sua chave privada",
+    "Cifra com a chave privada do Bob, e o Bob decifra com a chave pública",
+    "Cifra e decifra com a mesma chave pública do Bob"
+   ],
+   "answer": 1,
+   "explanation": "Confidencialidade: encrypt(public key) / decrypt(private key). A segunda opção descreve a assinatura.",
+   "ref": "3.4-Asymmetric_cryptography · slides 3 e 4"
+  },
+  {
+   "q": "Num esquema de assinatura com uma cifra assimétrica como o RSA, que chave usa o signatário para cifrar?",
+   "options": [
+    "A sua própria chave pública",
+    "A chave pública do destinatário",
+    "A sua própria chave privada",
+    "Uma chave simétrica partilhada com o destinatário"
+   ],
+   "answer": 2,
+   "explanation": "Assinatura: encrypt(private key); qualquer pessoa pode decifrar com a chave pública do signatário.",
+   "ref": "3.4-Asymmetric_cryptography · slides 3 e 5"
+  },
+  {
+   "q": "Qual é a principal desvantagem das cifras assimétricas, segundo os slides?",
+   "options": [
+    "Exigem que os intervenientes partilhem previamente uma chave secreta",
+    "Não permitem autenticar a origem dos dados",
+    "Não permitem garantir a integridade dos dados",
+    "O desempenho: são normalmente muito ineficientes e consomem muita memória"
+   ],
+   "answer": 3,
+   "explanation": "Permitem confidencialidade sem troca prévia de segredos e autenticação (integridade e origem), mas são lentas.",
+   "ref": "3.4-Asymmetric_cryptography · slides 2 e 6"
+  },
+  {
+   "q": "Que problemas permanecem no uso de cifras assimétricas, segundo os slides?",
+   "options": [
+    "A distribuição fiável das chaves públicas e o tempo de vida dos pares de chaves",
+    "A impossibilidade de garantir confidencialidade sem uma troca prévia de chaves secretas",
+    "A necessidade de enviar a chave privada ao destinatário por um canal seguro",
+    "A inexistência de algoritmos standard e de implementações auditadas"
+   ],
+   "answer": 0,
+   "explanation": "Problems: trustworthy distribution of public keys; lifetime of key pairs.",
+   "ref": "3.4-Asymmetric_cryptography · slide 6"
+  },
+  {
+   "q": "Na cifra híbrida, o que contém C2?",
+   "options": [
+    "O texto limpo cifrado com a chave simétrica",
+    "A chave simétrica cifrada com a chave pública do recetor",
+    "A chave privada do emissor cifrada com a chave simétrica",
+    "O IV cifrado com a chave privada do recetor"
+   ],
+   "answer": 1,
+   "explanation": "C1 = Esym(Ksym, P) e C2 = Easym(Kpub, Ksym); envia-se C1 e C2 (e, eventualmente, o IV).",
+   "ref": "3.4-Asymmetric_cryptography · slide 9"
+  },
+  {
+   "q": "Porque se combinam cifras simétricas e assimétricas na cifra híbrida?",
+   "options": [
+    "A simétrica resolve a troca de chaves mas é lenta; a assimétrica é rápida",
+    "Para duplicar o tamanho efetivo das chaves usadas",
+    "A assimétrica resolve a troca de chaves mas é lenta; a simétrica é rápida",
+    "Porque a cifra assimétrica não consegue cifrar dados"
+   ],
+   "answer": 2,
+   "explanation": "Hybrid: o melhor dos dois mundos, evitando os problemas de cada um.",
+   "ref": "3.4-Asymmetric_cryptography · slide 9"
+  },
+  {
+   "q": "O que se pretende com a aleatorização (randomization) das cifras assimétricas?",
+   "options": [
+    "Que a chave pública mude a cada mensagem enviada",
+    "Que a cifra assimétrica se torne mais rápida e consuma menos memória do que a simétrica",
+    "Que o texto seja comprimido antes de ser cifrado",
+    "Que N cifras do mesmo valor com a mesma chave deem N resultados diferentes"
+   ],
+   "answer": 3,
+   "explanation": "Evita a descoberta por tentativa e erro de valores cifrados com chaves públicas e a criptanálise da chave privada.",
+   "ref": "3.4-Asymmetric_cryptography · slide 10"
+  },
+  {
+   "q": "O que cada participante envia ao outro no acordo de chaves Diffie-Hellman?",
+   "options": [
+    "O valor público Y = α^x mod q, mantendo o expoente secreto",
+    "O seu expoente aleatório (a ou b), cifrado com a chave pública do outro",
+    "A chave final Kab já calculada, para o outro a confirmar",
+    "Um certificado que contém a sua chave privada"
+   ],
+   "answer": 0,
+   "explanation": "Ya = α^a mod q e Yb = α^b mod q; depois Kab = Yb^a mod q = Ya^b mod q.",
+   "ref": "3.4-Asymmetric_cryptography · slide 12"
+  },
+  {
+   "q": "Como funciona o ataque man-in-the-middle ao Diffie-Hellman?",
+   "options": [
+    "O atacante descobre o expoente secreto de um dos participantes resolvendo o logaritmo discreto em tempo real",
+    "O atacante substitui os valores públicos pelo seu e fica a partilhar uma chave com cada interveniente",
+    "O atacante altera o primo q antes de a Alice o enviar ao Bob",
+    "O atacante limita-se a escutar o canal e calcula Kab sem interferir nas mensagens"
+   ],
+   "answer": 1,
+   "explanation": "O DH sozinho não autentica os intervenientes; o atacante fica com Kac (com a Alice) e Kbc (com o Bob).",
+   "ref": "3.4-Asymmetric_cryptography · slide 13"
+  },
+  {
+   "q": "Em criptografia de curvas elípticas (ECC), o que é a chave pública?",
+   "options": [
+    "Um inteiro aleatório com o máximo de bits permitido pela curva",
+    "Um número primo grande q",
+    "Um ponto (x, y) obtido como Kprv · G",
+    "O digest da chave privada"
+   ],
+   "answer": 2,
+   "explanation": "A chave privada é um inteiro; a pública é um ponto e é difícil obter Kprv a partir de Kpub.",
+   "ref": "3.4-Asymmetric_cryptography · slide 14"
+  }
+ ]
+}

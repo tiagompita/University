@@ -1,0 +1,245 @@
+{
+ "title": "Teste global 1 · Toda a matéria",
+ "questions": [
+  {
+   "q": "De que depende o tamanho do resultado de um HMAC?",
+   "options": [
+    "Do tamanho da chave K",
+    "Da função de digest H utilizada",
+    "Do tamanho do texto",
+    "Dos valores fixos de ipad e opad"
+   ],
+   "answer": 1,
+   "explanation": "HMAC é uma construção genérica: o comprimento do output depende de H (HMAC-MD5, HMAC-SHA, etc.).",
+   "ref": "3.1-Digest_functions · slide 8"
+  },
+  {
+   "q": "O que dizem os slides sobre a relação entre a pontuação CVSS e o risco de uma organização?",
+   "options": [
+    "São o mesmo valor, apenas com escalas diferentes",
+    "O risco é sempre igual à pontuação CVSS arredondada",
+    "A severidade CVSS não deve ser equiparada ao risco organizacional",
+    "O CVSS inclui o valor dos ativos e os controlos de cada organização"
+   ],
+   "answer": 2,
+   "explanation": "O risco é contextual: depende do valor do ativo, exposição, controlos e ameaça.",
+   "ref": "2-Vulnerabilities · slide 3"
+  },
+  {
+   "q": "Segundo o modelo de zero trust, o que se pode afirmar sobre as entidades internas?",
+   "options": [
+    "São de confiança porque estão dentro do perímetro",
+    "São de confiança depois de se autenticarem uma única vez no perímetro",
+    "Só as entidades externas precisam de ser verificadas",
+    "Não há confiança inerente numa entidade só por ser interna"
+   ],
+   "answer": 3,
+   "explanation": "No zero trust não há perímetros específicos e pode até não existir a noção de interno e externo.",
+   "ref": "1-Introduction · slide 34"
+  },
+  {
+   "q": "Quantos controlos define a norma ISO 27001, segundo os slides?",
+   "options": [
+    "114 controlos em 14 grupos",
+    "27 controlos em 7 grupos",
+    "64 controlos em 8 grupos",
+    "200 controlos em 20 grupos"
+   ],
+   "answer": 0,
+   "explanation": "Os controlos são explícitos e auditáveis: a ISO 27001 define 114 controlos em 14 grupos.",
+   "ref": "1-Introduction · slide 25"
+  },
+  {
+   "q": "Num email assinado digitalmente (S/MIME), como aparece a assinatura?",
+   "options": [
+    "Cifrada dentro do corpo de texto da própria mensagem",
+    "Numa parte MIME application/x-pkcs7-signature (smime.p7s)",
+    "Num cabeçalho HTTP adicional enviado com o email",
+    "Num ficheiro .pem enviado separadamente por SMS"
+   ],
+   "answer": 1,
+   "explanation": "O exemplo do slide mostra Content-Type: multipart/signed com a parte smime.p7s (assinatura com certificado).",
+   "ref": "3.6-Digital_signatures · slide 7"
+  },
+  {
+   "q": "Qual é a propriedade que garante que, dado um texto, é inviável encontrar outro texto com o mesmo digest?",
+   "options": [
+    "Preimage resistance",
+    "Collision resistance",
+    "2nd-preimage resistance",
+    "Length padding"
+   ],
+   "answer": 2,
+   "explanation": "2nd-preimage: dado um texto, é inviável encontrar outro com o mesmo digest.",
+   "ref": "3.1-Digest_functions · slide 2"
+  },
+  {
+   "q": "Na cifra de chave pública com ECC, o que envia o emissor ao recetor?",
+   "options": [
+    "O criptograma C e a sua chave privada Kprv_send",
+    "A chave simétrica cifrada com RSA",
+    "Apenas o criptograma, porque Ksym já é conhecida pelo recetor desde o início",
+    "O criptograma C e a sua chave pública temporária Kpub_send"
+   ],
+   "answer": 3,
+   "explanation": "O emissor calcula Ksym = Kprv_send · Kpub_recv; o recetor calcula Ksym = Kpub_send · Kprv_recv.",
+   "ref": "3.4-Asymmetric_cryptography · slide 16"
+  },
+  {
+   "q": "O que acontece se um atacante inverter um bit do criptograma numa cifra de fluxo?",
+   "options": [
+    "O bit correspondente do texto limpo fica invertido; é preciso controlo de integridade",
+    "Todo o bloco seguinte do texto limpo fica ilegível ao decifrar",
+    "A decifra falha sempre e a alteração é detetada automaticamente",
+    "O keystream é alterado a partir desse ponto até ao fim da mensagem, corrompendo tudo o que segue"
+   ],
+   "answer": 0,
+   "explanation": "Cada bit cifrado depende só de um bit do texto limpo: se C' = C ⊕ Δ então P' = P ⊕ Δ.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 20"
+  },
+  {
+   "q": "Qual é a diferença entre PAP e CHAP (autenticação PPP)?",
+   "options": [
+    "O PAP usa um desafio com MD5 e segredo partilhado para autenticar; o CHAP limita-se a enviar a password em claro pela rede",
+    "O PAP envia a password sem proteção criptográfica; o CHAP usa desafio e resposta com MD5 e segredo partilhado",
+    "Ambos usam pares de chaves assimétricas para autenticar os extremos",
+    "O PAP autentica ambos os extremos, enquanto o CHAP não autentica nenhum"
+   ],
+   "answer": 1,
+   "explanation": "Ambos são protocolos legados e não são adequados como login moderno na Internet.",
+   "ref": "5-Authentication · slide 30"
+  },
+  {
+   "q": "O que é tipicamente a PRF (pseudo-random function) usada no PBKDF2?",
+   "options": [
+    "Uma cifra assimétrica como o RSA",
+    "Um gerador de números aleatórios de hardware",
+    "Uma função de digest ou de MAC",
+    "Um certificado X.509"
+   ],
+   "answer": 2,
+   "explanation": "PRF: Pseudo-Random-Function, tipicamente digest ou MAC.",
+   "ref": "3.2-Key_derivation · slide 6"
+  },
+  {
+   "q": "O que se pode dizer sobre a função f de uma rede de Feistel?",
+   "options": [
+    "Tem de ser uma função bijetiva",
+    "Tem de ser uma função de digest",
+    "Tem de ser igual à função de decifra",
+    "Não precisa de ser reversível"
+   ],
+   "answer": 3,
+   "explanation": "A rede de Feistel é reversível mesmo que f não o seja: Li = Ri−1 e Ri = Li−1 ⊕ f(Ri−1, Ki).",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 23"
+  },
+  {
+   "q": "Para além do criptograma, que dados entram no cálculo da etiqueta de autenticação do GCM?",
+   "options": [
+    "Os dados de autenticação (A) e os comprimentos len(A) || len(C)",
+    "Apenas o IV usado na mensagem, a chave pública do recetor e o texto limpo",
+    "A chave privada do emissor e o seu certificado",
+    "O texto limpo e a chave pública do recetor"
+   ],
+   "answer": 0,
+   "explanation": "No diagrama do GCM, os blocos de auth data e o bloco len(A) || len(C) passam pelas multiplicações em H para produzir a auth tag.",
+   "ref": "3.5-MAC_functions · slide 5"
+  },
+  {
+   "q": "O padding PKCS #5 é igual ao PKCS #7 com que tamanho de bloco B?",
+   "options": [
+    "B = 4",
+    "B = 8",
+    "B = 16",
+    "B = 32"
+   ],
+   "answer": 1,
+   "explanation": "PKCS #5: equal to PKCS #7 with B = 8.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 32"
+  },
+  {
+   "q": "Que ameaça pretende mitigar o certificate pinning?",
+   "options": [
+    "A expiração de certificados antes do fim do período de validade previsto pela CA que os emitiu",
+    "A cópia e a redistribuição de certificados públicos por terceiros",
+    "Um atacante que comprometa uma raiz de confiança e se faça passar por entidades abaixo dela",
+    "Ataques de força bruta que tentam adivinhar a chave pública do servidor"
+   ],
+   "answer": 2,
+   "explanation": "Se uma raiz é comprometida, pode personificar todas as entidades abaixo na hierarquia.",
+   "ref": "4-PKI · slide 24"
+  },
+  {
+   "q": "O que é o formato PEM (Privacy Enhanced Mail)?",
+   "options": [
+    "Um formato binário ASN.1 do tipo DER",
+    "Um protocolo de validação online de certificados",
+    "Uma lista delta de revogação",
+    "Uma codificação base64 de um certificado X.509"
+   ],
+   "answer": 3,
+   "explanation": "Formatos binários: ASN.1 (DER, CER, BER). PEM é base64 de X.509.",
+   "ref": "4-PKI · slide 9"
+  },
+  {
+   "q": "O que deve o cliente SSH fazer quando a chave de um host conhecido muda inesperadamente?",
+   "options": [
+    "Tratar a mudança como um aviso de segurança",
+    "Aceitá-la automaticamente",
+    "Apagar o known_hosts e continuar",
+    "Aceitá-la se a password do utilizador estiver correta"
+   ],
+   "answer": 0,
+   "explanation": "O cliente verifica a chave do host num known_hosts, numa CA de hosts ou noutra ligação de confiança.",
+   "ref": "5-Authentication · slide 40"
+  },
+  {
+   "q": "Porque é que a introdução de um código OTP, em geral, não é resistente a phishing?",
+   "options": [
+    "Porque os códigos OTP nunca expiram depois de gerados",
+    "Um atacante pode reencaminhar em tempo real um código válido",
+    "Porque o código pode ser reutilizado várias vezes depois de usado",
+    "Porque o segredo é enviado em claro ao servidor"
+   ],
+   "answer": 1,
+   "explanation": "Medidas úteis: TLS, limitação de tentativas, validade curta e deteção de replay.",
+   "ref": "5-Authentication · slide 18"
+  },
+  {
+   "q": "Como pode uma passkey fornecer dois fatores de autenticação?",
+   "options": [
+    "Porque inclui duas passwords diferentes guardadas no dispositivo do utilizador",
+    "Porque tem dois pares de chaves distintos por serviço",
+    "É algo que se tem (a chave), desbloqueado por PIN ou biometria",
+    "Porque é guardada em dois servidores independentes"
+   ],
+   "answer": 2,
+   "explanation": "Uma passkey desbloqueada por PIN ou biometria pode fornecer dois fatores.",
+   "ref": "5-Authentication · slide 3"
+  },
+  {
+   "q": "Em que tipo de problemas matemáticos se baseiam as cifras assimétricas, segundo os slides?",
+   "options": [
+    "Ordenação de listas grandes e pesquisa binária em tabelas de chaves",
+    "Substituição e permutação de bits",
+    "Somas de números pequenos módulo 2",
+    "Logaritmos discretos e fatorização de inteiros grandes"
+   ],
+   "answer": 3,
+   "explanation": "As abordagens assimétricas assentam em problemas matemáticos complexos: logaritmos discretos e fatorização de números grandes.",
+   "ref": "3.4-Asymmetric_cryptography · slide 7"
+  },
+  {
+   "q": "Qual é o primeiro item do OWASP Top 10 (2025, Web) apresentado nos slides?",
+   "options": [
+    "Broken Access Control",
+    "Injection",
+    "Cryptographic Failures",
+    "Insecure Design"
+   ],
+   "answer": 0,
+   "explanation": "A lista começa com Broken Access Control e Security Misconfiguration.",
+   "ref": "2-Vulnerabilities · slide 24"
+  }
+ ]
+}

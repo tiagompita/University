@@ -1,0 +1,245 @@
+{
+ "title": "Teste global 2 · Toda a matéria",
+ "questions": [
+  {
+   "q": "Em que se baseia o CBC-MAC?",
+   "options": [
+    "Numa cifra assimétrica",
+    "Em duas aplicações encadeadas de uma função de digest",
+    "Numa cifra por blocos com feedback e propagação de erros",
+    "Num gerador de números aleatórios"
+   ],
+   "answer": 2,
+   "explanation": "Os slides listam o CBC-MAC como a abordagem de 'encriptação com feedback e propagação de erros'.",
+   "ref": "3.5-MAC_functions · slide 3"
+  },
+  {
+   "q": "O que é o 'vandalismo' entre as atividades não autorizadas referidas nos slides?",
+   "options": [
+    "Acesso a informação confidencial sem autorização expressa",
+    "Uso de CPU, memória ou rede sem autorização do dono",
+    "Alteração intencional de dados por parte do atacante, com o objetivo de obter lucro financeiro",
+    "Interferência no comportamento normal do sistema, sem benefício para o atacante"
+   ],
+   "answer": 3,
+   "explanation": "Vandalismo: interferência com o comportamento normal do sistema sem benefício para o atacante.",
+   "ref": "1-Introduction · slide 18"
+  },
+  {
+   "q": "Quantos bits tem a curva Curve25519, segundo os slides?",
+   "options": [
+    "256 bits",
+    "128 bits",
+    "448 bits",
+    "521 bits"
+   ],
+   "answer": 0,
+   "explanation": "Curve25519 (256 bits) e Curve448 (448 bits) são curvas não-NIST referidas nos slides.",
+   "ref": "3.4-Asymmetric_cryptography · slide 14"
+  },
+  {
+   "q": "Qual destas é uma responsabilidade de uma PKI?",
+   "options": [
+    "Cifrar o tráfego de rede de cada utilizador",
+    "Criar e distribuir certificados e publicar/consultar CRL",
+    "Guardar as passwords dos utilizadores em claro numa base de dados central",
+    "Assinar documentos em nome dos utilizadores"
+   ],
+   "answer": 1,
+   "explanation": "Inclui ainda políticas de registo, certificação de outras CAs, OCSP e protocolos para interoperação.",
+   "ref": "4-PKI · slides 22 e 23"
+  },
+  {
+   "q": "Qual era uma limitação da autenticação GSM (2G), segundo os slides?",
+   "options": [
+    "Enviava a chave K pelo canal rádio durante a autenticação, protegida apenas por um PIN",
+    "Não usava o padrão desafio-resposta entre a SIM e a rede",
+    "Autenticava o subscritor mas não a rede, permitindo estações base falsas",
+    "Autenticava apenas a rede e nunca o subscritor da SIM"
+   ],
+   "answer": 2,
+   "explanation": "A SIM nunca envia K; calcula SRES e Kc a partir de RAND e K.",
+   "ref": "5-Authentication · slide 32"
+  },
+  {
+   "q": "Que propriedade têm de ter as S-boxes numa rede de substituição-permutação?",
+   "options": [
+    "Serem sempre dependentes da chave",
+    "Serem iguais às P-boxes",
+    "Serem geradas aleatoriamente para cada bloco",
+    "Serem reversíveis (transformações bijetivas)"
+   ],
+   "answer": 3,
+   "explanation": "Para decifrar é preciso x = SBox⁻¹[y]. DES e AES usam S-boxes constantes.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 24"
+  },
+  {
+   "q": "Que ataque é referido nos slides como exemplo de dano físico em infraestruturas através de meios cibernéticos?",
+   "options": [
+    "Stuxnet",
+    "Morris Worm",
+    "WannaCry",
+    "DigiNotar"
+   ],
+   "answer": 0,
+   "explanation": "Os slides mencionam Stuxnet e outros ataques ciberfísicos como casos raros de dano físico.",
+   "ref": "2-Vulnerabilities · slide 6"
+  },
+  {
+   "q": "Qual é o conceito mencionado nos slides em associação à resistência a colisões?",
+   "options": [
+    "O efeito de avalanche (avalanche effect) das cifras",
+    "O paradoxo do aniversário (birthday paradox)",
+    "O algoritmo de Diffie-Hellman (DH)",
+    "As redes de Feistel (Feistel networks)"
+   ],
+   "answer": 1,
+   "explanation": "A resistência a colisões é a propriedade em que o paradoxo do aniversário é relevante.",
+   "ref": "3.1-Digest_functions · slide 2"
+  },
+  {
+   "q": "Em que se baseia o scrypt, segundo os slides?",
+   "options": [
+    "No Argon2",
+    "No Blake2b",
+    "No PBKDF2",
+    "No MD5"
+   ],
+   "answer": 2,
+   "explanation": "scrypt = PBKDF2 + custo de memória. O Argon2 é que se baseia no Blake2b.",
+   "ref": "3.2-Key_derivation · slide 8"
+  },
+  {
+   "q": "Qual é a vantagem de o verificador guardar apenas as chaves públicas dos utilizadores?",
+   "options": [
+    "A base de dados deixa de precisar de proteção",
+    "Os utilizadores deixam de precisar de chave privada porque o servidor assina por eles",
+    "A autenticação passa a ser mútua automaticamente",
+    "Se a base de dados for roubada, não revela as chaves privadas"
+   ],
+   "answer": 3,
+   "explanation": "A chave privada pode estar protegida por hardware/secure element e ser ativada por PIN, biometria ou presença do utilizador.",
+   "ref": "5-Authentication · slide 24"
+  },
+  {
+   "q": "Para que servem os digests relativamente a documentos, segundo os slides?",
+   "options": [
+    "Produzir uma impressão digital do documento, útil para o assinar",
+    "Cifrar o documento de forma reversível para o enviar em segurança ao destinatário",
+    "Distribuir a chave pública do autor do documento",
+    "Comprimir o documento sem perda de informação"
+   ],
+   "answer": 0,
+   "explanation": "Fingerprints: o digest atua como 'identidade' do documento e é útil para assinaturas.",
+   "ref": "3.1-Digest_functions · slide 5"
+  },
+  {
+   "q": "Que nível de garantia de autenticação (AAL) exige uma chave de autenticação pública, resistente a phishing, não exportável e protegida por hardware?",
+   "options": [
+    "AAL1",
+    "AAL3",
+    "AAL2",
+    "IAL3"
+   ],
+   "answer": 1,
+   "explanation": "AAL1: fator único ou MFA. AAL2: dois fatores distintos e resistência a replay. AAL3: chave não exportável em hardware. O IAL refere-se ao identity proofing.",
+   "ref": "5-Authentication · slide 6"
+  },
+  {
+   "q": "Qual das afirmações classifica corretamente as cifras, segundo os slides?",
+   "options": [
+    "As cifras de fluxo são monoalfabéticas e as cifras por blocos são polialfabéticas",
+    "Ambas são monoalfabéticas",
+    "As cifras de fluxo são polialfabéticas e as cifras simétricas por blocos são monoalfabéticas",
+    "Ambas são polialfabéticas"
+   ],
+   "answer": 2,
+   "explanation": "Na cifra de fluxo o keystream define várias substituições; na cifra por blocos a chave define um único alfabeto de substituição.",
+   "ref": "3.3-Modern_symmetric_cryptography · slides 10, 11 e 14"
+  },
+  {
+   "q": "No RSA, entre que valores têm de estar os números P (texto) e C (criptograma)?",
+   "options": [
+    "0 ≤ P, C < e",
+    "0 ≤ P, C < d",
+    "Não há qualquer limite",
+    "0 ≤ P, C < n"
+   ],
+   "answer": 3,
+   "explanation": "P e C são números grandes, mas têm de ser menores do que o módulo n da chave.",
+   "ref": "3.4-Asymmetric_cryptography · slide 8"
+  },
+  {
+   "q": "Quem consegue gerar uma assinatura válida da Alice sobre um documento?",
+   "options": [
+    "Apenas quem possui a chave privada da Alice",
+    "Qualquer pessoa que conheça a chave pública da Alice",
+    "Qualquer pessoa que tenha o certificado da Alice",
+    "Qualquer pessoa que conheça o digest do documento"
+   ],
+   "answer": 0,
+   "explanation": "A assinatura só pode ser gerada com a chave privada; qualquer pessoa pode verificá-la com a pública.",
+   "ref": "3.6-Digital_signatures · slides 3 e 4"
+  },
+  {
+   "q": "Qual é uma limitação da defesa em profundidade (defense in depth)?",
+   "options": [
+    "Assume que os utilizadores internos são todos de confiança e partilham as mesmas políticas",
+    "Exige coordenação entre controlos; pode haver sobreposições e falhas nos perímetros",
+    "Só protege contra atacantes externos vindos da Internet",
+    "Dispensa auditorias e formação do pessoal da organização"
+   ],
+   "answer": 1,
+   "explanation": "A defesa em profundidade protege contra atacantes internos e externos, mas requer coordenação, formação, mudanças de processos e auditorias frequentes.",
+   "ref": "1-Introduction · slide 33"
+  },
+  {
+   "q": "Quais são os usos de chave típicos para a assinatura de documentos?",
+   "options": [
+    "Certificate signing e CRL signing",
+    "Key encipherment e data encipherment",
+    "Digital signature e non-repudiation",
+    "Timestamping exclusivo"
+   ],
+   "answer": 2,
+   "explanation": "Document signing: Digital signature, Non-repudiation.",
+   "ref": "4-PKI · slide 10"
+  },
+  {
+   "q": "O que é o SSO (Single Sign-On), segundo os slides?",
+   "options": [
+    "Um novo fator de autenticação baseado em algo que se sabe",
+    "Um algoritmo de cifra simétrica usado para proteger as sessões dos utilizadores",
+    "Um mecanismo que substitui a autorização nos serviços",
+    "Uma forma de reutilizar uma sessão de autenticação; não é um novo fator"
+   ],
+   "answer": 3,
+   "explanation": "O RP continua a validar cada asserção e a aplicar autorização; o SSO exige maior proteção dos tokens de sessão.",
+   "ref": "5-Authentication · slide 44"
+  },
+  {
+   "q": "Como é que o DESX aumenta a segurança do DES?",
+   "options": [
+    "Usa duas chaves extra, por XOR, antes da entrada e depois da saída",
+    "Aplica a cifra DES três vezes em sequência com a mesma chave",
+    "Passa a usar blocos de 128 bits em vez de 64",
+    "Usa S-boxes dependentes da chave em cada ronda"
+   ],
+   "answer": 0,
+   "explanation": "Ci = EK(K1 ⊕ Pi) ⊕ K2; chave equivalente de 184 bits (64 + 64 + 56) e muito mais rápido do que o 3DES.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 40"
+  },
+  {
+   "q": "Porque não devem as ferramentas de deteção de vulnerabilidades ser aplicadas cegamente a sistemas em produção?",
+   "options": [
+    "Só funcionam com código-fonte e não com sistemas em execução nem com serviços remotos",
+    "Podem causar perda ou corrupção de dados, negação de serviço ou atividade ilegal",
+    "Só detetam vulnerabilidades que já foram corrigidas",
+    "Obrigam a instalar sempre um patch no sistema testado"
+   ],
+   "answer": 1,
+   "explanation": "Os slides indicam esses três riscos; por isso só se deve usar o âmbito autorizado.",
+   "ref": "2-Vulnerabilities · slides 26 e 28"
+  }
+ ]
+}

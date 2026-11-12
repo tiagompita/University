@@ -1,0 +1,77 @@
+{
+ "title": "3.6 · Digital signatures — Assinaturas digitais",
+ "questions": [
+  {
+   "q": "O que significa não-repúdio (non-repudiation) numa assinatura digital?",
+   "options": [
+    "O documento assinado não pode ser lido por terceiros",
+    "O documento assinado não pode ser copiado nem reenviado",
+    "A assinatura nunca expira, mesmo depois de o certificado ser revogado",
+    "O autor genuíno não pode negar a autoria da assinatura"
+   ],
+   "answer": 3,
+   "explanation": "Assinaturas digitais autenticam o conteúdo (integridade), o autor e impedem o repúdio.",
+   "ref": "3.6-Digital_signatures · slide 4"
+  },
+  {
+   "q": "Para que se usa uma função de digest no processo de assinatura de um documento?",
+   "options": [
+    "Por desempenho: assina-se o digest do documento em vez de todo o documento",
+    "Para cifrar o documento inteiro e garantir a sua confidencialidade perante terceiros",
+    "Para dispensar o uso de um par de chaves assimétricas na assinatura",
+    "Para esconder a identidade do signatário perante quem verifica a assinatura"
+   ],
+   "answer": 0,
+   "explanation": "Os slides indicam que as funções de digest são usadas 'só por desempenho'.",
+   "ref": "3.6-Digital_signatures · slide 5"
+  },
+  {
+   "q": "Que chave se usa para verificar uma assinatura digital?",
+   "options": [
+    "A chave privada do signatário",
+    "A chave pública do signatário",
+    "A chave privada do verificador",
+    "Uma chave simétrica partilhada"
+   ],
+   "answer": 1,
+   "explanation": "Verify(public key): quem verifica precisa de conhecer a chave pública do signatário.",
+   "ref": "3.6-Digital_signatures · slides 3 e 5"
+  },
+  {
+   "q": "Num esquema de assinatura baseado em encrypt/decrypt (como o RSA), como se obtém a assinatura?",
+   "options": [
+    "Cifrando o documento inteiro com a chave pública do destinatário da mensagem",
+    "Cifrando o digest com a chave pública do signatário",
+    "Cifrando o digest do documento com a chave privada do signatário",
+    "Decifrando o digest com a chave pública do signatário"
+   ],
+   "answer": 2,
+   "explanation": "Ax(doc) = info + Enc(Kx⁻¹, digest(doc + info)); verifica-se decifrando com Kx e comparando.",
+   "ref": "3.6-Digital_signatures · slide 5"
+  },
+  {
+   "q": "Que garantia dá uma assinatura digital sobre o conteúdo do documento?",
+   "options": [
+    "Que o conteúdo é confidencial",
+    "Que só o destinatário o pode ler",
+    "Que foi enviado dentro de um prazo definido",
+    "Que o documento não foi alterado (integridade)"
+   ],
+   "answer": 3,
+   "explanation": "Authenticate the contents: ensure its integrity (it was not changed).",
+   "ref": "3.6-Digital_signatures · slide 4"
+  },
+  {
+   "q": "Qual destas é uma finalidade das assinaturas digitais, segundo os slides?",
+   "options": [
+    "Autenticar o autor do documento, garantindo a identidade do criador",
+    "Cifrar o documento para o tornar confidencial perante terceiros",
+    "Comprimir o documento para reduzir o tamanho do ficheiro assinado",
+    "Garantir que o documento assinado está sempre disponível para consulta"
+   ],
+   "answer": 0,
+   "explanation": "Authenticate its author: ensure the identity of the creator/originator.",
+   "ref": "3.6-Digital_signatures · slide 4"
+  }
+ ]
+}

@@ -1,0 +1,245 @@
+{
+ "title": "Teste global 5 · Toda a matéria",
+ "questions": [
+  {
+   "q": "Na perspetiva ofensiva da segurança, com que objetivo podem atuar as Red Teams?",
+   "options": [
+    "Recuperar o design a partir de produtos construídos",
+    "Validar a solução, explorando a sua previsibilidade",
+    "Reconstruir eventos passados a partir de vestígios",
+    "Minimizar o impacto de ataques já ocorridos"
+   ],
+   "answer": 1,
+   "explanation": "Ofensiva: explorar a previsibilidade, com intenção criminosa ou para validar a solução (Red Teams). As outras opções são reverse engineering, forensics e disaster recovery.",
+   "ref": "1-Introduction · slide 10"
+  },
+  {
+   "q": "Que cifra é descrita nos slides como 'a única cifra perfeita'?",
+   "options": [
+    "Cifra AES com chaves de 256 bits",
+    "Cifra RC4 usada no Wi-Fi WEP",
+    "Cifra de Vernam (one-time pad)",
+    "Cifra DES com três chaves (3DES)"
+   ],
+   "answer": 2,
+   "explanation": "O keystream da cifra de Vernam é aleatório e tão longo quanto os dados, mas raramente é usada por razões práticas.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 10"
+  },
+  {
+   "q": "Que algoritmos de assinatura usam sign/verify em vez de encrypt/decrypt, segundo os slides?",
+   "options": [
+    "RSA e Diffie-Hellman",
+    "AES e RSA com padding OAEP e cifra híbrida",
+    "HMAC e CBC-MAC com chave",
+    "ElGamal e curvas elípticas (EC)"
+   ],
+   "answer": 3,
+   "explanation": "O RSA assina com encrypt/decrypt; ElGamal e EC usam operações próprias de sign/verify.",
+   "ref": "3.6-Digital_signatures · slide 3"
+  },
+  {
+   "q": "Que ordem de grandeza de rounds é indicada nos slides para o PBKDF2?",
+   "options": [
+    "Centenas de milhares",
+    "Algumas dezenas",
+    "Menos de dez",
+    "Milhares de milhões"
+   ],
+   "answer": 0,
+   "explanation": "No PBKDF2, rounds é o custo computacional, 'hundreds of thousands'.",
+   "ref": "3.2-Key_derivation · slide 6"
+  },
+  {
+   "q": "Que organização mantém atualmente o CWE, segundo os slides?",
+   "options": [
+    "A OWASP Foundation",
+    "A MITRE Corporation",
+    "O CERT/CC da CMU",
+    "O SANS Institute"
+   ],
+   "answer": 1,
+   "explanation": "Os CWE são mantidos pela MITRE e organizados numa hierarquia de pilar, classe, base e variante.",
+   "ref": "2-Vulnerabilities · slide 22"
+  },
+  {
+   "q": "O que indica o nome da cipher suite TLS_AES_128_GCM_SHA256 do TLS 1.3?",
+   "options": [
+    "Troca de chaves AES e assinatura GCM",
+    "Cifra AES-256 e MAC SHA-128",
+    "AEAD AES-128-GCM e hash SHA-256 para o HKDF",
+    "Assinatura RSA com chaves de 128 bits"
+   ],
+   "answer": 2,
+   "explanation": "No TLS 1.3 a cipher suite não codifica a troca de chaves nem a autenticação, que são negociadas à parte.",
+   "ref": "5-Authentication · slide 38"
+  },
+  {
+   "q": "Num gerador de keystream de uma cifra de fluxo, qual é o papel do IV?",
+   "options": [
+    "Definir como se passa de um estado para o seguinte",
+    "Ser o próprio keystream",
+    "Ser a chave pública do destinatário",
+    "Definir o estado inicial da máquina de estados do gerador"
+   ],
+   "answer": 3,
+   "explanation": "O IV define o estado inicial; a chave define como se passa de um estado para o seguinte.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 17"
+  },
+  {
+   "q": "Qual é o intervalo de tempo X típico (por omissão) no TOTP?",
+   "options": [
+    "30 segundos",
+    "10 segundos",
+    "5 minutos",
+    "1 hora"
+   ],
+   "answer": 0,
+   "explanation": "C = floor((T − T0) / X), com X = 30 s por omissão; o verificador aceita uma pequena janela de tempo.",
+   "ref": "5-Authentication · slides 19 e 21"
+  },
+  {
+   "q": "Usando padding PKCS #7 com B = 16 bytes, que padding recebe uma mensagem de 13 bytes?",
+   "options": [
+    "3 bytes, cada um com o valor 0",
+    "3 bytes, cada um com o valor 3",
+    "13 bytes, cada um com o valor 13",
+    "3 bytes aleatórios"
+   ],
+   "answer": 1,
+   "explanation": "X = B − (M mod B) = 16 − 13 = 3; acrescentam-se X bytes com o valor X, o que torna o padding identificável.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 32"
+  },
+  {
+   "q": "Para que serve o Diffie-Hellman?",
+   "options": [
+    "Para assinar documentos",
+    "Para calcular digests",
+    "Para acordo de chaves (key agreement)",
+    "Para cifrar blocos de dados com a chave pública"
+   ],
+   "answer": 2,
+   "explanation": "Os slides colocam o DH como 'other technique with asymmetric key pairs (key agreement)'.",
+   "ref": "3.4-Asymmetric_cryptography · slide 7"
+  },
+  {
+   "q": "O que são as instruções AES-NI?",
+   "options": [
+    "Um modo de operação do AES para cifras de fluxo, baseado em contadores",
+    "Uma extensão do AES para chaves de 512 bits",
+    "Um protocolo de troca de chaves para o AES",
+    "Instruções de CPU (Intel) que executam rondas de AES em hardware"
+   ],
+   "answer": 3,
+   "explanation": "AESENC, AESENCLAST, AESDEC, AESDECLAST, etc.; o ARMv8 tem uma extensão criptográfica equivalente.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 28"
+  },
+  {
+   "q": "No ECDH, qual é o segredo partilhado entre a Alice e o Bob?",
+   "options": [
+    "Kab = a·Yb = b·Ya = abG",
+    "Kab = a + b, a soma dos segredos",
+    "Kab = Ya + Yb, a soma dos pontos públicos",
+    "Kab = G, o gerador da curva"
+   ],
+   "answer": 0,
+   "explanation": "ECDH é o Diffie-Hellman com curvas elípticas: Ya = aG, Yb = bG.",
+   "ref": "3.4-Asymmetric_cryptography · slide 15"
+  },
+  {
+   "q": "Que mecanismo pode implementar a política 'o movimento entre domínios é restrito'?",
+   "options": [
+    "Duplicação de equipamentos e de ligações",
+    "Portas, guardas, passwords e objetos/documentos de acesso",
+    "Monitorização da temperatura e da humidade da sala de servidores",
+    "Atualização regular do software"
+   ],
+   "answer": 1,
+   "explanation": "Os slides dão este exemplo; a duplicação de equipamentos e ligações implementa a política 'os sistemas devem ser resilientes'.",
+   "ref": "1-Introduction · slide 28"
+  },
+  {
+   "q": "Backups e sistemas redundantes são exemplos de que tipo de medida, segundo os slides?",
+   "options": [
+    "Prevention (prevenção)",
+    "Detection (deteção)",
+    "Recovery (recuperação)",
+    "Discouragement (dissuasão)"
+   ],
+   "answer": 2,
+   "explanation": "Recovery: backups, sistemas redundantes e forense de recuperação.",
+   "ref": "2-Vulnerabilities · slide 9"
+  },
+  {
+   "q": "Que vantagem tem o OCSP stapling?",
+   "options": [
+    "Elimina a necessidade de a CA assinar a resposta",
+    "Permite ao cliente gerar o seu próprio certificado sem intervenção da CA",
+    "Obriga o cliente a descarregar a CRL completa",
+    "Reduz o atraso e a carga na CA, e evita problemas de privacidade"
+   ],
+   "answer": 3,
+   "explanation": "O servidor TLS inclui na resposta uma validação recente, assinada, do estado do seu certificado.",
+   "ref": "4-PKI · slide 20"
+  },
+  {
+   "q": "Qual é o problema do esquema ingénuo 'resposta = hash(password || desafio)'?",
+   "options": [
+    "Um atacante que observe a troca pode testar palpites offline",
+    "O verificador não consegue calcular o hash da resposta",
+    "O desafio é demasiado longo para ser usado numa função de hash",
+    "A password é enviada em claro através da rede"
+   ],
+   "answer": 0,
+   "explanation": "Melhor: um PAKE bem estudado (ex.: OPAQUE) ou um autenticador de chave pública (WebAuthn/passkeys). Não se devem inventar protocolos de autenticação.",
+   "ref": "5-Authentication · slide 29"
+  },
+  {
+   "q": "Quais são os valores de ipad e opad no HMAC?",
+   "options": [
+    "ipad = 0x5C repetido B vezes; opad = 0x36 repetido B vezes",
+    "ipad = 0x36 repetido B vezes; opad = 0x5C repetido B vezes",
+    "ipad = 0x00 e opad = 0xFF, repetidos B vezes",
+    "ipad = 0x01 e opad = 0x02, repetidos B vezes"
+   ],
+   "answer": 1,
+   "explanation": "B é o tamanho do bloco de entrada da função de digest H.",
+   "ref": "3.1-Digest_functions · slide 8"
+  },
+  {
+   "q": "Um cartão inteligente (smart card) é um fator de autenticação de que tipo?",
+   "options": [
+    "Algo que se sabe (something you know)",
+    "Algo que se é (something you are)",
+    "Algo que se tem (something you have)",
+    "Não é um fator de autenticação"
+   ],
+   "answer": 2,
+   "explanation": "Algo que se sabe: password ou PIN. Algo que se tem: chave de segurança, smartphone ou smart card. Algo que se é: biometria.",
+   "ref": "5-Authentication · slide 3"
+  },
+  {
+   "q": "Para que serve o formato PKCS #12?",
+   "options": [
+    "Codificar em base64 certificados X.509 para envio por email",
+    "Listar os certificados revogados por uma CA ao longo do tempo, com o motivo de cada revogação",
+    "Validar online o estado de um certificado através de HTTP",
+    "Empacotar uma chave privada e um certificado, com a privada protegida por password"
+   ],
+   "answer": 3,
+   "explanation": "PKCS #12 = Personal Information Exchange Syntax Standard.",
+   "ref": "4-PKI · slide 9"
+  },
+  {
+   "q": "Que mecanismo é exigido para clientes públicos no fluxo authorization code do OAuth 2.0, segundo os slides?",
+   "options": [
+    "PKCE",
+    "HOTP",
+    "CRL",
+    "CHAP"
+   ],
+   "answer": 0,
+   "explanation": "RFC 9700: PKCE é exigido para clientes públicos; os códigos de autorização são trocados no token endpoint.",
+   "ref": "5-Authentication · slide 47"
+  }
+ ]
+}

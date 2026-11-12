@@ -1,0 +1,125 @@
+{
+ "title": "1 · Introduction — Segurança da informação e organizacional",
+ "questions": [
+  {
+   "q": "Segundo os slides, a segurança é uma disciplina focada em quê?",
+   "options": [
+    "Na previsibilidade de sistemas, processos e ambientes",
+    "Exclusivamente na cifra dos dados guardados e transmitidos",
+    "Apenas na deteção e remoção de vírus informáticos nos sistemas",
+    "Na velocidade de execução do software e dos processos de negócio"
+   ],
+   "answer": 0,
+   "explanation": "O primeiro slide define segurança como a disciplina centrada na previsibilidade de sistemas, processos e ambientes.",
+   "ref": "1-Introduction · slide 2"
+  },
+  {
+   "q": "Qual é o significado da tríade CIA nos objetivos de segurança da informação?",
+   "options": [
+    "Confidencialidade, Identificação e Autorização de acessos",
+    "Confidencialidade, Integridade e Disponibilidade",
+    "Cifra, Integridade e Acesso",
+    "Controlo, Inspeção e Auditoria"
+   ],
+   "answer": 1,
+   "explanation": "CIA = Confidentiality, Integrity, Availability.",
+   "ref": "1-Introduction · slide 11"
+  },
+  {
+   "q": "Cifrar a informação é uma medida que serve principalmente que objetivo?",
+   "options": [
+    "Disponibilidade",
+    "Integridade",
+    "Confidencialidade",
+    "Redundância"
+   ],
+   "answer": 2,
+   "explanation": "A cifra está listada entre as medidas de confidencialidade (restringir quem acede à informação).",
+   "ref": "1-Introduction · slide 12"
+  },
+  {
+   "q": "Qual das seguintes medidas serve sobretudo o objetivo de integridade?",
+   "options": [
+    "Segurança física com guardas e portas",
+    "Virtualização e redundância de servidores",
+    "Autenticação com passwords fortes",
+    "Controlo de integridade com hashes"
+   ],
+   "answer": 3,
+   "explanation": "Entre as medidas de integridade estão os hashes, backups, controlos de acesso e processos de verificação de dados.",
+   "ref": "1-Introduction · slide 13"
+  },
+  {
+   "q": "Qual destas medidas serve sobretudo o objetivo de disponibilidade?",
+   "options": [
+    "Redundância de equipamentos",
+    "Passwords de acesso fortes",
+    "Cifrar a informação",
+    "Formação do pessoal"
+   ],
+   "answer": 0,
+   "explanation": "Backups, planos de disaster recovery, redundância, virtualização e monitorização são medidas de disponibilidade.",
+   "ref": "1-Introduction · slide 14"
+  },
+  {
+   "q": "O que estabelece o princípio do menor privilégio (least privilege)?",
+   "options": [
+    "Todos os sujeitos de um domínio têm exatamente os mesmos privilégios, para simplificar a gestão",
+    "Cada sujeito deve ter apenas os privilégios necessários ao cumprimento das suas funções",
+    "Os administradores devem ter sempre privilégios máximos em todos os sistemas",
+    "Os privilégios devem aumentar automaticamente com a antiguidade do utilizador na organização"
+   ],
+   "answer": 1,
+   "explanation": "As políticas definem o poder de cada sujeito segundo o princípio do menor privilégio.",
+   "ref": "1-Introduction · slide 23"
+  },
+  {
+   "q": "O que é um domínio de segurança?",
+   "options": [
+    "Um único computador isolado, sem ligação à rede nem a outras entidades da organização",
+    "O nome DNS registado pela organização na Internet",
+    "Um conjunto de entidades com atributos de segurança semelhantes",
+    "O algoritmo de cifra usado numa rede interna"
+   ],
+   "answer": 2,
+   "explanation": "Os domínios permitem gerir a segurança de forma agregada: a gestão define os atributos e as entidades adicionadas herdam-nos.",
+   "ref": "1-Introduction · slide 20"
+  },
+  {
+   "q": "No modelo de política 'forbid list', o que acontece às atividades que não estão na lista?",
+   "options": [
+    "São proibidas: apenas as atividades listadas são permitidas",
+    "São decididas caso a caso pelo utilizador",
+    "São registadas mas nunca bloqueadas, mesmo as listadas",
+    "São permitidas: apenas as atividades listadas são negadas"
+   ],
+   "answer": 3,
+   "explanation": "Forbid list: algumas atividades são negadas e as restantes são permitidas. Permit list: algumas são permitidas e as restantes são proibidas.",
+   "ref": "1-Introduction · slide 24"
+  },
+  {
+   "q": "Qual é a relação entre políticas e mecanismos de segurança?",
+   "options": [
+    "As políticas definem a alto nível o que deve ser feito e os mecanismos implementam essas políticas",
+    "Os mecanismos definem a alto nível o que deve ser feito e as políticas implementam essas decisões na prática",
+    "São exatamente a mesma coisa com nomes diferentes",
+    "Os mecanismos só existem em software e as políticas só em papel"
+   ],
+   "answer": 0,
+   "explanation": "Os mecanismos implementam os controlos e as políticas; as políticas definem, a um nível mais alto, o que tem de existir.",
+   "ref": "1-Introduction · slide 27"
+  },
+  {
+   "q": "Qual é uma limitação da defesa de perímetro (perimeter defense)?",
+   "options": [
+    "Não protege contra atacantes vindos da Internet",
+    "Não protege contra atacantes internos",
+    "Exige formação, mudanças de processos e auditorias frequentes",
+    "Assume que nenhuma entidade é de confiança"
+   ],
+   "answer": 1,
+   "explanation": "A defesa de perímetro assume que os utilizadores internos são de confiança, por isso não protege contra utilizadores antes confiáveis nem contra atacantes que obtiveram acesso interno.",
+   "ref": "1-Introduction · slide 32"
+  }
+ ]
+}

@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "C:/Users/tiago/Documents/University/3 ano/1 Semestre/DC/Projeto/econode"
+    "cmake.sourceDirectory": "C:/Users/tiago/Documents/University/3 ano/1 Semestre/DC/Projeto/econode",
+    "files.associations": {
+        "*.h": "c"
+    },
+    "C_Cpp.default.cStandard": "c17"
 }

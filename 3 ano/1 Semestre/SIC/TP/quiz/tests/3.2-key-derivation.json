@@ -1,0 +1,101 @@
+{
+ "title": "3.2 · Key derivation — Derivação de chaves",
+ "questions": [
+  {
+   "q": "Porque é necessária a derivação de chaves, segundo os slides?",
+   "options": [
+    "Porque as chaves simétricas não podem ser geradas de forma aleatória pelos sistemas",
+    "Porque as funções de digest não aceitam passwords como entrada",
+    "Para dispensar o uso de salt e de funções de digest",
+    "As cifras exigem chaves de tamanho fixo e as passwords têm pouca entropia"
+   ],
+   "answer": 3,
+   "explanation": "As cifras usam chaves de tamanho fixo (56, 128, 256 bits…) e passwords/PINs têm pouca entropia, o que facilita ataques de força bruta.",
+   "ref": "3.2-Key_derivation · slide 2"
+  },
+  {
+   "q": "O que é 'key reinforcement'?",
+   "options": [
+    "Aumentar a segurança de uma password contra ataques de dicionário",
+    "Aumentar ou diminuir o comprimento de uma chave",
+    "Distribuir uma chave por vários utilizadores",
+    "Cifrar uma chave simétrica com a chave pública do destinatário da mensagem"
+   ],
+   "answer": 0,
+   "explanation": "Key reinforcement torna a password mais difícil de atacar; key expansion ajusta o comprimento da chave e deriva chaves relacionadas.",
+   "ref": "3.2-Key_derivation · slide 3"
+  },
+  {
+   "q": "O que é 'key expansion'?",
+   "options": [
+    "Tornar impraticáveis os ataques de dicionário e de força bruta contra passwords escolhidas por humanos",
+    "Ajustar o comprimento de uma chave ao do algoritmo, podendo derivar outras chaves",
+    "Substituir uma chave por um certificado digital",
+    "Guardar a chave num dispositivo de hardware dedicado"
+   ],
+   "answer": 1,
+   "explanation": "Expansão: ajustar a chave ao tamanho do algoritmo e derivar chaves para outros fins (ex.: MAC, hierarquias de chaves).",
+   "ref": "3.2-Key_derivation · slide 3"
+  },
+  {
+   "q": "Qual é o papel do salt na derivação de chaves?",
+   "options": [
+    "É a chave secreta que o servidor deve manter privada",
+    "É o número de rounds computacionais do algoritmo de derivação",
+    "É um valor aleatório que entra no cálculo e torna a derivação única",
+    "É o tamanho, em bits, da chave resultante da derivação"
+   ],
+   "answer": 2,
+   "explanation": "A derivação precisa de uma chave inicial, de um tamanho final e de um elemento que a torne única (salt, contexto ou label).",
+   "ref": "3.2-Key_derivation · slides 4 e 5"
+  },
+  {
+   "q": "Qual é o principal problema da derivação elementar key = H(secret, salt)?",
+   "options": [
+    "Descobrir a chave revela diretamente a password",
+    "Duas passwords diferentes podem dar sempre a mesma chave, o que reduz o espaço de pesquisa",
+    "Só permite chaves com o tamanho exato do digest",
+    "É simples e rápida, o que permite ataques de força bruta ou de dicionário"
+   ],
+   "answer": 3,
+   "explanation": "Vantagens: a chave pode ser truncada, passwords diferentes dão chaves diferentes e a chave não revela a password. Problema: é demasiado simples.",
+   "ref": "3.2-Key_derivation · slide 5"
+  },
+  {
+   "q": "Qual é a função do parâmetro 'rounds' no PBKDF2?",
+   "options": [
+    "Define o custo computacional da derivação",
+    "Define o tamanho da chave resultante, em bits",
+    "Define o tamanho do salt usado na derivação",
+    "Define quantas chaves derivadas ficam guardadas no servidor"
+   ],
+   "answer": 0,
+   "explanation": "O PBKDF2 faz rounds × dim' operações da PRF; um maior número de rounds dificulta a descoberta do secret.",
+   "ref": "3.2-Key_derivation · slide 6"
+  },
+  {
+   "q": "O que acrescenta o scrypt ao PBKDF2?",
+   "options": [
+    "Cifra assimétrica da password antes do cálculo do hash",
+    "Um custo adicional de memória (resultados intermédios em memória)",
+    "A eliminação do salt para acelerar a derivação da chave",
+    "Uma redução do número de rounds para apenas uma iteração"
+   ],
+   "answer": 1,
+   "explanation": "O scrypt baseia-se no PBKDF2 e adiciona um custo de memória.",
+   "ref": "3.2-Key_derivation · slide 8"
+  },
+  {
+   "q": "O que é necessário, no mínimo, para derivar uma chave, segundo os slides?",
+   "options": [
+    "Um par de chaves assimétricas, um certificado emitido por uma CA e uma lista de revogação",
+    "Um IV e o texto limpo que vai ser protegido com a chave derivada",
+    "Uma chave inicial, um tamanho final e um elemento de unicidade (salt, contexto ou label)",
+    "Uma password e a identidade da CA que assina o certificado"
+   ],
+   "answer": 2,
+   "explanation": "Opcionalmente também um custo de derivação (computacional ou de memória).",
+   "ref": "3.2-Key_derivation · slide 4"
+  }
+ ]
+}

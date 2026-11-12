@@ -1,0 +1,245 @@
+{
+ "title": "Teste global 3 · Toda a matéria",
+ "questions": [
+  {
+   "q": "No Encrypt-then-MAC, sobre que dados é calculado o MAC?",
+   "options": [
+    "Sobre o texto limpo",
+    "Apenas sobre a chave",
+    "Apenas sobre o IV",
+    "Sobre o criptograma"
+   ],
+   "answer": 3,
+   "explanation": "É por isso que se pode verificar a integridade antes de decifrar.",
+   "ref": "3.5-MAC_functions · slide 4"
+  },
+  {
+   "q": "Numa cifra simétrica, o que se pode dizer sobre as chaves usadas para cifrar e decifrar?",
+   "options": [
+    "É usada a mesma chave nas duas operações",
+    "Cifra-se com a chave pública e decifra-se com a privada",
+    "A chave de decifra é o digest da chave de cifra",
+    "Cada operação usa um certificado diferente"
+   ],
+   "answer": 0,
+   "explanation": "Cifras simétricas cifram e decifram com a mesma chave; é a estratégia mais antiga.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 12"
+  },
+  {
+   "q": "Segundo os slides, quanto às pessoas (staff), o que se pretende quando um colaborador é comprometido ou se desvia?",
+   "options": [
+    "Que a solução pare por completo",
+    "Que as suas ações tenham um impacto limitado",
+    "Que o impacto seja inevitavelmente total",
+    "Que deixem de existir normas para regular o seu comportamento"
+   ],
+   "answer": 1,
+   "explanation": "Quando o pessoal é comprometido ou se desvia, as suas ações devem ter impacto limitado.",
+   "ref": "1-Introduction · slide 6"
+  },
+  {
+   "q": "Qual destas cifras usa S-boxes dependentes da chave?",
+   "options": [
+    "AES (Rijndael)",
+    "DES (56 bits)",
+    "Blowfish",
+    "3DES (EDE)"
+   ],
+   "answer": 2,
+   "explanation": "DES e AES usam S-boxes constantes; Blowfish e Twofish usam S-boxes variáveis, dependentes da chave.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 24"
+  },
+  {
+   "q": "O que é uma CA intermédia?",
+   "options": [
+    "Uma CA cujo certificado é autoassinado",
+    "Uma CA que só emite CRL",
+    "Um servidor que guarda as chaves privadas dos utilizadores",
+    "Uma CA cujo certificado é emitido por outra CA"
+   ],
+   "answer": 3,
+   "explanation": "As hierarquias de certificação são formadas por CAs intermédias e raízes.",
+   "ref": "4-PKI · slides 12 e 15"
+  },
+  {
+   "q": "Em que difere um CSIRT de um CERT, segundo os slides?",
+   "options": [
+    "O CSIRT gere toda a gama de incidentes, não apenas emergências",
+    "O CSIRT atua apenas em emergências, o CERT em todos os incidentes",
+    "O CSIRT existe só em empresas privadas e nunca em universidades",
+    "O CSIRT limita-se a publicar listas de identificadores CVE"
+   ],
+   "answer": 0,
+   "explanation": "O CSIRT inclui deteção e triagem, investigação, melhoria de longo prazo, monitorização e forense.",
+   "ref": "2-Vulnerabilities · slides 31 e 32"
+  },
+  {
+   "q": "Quem assina o certificado de uma entidade final (ex.: um servidor)?",
+   "options": [
+    "A própria entidade final, com a sua chave privada",
+    "A CA emissora, com a sua chave privada",
+    "O browser do utilizador",
+    "O servidor de CRL"
+   ],
+   "answer": 1,
+   "explanation": "O certificado é assinado digitalmente pelo emissor.",
+   "ref": "4-PKI · slides 7 e 14"
+  },
+  {
+   "q": "Em que função de digest se baseia o Argon2, segundo os slides?",
+   "options": [
+    "MD5",
+    "SHA-1",
+    "Blake2b",
+    "RIPEMD"
+   ],
+   "answer": 2,
+   "explanation": "O Argon2 baseia-se no Blake2b e usa custos computacionais e de memória.",
+   "ref": "3.2-Key_derivation · slide 8"
+  },
+  {
+   "q": "O que afirmam os slides sobre a 'segurança perfeita' na prevenção realista?",
+   "options": [
+    "É alcançável desde que se instalem controlos suficientes",
+    "É alcançável em sistemas ligados à Internet com firewall",
+    "É alcançável se o orçamento de segurança for ilimitado",
+    "Deve considerar-se que a segurança perfeita é impossível"
+   ],
+   "answer": 3,
+   "explanation": "Prevenção realista: considerar que a segurança perfeita é impossível e focar nos eventos mais prováveis.",
+   "ref": "1-Introduction · slide 30"
+  },
+  {
+   "q": "Quais são as duas fases de uma função esponja (sponge)?",
+   "options": [
+    "Absorção (absorption) e extração (squeezing)",
+    "Compressão (compression) e expansão (expansion)",
+    "Substituição (S-box) e permutação (P-box)",
+    "Confusão (confusion) e difusão (diffusion)"
+   ],
+   "answer": 0,
+   "explanation": "Absorção: atualiza o estado interno com a entrada (com padding). Squeezing: produz uma saída de tamanho arbitrário.",
+   "ref": "3.1-Digest_functions · slide 3"
+  },
+  {
+   "q": "Porque devem os pares de chaves ter um tempo de vida limitado?",
+   "options": [
+    "Porque as chaves públicas se desgastam com o uso repetido",
+    "Porque as chaves privadas podem ser perdidas ou descobertas",
+    "Porque os algoritmos assimétricos deixam de funcionar com o tempo",
+    "Porque os certificados não podem ser copiados livremente"
+   ],
+   "answer": 1,
+   "explanation": "Daí os certificados terem validade (not before, not after) e as listas de revogação.",
+   "ref": "4-PKI · slide 17"
+  },
+  {
+   "q": "Em que ano foi proposto o acordo de chaves Diffie-Hellman, segundo os slides?",
+   "options": [
+    "1974",
+    "1978",
+    "1976",
+    "1998"
+   ],
+   "answer": 2,
+   "explanation": "Diffie-Hellman 1976; RSA 1978 (Rivest, Shamir, Adleman).",
+   "ref": "3.4-Asymmetric_cryptography · slides 8 e 12"
+  },
+  {
+   "q": "No RSA, qual é a chave privada?",
+   "options": [
+    "(e, n)",
+    "(e, d)",
+    "(P, C)",
+    "(d, n)"
+   ],
+   "answer": 3,
+   "explanation": "Privada: (d, n); pública: (e, n). Cifra com a pública: C = P^e mod n; decifra com a privada: P = C^d mod n.",
+   "ref": "3.4-Asymmetric_cryptography · slide 8"
+  },
+  {
+   "q": "Qual é um risco da autenticação centralizada com um IdP?",
+   "options": [
+    "O comprometimento do IdP pode afetar muitos relying parties",
+    "Cada serviço passa a guardar mais passwords",
+    "Deixa de ser possível aplicar MFA",
+    "Deixa de ser possível aplicar políticas consistentes"
+   ],
+   "answer": 0,
+   "explanation": "Benefícios: política consistente, MFA, ciclo de vida de contas, menos passwords guardadas. Riscos: IdP comprometido, indisponibilidade e privacidade.",
+   "ref": "5-Authentication · slide 43"
+  },
+  {
+   "q": "Qual destas operações do AES NÃO é executada na última ronda?",
+   "options": [
+    "SubBytes",
+    "MixColumns",
+    "ShiftRows",
+    "AddRoundKey"
+   ],
+   "answer": 1,
+   "explanation": "Cada ronda tem SubBytes, ShiftRows, MixColumns e AddRoundKey; o MixColumns não é feito na última.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 27"
+  },
+  {
+   "q": "Qual é uma limitação das características biométricas, segundo os slides?",
+   "options": [
+    "Exigem memorizar um segredo muito longo e difícil de adivinhar",
+    "Mudam a cada autenticação, tornando-se impossíveis de comparar",
+    "Não podem ser rodadas como as passwords quando são comprometidas",
+    "Não podem ser usadas para desbloquear chaves criptográficas locais"
+   ],
+   "answer": 2,
+   "explanation": "O traço biométrico é uma medição, não um segredo; um serviço remoto deve receber prova criptográfica e não amostras.",
+   "ref": "5-Authentication · slides 14 e 16"
+  },
+  {
+   "q": "Qual a cifra de fluxo usada na rede Wi-Fi WEP (hoje obsoleta), segundo os slides?",
+   "options": [
+    "A5/1",
+    "E0",
+    "AES",
+    "RC4"
+   ],
+   "answer": 3,
+   "explanation": "A5/1 e A5/2 são das comunicações celulares e o E0 do Bluetooth.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 16"
+  },
+  {
+   "q": "O que garante o DNSSEC, segundo os slides?",
+   "options": [
+    "Autentica os dados DNS, mas não é autenticação do servidor",
+    "Autentica o servidor web completo e o seu certificado",
+    "Cifra o tráfego HTTPS entre o browser e o servidor",
+    "Substitui os certificados TLS na validação do servidor"
+   ],
+   "answer": 0,
+   "explanation": "Para o TLS deve verificar-se a cadeia de certificados e o nome DNS esperado.",
+   "ref": "5-Authentication · slide 34"
+  },
+  {
+   "q": "Porque são as passkeys / o FIDO2 resistentes a phishing?",
+   "options": [
+    "A chave privada é enviada cifrada ao relying party",
+    "O browser liga a cerimónia à origem legítima; cada RP tem a sua credencial",
+    "Usam passwords muito mais longas do que as habituais e que são mudadas periodicamente",
+    "O código gerado expira ao fim de 30 segundos"
+   ],
+   "answer": 1,
+   "explanation": "Só resiste a phishing se as verificações de origem/RP forem corretamente aplicadas.",
+   "ref": "5-Authentication · slide 26"
+  },
+  {
+   "q": "Qual é o formato de um identificador CVE, segundo os slides?",
+   "options": [
+    "CVE-Gravidade-Ano",
+    "CVE-Produto-Versão",
+    "CVE-Ano-Número de ordem",
+    "CVE-Fabricante-Código do produto"
+   ],
+   "answer": 2,
+   "explanation": "Formato: CVE-Year-Order, seguido do estado (candidate ou entry), descrição e referências.",
+   "ref": "2-Vulnerabilities · slide 17"
+  }
+ ]
+}

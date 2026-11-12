@@ -26,5 +26,6 @@
   "idf.currentSetup": "/home/pita/.espressif/v6.1/esp-idf",
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32c6"
-  }
+  },
+  "idf.flashType": "UART"
 }

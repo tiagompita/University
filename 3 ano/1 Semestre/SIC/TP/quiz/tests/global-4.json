@@ -1,0 +1,245 @@
+{
+ "title": "Teste global 4 · Toda a matéria",
+ "questions": [
+  {
+   "q": "Que vantagem oferece uma cifra assimétrica que uma cifra simétrica não oferece diretamente?",
+   "options": [
+    "Confidencialidade sem troca prévia de segredos",
+    "Maior velocidade de cifra",
+    "Menor consumo de memória",
+    "Chaves mais curtas para a mesma segurança"
+   ],
+   "answer": 0,
+   "explanation": "Os pares de chaves permitem confidencialidade sem segredo prévio e autenticação (de conteúdo e de origem).",
+   "ref": "3.4-Asymmetric_cryptography · slide 2"
+  },
+  {
+   "q": "Que entidade do OAuth 2.0 emite os access tokens?",
+   "options": [
+    "O resource server (a API protegida)",
+    "O authorization server",
+    "O client",
+    "O resource owner"
+   ],
+   "answer": 1,
+   "explanation": "O resource server valida o token (audiência, âmbito e validade) antes de servir os dados.",
+   "ref": "5-Authentication · slides 45 e 46"
+  },
+  {
+   "q": "Qual é a diferença entre CVE e CWE?",
+   "options": [
+    "O CVE descreve o tipo e a causa raiz da fraqueza; o CWE identifica um caso concreto que foi publicado",
+    "O CVE mede a severidade da vulnerabilidade e o CWE mede a sua probabilidade",
+    "O CVE identifica um caso concreto publicado; o CWE descreve o tipo ou causa raiz da fraqueza",
+    "São o mesmo catálogo, mantido por organizações diferentes com nomes diferentes"
+   ],
+   "answer": 2,
+   "explanation": "CWE (ex.: CWE-79, Cross-site Scripting) é uma taxonomia de fraquezas; CVE identifica casos concretos.",
+   "ref": "2-Vulnerabilities · slide 21"
+  },
+  {
+   "q": "Que técnica é usada para aleatorizar a cifra RSA, segundo os slides?",
+   "options": [
+    "PKCS #7 (padding de cifras simétricas por blocos)",
+    "GCM (Galois/Counter Mode)",
+    "HMAC (Hashed-based MAC)",
+    "OAEP (Optimal Asymmetric Encryption Padding)"
+   ],
+   "answer": 3,
+   "explanation": "O OAEP usa uma seed aleatória, um digest de uma label e uma função de máscara (MGF).",
+   "ref": "3.4-Asymmetric_cryptography · slides 10 e 11"
+  },
+  {
+   "q": "Qual é a vantagem de uma derivação de chaves com custo de memória?",
+   "options": [
+    "Limita ataques com aceleradores de hardware dedicados",
+    "Reduz o tempo de login do utilizador legítimo",
+    "Dispensa o uso de salt",
+    "Permite usar chaves mais curtas"
+   ],
+   "answer": 0,
+   "explanation": "Memory difficulty: a transformação exige recursos de armazenamento relevantes, o que limita aceleradores de hardware.",
+   "ref": "3.2-Key_derivation · slide 4"
+  },
+  {
+   "q": "Quanto à natureza, como se classificam os controlos de segurança no quadro dos slides?",
+   "options": [
+    "Públicos, privados e híbridos",
+    "Físicos, técnicos e administrativos",
+    "Locais, remotos e distribuídos",
+    "Simétricos, assimétricos e híbridos"
+   ],
+   "answer": 1,
+   "explanation": "O quadro de tipos de controlos tem as linhas Physical, Technical e Administrative.",
+   "ref": "1-Introduction · slide 26"
+  },
+  {
+   "q": "O que guarda o relying party (RP) no registo de uma passkey?",
+   "options": [
+    "A chave privada do utilizador",
+    "A impressão digital do utilizador",
+    "A chave pública e o credential ID",
+    "A password do utilizador"
+   ],
+   "answer": 2,
+   "explanation": "No registo, o autenticador cria um novo par de chaves; no início de sessão o RP envia um nonce e verifica a assinatura.",
+   "ref": "5-Authentication · slide 27"
+  },
+  {
+   "q": "Segundo os slides, a privacidade diz respeito a quê?",
+   "options": [
+    "Apenas à cifra dos dados pessoais quando são transmitidos em rede",
+    "À disponibilidade dos serviços 24 horas por dia, todos os dias",
+    "À velocidade a que os dados pessoais são processados pelos sistemas da organização e pelos seus parceiros",
+    "À forma como a informação pessoal é adquirida, processada, armazenada, partilhada e apagada"
+   ],
+   "answer": 3,
+   "explanation": "Privacidade: como a informação pessoal é tratada ao longo do seu ciclo de vida.",
+   "ref": "1-Introduction · slide 15"
+  },
+  {
+   "q": "Como obtém o TLS 1.3 as chaves de tráfego?",
+   "options": [
+    "Através de uma troca efémera (EC)DHE que deriva chaves novas",
+    "Através de uma chave simétrica fixa pré-configurada em cliente e servidor",
+    "Através da password do utilizador",
+    "Através da chave privada do cliente"
+   ],
+   "answer": 0,
+   "explanation": "O tráfego de aplicação é protegido por AEAD com as chaves derivadas.",
+   "ref": "5-Authentication · slides 36 e 37"
+  },
+  {
+   "q": "O que faz a operação ShiftRows do AES?",
+   "options": [
+    "Faz o XOR dos 128 bits do estado com a subchave da ronda atual",
+    "Roda as linhas da matriz para a esquerda, com deslocamentos de 0, 1, 2 e 3 bytes",
+    "Substitui cada byte através de uma S-box de 256 elementos",
+    "Transforma cada coluna da matriz do estado através de uma multiplicação matricial em cada ronda"
+   ],
+   "answer": 1,
+   "explanation": "As outras opções descrevem AddRoundKey, SubBytes e MixColumns.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 27"
+  },
+  {
+   "q": "O que é o 'key schedule' de uma cifra por blocos?",
+   "options": [
+    "O calendário de renovação periódica da chave de cifra",
+    "O padding aplicado ao último bloco antes de cifrar",
+    "A derivação das subchaves de cada ronda a partir da chave",
+    "A tabela de substituição de bytes usada na cifra"
+   ],
+   "answer": 2,
+   "explanation": "Cada ronda é controlada por uma subchave (KS1…KSn) derivada da chave fornecida.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 22"
+  },
+  {
+   "q": "Quantos valores possíveis tem o espaço de chaves de uma chave de 128 bits (numa pesquisa por força bruta)?",
+   "options": [
+    "128²",
+    "2 × 128",
+    "128!",
+    "2^128"
+   ],
+   "answer": 3,
+   "explanation": "O ataque de força bruta percorre todo o espaço de chaves, o que é inviável para espaços grandes como 2^128.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 8"
+  },
+  {
+   "q": "Qual o tamanho dos digests do MD5 e do SHA-1, respetivamente?",
+   "options": [
+    "128 bits e 160 bits",
+    "160 bits e 128 bits",
+    "128 bits e 256 bits",
+    "64 bits e 128 bits"
+   ],
+   "answer": 0,
+   "explanation": "MD5 produz 128 bits e SHA-1 produz 160 bits.",
+   "ref": "3.1-Digest_functions · slide 4"
+  },
+  {
+   "q": "O que se pode afirmar sobre o IV no modo CBC?",
+   "options": [
+    "Tem de ser mantido secreto, tal como a chave de cifra, e nunca pode ser enviado em claro",
+    "Pode seguir em claro, mas convém não o reutilizar com a mesma chave",
+    "Tem de ser sempre zero em todas as mensagens cifradas",
+    "Só é necessário para decifrar e não para cifrar nada"
+   ],
+   "answer": 1,
+   "explanation": "No CBC o primeiro bloco usa o IV como feedback; é um valor aleatório ou sequencial que pode seguir em claro.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 30"
+  },
+  {
+   "q": "O que é uma delta CRL?",
+   "options": [
+    "Uma CRL assinada por outra CA",
+    "Uma lista apenas dos certificados que já expiraram, publicada pela CA emissora",
+    "Uma lista com as diferenças em relação à CRL base (completa)",
+    "Um pedido OCSP assinado"
+   ],
+   "answer": 2,
+   "explanation": "As CRL podem ser base (completas) ou delta (diferenças).",
+   "ref": "4-PKI · slides 18 e 19"
+  },
+  {
+   "q": "O que inclui o campo 'info' numa assinatura Ax(doc) = info + Sign(Kx⁻¹, digest(doc + info))?",
+   "options": [
+    "A chave privada Kx⁻¹ usada para assinar o documento",
+    "O documento completo cifrado com a chave pública",
+    "O IV usado para cifrar o digest do documento",
+    "O contexto da assinatura, a identidade do signatário e Kx"
+   ],
+   "answer": 3,
+   "explanation": "info = signing context, signer identity, Kx.",
+   "ref": "3.6-Digital_signatures · slide 5"
+  },
+  {
+   "q": "Como são normalmente distribuídas as raízes de confiança (trusted anchors)?",
+   "options": [
+    "Manualmente, por exemplo incluídas nos browsers e nos sistemas operativos",
+    "Por OCSP, a pedido do cliente durante cada ligação TLS ao servidor da aplicação",
+    "Por CRL, publicadas periodicamente pela própria raiz",
+    "Por email assinado pela própria raiz a cada utilizador"
+   ],
+   "answer": 0,
+   "explanation": "Trusted anchor: tem uma chave pública de confiança, normalmente num certificado autoassinado distribuído manualmente.",
+   "ref": "4-PKI · slide 12"
+  },
+  {
+   "q": "O que faz a deteção de ataques de apresentação (PAD / liveness) num sistema biométrico?",
+   "options": [
+    "Compara as características com o template registado",
+    "Deteta falsificações, como uma fotografia ou um dedo falso",
+    "Cria o template de referência",
+    "Cifra o template no servidor"
+   ],
+   "answer": 1,
+   "explanation": "Passos: captura, liveness/PAD e comparação com o template com decisão por limiar.",
+   "ref": "5-Authentication · slide 14"
+  },
+  {
+   "q": "Qual destes é um campo obrigatório de um certificado X.509v3?",
+   "options": [
+    "A chave privada do titular",
+    "A password do titular",
+    "Subject (titular)",
+    "A lista completa de certificados revogados"
+   ],
+   "answer": 2,
+   "explanation": "Campos obrigatórios: versão, subject, chave pública, datas (emissão e validade), issuer, assinatura, etc.",
+   "ref": "4-PKI · slide 9"
+  },
+  {
+   "q": "Qual é o CERT nacional português referido nos slides?",
+   "options": [
+    "CERT/CC",
+    "US-CERT",
+    "SANS Internet Storm Center",
+    "CERT.PT"
+   ],
+   "answer": 3,
+   "explanation": "Slides: CERT.PT, Rede Nacional de CSIRT e CSIRT@UA.",
+   "ref": "2-Vulnerabilities · slide 33"
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "title": "3.1 · Digest functions — Funções de hash criptográfico",
+ "questions": [
+  {
+   "q": "O que produz uma função de digest?",
+   "options": [
+    "Um texto cifrado com o mesmo tamanho do original",
+    "Um valor de tamanho proporcional ao do texto de entrada, que cresce com a mensagem",
+    "Um valor de tamanho fixo a partir de um texto de tamanho variável",
+    "Um par de chaves a partir do texto de entrada"
+   ],
+   "answer": 2,
+   "explanation": "Um digest é uma espécie de 'impressão digital' de tamanho fixo; textos semelhantes dão valores muito diferentes.",
+   "ref": "3.1-Digest_functions · slide 2"
+  },
+  {
+   "q": "O que significa 'preimage resistance' (resistência à pré-imagem)?",
+   "options": [
+    "É inviável encontrar quaisquer dois textos diferentes que produzam exatamente o mesmo digest",
+    "Dado um texto, é inviável encontrar outro com o mesmo digest",
+    "Textos semelhantes devem produzir digests semelhantes",
+    "Dado um digest, é inviável encontrar um texto original que o produza"
+   ],
+   "answer": 3,
+   "explanation": "As outras opções descrevem collision resistance e 2nd-preimage resistance (e uma propriedade falsa).",
+   "ref": "3.1-Digest_functions · slide 2"
+  },
+  {
+   "q": "Como é feito o padding na construção Merkle–Damgård, segundo os slides?",
+   "options": [
+    "Um bit 1, seguido de zeros e seguido do comprimento da mensagem",
+    "Apenas zeros até completar o bloco",
+    "Um bloco aleatório gerado a partir do IV",
+    "X bytes com o valor X, em que X é o número de bytes em falta para completar o bloco"
+   ],
+   "answer": 0,
+   "explanation": "Length padding: 1, seguido de zeros, seguido do comprimento. (A última opção é o padding PKCS #7 das cifras por blocos.)",
+   "ref": "3.1-Digest_functions · slide 3"
+  },
+  {
+   "q": "Quais destes algoritmos de digest são apontados nos slides como facilmente quebráveis ou já não seguros?",
+   "options": [
+    "SHA-2 e SHA-3",
+    "MD4, MD5 e SHA-1",
+    "Blake2s e Blake2b",
+    "SHA-256 e SHA3-256"
+   ],
+   "answer": 1,
+   "explanation": "MD4 é muito fácil de quebrar, em MD5 é muito fácil encontrar colisões e o SHA-1 também deixou de ser seguro (colisões em 2017).",
+   "ref": "3.1-Digest_functions · slide 4"
+  },
+  {
+   "q": "Porque é que um MIC (digest simples) não protege contra alterações intencionais ao texto?",
+   "options": [
+    "Porque o MIC é cifrado com a chave pública do destinatário e qualquer pessoa o pode substituir",
+    "Porque o digest só funciona com textos muito curtos e não com mensagens longas",
+    "Porque o atacante pode alterar o texto e calcular um novo MIC para o texto alterado",
+    "Porque o MIC depende do tamanho de uma chave secreta que o atacante já conhece"
+   ],
+   "answer": 2,
+   "explanation": "O MIC deteta erros de comunicação ou armazenamento, mas não alterações planeadas, pois qualquer pessoa calcula um novo digest.",
+   "ref": "3.1-Digest_functions · slide 6"
+  },
+  {
+   "q": "O que distingue um MAC de um MIC?",
+   "options": [
+    "É sempre mais curto do que um MIC calculado sobre a mesma mensagem",
+    "Usa cifra assimétrica em vez de uma função de digest",
+    "Não depende do conteúdo da mensagem a autenticar",
+    "É calculado com uma chave: só quem a possui o pode gerar ou validar"
+   ],
+   "answer": 3,
+   "explanation": "MAC = hash/digest calculado com chave; permite autenticar mensagens (M' = M | MAC(M)).",
+   "ref": "3.1-Digest_functions · slide 7"
+  },
+  {
+   "q": "Qual das expressões descreve o HMAC?",
+   "options": [
+    "H(K, opad, H(K, ipad, texto))",
+    "H(texto, K, ipad, opad) numa única aplicação de H",
+    "H(H(texto), K) com duas aplicações separadas",
+    "E_K(H(texto)) com uma cifra simétrica por blocos"
+   ],
+   "answer": 0,
+   "explanation": "O HMAC usa duas aplicações da função de digest H, com a chave combinada com ipad e opad.",
+   "ref": "3.1-Digest_functions · slide 8"
+  },
+  {
+   "q": "A que aplicação dos digests está associado o mining de Bitcoin, segundo os slides?",
+   "options": [
+    "Key reinforcement",
+    "Cryptopuzzles",
+    "Distribuição de chaves públicas",
+    "Cifra por blocos"
+   ],
+   "answer": 1,
+   "explanation": "Os slides enumeram: checksums robustos (MIC/MAC), impressões digitais de documentos, derivação de chaves e cryptopuzzles (ex.: Bitcoin).",
+   "ref": "3.1-Digest_functions · slide 5"
+  }
+ ]
+}

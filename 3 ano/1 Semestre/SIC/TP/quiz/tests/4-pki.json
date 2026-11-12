@@ -1,0 +1,125 @@
+{
+ "title": "4 · PKI — Gestão de chaves assimétricas e certificados",
+ "questions": [
+  {
+   "q": "Porque é preferível que o próprio titular gere o seu par de chaves?",
+   "options": [
+    "Maximiza o controlo: mais ninguém poderá usar essa chave privada",
+    "Porque o titular gera sempre chaves mais longas",
+    "Porque assim deixa de ser necessário um certificado",
+    "Porque a CA fica responsável por gerar e guardar a chave privada do titular"
+   ],
+   "answer": 0,
+   "explanation": "Melhor ainda: o titular não consegue observar a chave, mas pode usá-la (ex.: token). Pode ser relaxado quando não há assinaturas nem não-repúdio.",
+   "ref": "4-PKI · slide 3"
+  },
+  {
+   "q": "O que faz um token criptográfico (ex.: smartcard, Cartão de Cidadão) com a chave privada?",
+   "options": [
+    "Exporta a chave privada protegida por um PIN do titular",
+    "Gera o par de chaves, exporta a pública e nunca exporta a privada",
+    "Envia a chave privada à CA para efeitos de backup seguro",
+    "Guarda apenas a chave pública e deixa a privada no computador"
+   ],
+   "answer": 1,
+   "explanation": "A chave privada fica dentro de um domínio de segurança isolado.",
+   "ref": "4-PKI · slide 5"
+  },
+  {
+   "q": "O que é um certificado de chave pública?",
+   "options": [
+    "Um ficheiro que contém a chave privada de uma entidade, protegida por password, emitido e assinado pela própria entidade",
+    "Uma lista assinada de certificados que foram revogados antes de expirar",
+    "Um documento emitido por uma CA que associa uma chave pública a uma entidade e é assinado digitalmente pelo emissor",
+    "O digest de uma chave pública, sem qualquer assinatura de uma CA"
+   ],
+   "answer": 2,
+   "explanation": "O certificado é público, não contém informação privada e não pode ser alterado por estar assinado.",
+   "ref": "4-PKI · slide 7"
+  },
+  {
+   "q": "Quando é que quem recebe um certificado confia que a associação entre a chave pública e X é correta?",
+   "options": [
+    "Sempre que o certificado esteja em formato PEM",
+    "Quando a chave pública é suficientemente longa",
+    "Quando X enviou o certificado pessoalmente",
+    "Quando confia na CA que emitiu o certificado"
+   ],
+   "answer": 3,
+   "explanation": "O recetor confia no comportamento da CA e, por isso, nos documentos que ela assina.",
+   "ref": "4-PKI · slide 8"
+  },
+  {
+   "q": "Como se caracteriza o certificado de uma CA raiz (Root CA)?",
+   "options": [
+    "É autoassinado (issuer = subject) e a sua chave pública é de confiança por distribuição manual",
+    "É assinado por uma CA intermédia pertencente à mesma hierarquia de certificação e validado pelo browser",
+    "É emitido por um servidor OCSP em que o browser já confia por omissão",
+    "Não contém qualquer chave pública, apenas o nome do emissor e a assinatura"
+   ],
+   "answer": 0,
+   "explanation": "A raiz é a trusted anchor, distribuída manualmente (ex.: no código dos browsers ou dos sistemas operativos).",
+   "ref": "4-PKI · slides 12 e 16"
+  },
+  {
+   "q": "Porque são necessárias as CRL (listas de revogação) para além do período de validade dos certificados?",
+   "options": [
+    "Para renovar automaticamente os certificados que já expiraram",
+    "Para revogar certificados antes de expirarem, pois os titulares são desconhecidos",
+    "Para impedir que os certificados sejam copiados e redistribuídos por terceiros não autorizados",
+    "Para distribuir novas chaves privadas aos titulares afetados"
+   ],
+   "answer": 1,
+   "explanation": "Os certificados podem ser copiados livremente; as soluções são o período de validade e as CRL.",
+   "ref": "4-PKI · slide 17"
+  },
+  {
+   "q": "Qual é uma desvantagem do OCSP referida nos slides?",
+   "options": [
+    "Exige descarregar a lista completa de certificados revogados antes de cada ligação",
+    "A resposta do servidor OCSP não é assinada pela CA emissora",
+    "A CA fica a saber que um certificado está a ser usado (privacidade)",
+    "Só funciona com certificados autoassinados pela raiz"
+   ],
+   "answer": 2,
+   "explanation": "Vantagem: menor largura de banda para os clientes (não há download em bloco da CRL). Desvantagem: maior carga na CA e problemas de privacidade.",
+   "ref": "4-PKI · slide 20"
+  },
+  {
+   "q": "O que se faz no certificate pinning?",
+   "options": [
+    "Fixa-se o período de validade do certificado no código",
+    "Guarda-se a chave privada do servidor no código da aplicação",
+    "Substitui-se a CA raiz por uma CA local",
+    "Inclui-se no código o fingerprint (hash) da chave pública esperada"
+   ],
+   "answer": 3,
+   "explanation": "O certificado tem de ser válido segundo as regras locais e ter uma chave pública com o fingerprint indicado.",
+   "ref": "4-PKI · slide 24"
+  },
+  {
+   "q": "O que é a Certificate Transparency (CT)?",
+   "options": [
+    "Um sistema global que regista todos os certificados públicos criados, para poderem ser auditados",
+    "Um protocolo que valida em tempo real o estado de um único certificado",
+    "Uma lista das CAs que foram revogadas pelos browsers mais usados",
+    "Um formato para empacotar chaves privadas e certificados num só ficheiro protegido por uma password"
+   ],
+   "answer": 0,
+   "explanation": "Motivada por CAs comprometidas (ex.: DigiNotar); regista a cadeia completa de cada certificado (RFC 6962).",
+   "ref": "4-PKI · slide 25"
+  },
+  {
+   "q": "Que usos de chave (key usage) são exclusivos das CAs?",
+   "options": [
+    "Digital signature e non-repudiation",
+    "Certificate signing e CRL signing",
+    "Key encipherment e key agreement",
+    "Data encipherment"
+   ],
+   "answer": 1,
+   "explanation": "A extensão Key usage (crítica) liga o par de chaves a um perfil de utilização.",
+   "ref": "4-PKI · slide 10"
+  }
+ ]
+}

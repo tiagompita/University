@@ -1,0 +1,149 @@
+{
+ "title": "3.3 · Modern symmetric cryptography — Cifras simétricas",
+ "questions": [
+  {
+   "q": "O que é a criptanálise (cryptanalysis)?",
+   "options": [
+    "A arte ou ciência de quebrar sistemas criptográficos",
+    "A arte de ocultar a existência de dados",
+    "A transformação de texto limpo em criptograma através de um algoritmo e de uma chave",
+    "O estudo da escrita de mensagens secretas"
+   ],
+   "answer": 0,
+   "explanation": "Cryptology = cryptography + cryptanalysis. A arte de ocultar dados é a esteganografia.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 2"
+  },
+  {
+   "q": "Numa cifra de fluxo, como se obtém o criptograma a partir do texto limpo?",
+   "options": [
+    "Substituindo cada bloco por outro através de uma S-box",
+    "Fazendo o XOR, bit a bit, do texto limpo com o keystream",
+    "Multiplicando o texto limpo pela chave pública",
+    "Concatenando o texto limpo com a chave"
+   ],
+   "answer": 1,
+   "explanation": "plaintext ⊕ keystream = ciphertext, e ciphertext ⊕ keystream = plaintext.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 10"
+  },
+  {
+   "q": "Porque não se devem cifrar duas mensagens com a mesma chave e o mesmo IV numa cifra de fluxo?",
+   "options": [
+    "Porque o keystream se esgota ao fim da primeira mensagem",
+    "Porque o criptograma passa a ter um tamanho diferente do tamanho do texto limpo original",
+    "Porque usam o mesmo keystream, e conhecer uma mensagem revela a outra",
+    "Porque o IV deixa de poder ser enviado em claro"
+   ],
+   "answer": 2,
+   "explanation": "Com o mesmo keystream, C1 ⊕ C2 = P1 ⊕ P2; os ataques de known/chosen-plaintext tornam-se muito eficazes.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 19"
+  },
+  {
+   "q": "O que significa o conceito de difusão (diffusion) numa cifra?",
+   "options": [
+    "Existe uma relação muito complexa entre a chave, o texto limpo e o criptograma, de forma a esconder a chave",
+    "A chave é repartida por vários participantes da comunicação",
+    "São usadas várias chaves em sequência sobre o mesmo bloco",
+    "As estatísticas do texto limpo dissipam-se: trocar um bit do texto altera muito o criptograma"
+   ],
+   "answer": 3,
+   "explanation": "Difusão está ligada ao efeito de avalanche. A relação complexa entre chave, texto limpo e criptograma é a confusão.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 15"
+  },
+  {
+   "q": "Quais são o tamanho do bloco e o tamanho da chave do DES?",
+   "options": [
+    "Blocos de 64 bits e chave de 56 bits",
+    "Blocos de 128 bits e chave de 128 bits",
+    "Blocos de 64 bits e chave de 128 bits",
+    "Blocos de 128 bits e chave de 56 bits"
+   ],
+   "answer": 0,
+   "explanation": "DES: proposto em 1974, standard em 1977, blocos de 64 bits, chave de 56 bits.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 21"
+  },
+  {
+   "q": "Quantas rondas (rounds) executa o AES com uma chave de 192 bits?",
+   "options": [
+    "10",
+    "12",
+    "14",
+    "16"
+   ],
+   "answer": 1,
+   "explanation": "AES: chave 128 → 10 rondas; 192 → 12; 256 → 14. O bloco tem sempre 128 bits.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 26"
+  },
+  {
+   "q": "Qual é o principal problema do modo ECB?",
+   "options": [
+    "Não permite o processamento paralelo nem o acesso aleatório aos blocos da mensagem",
+    "Exige um IV secreto diferente para cada bloco",
+    "Blocos de texto limpo iguais dão blocos de criptograma iguais (expõe padrões)",
+    "Um erro num bit corrompe todo o criptograma seguinte"
+   ],
+   "answer": 2,
+   "explanation": "ECB cifra cada bloco de forma independente (Ci = EK(Pi)); permite paralelismo e acesso aleatório mas expõe padrões.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 29"
+  },
+  {
+   "q": "Como é calculado o bloco de criptograma Ci no modo CBC?",
+   "options": [
+    "Ci = EK(Pi)",
+    "Ci = Pi ⊕ EK(Ci−1)",
+    "Ci = EK(Pi) ⊕ Ci−1",
+    "Ci = EK(Pi ⊕ Ci−1)"
+   ],
+   "answer": 3,
+   "explanation": "O primeiro bloco usa o IV como Ci−1. A decifra é Pi = DK(Ci) ⊕ Ci−1.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 30"
+  },
+  {
+   "q": "Usando padding PKCS #7 com blocos de B = 16 bytes, quantos bytes de padding são acrescentados a uma mensagem de 32 bytes?",
+   "options": [
+    "16 bytes (um bloco inteiro de padding)",
+    "0 bytes, porque já está alinhada",
+    "1 byte",
+    "32 bytes"
+   ],
+   "answer": 0,
+   "explanation": "X = B − (M mod B) = 16 − 0 = 16. Uma entrada perfeitamente alinhada recebe um bloco de padding extra, com X bytes de valor X.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 32"
+  },
+  {
+   "q": "No modo CTR, como evolui o estado Si usado para gerar o keystream?",
+   "options": [
+    "Si depende do criptograma anterior",
+    "Si = Si−1 + 1, ou seja, é um contador a partir do IV",
+    "Si é realimentado com a saída da cifra por blocos",
+    "Si é o XOR do texto limpo anterior com a chave"
+   ],
+   "answer": 1,
+   "explanation": "CTR: Ci = Ti ⊕ EK(Si), com S0 = IV e Si = Si−1 + 1. No CFB o estado depende de Ci e no OFB da saída EK(Si).",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 36"
+  },
+  {
+   "q": "O que acrescenta o modo GCM em relação ao modo CTR?",
+   "options": [
+    "Padding automático do último bloco da mensagem",
+    "Realimentação do criptograma do bloco anterior",
+    "Uma etiqueta de autenticação (auth tag) que deteta adulteração",
+    "Uma chave assimétrica distinta para cada mensagem, gerada a partir do IV"
+   ],
+   "answer": 2,
+   "explanation": "GCM (Galois/Counter Mode) combina cifra em modo contador com autenticação (multiplicações em H sobre os dados e o criptograma).",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 37"
+  },
+  {
+   "q": "Qual é o tamanho efetivo da chave do 3DES-EDE quando K1, K2 e K3 são três chaves diferentes?",
+   "options": [
+    "56 bits",
+    "112 bits",
+    "192 bits",
+    "168 bits"
+   ],
+   "answer": 3,
+   "explanation": "3 × 56 = 168 bits. Com K1 = K3 ≠ K2 são 112 bits e com K1 = K2 = K3 obtém-se uma cifra simples. É 3 vezes mais lento do que o DES.",
+   "ref": "3.3-Modern_symmetric_cryptography · slide 39"
+  }
+ ]
+}

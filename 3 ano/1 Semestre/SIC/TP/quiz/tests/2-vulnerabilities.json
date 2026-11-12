@@ -1,0 +1,125 @@
+{
+ "title": "2 · Vulnerabilities — Vulnerabilidades, ameaças, riscos e defesas",
+ "questions": [
+  {
+   "q": "Segundo os slides, como se calcula o risco?",
+   "options": [
+    "Risco = Impacto + Número de vulnerabilidades conhecidas",
+    "Risco = Impacto × Probabilidade de um ataque bem-sucedido",
+    "Risco = Probabilidade de ataque ÷ Impacto do ataque",
+    "Risco = Valor do ativo − Custo de todos os controlos"
+   ],
+   "answer": 1,
+   "explanation": "Risk = Impact × Probability of a successful attack. Impacto e probabilidade elevados dão risco elevado.",
+   "ref": "2-Vulnerabilities · slide 3"
+  },
+  {
+   "q": "Qual dos seguintes é um impacto imaterial (intangível) de um incidente de segurança?",
+   "options": [
+    "Roubo de fundos através de ransomware",
+    "Perda de receitas devido a paragem operacional",
+    "Perda de confiança dos clientes e dano na imagem da marca",
+    "Custos com resposta a incidentes, recuperação e análise forense do ataque"
+   ],
+   "answer": 2,
+   "explanation": "As outras opções são impactos materiais (perdas financeiras e custos). Reputação e confiança são impactos imateriais.",
+   "ref": "2-Vulnerabilities · slides 5 e 7"
+  },
+  {
+   "q": "Qual é a definição de vulnerabilidade (vulnerability) apresentada nos slides?",
+   "options": [
+    "Qualquer erro de software, mesmo que nunca possa ser usado por um atacante",
+    "Uma pontuação de 0 a 10 que indica a urgência de um problema",
+    "Um atacante externo que pretende violar uma política",
+    "Uma condição explorável que pode ser usada para violar uma política de segurança"
+   ],
+   "answer": 3,
+   "explanation": "Um erro só é uma vulnerabilidade se permitir violar uma política de segurança razoável do sistema.",
+   "ref": "2-Vulnerabilities · slides 10 e 11"
+  },
+  {
+   "q": "O que distingue uma exposure (exposição) de uma vulnerability?",
+   "options": [
+    "Uma exposure não permite diretamente o comprometimento, mas pode ser um passo importante num ataque",
+    "Uma exposure permite sempre executar diretamente comandos como outro utilizador no sistema que foi afetado",
+    "São termos totalmente intercambiáveis e significam o mesmo na prática em segurança",
+    "Uma exposure só existe em hardware e nunca em software ou em configurações"
+   ],
+   "answer": 0,
+   "explanation": "Exposure: problema de configuração ou erro que serve de 'stepping-stone' (ex.: divulgação de informação, privilégios excessivos). Não são termos intercambiáveis.",
+   "ref": "2-Vulnerabilities · slides 12 e 13"
+  },
+  {
+   "q": "O que caracteriza um ataque 'zero day'?",
+   "options": [
+    "Usa uma vulnerabilidade já corrigida pelo fabricante mas ainda não instalada pelos utilizadores",
+    "Usa uma vulnerabilidade desconhecida do fabricante, para a qual não há correção",
+    "É um ataque de curta duração, que termina no próprio dia em que é lançado",
+    "É um ataque que não deixa qualquer registo nos sistemas nem nos ficheiros de log"
+   ],
+   "answer": 1,
+   "explanation": "O dia zero é o dia em que se tem conhecimento da vulnerabilidade; não existe correção e pode durar meses ou anos.",
+   "ref": "2-Vulnerabilities · slide 14"
+  },
+  {
+   "q": "O que é um CVE?",
+   "options": [
+    "Uma pontuação de 0 a 10 que mede a severidade e a urgência de uma vulnerabilidade, calculada pelo CVSS",
+    "Uma taxonomia dos tipos de fraquezas de software, mantida pela MITRE",
+    "Um identificador único e comum para uma vulnerabilidade de segurança publicamente conhecida",
+    "A lista dos 10 riscos mais frequentes em aplicações web, publicada pela OWASP"
+   ],
+   "answer": 2,
+   "explanation": "O CVE é um identificador, não uma pontuação de severidade. A severidade vem de sistemas como o CVSS.",
+   "ref": "2-Vulnerabilities · slides 15 e 16"
+  },
+  {
+   "q": "Segundo a escala CVSS dos slides, uma vulnerabilidade com pontuação 9.3 tem que severidade?",
+   "options": [
+    "High",
+    "Medium",
+    "Low",
+    "Critical"
+   ],
+   "answer": 3,
+   "explanation": "0.0–3.9 Low; 4.0–6.9 Medium; 7.0–8.9 High; 9.0–10.0 Critical.",
+   "ref": "2-Vulnerabilities · slide 19"
+  },
+  {
+   "q": "Qual a diferença entre SAST e DAST?",
+   "options": [
+    "O SAST analisa o código-fonte ou artefactos sem os executar; o DAST observa a aplicação em execução",
+    "O SAST observa a aplicação em execução a partir do exterior; o DAST analisa o código-fonte antes de o executar",
+    "O SAST testa apenas redes e serviços expostos e o DAST testa apenas o hardware dos servidores onde corre a aplicação",
+    "São o mesmo tipo de teste e só mudam as ferramentas e a linguagem de programação usada"
+   ],
+   "answer": 0,
+   "explanation": "SAST: código/artefactos de build, útil cedo no desenvolvimento. DAST: aplicação em execução, útil em web/API.",
+   "ref": "2-Vulnerabilities · slide 26"
+  },
+  {
+   "q": "Que acontecimento levou à criação do CERT/CC, em 1988?",
+   "options": [
+    "O ataque WannaCry",
+    "O Morris Worm",
+    "O ataque Stuxnet",
+    "O comprometimento da CA DigiNotar"
+   ],
+   "answer": 1,
+   "explanation": "O CERT/CC foi criado na CMU na sequência do Morris Worm, um dos primeiros worms distribuídos pela Internet.",
+   "ref": "2-Vulnerabilities · slides 29 e 30"
+  },
+  {
+   "q": "Honeypots e honeynets enquadram-se em que tipo de medida, segundo os slides?",
+   "options": [
+    "Prevention (prevenção)",
+    "Recovery (recuperação)",
+    "Deception (engano)",
+    "Discouragement (dissuasão)"
+   ],
+   "answer": 2,
+   "explanation": "Deception: 1. Honeypots/honeynets; 2. acompanhamento forense a partir deles.",
+   "ref": "2-Vulnerabilities · slide 9"
+  }
+ ]
+}

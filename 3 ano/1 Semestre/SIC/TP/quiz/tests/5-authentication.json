@@ -1,0 +1,149 @@
+{
+ "title": "5 · Authentication — Mecanismos e protocolos de autenticação",
+ "questions": [
+  {
+   "q": "O que faz a autenticação, segundo os slides?",
+   "options": [
+    "Determina o que o utilizador pode fazer depois de entrar",
+    "Verifica uma alegação de um claimant com base em evidência de um autenticador",
+    "Verifica a identidade legal do utilizador através de documentos oficiais apresentados",
+    "Cifra toda a sessão entre o cliente e o servidor web"
+   ],
+   "answer": 1,
+   "explanation": "Exemplo: 'Eu controlo a conta alice@example.org'. As outras opções são autorização, identity proofing e proteção da sessão.",
+   "ref": "5-Authentication · slide 2"
+  },
+  {
+   "q": "Qual é a diferença entre autenticação (Authn) e autorização (Authz)?",
+   "options": [
+    "A autenticação define o que a entidade pode fazer depois de entrar; a autorização estabelece quem é essa entidade",
+    "São o mesmo processo com nomes diferentes",
+    "A autenticação estabelece quem ou o quê está a interagir; a autorização avalia o que essa entidade pode fazer",
+    "A autorização acontece primeiro e dispensa a autenticação"
+   ],
+   "answer": 2,
+   "explanation": "Exemplo: Alice entra (Authn); Alice pode ler o ficheiro X (Authz). Autenticar não concede acesso automaticamente.",
+   "ref": "5-Authentication · slide 4"
+  },
+  {
+   "q": "Qual destas combinações é autenticação multifator (MFA), segundo os slides?",
+   "options": [
+    "Duas passwords diferentes, escolhidas pelo próprio utilizador",
+    "Uma password e um PIN, ambos memorizados pelo utilizador",
+    "Uma password e uma pergunta secreta com resposta memorizada",
+    "Uma password e um código de uma app autenticadora"
+   ],
+   "answer": 3,
+   "explanation": "MFA combina fatores de categorias diferentes (algo que se sabe, se tem, se é). Duas passwords não são dois fatores.",
+   "ref": "5-Authentication · slide 3"
+  },
+  {
+   "q": "Como deve um servidor guardar as passwords, segundo os slides?",
+   "options": [
+    "Com salt aleatório único por conta e hash lento (ex.: Argon2id)",
+    "Em claro, protegidas apenas pelo TLS",
+    "Cifradas de forma reversível com uma chave simétrica guardada no servidor",
+    "Com SHA-1 simples, sem qualquer salt"
+   ],
+   "answer": 0,
+   "explanation": "SHA-1/MD5, hashes sem salt e cifra reversível são inadequados para guardar passwords.",
+   "ref": "5-Authentication · slide 10"
+  },
+  {
+   "q": "Qual é a diferença entre verificação biométrica (1:1) e identificação biométrica (1:N)?",
+   "options": [
+    "Em 1:1 usam-se dois sensores; em 1:N usam-se N sensores diferentes",
+    "Em 1:1 compara-se com o template de uma identidade alegada; em 1:N procura-se numa população",
+    "Em 1:1 procura-se numa população de referência; em 1:N compara-se com um só template de uma identidade",
+    "Em 1:1 a amostra é cifrada; em 1:N a amostra é enviada em claro"
+   ],
+   "answer": 1,
+   "explanation": "Os matchers são probabilísticos: as taxas de falsa aceitação e falsa rejeição dependem do limiar de decisão.",
+   "ref": "5-Authentication · slide 13"
+  },
+  {
+   "q": "Qual é a diferença entre HOTP e TOTP?",
+   "options": [
+    "O HOTP deriva o código do tempo; o TOTP deriva-o de um contador",
+    "O TOTP não usa um segredo partilhado, apenas o relógio do dispositivo",
+    "O HOTP deriva o código de um contador; o TOTP deriva-o de um passo de tempo",
+    "O HOTP usa um par de chaves assimétricas; o TOTP usa um segredo partilhado com HMAC"
+   ],
+   "answer": 2,
+   "explanation": "Ambos se baseiam num segredo partilhado K e no HMAC; o TOTP calcula C = floor((T − T0) / X).",
+   "ref": "5-Authentication · slide 19"
+  },
+  {
+   "q": "Qual é o papel do nonce aleatório no padrão desafio-resposta (challenge-response)?",
+   "options": [
+    "Cifrar a chave partilhada entre as duas partes",
+    "Identificar o claimant perante o verificador",
+    "Substituir a password do utilizador durante toda a sessão de autenticação",
+    "Impedir a reutilização de uma resposta anterior (replay)"
+   ],
+   "answer": 3,
+   "explanation": "O verificador envia um desafio imprevisível e fresco; o claimant prova que conhece o segredo ou a chave privada.",
+   "ref": "5-Authentication · slide 22"
+  },
+  {
+   "q": "De que partes se compõe o FIDO2?",
+   "options": [
+    "WebAuthn (API web) e CTAP (Client To Authenticator Protocol)",
+    "OAuth 2.0 (autorização delegada) e OpenID Connect (identidade)",
+    "TLS 1.3 (sessão segura) e SSH (acesso remoto)",
+    "HOTP (contador) e TOTP (tempo) com HMAC"
+   ],
+   "answer": 0,
+   "explanation": "Cada relying party recebe uma credencial de chave pública associada ao seu RP ID.",
+   "ref": "5-Authentication · slide 26"
+  },
+  {
+   "q": "Em TLS 1.3, como prova o servidor que possui a chave privada associada ao seu certificado?",
+   "options": [
+    "Enviando a chave privada cifrada ao cliente",
+    "Através da mensagem CertificateVerify",
+    "Através do OCSP stapling",
+    "Através da mensagem Finished do cliente"
+   ],
+   "answer": 1,
+   "explanation": "O cliente verifica a cadeia de certificação da CA e o nome esperado do servidor.",
+   "ref": "5-Authentication · slides 36 e 37"
+  },
+  {
+   "q": "O que significa AAA nos slides de autenticação centralizada?",
+   "options": [
+    "Authentication, Availability and Auditing",
+    "Access, Authorization and Assurance",
+    "Authentication, Authorization and Accounting",
+    "Assurance, Accountability and Authentication"
+   ],
+   "answer": 2,
+   "explanation": "RADIUS e Diameter suportam fluxos de acesso à rede; o 802.1X com EAP é comum em redes empresariais.",
+   "ref": "5-Authentication · slide 41"
+  },
+  {
+   "q": "Para que serve o OAuth 2.0?",
+   "options": [
+    "Provar ao cliente a identidade do utilizador que iniciou sessão no servidor de autorização",
+    "Cifrar o tráfego entre o cliente e o servidor de recursos",
+    "Distribuir certificados X.509 a clientes e servidores",
+    "Autorização delegada: um cliente acede a uma API sem usar a password do utilizador"
+   ],
+   "answer": 3,
+   "explanation": "Os access tokens representam permissão de acesso a recursos; não são tokens de identidade.",
+   "ref": "5-Authentication · slides 45 e 46"
+  },
+  {
+   "q": "Qual é a diferença entre um ID token (OIDC) e um access token (OAuth 2.0)?",
+   "options": [
+    "O ID token diz quem iniciou sessão (audiência: o cliente); o access token diz o que pode ser acedido (audiência: a API)",
+    "O ID token diz o que pode ser acedido, com audiência na API; o access token diz quem iniciou sessão, com audiência no cliente",
+    "São o mesmo token, só mudando o nome consoante o protocolo OAuth ou OIDC o use",
+    "O ID token autoriza diretamente o acesso às APIs protegidas e o access token só identifica o utilizador"
+   ],
+   "answer": 0,
+   "explanation": "Não se deve usar um access token OAuth em substituição de um ID token OIDC.",
+   "ref": "5-Authentication · slide 48"
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "title": "3.5 · MAC functions — Códigos de autenticação de mensagens",
+ "questions": [
+  {
+   "q": "Qual destas é uma abordagem para construir um MAC, segundo os slides?",
+   "options": [
+    "Cifrar o texto com a chave privada do emissor",
+    "Calcular o digest sem usar qualquer chave",
+    "Cifrar um digest ordinário com uma cifra simétrica por blocos",
+    "Usar apenas um IV aleatório diferente por mensagem, sem qualquer chave secreta"
+   ],
+   "answer": 2,
+   "explanation": "Abordagens: cifra de um digest ordinário, cifra com feedback e propagação de erros (CBC-MAC) e adição de uma chave aos dados em hash (HMAC).",
+   "ref": "3.5-MAC_functions · slide 3"
+  },
+  {
+   "q": "Qual é a combinação de cifra e autenticação considerada preferível nos slides?",
+   "options": [
+    "Encrypt-and-MAC",
+    "MAC-then-Encrypt",
+    "Cifrar duas vezes com a mesma chave",
+    "Encrypt-then-MAC"
+   ],
+   "answer": 3,
+   "explanation": "Encrypt-then-MAC: o MAC é calculado a partir do criptograma, permitindo verificar a integridade antes de decifrar.",
+   "ref": "3.5-MAC_functions · slide 4"
+  },
+  {
+   "q": "Qual é a vantagem do Encrypt-then-MAC?",
+   "options": [
+    "Permite verificar a integridade antes de decifrar",
+    "O MAC é calculado sobre o texto limpo e fica cifrado",
+    "Dispensa o uso de uma chave para o MAC",
+    "Torna o criptograma mais curto"
+   ],
+   "answer": 0,
+   "explanation": "Verificar o MAC do criptograma evita decifrar mensagens adulteradas.",
+   "ref": "3.5-MAC_functions · slide 4"
+  },
+  {
+   "q": "Qual é o problema do Encrypt-and-MAC?",
+   "options": [
+    "Exige decifrar toda a mensagem antes de poder validar o MAC do texto",
+    "O MAC é calculado sobre o texto limpo e não é cifrado, pelo que pode dar informação sobre o texto original",
+    "O MAC é calculado sobre o criptograma, o que torna a verificação mais lenta do que a própria decifra da mensagem",
+    "Não permite usar chaves diferentes para a cifra e para o cálculo do MAC"
+   ],
+   "answer": 1,
+   "explanation": "Se dois textos forem semelhantes, os MACs não cifrados podem revelar essa semelhança.",
+   "ref": "3.5-MAC_functions · slide 4"
+  },
+  {
+   "q": "Que combinação exige decifrar toda a mensagem antes de poder validar o MAC?",
+   "options": [
+    "Encrypt-then-MAC",
+    "Encrypt-and-MAC",
+    "MAC-then-Encrypt",
+    "GCM"
+   ],
+   "answer": 2,
+   "explanation": "No MAC-then-Encrypt o MAC é calculado sobre o texto limpo e depois cifrado com ele.",
+   "ref": "3.5-MAC_functions · slide 4"
+  },
+  {
+   "q": "No HMAC, o que representa B?",
+   "options": [
+    "O tamanho do resultado (output) final produzido pela função H",
+    "O tamanho da chave K, medido em bits, escolhido pelo utilizador",
+    "O número de rounds usados internamente pela função de digest H",
+    "O tamanho do bloco de entrada da função de digest H"
+   ],
+   "answer": 3,
+   "explanation": "ipad = 0x36 repetido B vezes e opad = 0x5C repetido B vezes; B = tamanho do bloco de entrada de H.",
+   "ref": "3.5-MAC_functions · slide 3"
+  }
+ ]
+}
