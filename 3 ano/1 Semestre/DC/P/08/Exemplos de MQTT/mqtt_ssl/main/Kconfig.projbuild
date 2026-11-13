@@ -1,0 +1,31 @@
+menu "Example Configuration"
+
+    config BROKER_URI
+        string "Broker URL"
+        default "mqtts://test.mosquitto.org:8883"
+        help
+            URL of an mqtt broker which this example connects to.
+
+    config BROKER_CERTIFICATE_OVERRIDE
+        string "Broker certificate override"
+        default ""
+        help
+            Please leave empty if broker certificate included from a textfile; otherwise fill in a base64 part of PEM
+            format certificate
+
+    config BROKER_CERTIFICATE_OVERRIDDEN
+        bool
+        default y if BROKER_CERTIFICATE_OVERRIDE != ""
+
+endmenu
+
+menu "EcoNode"
+
+    config NODE_ID
+        int "node_id do grupo (1000 + 10 x turma + grupo)"
+        range 1000 9999
+        default 1000
+        help
+            Identificador do nó, usado na base dos tópicos econode/<node_id>/.
+
+endmenu

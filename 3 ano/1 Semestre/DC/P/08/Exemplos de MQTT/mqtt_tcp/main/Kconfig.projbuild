@@ -1,0 +1,24 @@
+menu "Example Configuration"
+
+    config BROKER_URL
+        string "Broker URL"
+        default "mqtt://test.mosquitto.org"
+        help
+            URL of the broker to connect to
+
+    config BROKER_URL_FROM_STDIN
+        bool
+        default y if BROKER_URL = "FROM_STDIN"
+
+endmenu
+
+menu "EcoNode"
+
+    config NODE_ID
+        int "node_id do grupo (1000 + 10 x turma + grupo)"
+        range 1000 9999
+        default 1000
+        help
+            Identificador do nó, usado na base dos tópicos econode/<node_id>/.
+
+endmenu

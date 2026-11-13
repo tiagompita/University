@@ -10,3 +10,17 @@
 3 ano/1 Semestre/DC/Projeto/build/
 3 ano/1 Semestre/DC/Projeto/.vscode/
 3 ano/1 Semestre/DC/P/07/nrfconnect-5.4.1-x86_64.AppImage
+
+# ESP-IDF: gerado na compilação
+build/
+sdkconfig
+sdkconfig.old
+
+# Componentes descarregados pelo component manager (reconstruídos a partir do idf_component.yml)
+managed_components/
+dependencies.lock
+
+# Cache do VSCode / clangd
+.cache/
+.vscode/c_cpp_properties.json
+

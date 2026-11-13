@@ -1,0 +1,7 @@
+## Dependências obtidas pelo gestor de componentes do ESP-IDF
+dependencies:
+  # Funções example_connect() e menu "Example Connection Configuration"
+  protocol_examples_common:
+    path: ${IDF_PATH}/examples/common_components/protocol_examples_common
+  # Cliente MQTT (fora da árvore do ESP-IDF desde a versão 6.0)
+  espressif/mqtt: "^1.1.0"

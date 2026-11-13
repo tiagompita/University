@@ -1,0 +1,5 @@
+CONFIG_IDF_TARGET="esp32c6"
+# A aplicação ultrapassa 1 MB: usar a partição de aplicação de 1,5 MB
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
+# Wi-Fi: voltar a tentar a ligação indefinidamente (por omissão, desiste ao fim de 6 tentativas)
+CONFIG_EXAMPLE_WIFI_CONN_MAX_RETRY=-1
