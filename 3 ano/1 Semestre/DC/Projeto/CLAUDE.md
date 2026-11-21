@@ -14,9 +14,20 @@ A defesa oral é sem IA e ambos têm de dominar todo o código. Por isso:
 - No fim de cada sessão, resumir em 1 a 2 linhas em que a IA ajudou, para o log semanal (a omissão é falta de integridade académica).
 - Simples, modular e fácil de explicar numa defesa oral vale mais do que complexo.
 
+## Regras do Tiago (prevalecem sobre o resto deste ficheiro)
+- A palavra do Tiago prevalece sobre estas regras.
+- **Um tópico de cada vez.** Não antecipar os tópicos seguintes.
+- **Sem perguntas didáticas:** introduzir o tema e explicar o que é preciso saber (hardware, driver do ESP-IDF v6.1, armadilhas, encaixe na arquitetura, decisões a tomar).
+- **Pseudocódigo sempre com tipos** (variáveis, assinaturas, parâmetros, retornos), como resposta no chat.
+- **ADRs:** o Claude cria o esqueleto (estrutura e texto base fácil de alterar), com as partes por preencher marcadas com `<!-- -->` para o Tiago escrever com as suas palavras.
+- **Comentários no código:** o Claude coloca-os no fim, só quando o build passa, nas zonas menos óbvias e nas verificações de erro acrescentadas. Diretos, com tom humano, a dizer o que o código faz ou porque está ali. Nada didático, sem etiquetas como "defensiva:". Com mais de 2 linhas, vão num bloco `/* */`.
+- **Testes de hardware:** o Tiago não tem a placa. Os testes acumulam-se em `planeamento/TESTES_HW.md`, por blocos de montagem, para o Dinis executar.
+- **Fluxo com a app do Claude:** a app explica o tema e gera um prompt para aqui. Aqui responde-se a esse prompt lendo o código real do repo (ver `planeamento/CLAUDE_APP.md`). O ponto de situação está em `planeamento/CONTEXTO.md`, que se atualiza no fim de cada semana.
+
 ## Git e ficheiros
 - O repo oficial é `Projeto/econode/` (remoto: `detiuaveiro/dispositivos-conectados-projeto-final-group-34`, branch **`master`**, commits diretos). Só aí vai código e documentação do projeto.
 - **Nunca** fazer commit de: `.claude/`, `CLAUDE.md`, `planeamento/`, `build/`, `sdkconfig`, `managed_components/`, credenciais reais.
+- `planeamento/`, `.claude/` e `CLAUDE.md` vão para o repo pessoal `tiagompita/University` (o repo pai), nunca para o repo do projeto.
 - Não fazer commit nem push sem o utilizador pedir. O commit do log semanal (`log: semana N` + tag `semana-N`) é escrito por eles.
 - O `gh` pode estar bloqueado pelo SSO da organização; o `git` direto funciona.
 
