@@ -1,0 +1,12 @@
+[Root_CA]
+basicConstraints = critical, CA:TRUE
+keyUsage = critical, keyCertSign, cRLSign
+subjectKeyIdentifier = hash
+
+[TLS_Server]
+basicConstraints = critical, CA:FALSE
+keyUsage = critical, digitalSignature
+extendedKeyUsage = serverAuth
+subjectAltName = DNS:localhost, IP:127.0.0.2
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid, issuer
