@@ -1,0 +1,6 @@
+# Tabela de partições com a partição "efuse_em", onde ficam guardados os eFuses virtuais
+# Name,   Type, SubType, Offset,  Size,   Flags
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+efuse_em, data, efuse,   ,        0x2000,
+factory,  app,  factory, ,        1M,

@@ -1,0 +1,8 @@
+CONFIG_IDF_TARGET="esp32c6"
+# eFuses virtuais: as escritas vão para uma cópia guardada na flash (partição efuse_em),
+# nunca para os eFuses reais do chip. Para repor a cópia: idf.py erase-flash
+CONFIG_EFUSE_VIRTUAL=y
+CONFIG_EFUSE_VIRTUAL_KEEP_IN_FLASH=y
+CONFIG_EFUSE_VIRTUAL_LOG_ALL_WRITES=y
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
